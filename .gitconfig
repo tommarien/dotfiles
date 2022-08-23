@@ -1,0 +1,29 @@
+[credential]
+	helper = cache
+[user]
+	name = Tom Marien
+	email = tommarien@gmail.com
+[core]
+	excludesfile = /Users/tommarien/.gitignore_global
+	editor = nvim
+[pull]
+	ff = only
+[trim]
+	bases = develop,master,main
+[diff]
+	tool = p4mergetool
+[difftool]
+	prompt = false
+[difftool "p4mergetool"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "$LOCAL" "$REMOTE"
+	keepBackup = false
+	keepTemporaries = false
+	trustExitCode = false
+[merge]
+	tool = p4mergetool
+[mergetool "p4mergetool"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+	keepBackup = false
+	keepTemporaries = false
+	trustExitCode = false
+    prompt = false
