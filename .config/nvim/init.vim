@@ -38,7 +38,8 @@ Plug 'morhetz/gruvbox'
 Plug 'ayu-theme/ayu-vim'
 
 " Status
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
+Plug 'nvim-lualine/lualine.nvim'
 
 call plug#end()
 
@@ -138,8 +139,15 @@ autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 nnoremap <silent> g[ <cmd>lua vim.diagnostic.goto_prev()<CR>
 nnoremap <silent> g] <cmd>lua vim.diagnostic.goto_next()<CR>
 
-" Copy to clipboard by default
-" set clipboard=unnamedplus
-
 " LineNumbers
 set number 
+
+" Setup Lualine
+lua << END
+require('lualine').setup({
+ options = {
+    icons_enabled = false,
+    theme = 'auto',
+  },
+})
+END
