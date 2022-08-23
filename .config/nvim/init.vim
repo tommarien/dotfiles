@@ -36,8 +36,6 @@ Plug 'tpope/vim-surround'
 " Themes
 Plug 'morhetz/gruvbox'
 Plug 'ayu-theme/ayu-vim'
-Plug 'sainnhe/sonokai'
-Plug 'connorholyday/vim-snazzy'
 
 " Status
 Plug 'itchyny/lightline.vim'
