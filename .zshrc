@@ -119,7 +119,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# fnm
+# fnm (Fast Node Manager)
 eval "$(fnm env --use-on-cd)"
 
 # Starship prompt
