@@ -33,6 +33,9 @@ Plug 'preservim/nerdtree'
 " Surround
 Plug 'tpope/vim-surround'
 
+" Commentary
+Plug 'tpope/vim-commentary'
+
 " Themes
 Plug 'morhetz/gruvbox'
 Plug 'ayu-theme/ayu-vim'
