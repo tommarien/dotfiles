@@ -37,8 +37,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
 " Themes
-Plug 'morhetz/gruvbox'
-Plug 'ayu-theme/ayu-vim'
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
 " Status
 " Plug 'itchyny/lightline.vim'
@@ -50,8 +49,6 @@ call plug#end()
 set nocompatible
 
 set termguicolors
-let ayucolor="mirage"
-colorscheme ayu
 
 " Set completeopt to have a better completion experience
 " :help completeopt
@@ -154,3 +151,10 @@ require('lualine').setup({
   },
 })
 END
+
+" Setup Catpuccin
+lua << EOF
+require("catppuccin").setup()
+EOF
+
+colorscheme catppuccin
