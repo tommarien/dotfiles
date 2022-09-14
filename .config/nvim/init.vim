@@ -43,6 +43,8 @@ Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 " Plug 'itchyny/lightline.vim'
 Plug 'nvim-lualine/lualine.nvim'
 
+Plug 'editorconfig/editorconfig-vim'
+
 call plug#end()
 
 " No ancient limitations
