@@ -26,4 +26,4 @@
 	keepBackup = false
 	keepTemporaries = false
 	trustExitCode = false
-    prompt = false
+	prompt = false
