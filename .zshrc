@@ -87,7 +87,7 @@ plugins=(
  rust
  vscode
  yarn
- z
+ zoxide
  zsh-autosuggestions
 )
 
