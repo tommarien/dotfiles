@@ -1,34 +1,39 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'rust-lang/rust.vim'
+function! Cond(cond, ...)
+  let opts = get(a:000, 0, {})
+  return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
+endfunction
+
+Plug 'rust-lang/rust.vim', Cond(!exists('g:vscode'))
 
 " Collection of common configurations for the Nvim LSP client
-Plug 'neovim/nvim-lspconfig'
+Plug 'neovim/nvim-lspconfig', Cond(!exists('g:vscode'))
 
 " Autocompletion framework
-Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/nvim-cmp', Cond(!exists('g:vscode'))
 " cmp LSP completion
-Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lsp', Cond(!exists('g:vscode'))
 " cmp Snippet completion
-Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/cmp-vsnip', Cond(!exists('g:vscode'))
 " cmp Path completion
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path', Cond(!exists('g:vscode'))
+Plug 'hrsh7th/cmp-buffer', Cond(!exists('g:vscode'))
 " See hrsh7th other plugins for more great completion sources!
 
 " Adds extra functionality over rust analyzer
-Plug 'simrat39/rust-tools.nvim'
+Plug 'simrat39/rust-tools.nvim', Cond(!exists('g:vscode'))
 
 " Snippet engine
-Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip', Cond(!exists('g:vscode'))
 
 " Optional
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/popup.nvim', Cond(!exists('g:vscode'))
+Plug 'nvim-lua/plenary.nvim', Cond(!exists('g:vscode'))
+Plug 'nvim-telescope/telescope.nvim', Cond(!exists('g:vscode'))
 
 " Tree
-Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree', Cond(!exists('g:vscode'))
 
 " Surround
 Plug 'tpope/vim-surround'
@@ -41,7 +46,7 @@ Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
 " Status
 " Plug 'itchyny/lightline.vim'
-Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-lualine/lualine.nvim', Cond(!exists('g:vscode'))
 
 Plug 'editorconfig/editorconfig-vim'
 
@@ -49,6 +54,8 @@ call plug#end()
 
 " No ancient limitations
 set nocompatible
+
+if !exists('g:vscode')
 
 set termguicolors
 
@@ -160,6 +167,8 @@ require("catppuccin").setup()
 EOF
 
 colorscheme catppuccin
+
+endif 
 
 " Spaces & Tabs {{{
 set tabstop=4       " number of visual spaces per TAB
