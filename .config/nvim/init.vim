@@ -45,10 +45,12 @@ Plug 'tpope/vim-commentary'
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
 " Status
-" Plug 'itchyny/lightline.vim'
 Plug 'nvim-lualine/lualine.nvim', Cond(!exists('g:vscode'))
 
+" Editor config
 Plug 'editorconfig/editorconfig-vim'
+
+Plug 'chaoren/vim-wordmotion'
 
 call plug#end()
 
