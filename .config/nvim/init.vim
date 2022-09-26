@@ -153,6 +153,9 @@ nnoremap <silent> g] <cmd>lua vim.diagnostic.goto_next()<CR>
 " LineNumbers
 set number 
 
+" Copy to clipboard by default
+set clipboard=unnamedplus
+
 " Setup Lualine
 lua << END
 require('lualine').setup({
