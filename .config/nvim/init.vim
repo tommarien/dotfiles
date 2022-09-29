@@ -48,7 +48,7 @@ Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'nvim-lualine/lualine.nvim', Cond(!exists('g:vscode'))
 
 " Editor config
-Plug 'editorconfig/editorconfig-vim'
+Plug 'gpanders/editorconfig.nvim'
 
 " Plug 'chaoren/vim-wordmotion'
 
@@ -153,9 +153,6 @@ nnoremap <silent> g] <cmd>lua vim.diagnostic.goto_next()<CR>
 " LineNumbers
 set number 
 
-" Copy to clipboard by default
-set clipboard=unnamedplus
-
 " Setup Lualine
 lua << END
 require('lualine').setup({
@@ -174,6 +171,9 @@ EOF
 colorscheme catppuccin
 
 endif 
+
+" Copy to clipboard by default
+set clipboard=unnamedplus
 
 " Spaces & Tabs {{{
 set tabstop=4       " number of visual spaces per TAB
