@@ -48,9 +48,10 @@ Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'nvim-lualine/lualine.nvim', Cond(!exists('g:vscode'))
 
 " Editor config
-Plug 'gpanders/editorconfig.nvim'
+Plug 'gpanders/editorconfig.nvim', Cond(!exists('g:vscode'))
 
-" Plug 'chaoren/vim-wordmotion'
+" Git
+Plug 'lewis6991/gitsigns.nvim'
 
 call plug#end()
 
@@ -154,18 +155,23 @@ nnoremap <silent> g] <cmd>lua vim.diagnostic.goto_next()<CR>
 set number 
 
 " Setup Lualine
-lua << END
+lua <<EOF
 require('lualine').setup({
  options = {
     icons_enabled = false,
     theme = 'auto',
   },
 })
-END
+EOF
 
 " Setup Catpuccin
-lua << EOF
+lua <<EOF
 require("catppuccin").setup()
+EOF
+
+" Setup gitsigns
+lua <<EOF
+require('gitsigns').setup()
 EOF
 
 colorscheme catppuccin
