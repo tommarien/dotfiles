@@ -66,6 +66,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'rust-lang/rust.vim', Cond(!exists('g:vscode'))
 Plug 'simrat39/rust-tools.nvim', Cond(!exists('g:vscode'))
 
+Plug 'folke/which-key.nvim', Cond(!exists('g:vscode'))
+
 call plug#end()
 " }}} Plugs
 
@@ -117,6 +119,16 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 " }}} treesitter
+
+" WhichKey {{{
+lua << EOF
+  require("which-key").setup {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+  }
+EOF
+" }}} WhichKey
 
 nnoremap <leader>fs <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>ps <cmd>lua require('telescope.builtin').live_grep()<cr>
