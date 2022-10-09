@@ -1,3 +1,36 @@
+" General Settings {{{
+set nowrap                                              " Never wrap
+
+" Search
+set nohlsearch                                          " Never highlight all search matches
+set incsearch                                           " Search for strings incrementally
+
+" Tabs and spaces
+set autoindent                                          " Auto-indent new lines
+set expandtab                                           " Use spaces instead of tabs
+set shiftwidth=4                                        " Number of auto-indent spaces
+set smartindent                                         " Enable smart-indent
+set smarttab                                            " Enable smart-tabs
+set softtabstop=4                                       " Number of spaces per Tab
+
+" General editing improvements
+set clipboard=unnamedplus                               " Copy to clipboard by default
+let mapleader = " "                                     " map leader to Space
+
+if !exists('g:vscode')
+    set termguicolors                                   " Enables 24-bit RGB color
+
+    set completeopt=menuone,noinsert,noselect           " Set completeopt to have a better completion experience
+    set shortmess+=c                                    " Avoid showing extra messages when using completion
+    set scrolloff=8                                     " Scroll 8 lines up or below
+    set number                                          " Show line numbers
+    set relativenumber                                  " Show relative line numbers 
+    set signcolumn=yes                                  " Show sign column
+endif
+
+" }}} General Settings
+
+" Plugs {{{
 call plug#begin('~/.vim/plugged')
 
 function! Cond(cond, ...)
@@ -5,72 +38,88 @@ function! Cond(cond, ...)
   return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
 endfunction
 
-Plug 'rust-lang/rust.vim', Cond(!exists('g:vscode'))
-
-" Collection of common configurations for the Nvim LSP client
-Plug 'neovim/nvim-lspconfig', Cond(!exists('g:vscode'))
-
-" Autocompletion framework
-Plug 'hrsh7th/nvim-cmp', Cond(!exists('g:vscode'))
-" cmp LSP completion
-Plug 'hrsh7th/cmp-nvim-lsp', Cond(!exists('g:vscode'))
-" cmp Snippet completion
-Plug 'hrsh7th/cmp-vsnip', Cond(!exists('g:vscode'))
-" cmp Path completion
-Plug 'hrsh7th/cmp-path', Cond(!exists('g:vscode'))
-Plug 'hrsh7th/cmp-buffer', Cond(!exists('g:vscode'))
-" See hrsh7th other plugins for more great completion sources!
-
-" Adds extra functionality over rust analyzer
-Plug 'simrat39/rust-tools.nvim', Cond(!exists('g:vscode'))
-
-" Snippet engine
-Plug 'hrsh7th/vim-vsnip', Cond(!exists('g:vscode'))
-
-" Optional
-Plug 'nvim-lua/popup.nvim', Cond(!exists('g:vscode'))
-Plug 'nvim-lua/plenary.nvim', Cond(!exists('g:vscode'))
-Plug 'nvim-telescope/telescope.nvim', Cond(!exists('g:vscode'))
-
-" Tree
-Plug 'preservim/nerdtree', Cond(!exists('g:vscode'))
-
-" Surround
 Plug 'tpope/vim-surround'
-
-" Commentary
 Plug 'tpope/vim-commentary'
 
-" Themes
-Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+Plug 'gpanders/editorconfig.nvim', Cond(!exists('g:vscode'))
+Plug 'sbdchd/neoformat', Cond(!exists('g:vscode'))
 
-" Status
+Plug 'nvim-lua/popup.nvim', Cond(!exists('g:vscode'))
+Plug 'nvim-lua/plenary.nvim', Cond(!exists('g:vscode'))
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+
+Plug 'EdenEast/nightfox.nvim', Cond(!exists('g:vscode'))
+
+Plug 'lewis6991/gitsigns.nvim', Cond(!exists('g:vscode'))
 Plug 'nvim-lualine/lualine.nvim', Cond(!exists('g:vscode'))
 
-" Editor config
-Plug 'gpanders/editorconfig.nvim', Cond(!exists('g:vscode'))
+Plug 'neovim/nvim-lspconfig', Cond(!exists('g:vscode'))
+Plug 'hrsh7th/cmp-nvim-lsp', Cond(!exists('g:vscode'))
+Plug 'hrsh7th/cmp-buffer', Cond(!exists('g:vscode'))
+Plug 'hrsh7th/cmp-path', Cond(!exists('g:vscode'))
+Plug 'hrsh7th/cmp-vsnip', Cond(!exists('g:vscode'))
+Plug 'hrsh7th/nvim-cmp', Cond(!exists('g:vscode'))
+Plug 'hrsh7th/vim-vsnip', Cond(!exists('g:vscode'))
 
-" Git
-Plug 'lewis6991/gitsigns.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+Plug 'rust-lang/rust.vim', Cond(!exists('g:vscode'))
+Plug 'simrat39/rust-tools.nvim', Cond(!exists('g:vscode'))
 
 call plug#end()
+" }}} Plugs
 
-" No ancient limitations
-set nocompatible
-
+" After {{{
 if !exists('g:vscode')
 
-set termguicolors
+colorscheme duskfox
 
-" Set completeopt to have a better completion experience
-" :help completeopt
-" menuone: popup even when there's only one match
-" noinsert: Do not insert text until a selection is made
-" noselect: Do not select, force user to select one from the menu
-set completeopt=menuone,noinsert,noselect
+" lualine {{{
+lua <<EOF
+require('lualine').setup({
+ options = {
+    icons_enabled = false,
+    theme = 'auto',
+  },
+})
+EOF
+" }}} lualine
 
-" Avoid showing extra messages when using completion
-set shortmess+=c
+" gitsigns {{{
+lua <<EOF
+require('gitsigns').setup()
+EOF
+" }}} gitsigns
+
+" neoformat {{{
+augroup fmt
+    autocmd!
+    autocmd BufWritePre * undojoin | Neoformat
+augroup END
+" }}} neoformat
+
+" treesitter {{{
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  -- A list of parser names, or "all"
+  ensure_installed = { "lua", "rust", "typescript" },
+
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- Automatically install missing parsers when entering buffer
+  auto_install = true,
+
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+  },
+}
+EOF
+" }}} treesitter
+
+nnoremap <leader>fs <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>ps <cmd>lua require('telescope.builtin').live_grep()<cr>
 
 " Configure LSP through rust-tools.nvim plugin.
 " rust-tools will configure and enable certain LSP features for us.
@@ -84,6 +133,10 @@ local opts = {
 }
 
 require('rust-tools').setup(opts)
+
+-- typescript
+nvim_lsp.tsserver.setup {}
+
 EOF
 
 " Code navigation shortcuts
@@ -137,10 +190,6 @@ cmp.setup({
 })
 EOF
 
-" have a fixed column for the diagnostics to appear in
-" this removes the jitter when warnings/errors flow in
-set signcolumn=yes
-
 " Set updatetime for CursorHold
 " 300ms of no cursor movement to trigger CursorHold
 set updatetime=300
@@ -151,41 +200,5 @@ autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 nnoremap <silent> g[ <cmd>lua vim.diagnostic.goto_prev()<CR>
 nnoremap <silent> g] <cmd>lua vim.diagnostic.goto_next()<CR>
 
-" LineNumbers
-set number 
-
-" Setup Lualine
-lua <<EOF
-require('lualine').setup({
- options = {
-    icons_enabled = false,
-    theme = 'auto',
-  },
-})
-EOF
-
-" Setup Catpuccin
-lua <<EOF
-require("catppuccin").setup()
-EOF
-
-" Setup gitsigns
-lua <<EOF
-require('gitsigns').setup()
-EOF
-
-colorscheme catppuccin
-
-endif 
-
-" Copy to clipboard by default
-set clipboard=unnamedplus
-
-" Spaces & Tabs {{{
-set tabstop=4       " number of visual spaces per TAB
-set softtabstop=4   " number of spaces in tab when editing
-set shiftwidth=4    " number of spaces to use for autoindent
-set expandtab       " tabs are space
-set autoindent
-set copyindent      " copy indent from the previous line
-" }}} Spaces & Tabs
+endif
+" }}} After
