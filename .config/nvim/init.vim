@@ -77,6 +77,7 @@ call plug#end()
 if !exists('g:vscode')
 
 colorscheme duskfox
+highlight Comment cterm=italic gui=italic
 
 " lualine {{{
 lua <<EOF
