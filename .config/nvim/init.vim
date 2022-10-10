@@ -53,6 +53,8 @@ Plug 'EdenEast/nightfox.nvim', Cond(!exists('g:vscode'))
 Plug 'catppuccin/nvim', Cond(!exists('g:vscode'))
 
 Plug 'lewis6991/gitsigns.nvim', Cond(!exists('g:vscode'))
+Plug 'sindrets/diffview.nvim', Cond(!exists('g:vscode'))
+
 Plug 'nvim-lualine/lualine.nvim', Cond(!exists('g:vscode'))
 
 Plug 'neovim/nvim-lspconfig', Cond(!exists('g:vscode'))
