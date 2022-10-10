@@ -43,6 +43,7 @@ Plug 'tpope/vim-commentary'
 
 Plug 'gpanders/editorconfig.nvim', Cond(!exists('g:vscode'))
 Plug 'sbdchd/neoformat', Cond(!exists('g:vscode'))
+Plug 'jose-elias-alvarez/null-ls.nvim', Cond(!exists('g:vscode'))
 
 Plug 'nvim-lua/popup.nvim', Cond(!exists('g:vscode'))
 Plug 'nvim-lua/plenary.nvim', Cond(!exists('g:vscode'))
@@ -201,6 +202,17 @@ cmp.setup({
   },
 })
 EOF
+
+" null-ls {{{
+lua << EOF
+require("null-ls").setup({
+    sources = {
+        require("null-ls").builtins.diagnostics.eslint,
+        require("null-ls").builtins.code_actions.eslint,
+    },
+})
+EOF
+" }}} null-ls
 
 " Set updatetime for CursorHold
 " 300ms of no cursor movement to trigger CursorHold
