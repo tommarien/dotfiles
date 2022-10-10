@@ -67,6 +67,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'rust-lang/rust.vim', Cond(!exists('g:vscode'))
 Plug 'simrat39/rust-tools.nvim', Cond(!exists('g:vscode'))
 
+Plug 'akinsho/toggleterm.nvim', Cond(!exists('g:vscode'))
 Plug 'folke/which-key.nvim', Cond(!exists('g:vscode'))
 
 call plug#end()
@@ -203,6 +204,16 @@ cmp.setup({
 })
 EOF
 
+" Set updatetime for CursorHold
+" 300ms of no cursor movement to trigger CursorHold
+set updatetime=300
+" Show diagnostic popup on cursor hover
+autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+
+" Goto previous/next diagnostic warning/error
+nnoremap <silent> g[ <cmd>lua vim.diagnostic.goto_prev()<CR>
+nnoremap <silent> g] <cmd>lua vim.diagnostic.goto_next()<CR>
+
 " null-ls {{{
 lua << EOF
 require("null-ls").setup({
@@ -214,15 +225,32 @@ require("null-ls").setup({
 EOF
 " }}} null-ls
 
-" Set updatetime for CursorHold
-" 300ms of no cursor movement to trigger CursorHold
-set updatetime=300
-" Show diagnostic popup on cursor hover
-autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
-
-" Goto previous/next diagnostic warning/error
-nnoremap <silent> g[ <cmd>lua vim.diagnostic.goto_prev()<CR>
-nnoremap <silent> g] <cmd>lua vim.diagnostic.goto_next()<CR>
+" toggleterm {{{
+lua << EOF
+require("toggleterm").setup({
+    size = 20,
+    open_mapping = [[<c-`>]],
+    hide_numbers = true,
+    shade_filetypes = {},
+    shade_terminals = true,
+    shading_factor = 2, 
+    start_in_insert = true,
+    insert_mappings = true,
+    persist_size = true,
+    direction = "float",
+    close_on_exit = true,
+    shell = vim.o.shell,
+    float_opts = {
+        border = "curved",
+        winblend = 0,
+        highlights = {
+        border = "Normal",
+        background = "Normal",
+        },
+    },
+})
+EOF
+" }}} toggleterm
 
 endif
 " }}} After
