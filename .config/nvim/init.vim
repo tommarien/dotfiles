@@ -50,6 +50,7 @@ Plug 'nvim-lua/plenary.nvim', Cond(!exists('g:vscode'))
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
 Plug 'EdenEast/nightfox.nvim', Cond(!exists('g:vscode'))
+Plug 'catppuccin/nvim', Cond(!exists('g:vscode'))
 
 Plug 'lewis6991/gitsigns.nvim', Cond(!exists('g:vscode'))
 Plug 'nvim-lualine/lualine.nvim', Cond(!exists('g:vscode'))
@@ -76,7 +77,12 @@ call plug#end()
 " After {{{
 if !exists('g:vscode')
 
-colorscheme duskfox
+" catppuccin {{{
+let g:catppuccin_flavour = "macchiato"
+lua require("catppuccin").setup()
+" }}} catppuccin
+
+colorscheme catppuccin
 highlight Comment cterm=italic gui=italic
 
 " lualine {{{
