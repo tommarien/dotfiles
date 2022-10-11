@@ -53,7 +53,7 @@ Plug 'EdenEast/nightfox.nvim', Cond(!exists('g:vscode'))
 Plug 'catppuccin/nvim', Cond(!exists('g:vscode'))
 
 " Git
-Plug 'TimUntersberger/neogit', Cond(!exists('g:vscode'))
+Plug 'tpope/vim-fugitive', Cond(!exists('g:vscode'))
 Plug 'lewis6991/gitsigns.nvim', Cond(!exists('g:vscode'))
 Plug 'sindrets/diffview.nvim', Cond(!exists('g:vscode'))
 
@@ -99,16 +99,6 @@ require('lualine').setup({
 })
 EOF
 " }}} lualine
-
-" neogit {{{
-lua << EOF
-require('neogit').setup({
-    integrations = {
-        diffview  = true, 
-    }
-})
-EOF
-" }}} neogit
 
 " gitsigns {{{
 lua <<EOF
