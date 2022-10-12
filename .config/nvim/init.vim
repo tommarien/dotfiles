@@ -72,6 +72,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'rust-lang/rust.vim', Cond(!exists('g:vscode'))
 Plug 'simrat39/rust-tools.nvim', Cond(!exists('g:vscode'))
 
+Plug 'lukas-reineke/indent-blankline.nvim', Cond(!exists('g:vscode'))
 Plug 'akinsho/toggleterm.nvim', Cond(!exists('g:vscode'))
 Plug 'folke/which-key.nvim', Cond(!exists('g:vscode'))
 
