@@ -144,8 +144,10 @@ lua << EOF
 EOF
 " }}} WhichKey
 
-nnoremap <leader>fs <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>ps <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fs <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fr <cmd>lua require('telescope.builtin').oldfiles()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').grep_string()<cr>
 
 " Configure LSP through rust-tools.nvim plugin.
 " rust-tools will configure and enable certain LSP features for us.
