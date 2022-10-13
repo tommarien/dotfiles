@@ -266,5 +266,13 @@ require("toggleterm").setup({
 EOF
 " }}} toggleterm
 
+" diffview {{{
+lua << EOF
+require("diffview").setup({
+    use_icons = false,    
+})
+EOF
+" }}} diffview
+
 endif
 " }}} After
