@@ -40,6 +40,7 @@ endfunction
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
 
 Plug 'gpanders/editorconfig.nvim', Cond(!exists('g:vscode'))
 Plug 'sbdchd/neoformat', Cond(!exists('g:vscode'))
@@ -59,6 +60,8 @@ Plug 'sindrets/diffview.nvim', Cond(!exists('g:vscode'))
 
 Plug 'nvim-lualine/lualine.nvim', Cond(!exists('g:vscode'))
 
+Plug 'williamboman/mason.nvim', Cond(!exists('g:vscode'))
+Plug 'williamboman/mason-lspconfig.nvim', Cond(!exists('g:vscode'))
 Plug 'neovim/nvim-lspconfig', Cond(!exists('g:vscode'))
 Plug 'hrsh7th/cmp-nvim-lsp', Cond(!exists('g:vscode'))
 Plug 'hrsh7th/cmp-buffer', Cond(!exists('g:vscode'))
@@ -113,6 +116,13 @@ augroup fmt
     autocmd BufWritePre * undojoin | Neoformat
 augroup END
 " }}} neoformat
+
+" mason {{{
+lua << EOF
+require("mason").setup()
+require("mason-lspconfig").setup()
+EOF
+" }}} mason
 
 " treesitter {{{
 lua <<EOF
