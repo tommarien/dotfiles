@@ -40,7 +40,6 @@ endfunction
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-unimpaired'
 
 Plug 'gpanders/editorconfig.nvim', Cond(!exists('g:vscode'))
 Plug 'sbdchd/neoformat', Cond(!exists('g:vscode'))
@@ -146,18 +145,27 @@ EOF
 
 " WhichKey {{{
 lua << EOF
-  require("which-key").setup {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-  }
+  local wk = require'which-key'
+
+  wk.setup({})
+
+  wk.register({
+  f = {
+    name = "file", -- optional group name
+    f = "Find file", -- Telescope
+    r = "Open recent file", -- Telescope
+    s = "Search string", -- Telescope
+    w = "Search word under cursor", -- Telescope
+  },
+}, { prefix = "<leader>" })
+
 EOF
 " }}} WhichKey
 
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fs <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fr <cmd>lua require('telescope.builtin').oldfiles()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').grep_string()<cr>
+nnoremap <leader>fw <cmd>lua require('telescope.builtin').grep_string()<cr>
 
 " Configure LSP through rust-tools.nvim plugin.
 " rust-tools will configure and enable certain LSP features for us.
