@@ -54,16 +54,21 @@ Plug 'nvim-lua/popup.nvim', Cond(!exists('g:vscode'))
 Plug 'nvim-lua/plenary.nvim', Cond(!exists('g:vscode'))
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
-Plug 'EdenEast/nightfox.nvim', Cond(!exists('g:vscode'))
-Plug 'catppuccin/nvim', Cond(!exists('g:vscode'))
-
 " Git
 Plug 'tpope/vim-fugitive', Cond(!exists('g:vscode'))
 Plug 'lewis6991/gitsigns.nvim', Cond(!exists('g:vscode'))
 Plug 'sindrets/diffview.nvim', Cond(!exists('g:vscode'))
 
+" General look and feel
 Plug 'nvim-lualine/lualine.nvim', Cond(!exists('g:vscode'))
+Plug 'lukas-reineke/indent-blankline.nvim', Cond(!exists('g:vscode'))
+Plug 'akinsho/toggleterm.nvim', Cond(!exists('g:vscode'))
+Plug 'folke/which-key.nvim', Cond(!exists('g:vscode'))
 
+" Themes
+Plug 'catppuccin/nvim', Cond(!exists('g:vscode'))
+
+" Lsp and language options
 Plug 'williamboman/mason.nvim', Cond(!exists('g:vscode'))
 Plug 'williamboman/mason-lspconfig.nvim', Cond(!exists('g:vscode'))
 Plug 'neovim/nvim-lspconfig', Cond(!exists('g:vscode'))
@@ -78,10 +83,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'rust-lang/rust.vim', Cond(!exists('g:vscode'))
 Plug 'simrat39/rust-tools.nvim', Cond(!exists('g:vscode'))
-
-Plug 'lukas-reineke/indent-blankline.nvim', Cond(!exists('g:vscode'))
-Plug 'akinsho/toggleterm.nvim', Cond(!exists('g:vscode'))
-Plug 'folke/which-key.nvim', Cond(!exists('g:vscode'))
 
 call plug#end()
 " }}} Plugs
