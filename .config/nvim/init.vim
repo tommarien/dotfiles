@@ -45,6 +45,7 @@ Plug 'gpanders/editorconfig.nvim', Cond(!exists('g:vscode'))
 Plug 'sbdchd/neoformat', Cond(!exists('g:vscode'))
 Plug 'jose-elias-alvarez/null-ls.nvim', Cond(!exists('g:vscode'))
 
+Plug 'kyazdani42/nvim-web-devicons', Cond(!exists('g:vscode'))
 Plug 'nvim-lua/popup.nvim', Cond(!exists('g:vscode'))
 Plug 'nvim-lua/plenary.nvim', Cond(!exists('g:vscode'))
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
@@ -96,7 +97,7 @@ highlight Comment cterm=italic gui=italic
 lua <<EOF
 require('lualine').setup({
  options = {
-    icons_enabled = false,
+    icons_enabled = true,
     theme = 'auto',
   },
 })
@@ -287,7 +288,7 @@ EOF
 " diffview {{{
 lua << EOF
 require("diffview").setup({
-    use_icons = false,    
+    use_icons = true,    
 })
 EOF
 " }}} diffview
