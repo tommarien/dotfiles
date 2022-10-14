@@ -42,6 +42,8 @@ function! Cond(cond, ...)
   return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
 endfunction
 
+Plug 'lewis6991/impatient.nvim', Cond(!exists('g:vscode'))
+
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
@@ -89,6 +91,8 @@ call plug#end()
 
 " After {{{
 if !exists('g:vscode')
+
+lua require('impatient')
 
 " catppuccin {{{
 let g:catppuccin_flavour = "macchiato"
