@@ -26,6 +26,10 @@ if !exists('g:vscode')
     set number                                          " Show line numbers
     set relativenumber                                  " Show relative line numbers 
     set signcolumn=yes                                  " Show sign column
+    
+    " netrw options
+    let g:netrw_winsize = 25
+    let g:netrw_banner = 0
 endif
 
 " }}} General Settings
