@@ -244,7 +244,6 @@ nnoremap <leader>D      <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 
-
 " Quick-fix
 nnoremap <leader>rn     <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <leader>ca     <cmd>lua vim.lsp.buf.code_action()<CR>
