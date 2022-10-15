@@ -62,14 +62,14 @@ Plug 'tpope/vim-fugitive', Cond(!exists('g:vscode'))
 Plug 'lewis6991/gitsigns.nvim', Cond(!exists('g:vscode'))
 Plug 'sindrets/diffview.nvim', Cond(!exists('g:vscode'))
 
-" Themes
-Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
-
 " General look and feel
 Plug 'nvim-lualine/lualine.nvim', Cond(!exists('g:vscode'))
 Plug 'lukas-reineke/indent-blankline.nvim', Cond(!exists('g:vscode'))
 Plug 'akinsho/toggleterm.nvim', Cond(!exists('g:vscode'))
 Plug 'folke/which-key.nvim', Cond(!exists('g:vscode'))
+
+" Themes
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 " Lsp and language options
 Plug 'williamboman/mason.nvim', Cond(!exists('g:vscode'))
@@ -228,18 +228,26 @@ EOF
 
 " Code navigation shortcuts
 " as found in :help lsp
-nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <leader>e      <cmd>lua vim.diagnostic.open_float()<CR>
+nnoremap <silent> [d    <cmd>lua vim.diagnostic.goto_prev()<CR>
+nnoremap <silent> ]d    <cmd>lua vim.diagnostic.goto_next()<CR>
+nnoremap <leader>q      <cmd>lua vim.diagnostic.setloclist()<CR>
+
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> gi    <cmd>lua vim.lsp.buf.implementation()<CR>
 nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+
+nnoremap <leader>D      <cmd>lua vim.lsp.buf.type_definition()<CR>
 nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-nnoremap <silent> gd    <cmd>lua vim.lsp.buf.definition()<CR>
+
 
 " Quick-fix
-nnoremap <silent> ga    <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <leader>rn     <cmd>lua vim.lsp.buf.rename()<CR>
+nnoremap <leader>ca     <cmd>lua vim.lsp.buf.code_action()<CR>
 
 " Setup Completion
 " See https://github.com/hrsh7th/nvim-cmp#basic-configuration
@@ -280,12 +288,6 @@ EOF
 " Set updatetime for CursorHold
 " 300ms of no cursor movement to trigger CursorHold
 set updatetime=300
-" Show diagnostic popup on cursor hover
-" autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
-
-" Goto previous/next diagnostic warning/error
-nnoremap <silent> g[ <cmd>lua vim.diagnostic.goto_prev()<CR>
-nnoremap <silent> g] <cmd>lua vim.diagnostic.goto_next()<CR>
 
 " null-ls {{{
 lua << EOF
