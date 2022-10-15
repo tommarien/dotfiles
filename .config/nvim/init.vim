@@ -42,6 +42,7 @@ function! Cond(cond, ...)
   return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
 endfunction
 
+" Lua Caching
 Plug 'lewis6991/impatient.nvim', Cond(!exists('g:vscode'))
 
 Plug 'tpope/vim-surround'
@@ -61,14 +62,14 @@ Plug 'tpope/vim-fugitive', Cond(!exists('g:vscode'))
 Plug 'lewis6991/gitsigns.nvim', Cond(!exists('g:vscode'))
 Plug 'sindrets/diffview.nvim', Cond(!exists('g:vscode'))
 
+" Themes
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+
 " General look and feel
 Plug 'nvim-lualine/lualine.nvim', Cond(!exists('g:vscode'))
 Plug 'lukas-reineke/indent-blankline.nvim', Cond(!exists('g:vscode'))
 Plug 'akinsho/toggleterm.nvim', Cond(!exists('g:vscode'))
 Plug 'folke/which-key.nvim', Cond(!exists('g:vscode'))
-
-" Themes
-Plug 'catppuccin/nvim', Cond(!exists('g:vscode'))
 
 " Lsp and language options
 Plug 'williamboman/mason.nvim', Cond(!exists('g:vscode'))
@@ -96,7 +97,37 @@ lua require('impatient')
 
 " catppuccin {{{
 let g:catppuccin_flavour = "macchiato"
-lua require("catppuccin").setup()
+lua << EOF
+require("catppuccin").setup({
+    integrations = {
+        cmp = true,
+        gitsigns = true,
+        mason = true,
+        telescope = true,
+        treesitter = true,
+        which_key = true,
+        indent_blankline = {
+            enabled = true,
+            colored_indent_levels = false,
+        },
+        native_lsp = {
+            enabled = true,
+            virtual_text = {
+                errors = { "italic" },
+                hints = { "italic" },
+                warnings = { "italic" },
+                information = { "italic" },
+            },
+            underlines = {
+                errors = { "underline" },
+                hints = { "underline" },
+                warnings = { "underline" },
+                information = { "underline" },
+            },
+        },
+    }
+})
+EOF
 " }}} catppuccin
 
 colorscheme catppuccin
@@ -107,7 +138,7 @@ lua <<EOF
 require('lualine').setup({
  options = {
     icons_enabled = true,
-    theme = 'auto',
+    theme = "catppuccin"
   },
 })
 EOF
