@@ -224,6 +224,12 @@ require('rust-tools').setup(opts)
 -- typescript
 nvim_lsp.tsserver.setup {}
 
+-- json
+nvim_lsp.jsonls.setup {}
+
+-- yaml
+nvim_lsp.yamlls.setup {}
+
 EOF
 
 " Code navigation shortcuts
