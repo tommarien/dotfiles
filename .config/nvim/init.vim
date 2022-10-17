@@ -208,27 +208,23 @@ nnoremap <leader>fs <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fr <cmd>lua require('telescope.builtin').oldfiles()<cr>
 nnoremap <leader>fw <cmd>lua require('telescope.builtin').grep_string()<cr>
 
-" Configure LSP through rust-tools.nvim plugin.
-" rust-tools will configure and enable certain LSP features for us.
-" See https://github.com/simrat39/rust-tools.nvim#configuration
+" Configure LSP
 lua <<EOF
 
 -- nvim_lsp object
 local nvim_lsp = require'lspconfig'
-
-local opts = {
-}
-
-require('rust-tools').setup(opts)
-
--- typescript
-nvim_lsp.tsserver.setup {}
 
 -- json
 nvim_lsp.jsonls.setup {}
 
 -- yaml
 nvim_lsp.yamlls.setup {}
+
+-- typescript
+nvim_lsp.tsserver.setup {}
+
+-- rust
+require('rust-tools').setup {}
 
 EOF
 
