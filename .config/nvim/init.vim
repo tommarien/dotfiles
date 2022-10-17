@@ -49,7 +49,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
 Plug 'gpanders/editorconfig.nvim', Cond(!exists('g:vscode'))
-Plug 'sbdchd/neoformat', Cond(!exists('g:vscode'))
 Plug 'jose-elias-alvarez/null-ls.nvim', Cond(!exists('g:vscode'))
 
 Plug 'kyazdani42/nvim-web-devicons', Cond(!exists('g:vscode'))
@@ -151,13 +150,6 @@ lua <<EOF
 require('gitsigns').setup()
 EOF
 " }}} gitsigns
-
-" neoformat {{{
-augroup fmt
-    autocmd!
-    autocmd BufWritePre * undojoin | Neoformat
-augroup END
-" }}} neoformat
 
 " mason {{{
 lua << EOF
@@ -261,6 +253,8 @@ nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 " Quick-fix
 nnoremap <leader>rn     <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <leader>ca     <cmd>lua vim.lsp.buf.code_action()<CR>
+nnoremap <leader>lf     <cmd>lua vim.lsp.buf.format({ timeout_ms = 2000 })<CR>
+nnoremap <leader>lF     <cmd>lua vim.lsp.buf.range_formatting()<CR>
 
 " Setup Completion
 " See https://github.com/hrsh7th/nvim-cmp#basic-configuration
@@ -331,11 +325,33 @@ set updatetime=300
 
 " null-ls {{{
 lua << EOF
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 require("null-ls").setup({
     sources = {
         require("null-ls").builtins.diagnostics.eslint,
         require("null-ls").builtins.code_actions.eslint,
+        require("null-ls").builtins.formatting.prettier,
+        require("null-ls").builtins.formatting.rustfmt,
     },
+    on_attach = function(client, bufnr)
+        if client.supports_method("textDocument/formatting") then
+            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                group = augroup,
+                buffer = bufnr,
+                callback = function()
+                    -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+                    vim.lsp.buf.format({
+                        bufnr = bufnr,
+                        filter = function(client)
+                            return client.name == "null-ls"
+                        end
+                    })
+                end,
+            })
+        end
+    end,
 })
 EOF
 " }}} null-ls
