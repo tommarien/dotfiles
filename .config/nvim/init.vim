@@ -20,7 +20,7 @@ let mapleader = " "                                     " map leader to Space
 if !exists('g:vscode')
     set termguicolors                                   " Enables 24-bit RGB color
 
-    set completeopt=menuone,noinsert,noselect           " Set completeopt to have a better completion experience
+    set completeopt=menu,menuone,noinsert,noselect      " Set completeopt to have a better completion experience
     set shortmess+=c                                    " Avoid showing extra messages when using completion
     set scrolloff=8                                     " Scroll 8 lines up or below
     set number                                          " Show line numbers
@@ -78,9 +78,11 @@ Plug 'neovim/nvim-lspconfig', Cond(!exists('g:vscode'))
 Plug 'hrsh7th/cmp-nvim-lsp', Cond(!exists('g:vscode'))
 Plug 'hrsh7th/cmp-buffer', Cond(!exists('g:vscode'))
 Plug 'hrsh7th/cmp-path', Cond(!exists('g:vscode'))
-Plug 'hrsh7th/cmp-vsnip', Cond(!exists('g:vscode'))
+Plug 'hrsh7th/cmp-cmdline', Cond(!exists('g:vscode'))
 Plug 'hrsh7th/nvim-cmp', Cond(!exists('g:vscode'))
-Plug 'hrsh7th/vim-vsnip', Cond(!exists('g:vscode'))
+Plug 'dcampos/nvim-snippy', Cond(!exists('g:vscode'))
+Plug 'dcampos/cmp-snippy', Cond(!exists('g:vscode'))
+Plug 'honza/vim-snippets', Cond(!exists('g:vscode'))
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -211,20 +213,30 @@ nnoremap <leader>fw <cmd>lua require('telescope.builtin').grep_string()<cr>
 " Configure LSP
 lua <<EOF
 
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 -- nvim_lsp object
 local nvim_lsp = require'lspconfig'
 
 -- json
-nvim_lsp.jsonls.setup {}
+nvim_lsp.jsonls.setup {
+    capabilities = capabilities
+}
 
 -- yaml
-nvim_lsp.yamlls.setup {}
+nvim_lsp.yamlls.setup {
+    capabilities = capabilities
+    }
 
 -- typescript
-nvim_lsp.tsserver.setup {}
+nvim_lsp.tsserver.setup {
+    capabilities = capabilities
+}
 
 -- rust
-require('rust-tools').setup {}
+require('rust-tools').setup {
+    capabilities = capabilities
+}
 
 EOF
 
@@ -257,7 +269,7 @@ local cmp = require'cmp'
 cmp.setup({
   snippet = {
     expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body)
+        require('snippy').expand_snippet(args.body)
     end,
   },
   mapping = {
@@ -277,12 +289,39 @@ cmp.setup({
   },
 
   -- Installed sources
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'vsnip' },
-    { name = 'path' },
-    { name = 'buffer' },
-  },
+  sources = cmp.config.sources({
+  { name = 'nvim_lsp' },
+  { name = 'snippy' },
+  }, {
+      { name = 'buffer' },
+  })
+})
+
+-- Set configuration for specific filetype.
+cmp.setup.filetype('gitcommit', {
+    sources = cmp.config.sources({
+        { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+    }, {
+        { name = 'buffer' },
+    })
+})
+
+-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ '/', '?' }, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = 'buffer' }
+    }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+    { name = 'path' }
+    }, {
+        { name = 'cmdline' }
+    })
 })
 EOF
 
