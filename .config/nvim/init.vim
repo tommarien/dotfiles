@@ -88,6 +88,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'rust-lang/rust.vim', Cond(!exists('g:vscode'))
 Plug 'simrat39/rust-tools.nvim', Cond(!exists('g:vscode'))
 
+Plug 'b0o/schemastore.nvim', Cond(!exists('g:vscode'))
 call plug#end()
 " }}} Plugs
 
@@ -212,7 +213,13 @@ local nvim_lsp = require'lspconfig'
 
 -- json
 nvim_lsp.jsonls.setup {
-    capabilities = capabilities
+    capabilities = capabilities,
+    settings = {
+        json = {
+          schemas = require('schemastore').json.schemas(),
+          validate = { enable = true },
+        },
+    },
 }
 
 -- yaml
