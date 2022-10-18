@@ -47,6 +47,7 @@ Plug 'lewis6991/impatient.nvim', Cond(!exists('g:vscode'))
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
 
 Plug 'gpanders/editorconfig.nvim', Cond(!exists('g:vscode'))
 Plug 'jose-elias-alvarez/null-ls.nvim', Cond(!exists('g:vscode'))
