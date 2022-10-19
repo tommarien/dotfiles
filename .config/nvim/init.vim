@@ -189,6 +189,7 @@ lua << EOF
   wk.register({
   f = {
     name = "file", -- optional group name
+    b = "Open buffers", -- Telescope
     f = "Find file", -- Telescope
     r = "Open recent file", -- Telescope
     s = "Search string", -- Telescope
@@ -203,6 +204,7 @@ nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fs <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fr <cmd>lua require('telescope.builtin').oldfiles()<cr>
 nnoremap <leader>fw <cmd>lua require('telescope.builtin').grep_string()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 
 " Configure LSP
 lua <<EOF
