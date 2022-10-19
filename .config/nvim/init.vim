@@ -207,7 +207,7 @@ nnoremap <leader>fw <cmd>lua require('telescope.builtin').grep_string()<cr>
 " Configure LSP
 lua <<EOF
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- nvim_lsp object
 local nvim_lsp = require'lspconfig'
