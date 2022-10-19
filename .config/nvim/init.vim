@@ -187,14 +187,24 @@ lua << EOF
 
   wk.register({
   f = {
-    name = "file", -- optional group name
-    b = "Open buffers", -- Telescope
-    f = "Find file", -- Telescope
-    r = "Open recent file", -- Telescope
-    s = "Search string", -- Telescope
-    w = "Search word under cursor", -- Telescope
+      name = "file", -- optional group name
+      b = "Open buffers", -- Telescope
+      f = "Find file", -- Telescope
+      r = "Open recent file", -- Telescope
+      s = "Search string", -- Telescope
+      w = "Search word under cursor", -- Telescope
   },
-}, { prefix = "<leader>" })
+  }, { prefix = "<leader>" })
+
+  wk.register({
+  B = { "<cmd>bfirst<cr>", "First buffer" },
+  b = { "<cmd>bprev<cr>", "Previous buffer" },
+  }, { prefix = "["}) 
+
+  wk.register({
+  B = { "<cmd>blast<cr>", "Last buffer" },
+  b = { "<cmd>bnext<cr>", "Next buffer" },
+  }, { prefix = "]"}) 
 
 EOF
 " }}} WhichKey
