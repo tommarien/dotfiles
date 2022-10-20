@@ -187,13 +187,13 @@ lua << EOF
 
   wk.register({
   f = {
-      name = "file", -- optional group name
-      b = "Open buffers", -- Telescope
-      f = "Find file", -- Telescope
-      r = "Open recent file", -- Telescope
-      s = "Search string", -- Telescope
-      w = "Search word under cursor", -- Telescope
-  },
+      name = "file",
+      b = { "<cmd>Telescope buffers<cr>", "Open buffers" },
+      f = { "<cmd>Telescope find_files<cr>", "Find file" },
+      r = { "<cmd>Telescope oldfiles<cr>", "Open recent file" },
+      s = { "<cmd>Telescope live_grep<cr>", "Search string" },
+      w = { "<cmd>Telescope grep_string<cr>", "Search word under cursor" },
+  }
   }, { prefix = "<leader>" })
 
   wk.register({
@@ -208,12 +208,6 @@ lua << EOF
 
 EOF
 " }}} WhichKey
-
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fs <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fr <cmd>lua require('telescope.builtin').oldfiles()<cr>
-nnoremap <leader>fw <cmd>lua require('telescope.builtin').grep_string()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 
 " Configure LSP
 lua <<EOF
