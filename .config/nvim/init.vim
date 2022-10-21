@@ -56,6 +56,7 @@ Plug 'nvim-lua/popup.nvim', Cond(!exists('g:vscode'))
 Plug 'nvim-lua/plenary.nvim', Cond(!exists('g:vscode'))
 Plug 'nvim-telescope/telescope.nvim', Cond(!exists('g:vscode'))
 Plug 'jlanzarotta/bufexplorer', Cond(!exists('g:vscode'))
+
 " Git
 Plug 'tpope/vim-fugitive', Cond(!exists('g:vscode'))
 Plug 'lewis6991/gitsigns.nvim', Cond(!exists('g:vscode'))
