@@ -341,12 +341,15 @@ set updatetime=300
 lua << EOF
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-require("null-ls").setup({
+local null_ls = require("null-ls");
+
+null_ls.setup({
     sources = {
-        require("null-ls").builtins.diagnostics.eslint,
-        require("null-ls").builtins.code_actions.eslint,
-        require("null-ls").builtins.formatting.prettier,
-        require("null-ls").builtins.formatting.rustfmt,
+        null_ls.builtins.diagnostics.eslint,
+        null_ls.builtins.code_actions.eslint,
+        null_ls.builtins.code_actions.gitsigns,
+        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.rustfmt,
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
@@ -367,6 +370,7 @@ require("null-ls").setup({
         end
     end,
 })
+
 EOF
 " }}} null-ls
 
