@@ -17,84 +17,77 @@ set softtabstop=4                                       " Number of spaces per T
 set clipboard=unnamedplus                               " Copy to clipboard by default
 let mapleader = " "                                     " map leader to Space
 
-if !exists('g:vscode')
-    set termguicolors                                   " Enables 24-bit RGB color
+set termguicolors                                   " Enables 24-bit RGB color
 
-    set completeopt=menu,menuone,noinsert,noselect      " Set completeopt to have a better completion experience
-    set shortmess+=c                                    " Avoid showing extra messages when using completion
-    set scrolloff=8                                     " Scroll 8 lines up or below
-    set number                                          " Show line numbers
-    set relativenumber                                  " Show relative line numbers 
-    set signcolumn=yes                                  " Show sign column
-    
-    " netrw options
-    let g:netrw_winsize = 25
-    let g:netrw_banner = 0
-endif
+set completeopt=menu,menuone,noinsert,noselect      " Set completeopt to have a better completion experience
+set shortmess+=c                                    " Avoid showing extra messages when using completion
+set scrolloff=8                                     " Scroll 8 lines up or below
+set number                                          " Show line numbers
+set relativenumber                                  " Show relative line numbers 
+set signcolumn=yes                                  " Show sign column
+
+" netrw options
+let g:netrw_winsize = 25
+let g:netrw_banner = 0
 
 " }}} General Settings
 
 " Plugs {{{
 call plug#begin('~/.vim/plugged')
 
-function! Cond(cond, ...)
-  let opts = get(a:000, 0, {})
-  return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
-endfunction
-
 " Lua Caching
-Plug 'lewis6991/impatient.nvim', Cond(!exists('g:vscode'))
+Plug 'lewis6991/impatient.nvim'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 
-Plug 'gpanders/editorconfig.nvim', Cond(!exists('g:vscode'))
-Plug 'jose-elias-alvarez/null-ls.nvim', Cond(!exists('g:vscode'))
+Plug 'gpanders/editorconfig.nvim'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 
-Plug 'kyazdani42/nvim-web-devicons', Cond(!exists('g:vscode'))
-Plug 'nvim-lua/popup.nvim', Cond(!exists('g:vscode'))
-Plug 'nvim-lua/plenary.nvim', Cond(!exists('g:vscode'))
-Plug 'nvim-telescope/telescope.nvim', Cond(!exists('g:vscode'))
-Plug 'jlanzarotta/bufexplorer', Cond(!exists('g:vscode'))
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'jlanzarotta/bufexplorer'
 
 " Git
-Plug 'tpope/vim-fugitive', Cond(!exists('g:vscode'))
-Plug 'lewis6991/gitsigns.nvim', Cond(!exists('g:vscode'))
-Plug 'sindrets/diffview.nvim', Cond(!exists('g:vscode'))
+Plug 'tpope/vim-fugitive'
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'sindrets/diffview.nvim'
 
 " General look and feel
-Plug 'nvim-lualine/lualine.nvim', Cond(!exists('g:vscode'))
-Plug 'lukas-reineke/indent-blankline.nvim', Cond(!exists('g:vscode'))
-Plug 'akinsho/toggleterm.nvim', Cond(!exists('g:vscode'))
-Plug 'folke/which-key.nvim', Cond(!exists('g:vscode'))
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'akinsho/toggleterm.nvim'
+Plug 'folke/which-key.nvim'
 
 " Themes
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 " Lsp and language options
-Plug 'williamboman/mason.nvim', Cond(!exists('g:vscode'))
-Plug 'williamboman/mason-lspconfig.nvim', Cond(!exists('g:vscode'))
-Plug 'neovim/nvim-lspconfig', Cond(!exists('g:vscode'))
-Plug 'hrsh7th/cmp-nvim-lsp', Cond(!exists('g:vscode'))
-Plug 'hrsh7th/cmp-buffer', Cond(!exists('g:vscode'))
-Plug 'hrsh7th/cmp-path', Cond(!exists('g:vscode'))
-Plug 'hrsh7th/cmp-cmdline', Cond(!exists('g:vscode'))
-Plug 'hrsh7th/nvim-cmp', Cond(!exists('g:vscode'))
-Plug 'dcampos/nvim-snippy', Cond(!exists('g:vscode'))
-Plug 'dcampos/cmp-snippy', Cond(!exists('g:vscode'))
-Plug 'honza/vim-snippets', Cond(!exists('g:vscode'))
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'dcampos/nvim-snippy'
+Plug 'dcampos/cmp-snippy'
+Plug 'honza/vim-snippets'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-Plug 'rust-lang/rust.vim', Cond(!exists('g:vscode'))
-Plug 'simrat39/rust-tools.nvim', Cond(!exists('g:vscode'))
+Plug 'rust-lang/rust.vim'
+Plug 'simrat39/rust-tools.nvim'
 
-Plug 'b0o/schemastore.nvim', Cond(!exists('g:vscode'))
+Plug 'b0o/schemastore.nvim'
+
 call plug#end()
 " }}} Plugs
 
 " After {{{
-if !exists('g:vscode')
 
 lua require('impatient')
 
@@ -409,5 +402,4 @@ require("diffview").setup({
 EOF
 " }}} diffview
 
-endif
 " }}} After
