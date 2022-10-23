@@ -30,6 +30,20 @@ set signcolumn=yes                                  " Show sign column
 let g:netrw_winsize = 25
 let g:netrw_banner = 0
 
+" Arrow keys
+
+" Disable Arrow keys in Normal mode
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+" Disable Arrow keys in Insert mode
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
 " }}} General Settings
 
 " Plugs {{{
