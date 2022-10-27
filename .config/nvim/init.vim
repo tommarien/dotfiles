@@ -109,9 +109,9 @@ call plug#end()
 lua require('impatient')
 
 " catppuccin {{{
-let g:catppuccin_flavour = "macchiato"
 lua << EOF
 require("catppuccin").setup({
+    flavour = "macchiato",
     integrations = {
         cmp = true,
         gitsigns = true,
@@ -144,7 +144,6 @@ EOF
 " }}} catppuccin
 
 colorscheme catppuccin-macchiato
-highlight Comment cterm=italic gui=italic
 
 " lualine {{{
 lua <<EOF
