@@ -17,6 +17,10 @@ set softtabstop=4                                       " Number of spaces per T
 set clipboard=unnamedplus                               " Copy to clipboard by default
 let mapleader = " "                                     " map leader to Space
 
+" change the direction of new splits
+set splitbelow
+set splitright
+
 set termguicolors                                   " Enables 24-bit RGB color
 
 set completeopt=menu,menuone,noinsert,noselect      " Set completeopt to have a better completion experience
@@ -139,7 +143,7 @@ require("catppuccin").setup({
 EOF
 " }}} catppuccin
 
-colorscheme catppuccin
+colorscheme catppuccin-macchiato
 highlight Comment cterm=italic gui=italic
 
 " lualine {{{
