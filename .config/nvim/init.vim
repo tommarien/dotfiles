@@ -58,6 +58,7 @@ Plug 'lewis6991/impatient.nvim'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'smjonas/live-command.nvim'
 
 Plug 'gpanders/editorconfig.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
@@ -463,5 +464,15 @@ require("diffview").setup({
 })
 EOF
 " }}} diffview
+
+" live-command {{{
+lua << EOF
+require("live-command").setup {
+    commands = {
+        Norm = { cmd = "norm" },
+    },
+}
+EOF
+" }}} live-command
 
 " }}} After
