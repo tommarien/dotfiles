@@ -446,7 +446,6 @@ null_ls.setup({
     sources = {
         null_ls.builtins.diagnostics.eslint,
         null_ls.builtins.code_actions.eslint,
-        null_ls.builtins.code_actions.gitsigns,
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.formatting.rustfmt,
     },
@@ -470,6 +469,27 @@ null_ls.setup({
     end,
 })
 
+local sign = function(opts)
+  vim.fn.sign_define(opts.name, {
+    texthl = opts.name,
+    text = opts.text,
+    numhl = ''
+  })
+end
+
+sign({name = 'DiagnosticSignError', text = ' '})
+sign({name = 'DiagnosticSignWarn', text = ' '})
+sign({name = 'DiagnosticSignHint', text = ' '})
+sign({name = 'DiagnosticSignInfo', text = ' '})
+
+vim.diagnostic.config({
+  virtual_text = false,
+  severity_sort = true,
+  float = {
+    border = 'rounded',
+    source = 'always',
+  },
+})
 EOF
 " }}} null-ls
 
