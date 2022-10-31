@@ -85,9 +85,9 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'dcampos/nvim-snippy'
-Plug 'dcampos/cmp-snippy'
-Plug 'honza/vim-snippets'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'L3MON4D3/LuaSnip'
+Plug 'rafamadriz/friendly-snippets'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -100,6 +100,19 @@ call plug#end()
 " }}} Plugs
 
 " After {{{
+
+" Highlight on yank {{{
+lua << EOF
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
+EOF
+" }}} Highlight on yank
 
 lua require('impatient')
 
@@ -332,34 +345,61 @@ nnoremap <leader>lF     <cmd>lua vim.lsp.buf.range_formatting()<CR>
 " Setup Completion
 " See https://github.com/hrsh7th/nvim-cmp#basic-configuration
 lua <<EOF
+require("luasnip/loaders/from_vscode").lazy_load()
+
 local cmp = require'cmp'
+local luasnip = require 'luasnip'
+
 cmp.setup({
   snippet = {
     expand = function(args)
-        require('snippy').expand_snippet(args.body)
+      luasnip.lsp_expand(args.body)
     end,
   },
   mapping = {
-    ['<C-p>'] = cmp.mapping.select_prev_item(),
-    ['<C-n>'] = cmp.mapping.select_next_item(),
-    -- Add tab support
-    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-    ['<Tab>'] = cmp.mapping.select_next_item(),
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
-    })
+    ["<C-k>"] = cmp.mapping.select_prev_item(),
+    ["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+    ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+    ["<C-y>"] = cmp.config.disable,
+    ["<C-e>"] = cmp.mapping {
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close(),
+    },
+    ["<CR>"] = cmp.mapping.confirm { select = true },
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expandable() then
+        luasnip.expand()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
   },
 
   -- Installed sources
   sources = cmp.config.sources({
-  { name = 'nvim_lsp' },
-  { name = 'snippy' },
-  }, {
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' }, 
       { name = 'buffer' },
   })
 })
