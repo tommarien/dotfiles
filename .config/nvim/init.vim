@@ -350,7 +350,42 @@ require("luasnip/loaders/from_vscode").lazy_load()
 local cmp = require'cmp'
 local luasnip = require 'luasnip'
 
+local kind_icons = {
+  Class = "ﴯ",
+  Color = "",
+  Constant = "",
+  Constructor = "",
+  Enum = "",
+  EnumMember = "",
+  Event = "",
+  Field = "",
+  File = "",
+  Folder = "",
+  Function = "",
+  Interface = "",
+  Keyword = "",
+  Method = "",
+  Module = "",
+  Operator = "",
+  Property = "ﰠ",
+  Reference = "",
+  Snippet = "",
+  Struct = "",
+  Text = "",
+  TypeParameter = "",
+  Unit = "",
+  Value = "",
+  Variable = "",
+}
+
 cmp.setup({
+  formatting = {
+    fields = {'menu', 'abbr', 'kind'},
+    format = function(entry, vim_item)
+        vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) --Concatonate the icons with name of the item-kind
+        return vim_item
+    end,
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -395,13 +430,15 @@ cmp.setup({
       "s",
     }),
   },
-
   -- Installed sources
   sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       { name = 'luasnip' }, 
       { name = 'buffer' },
-  })
+  }),
+  matching = {
+    disallow_fuzzy_matching = false,
+  },
 })
 
 -- Set configuration for specific filetype.
