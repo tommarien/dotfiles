@@ -158,7 +158,7 @@ lua <<EOF
 require('lualine').setup({
  options = {
     icons_enabled = true,
-    theme = "catppuccin"
+    theme = "auto"
   },
 })
 EOF
@@ -351,14 +351,14 @@ local cmp = require'cmp'
 local luasnip = require 'luasnip'
 
 local kind_icons = {
-  Class = "ﴯ",
+  Class = "",
   Color = "",
-  Constant = "",
+  Constant = "",
   Constructor = "",
-  Enum = "",
-  EnumMember = "",
-  Event = "",
-  Field = "",
+  Enum = "",
+  EnumMember = "",
+  Event = "",
+  Field = "",
   File = "",
   Folder = "",
   Function = "",
@@ -366,8 +366,8 @@ local kind_icons = {
   Keyword = "",
   Method = "",
   Module = "",
-  Operator = "",
-  Property = "ﰠ",
+  Operator = "",
+  Property = "",
   Reference = "",
   Snippet = "",
   Struct = "",
@@ -375,7 +375,7 @@ local kind_icons = {
   TypeParameter = "",
   Unit = "",
   Value = "",
-  Variable = "",
+  Variable = "",
 }
 
 cmp.setup({
