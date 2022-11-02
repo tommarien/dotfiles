@@ -76,7 +76,6 @@ Plug 'folke/which-key.nvim'
 
 " Themes
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
-Plug 'rebelot/kanagawa.nvim', { 'as': 'kanagawa' }
 Plug 'folke/tokyonight.nvim', { 'as': 'tokyonight' }
 
 " Lsp and language options
