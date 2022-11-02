@@ -51,9 +51,9 @@ call plug#begin('~/.vim/plugged')
 " Lua Caching
 Plug 'lewis6991/impatient.nvim'
 
-Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround', { 'tag': 'v2.2' }
 Plug 'tpope/vim-commentary'
-Plug 'smjonas/live-command.nvim'
+Plug 'smjonas/live-command.nvim', { 'tag': '1.2.1' }
 
 Plug 'gpanders/editorconfig.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
@@ -61,22 +61,21 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
 " Git
 Plug 'tpope/vim-fugitive'
-Plug 'lewis6991/gitsigns.nvim'
+Plug 'lewis6991/gitsigns.nvim', { 'tag': 'v0.5' }
 Plug 'sindrets/diffview.nvim'
 
 " General look and feel
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'lukas-reineke/indent-blankline.nvim', { 'tag': 'v2.20.2' }
 Plug 'akinsho/toggleterm.nvim'
 Plug 'folke/which-key.nvim'
 
 " Themes
-Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
-Plug 'folke/tokyonight.nvim', { 'as': 'tokyonight' }
+Plug 'catppuccin/nvim', { 'as': 'catppuccin', 'tag': 'v0.2.5' }
 
 " Lsp and language options
 Plug 'williamboman/mason.nvim'
