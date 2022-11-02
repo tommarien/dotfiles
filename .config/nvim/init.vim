@@ -299,15 +299,6 @@ nvim_lsp.tsserver.setup {
 require('rust-tools').setup {
     capabilities = capabilities,
     on_attach = on_attach,
-    server = {
-        settings = {
-            ["rust-analyzer"] = {
-                checkOnSave = {
-                    command = "clippy"
-                }
-                }
-            }
-        },
 }
 
 -- Make definition and signature_help bordered
