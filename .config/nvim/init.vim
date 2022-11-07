@@ -61,6 +61,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install', 'tag': 'v0.0.10' }
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -74,7 +75,7 @@ Plug 'akinsho/toggleterm.nvim'
 Plug 'folke/which-key.nvim'
 
 " Themes
-Plug 'catppuccin/nvim', { 'as': 'catppuccin', 'tag': 'v0.2.5' }
+Plug 'catppuccin/nvim', { 'as': 'catppuccin', 'tag': 'v0.2.6' }
 
 " Lsp and language options
 Plug 'williamboman/mason.nvim'
