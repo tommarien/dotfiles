@@ -33,6 +33,7 @@ set signcolumn=yes                                  " Show sign column
 " netrw options
 let g:netrw_winsize = 25
 let g:netrw_banner = 0
+nnoremap - <cmd>e %:h<CR>
 
 " Arrow keys
 
@@ -218,12 +219,12 @@ lua << EOF
   wk.register({
   B = { "<cmd>bfirst<cr>", "First buffer" },
   b = { "<cmd>bprev<cr>", "Previous buffer" },
-  }, { prefix = "["}) 
+  }, { prefix = "[" }) 
 
   wk.register({
   B = { "<cmd>blast<cr>", "Last buffer" },
   b = { "<cmd>bnext<cr>", "Next buffer" },
-  }, { prefix = "]"}) 
+  }, { prefix = "]" }) 
 
 EOF
 " }}} WhichKey
