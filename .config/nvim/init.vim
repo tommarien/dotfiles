@@ -207,11 +207,11 @@ lua << EOF
   wk.register({
   f = {
       name = "file",
-      b = { "<cmd>Telescope buffers theme=dropdown<cr>", "Open buffers" },
-      f = { "<cmd>Telescope find_files theme=dropdown<cr>", "Find file" },
-      r = { "<cmd>Telescope oldfiles theme=dropdown<cr>", "Open recent file" },
-      s = { "<cmd>Telescope live_grep theme=dropdown<cr>", "Search string" },
-      w = { "<cmd>Telescope grep_string theme=dropdown<cr>", "Search word under cursor" },
+      b = { "<cmd>Telescope buffers theme=ivy<cr>", "Open buffers" },
+      f = { "<cmd>Telescope find_files theme=ivy<cr>", "Find file" },
+      r = { "<cmd>Telescope oldfiles theme=ivy<cr>", "Open recent file" },
+      s = { "<cmd>Telescope live_grep theme=ivy<cr>", "Search string" },
+      w = { "<cmd>Telescope grep_string theme=ivy<cr>", "Search word under cursor" },
   }
   }, { prefix = "<leader>" })
 
