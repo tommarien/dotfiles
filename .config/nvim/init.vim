@@ -63,6 +63,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install', 'tag': 'v0.0.10' }
+Plug 'ThePrimeagen/harpoon'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -207,23 +208,34 @@ lua << EOF
 
   wk.register({
   f = {
-      name = "file",
+      name = "File",
       b = { "<cmd>Telescope buffers theme=ivy<cr>", "Open buffers" },
       f = { "<cmd>Telescope find_files theme=ivy<cr>", "Find file" },
       r = { "<cmd>Telescope oldfiles theme=ivy<cr>", "Open recent file" },
       s = { "<cmd>Telescope live_grep theme=ivy<cr>", "Search string" },
       w = { "<cmd>Telescope grep_string theme=ivy<cr>", "Search word under cursor" },
+  },
+  h = {
+      name = 'Harpoon',
+      s = { function() require("harpoon.ui").toggle_quick_menu() end, "Show menu" },
+      a = { function() require("harpoon.mark").add_file() end, "Add mark" },
+      ["1"] = { function() require("harpoon.ui").nav_file(1) end, "Navigate to mark 1" },
+      ["2"] = { function() require("harpoon.ui").nav_file(2) end, "Navigate to mark 2" },
+      ["3"] = { function() require("harpoon.ui").nav_file(3) end, "Navigate to mark 3" },
+      ["4"] = { function() require("harpoon.ui").nav_file(4) end, "Navigate to mark 4" },
   }
   }, { prefix = "<leader>" })
 
   wk.register({
   B = { "<cmd>bfirst<cr>", "First buffer" },
   b = { "<cmd>bprev<cr>", "Previous buffer" },
+  h = { function() require("harpoon.ui").nav_prev() end, "Previous harpoon mark" },
   }, { prefix = "[" }) 
 
   wk.register({
   B = { "<cmd>blast<cr>", "Last buffer" },
   b = { "<cmd>bnext<cr>", "Next buffer" },
+  h = { function() require("harpoon.ui").nav_next() end, "Next harpoon mark" },
   }, { prefix = "]" }) 
 
 EOF
