@@ -53,9 +53,9 @@ Plug 'lewis6991/impatient.nvim'
 
 Plug 'tpope/vim-surround', { 'tag': 'v2.2' }
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sleuth', { 'tag': 'v2.0' }
 Plug 'smjonas/live-command.nvim', { 'tag': '1.2.1' }
 
-Plug 'gpanders/editorconfig.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 
 Plug 'kyazdani42/nvim-web-devicons'
