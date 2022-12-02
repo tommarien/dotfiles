@@ -77,7 +77,7 @@ Plug 'akinsho/toggleterm.nvim'
 Plug 'folke/which-key.nvim'
 
 " Themes
-Plug 'catppuccin/nvim', { 'as': 'catppuccin', 'tag': 'v0.2.6' }
+Plug 'catppuccin/nvim', { 'as': 'catppuccin', 'tag': 'v0.2.7' }
 
 " Lsp and language options
 Plug 'williamboman/mason.nvim'
@@ -277,7 +277,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+  vim.keymap.set('n', '<leader>F', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
 -- nvim_lsp object
@@ -309,8 +309,10 @@ nvim_lsp.tsserver.setup {
 
 -- rust
 require('rust-tools').setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
+    server = {
+        capabilities = capabilities,
+        on_attach = on_attach,
+    },
 }
 
 -- Make definition and signature_help bordered
