@@ -32,7 +32,7 @@ set signcolumn=yes                                  " Show sign column
 
 " netrw options
 let g:netrw_winsize = 25
-let g:netrw_banner = 0
+" let g:netrw_banner = 0
 nnoremap - <cmd>e %:h<CR>
 
 " Arrow keys
@@ -51,9 +51,9 @@ call plug#begin('~/.vim/plugged')
 " Lua Caching
 Plug 'lewis6991/impatient.nvim'
 
-Plug 'tpope/vim-surround', { 'tag': 'v2.2' }
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-sleuth', { 'tag': 'v2.0' }
+Plug 'tpope/vim-sleuth', { 'commit': '8332f12' }
 Plug 'smjonas/live-command.nvim', { 'tag': '1.2.1' }
 
 Plug 'jose-elias-alvarez/null-ls.nvim'
