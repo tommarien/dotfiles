@@ -53,7 +53,7 @@ Plug 'lewis6991/impatient.nvim'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-sleuth', { 'commit': '8332f12' }
+Plug 'tpope/vim-sleuth'
 Plug 'smjonas/live-command.nvim', { 'tag': '1.2.1' }
 
 Plug 'jose-elias-alvarez/null-ls.nvim'
