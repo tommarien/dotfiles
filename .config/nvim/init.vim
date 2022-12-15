@@ -77,7 +77,7 @@ Plug 'akinsho/toggleterm.nvim'
 Plug 'folke/which-key.nvim'
 
 " Themes
-Plug 'catppuccin/nvim', { 'as': 'catppuccin', 'tag': 'v0.2.7' }
+Plug 'catppuccin/nvim', { 'as': 'catppuccin', 'tag': 'v0.2.8' }
 
 " Lsp and language options
 Plug 'williamboman/mason.nvim'
