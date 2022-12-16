@@ -67,7 +67,7 @@ Plug 'ThePrimeagen/harpoon'
 
 " Git
 Plug 'tpope/vim-fugitive'
-Plug 'lewis6991/gitsigns.nvim', { 'tag': 'v0.5' }
+Plug 'lewis6991/gitsigns.nvim', { 'tag': 'v0.6' }
 Plug 'sindrets/diffview.nvim'
 
 " General look and feel
