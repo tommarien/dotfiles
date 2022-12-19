@@ -97,6 +97,8 @@ Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate', 'tag': 'v0.8.1' }
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 
+Plug 'j-hui/fidget.nvim'
+
 Plug 'rust-lang/rust.vim'
 Plug 'simrat39/rust-tools.nvim'
 
@@ -548,6 +550,12 @@ vim.diagnostic.config({
 })
 EOF
 " }}} null-ls
+
+" {{{ fidget
+lua << EOF
+require"fidget".setup{}
+EOF
+" }}}
 
 " toggleterm {{{
 lua << EOF
