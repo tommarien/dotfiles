@@ -215,6 +215,7 @@ lua << EOF
   f = {
       name = "File",
       b = { "<cmd>Telescope buffers theme=ivy<cr>", "Open buffers" },
+      d = { "<cmd>Telescope diagnostics theme=ivy<cr>", "Search diagnostics" },
       f = { "<cmd>Telescope find_files theme=ivy<cr>", "Find file" },
       r = { "<cmd>Telescope oldfiles theme=ivy<cr>", "Open recent file" },
       s = { "<cmd>Telescope live_grep theme=ivy<cr>", "Search string" },
