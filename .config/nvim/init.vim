@@ -130,7 +130,9 @@ require("catppuccin").setup({
     flavour = "macchiato",
     integrations = {
         cmp = true,
+        fidget = true,
         gitsigns = true,
+        harpoon = true,
         mason = true,
         telescope = true,
         treesitter = true,
@@ -554,7 +556,11 @@ EOF
 
 " {{{ fidget
 lua << EOF
-require"fidget".setup{}
+require"fidget".setup({
+  window = {
+          blend = 0,
+      },
+  })
 EOF
 " }}}
 
