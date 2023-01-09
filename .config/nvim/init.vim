@@ -60,7 +60,7 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/plenary.nvim', { 'tag': 'v0.1.2' }
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install', 'tag': 'v0.0.10' }
 Plug 'ThePrimeagen/harpoon'
@@ -82,7 +82,7 @@ Plug 'catppuccin/nvim', { 'as': 'catppuccin', 'tag': 'v0.2.8' }
 " Lsp and language options
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
-Plug 'neovim/nvim-lspconfig'
+Plug 'neovim/nvim-lspconfig', { 'tag': 'v0.1.5' }
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
