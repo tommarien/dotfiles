@@ -74,7 +74,7 @@ Plug 'sindrets/diffview.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim', { 'tag': 'v2.20.2' }
 Plug 'akinsho/toggleterm.nvim'
-Plug 'folke/which-key.nvim', { 'tag': 'v1.0.0' }
+Plug 'folke/which-key.nvim', { 'tag': 'v1.1.0' }
 
 " Themes
 Plug 'catppuccin/nvim', { 'as': 'catppuccin', 'tag': 'v0.2.8' }
