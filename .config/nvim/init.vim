@@ -166,9 +166,18 @@ colorscheme catppuccin-macchiato
 " lualine {{{
 lua <<EOF
 require('lualine').setup({
- options = {
+  options = {
     icons_enabled = true,
     theme = "auto"
+  },
+  sections = {
+    lualine_c = {
+      {
+        'filename',
+        newfile_status = true,
+        path = 1,
+      }
+    },
   },
 })
 EOF
@@ -331,6 +340,18 @@ rt.setup {
           vim.keymap.set('n', '<leader>ca', rt.code_action_group.code_action_group, bufopts)
         end,
     },
+}
+
+-- vim
+nvim_lsp.vimls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+
+-- lua
+nvim_lsp.sumneko_lua.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
 }
 
 -- Make definition and signature_help bordered
