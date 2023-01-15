@@ -221,38 +221,40 @@ lua << EOF
   local wk = require'which-key'
 
   wk.setup({})
+  
+  harpoonMap = {
+    name = 'Harpoon',
+    s = { function() require("harpoon.ui").toggle_quick_menu() end, "Show menu" },
+    a = { function() require("harpoon.mark").add_file() end, "Add mark" },
+  }
+  
+  for i=1, 4 do
+   harpoonMap[tostring(i)] = { function() require("harpoon.ui").nav_file(i) end, "Navigate to mark " ..i }
+  end
 
   wk.register({
-  f = {
-      name = "File",
-      b = { "<cmd>Telescope buffers theme=ivy<cr>", "Open buffers" },
-      d = { "<cmd>Telescope diagnostics theme=ivy<cr>", "Search diagnostics" },
-      f = { "<cmd>Telescope find_files theme=ivy<cr>", "Find file" },
-      r = { "<cmd>Telescope oldfiles theme=ivy<cr>", "Open recent file" },
-      s = { "<cmd>Telescope live_grep theme=ivy<cr>", "Search string" },
-      w = { "<cmd>Telescope grep_string theme=ivy<cr>", "Search word under cursor" },
-  },
-  h = {
-      name = 'Harpoon',
-      s = { function() require("harpoon.ui").toggle_quick_menu() end, "Show menu" },
-      a = { function() require("harpoon.mark").add_file() end, "Add mark" },
-      ["1"] = { function() require("harpoon.ui").nav_file(1) end, "Navigate to mark 1" },
-      ["2"] = { function() require("harpoon.ui").nav_file(2) end, "Navigate to mark 2" },
-      ["3"] = { function() require("harpoon.ui").nav_file(3) end, "Navigate to mark 3" },
-      ["4"] = { function() require("harpoon.ui").nav_file(4) end, "Navigate to mark 4" },
-  }
+    f = {
+        name = "File",
+        b = { "<cmd>Telescope buffers theme=ivy<cr>", "Open buffers" },
+        d = { "<cmd>Telescope diagnostics theme=ivy<cr>", "Search diagnostics" },
+        f = { "<cmd>Telescope find_files theme=ivy<cr>", "Find file" },
+        r = { "<cmd>Telescope oldfiles theme=ivy<cr>", "Open recent file" },
+        s = { "<cmd>Telescope live_grep theme=ivy<cr>", "Search string" },
+        w = { "<cmd>Telescope grep_string theme=ivy<cr>", "Search word under cursor" },
+    },
+    h = harpoonMap,
   }, { prefix = "<leader>" })
 
   wk.register({
-  B = { "<cmd>bfirst<cr>", "First buffer" },
-  b = { "<cmd>bprev<cr>", "Previous buffer" },
-  h = { function() require("harpoon.ui").nav_prev() end, "Previous harpoon mark" },
+    B = { "<cmd>bfirst<cr>", "First buffer" },
+    b = { "<cmd>bprev<cr>", "Previous buffer" },
+    h = { function() require("harpoon.ui").nav_prev() end, "Previous harpoon mark" },
   }, { prefix = "[" }) 
 
   wk.register({
-  B = { "<cmd>blast<cr>", "Last buffer" },
-  b = { "<cmd>bnext<cr>", "Next buffer" },
-  h = { function() require("harpoon.ui").nav_next() end, "Next harpoon mark" },
+    B = { "<cmd>blast<cr>", "Last buffer" },
+    b = { "<cmd>bnext<cr>", "Next buffer" },
+    h = { function() require("harpoon.ui").nav_next() end, "Next harpoon mark" },
   }, { prefix = "]" }) 
 
 EOF
