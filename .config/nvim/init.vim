@@ -165,6 +165,11 @@ colorscheme catppuccin-macchiato
 
 " lualine {{{
 lua <<EOF
+
+function windowNumber () 
+  return vim.fn.winnr();
+end
+
 require('lualine').setup({
   options = {
     icons_enabled = true,
@@ -176,8 +181,12 @@ require('lualine').setup({
         'filename',
         newfile_status = true,
         path = 1,
-      }
+      },
     },
+    lualine_x = {'encoding', 'fileformat', 'filetype', windowNumber},
+  },
+  inactive_sections = {
+    lualine_x = { windowNumber, 'location' },
   },
 })
 EOF
@@ -244,6 +253,16 @@ lua << EOF
     },
     h = harpoonMap,
   }, { prefix = "<leader>" })
+
+  windowMap = {
+    name = 'Window',
+  }
+
+  for i=1, 6 do
+   windowMap[tostring(i)] = { i.."<C-w><C-w>", "Navigate to window " ..i }
+  end
+
+  wk.register(windowMap, { prefix = "<leader>"})
 
   wk.register({
     B = { "<cmd>bfirst<cr>", "First buffer" },
