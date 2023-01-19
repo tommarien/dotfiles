@@ -373,6 +373,13 @@ nvim_lsp.vimls.setup {
 nvim_lsp.sumneko_lua.setup {
   capabilities = capabilities,
   on_attach = on_attach,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }
+      }
+    }
+  }
 }
 
 -- Make definition and signature_help bordered
@@ -552,6 +559,7 @@ null_ls.setup({
         null_ls.builtins.code_actions.eslint,
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.formatting.rustfmt,
+        null_ls.builtins.formatting.lua_format,
     },
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
