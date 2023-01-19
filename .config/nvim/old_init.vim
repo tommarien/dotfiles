@@ -1,50 +1,3 @@
-" General Settings {{{
-set nowrap                                              " Never wrap
-
-" Search
-set nohlsearch                                          " Never highlight all search matches
-set incsearch                                           " Search for strings incrementally
-
-" Tabs and spaces
-set autoindent                                          " Auto-indent new lines
-set expandtab                                           " Use spaces instead of tabs
-set shiftwidth=4                                        " Number of auto-indent spaces
-set smartindent                                         " Enable smart-indent
-set smarttab                                            " Enable smart-tabs
-set softtabstop=4                                       " Number of spaces per Tab
-
-" General editing improvements
-set clipboard=unnamedplus                               " Copy to clipboard by default
-let mapleader = " "                                     " map leader to Space
-
-" change the direction of new splits
-set splitbelow
-set splitright
-
-set termguicolors                                   " Enables 24-bit RGB color
-
-set completeopt=menu,menuone,noinsert,noselect      " Set completeopt to have a better completion experience
-set shortmess+=c                                    " Avoid showing extra messages when using completion
-set scrolloff=8                                     " Scroll 8 lines up or below
-set number                                          " Show line numbers
-set relativenumber                                  " Show relative line numbers 
-set signcolumn=yes                                  " Show sign column
-
-" netrw options
-let g:netrw_winsize = 25
-" let g:netrw_banner = 0
-nnoremap - <cmd>e %:h<CR>
-
-" Arrow keys
-
-" Disable Arrow keys in Normal mode
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-
-" }}} General Settings
-
 " Plugs {{{
 call plug#begin('~/.vim/plugged')
 
@@ -160,8 +113,6 @@ require("catppuccin").setup({
 })
 EOF
 " }}} catppuccin
-
-colorscheme catppuccin-macchiato
 
 " lualine {{{
 lua <<EOF
