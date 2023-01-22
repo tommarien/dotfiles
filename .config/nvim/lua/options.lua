@@ -23,7 +23,7 @@ o.shiftwidth = 4
 o.softtabstop = -1 -- If negative, shiftwidth value is used
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt="menuone,noinsert,noselect"
+vim.o.completeopt="menu,menuone,preview,noinsert,noselect"
 
 -- Avoid showing message extra message when using completion
 vim.o.shortmess = vim.o.shortmess .. "c"
