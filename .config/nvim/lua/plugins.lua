@@ -43,7 +43,7 @@ return require('packer').startup({ function(use)
       run = ':TSUpdate',
       tag = 'v0.8.1',
       config = function ()
-        require('setup/treesitter')
+        require('setup.treesitter')
       end
     }
 
@@ -51,7 +51,7 @@ return require('packer').startup({ function(use)
       'jose-elias-alvarez/null-ls.nvim',
       requires = {{ 'nvim-lua/plenary.nvim' }},
       config = function ()
-        require('setup/null-ls')
+        require('setup.null-ls')
       end
     }
 
@@ -63,7 +63,7 @@ return require('packer').startup({ function(use)
     use({
       'hrsh7th/nvim-cmp',
       config = function()
-        require('setup/cmp')
+        require('setup.cmp')
       end,
       requires = {
         'hrsh7th/cmp-nvim-lsp',
@@ -83,7 +83,7 @@ return require('packer').startup({ function(use)
         'mason-lspconfig.nvim',
       },
       config = function()
-        require('setup/lspconfig')
+        require('setup.lspconfig')
       end,
       requires = {
         {
@@ -121,7 +121,7 @@ return require('packer').startup({ function(use)
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true },
       config = function ()
-        require('setup/lualine')
+        require('setup.lualine')
       end
     }
 
@@ -141,7 +141,7 @@ return require('packer').startup({ function(use)
       'akinsho/toggleterm.nvim',
       tag = '2.3.0',
       config = function ()
-        require('setup/toggleterm')
+        require('setup.toggleterm')
       end
     }
 
@@ -158,7 +158,7 @@ return require('packer').startup({ function(use)
       as = 'catppuccin',
       tag = 'v0.2.9',
       config = function ()
-        require('setup/catppuccin')
+        require('setup.catppuccin')
       end
     }
 
