@@ -22,7 +22,7 @@ return require('packer').startup({ function(use)
     use { 'tpope/vim-fugitive' }
     use {
       'lewis6991/gitsigns.nvim',
-      tag = 'v0.6',
+      tag = '*',
       config = function ()
         require('gitsigns').setup()
       end
@@ -41,7 +41,7 @@ return require('packer').startup({ function(use)
     use {
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
-      tag = 'v0.8.1',
+      tag = '*',
       config = function ()
         require('setup.treesitter')
       end
@@ -78,7 +78,7 @@ return require('packer').startup({ function(use)
 
     use({
       'neovim/nvim-lspconfig',
-      tag = 'v0.1.5',
+      tag = '*',
       after = {
         'mason-lspconfig.nvim',
       },
@@ -102,7 +102,7 @@ return require('packer').startup({ function(use)
     -- Utilities
     use {
       'lukas-reineke/indent-blankline.nvim',
-      tag = 'v2.20.2'
+      tag = '*'
     }
 
     use {
@@ -139,7 +139,7 @@ return require('packer').startup({ function(use)
 
     use {
       'akinsho/toggleterm.nvim',
-      tag = '2.3.0',
+      tag = '*',
       config = function ()
         require('setup.toggleterm')
       end
@@ -147,7 +147,7 @@ return require('packer').startup({ function(use)
 
     use {
       "folke/which-key.nvim",
-      tag = 'v1.1.0',
+      tag = '*',
       config = function()
         require('setup.which-key')
       end
@@ -156,14 +156,15 @@ return require('packer').startup({ function(use)
     use {
       'catppuccin/nvim',
       as = 'catppuccin',
-      tag = 'v0.2.9',
+      tag = '*',
       config = function ()
         require('setup.catppuccin')
       end
     }
 
     use {
-      'nvim-telescope/telescope.nvim', tag = '0.1.1',
+      'nvim-telescope/telescope.nvim',
+      tag = '*',
       requires = { {'nvim-lua/plenary.nvim'} }
     }
 
