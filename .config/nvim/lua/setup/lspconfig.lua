@@ -81,6 +81,7 @@ rt.setup {
             vim.keymap.set('n', 'K', rt.hover_actions.hover_actions, bufopts)
             vim.keymap.set('n', '<leader>ca', rt.code_action_group.code_action_group, bufopts)
         end,
+        cmd = { "rustup", "run", "stable", "rust-analyzer" },
     },
 }
 
