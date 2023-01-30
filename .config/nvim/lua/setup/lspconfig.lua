@@ -1,6 +1,6 @@
 require('mason').setup()
 require('mason-lspconfig').setup({
-    ensure_installed = { 'sumneko_lua', 'rust_analyzer', 'tsserver', 'eslint', 'yamlls' },
+    ensure_installed = { 'sumneko_lua', 'tsserver', 'eslint', 'yamlls' },
 })
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
