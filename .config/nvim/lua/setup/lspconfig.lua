@@ -66,6 +66,12 @@ nvim_lsp.tsserver.setup {
     on_attach = on_attach,
 }
 
+-- eslint
+nvim_lsp.eslint.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+}
+
 -- rust
 local rt = require'rust-tools'
 
