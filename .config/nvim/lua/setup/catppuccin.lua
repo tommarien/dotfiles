@@ -5,6 +5,7 @@ require("catppuccin").setup({
         fidget = true,
         gitsigns = true,
         harpoon = true,
+        hop = true,
         mason = true,
         telescope = true,
         treesitter = true,

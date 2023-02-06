@@ -23,6 +23,18 @@
         w = { "<cmd>Telescope grep_string theme=ivy<cr>", "Search word under cursor" },
     },
     h = harpoonMap,
+    j = { function ()
+      local hop = require("hop")
+      local directions = require("hop.hint").HintDirection
+
+      hop.hint_char1({ direction = directions.AFTER_CURSOR })
+    end, "Hop forward" },
+    J = { function ()
+      local hop = require("hop")
+      local directions = require("hop.hint").HintDirection
+
+      hop.hint_char1({ direction = directions.BEFORE_CURSOR })
+    end, "Hop forward" },
   }, { prefix = "<leader>" })
 
   local windowMap = {

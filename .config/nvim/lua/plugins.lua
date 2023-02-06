@@ -107,13 +107,21 @@ return require('packer').startup({ function(use)
 
     use {
       'smjonas/live-command.nvim',
-      tag = '1.2.1',
+      tag = '*',
       config = function ()
         require("live-command").setup {
           commands = {
             Norm = { cmd = "norm" },
           },
         }
+      end
+    }
+
+    use {
+      'phaazon/hop.nvim',
+      tag = '*',
+      config = function ()
+        require('hop').setup {}
       end
     }
 
