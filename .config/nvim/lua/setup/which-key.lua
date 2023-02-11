@@ -15,26 +15,14 @@
   wk.register({
     f = {
         name = "File",
-        b = { "<cmd>Telescope buffers theme=ivy<cr>", "Open buffers" },
-        d = { "<cmd>Telescope diagnostics theme=ivy<cr>", "Search diagnostics" },
-        f = { "<cmd>Telescope find_files theme=ivy<cr>", "Find file" },
-        r = { "<cmd>Telescope oldfiles theme=ivy<cr>", "Open recent file" },
-        s = { "<cmd>Telescope live_grep_args theme=ivy<cr>", "Search string" },
-        w = { "<cmd>Telescope grep_string theme=ivy<cr>", "Search word under cursor" },
+        b = { "<cmd>Telescope buffers<cr>", "Open buffers" },
+        d = { "<cmd>Telescope diagnostics<cr>", "Search diagnostics" },
+        f = { "<cmd>Telescope find_files<cr>", "Find file" },
+        r = { "<cmd>Telescope oldfiles<cr>", "Open recent file" },
+        s = { "<cmd>Telescope live_grep_args<cr>", "Search string" },
+        w = { "<cmd>Telescope grep_string<cr>", "Search word under cursor" },
     },
     h = harpoonMap,
-    j = { function ()
-      local hop = require("hop")
-      local directions = require("hop.hint").HintDirection
-
-      hop.hint_char1({ direction = directions.AFTER_CURSOR })
-    end, "Hop forward" },
-    J = { function ()
-      local hop = require("hop")
-      local directions = require("hop.hint").HintDirection
-
-      hop.hint_char1({ direction = directions.BEFORE_CURSOR })
-    end, "Hop forward" },
   }, { prefix = "<leader>" })
 
   local windowMap = {

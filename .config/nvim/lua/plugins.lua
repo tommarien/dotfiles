@@ -118,10 +118,9 @@ return require('packer').startup({ function(use)
     }
 
     use {
-      'phaazon/hop.nvim',
-      tag = '*',
+      'ggandor/leap.nvim',
       config = function ()
-        require('hop').setup {}
+        require('leap').add_default_mappings()
       end
     }
 
