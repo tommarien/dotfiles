@@ -79,7 +79,6 @@ return require('packer').startup({ function(use)
 
     use({
       'neovim/nvim-lspconfig',
-      tag = '*',
       after = {
         'mason-lspconfig.nvim',
       },

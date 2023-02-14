@@ -3,7 +3,7 @@ require('mason-lspconfig').setup({
     ensure_installed = { 'lua_ls', 'tsserver', 'eslint', 'yamlls' },
 })
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -98,7 +98,7 @@ nvim_lsp.vimls.setup {
 }
 
 -- lua
-nvim_lsp.sumneko_lua.setup {
+nvim_lsp.lua_ls.setup {
     capabilities = capabilities,
     on_attach = on_attach,
     settings = {
