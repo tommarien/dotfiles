@@ -17,11 +17,3 @@ set softtabstop=4                                       " Number of spaces per T
 set clipboard=unnamedplus                               " Copy to clipboard by default
 let mapleader = " "                                     " map leader to Space
 
-" Plugs {{{
-call plug#begin('~/.vim/plugged')
-
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-
-call plug#end()
-" }}} Plugs
