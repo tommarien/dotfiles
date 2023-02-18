@@ -19,7 +19,6 @@ return require('packer').startup({ function(use)
     use 'tpope/vim-sleuth'
 
     -- Git
-    -- use { 'tpope/vim-fugitive' }
     use {
       'TimUntersberger/neogit',
       requires = 'nvim-lua/plenary.nvim',
@@ -165,14 +164,14 @@ return require('packer').startup({ function(use)
     }
 
     use {
-      "folke/which-key.nvim",
+      'folke/which-key.nvim',
       tag = '*',
       config = function()
         require('setup.which-key')
       end
     }
 
-    use "rebelot/kanagawa.nvim"
+    use 'rebelot/kanagawa.nvim'
 
     use {
       'catppuccin/nvim',
