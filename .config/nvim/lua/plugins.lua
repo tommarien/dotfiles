@@ -100,10 +100,10 @@ return require('packer').startup({ function(use)
     }
 
     -- Utilities
-    use {
-      'lukas-reineke/indent-blankline.nvim',
-      tag = '*'
-    }
+    -- use {
+    --   'lukas-reineke/indent-blankline.nvim',
+    --   tag = '*'
+    -- }
 
     use {
       'smjonas/live-command.nvim',
@@ -159,6 +159,8 @@ return require('packer').startup({ function(use)
         require('setup.which-key')
       end
     }
+
+    use "rebelot/kanagawa.nvim"
 
     use {
       'catppuccin/nvim',
