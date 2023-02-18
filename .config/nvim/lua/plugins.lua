@@ -19,7 +19,19 @@ return require('packer').startup({ function(use)
     use 'tpope/vim-sleuth'
 
     -- Git
-    use { 'tpope/vim-fugitive' }
+    -- use { 'tpope/vim-fugitive' }
+    use {
+      'TimUntersberger/neogit',
+      requires = 'nvim-lua/plenary.nvim',
+      config = function ()
+        require("neogit").setup({
+          integrations = {
+            diffview = true,
+          }
+        })
+      end
+    }
+
     use {
       'lewis6991/gitsigns.nvim',
       tag = '*',
