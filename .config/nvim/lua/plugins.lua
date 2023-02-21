@@ -112,26 +112,6 @@ return require('packer').startup({ function(use)
 
     -- Utilities
     use {
-      'glepnir/dashboard-nvim',
-      event = 'VimEnter',
-      config = function()
-        require('dashboard').setup {
-          theme = 'hyper',
-          config = {
-            week_header = {
-              enable = true,
-            },
-            shortcut = {
-              { desc = ' Update', group = '@property', action = 'PackerSync', key = 'u' },
-            },
-          }
-        }
-      end,
-      requires = {'nvim-tree/nvim-web-devicons'}
-
-    }
-
-    use {
       'smjonas/live-command.nvim',
       tag = '*',
       config = function ()
