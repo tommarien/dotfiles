@@ -10,4 +10,8 @@ end
 map('n', '-', ':e %:h<CR>', { desc = 'Browse containing folder', silent = true })
 map('n', '<C-s>', ':w<CR>', { desc = 'Save', silent = true })
 
+map("n", "<leader>zz", function()
+    require("zen-mode").toggle()
+end)
+
 map('t', '<Esc>', '<C-\\><C-N>', { desc = "Exit Terminal mode", silent = true })

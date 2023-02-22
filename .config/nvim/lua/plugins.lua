@@ -168,14 +168,25 @@ return require('packer').startup({ function(use)
 
     use 'rebelot/kanagawa.nvim'
 
-    use {
-      'catppuccin/nvim',
-      as = 'catppuccin',
-      tag = '*',
-      config = function ()
-        require('setup.catppuccin')
+    use({
+      'rose-pine/neovim',
+      as = 'rose-pine',
+      config = function()
+        require("rose-pine").setup({
+          dark_variant = "moon",
+        })
+        vim.cmd('colorscheme rose-pine')
       end
-    }
+    })
+
+    -- use {
+    --   'catppuccin/nvim',
+    --   as = 'catppuccin',
+    --   tag = '*',
+    --   config = function ()
+    --     require('setup.catppuccin')
+    --   end
+    -- }
 
     use {
       'nvim-telescope/telescope.nvim',
@@ -192,6 +203,20 @@ return require('packer').startup({ function(use)
     use {
       'ThePrimeagen/harpoon',
       requires = {{ 'nvim-lua/plenary.nvim' }}
+    }
+
+    use {
+      'folke/zen-mode.nvim',
+      config = function ()
+        require("zen-mode").setup {
+          window = {
+            options = {
+              number = true,
+              relativenumber = true,
+            }
+          },
+        }
+      end
     }
 
     -- Automatically set up your configuration after cloning packer.nvim
