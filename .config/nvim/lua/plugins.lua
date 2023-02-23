@@ -166,8 +166,6 @@ return require('packer').startup({ function(use)
       end
     }
 
-    use 'rebelot/kanagawa.nvim'
-
     use({
       'rose-pine/neovim',
       as = 'rose-pine',
@@ -210,6 +208,7 @@ return require('packer').startup({ function(use)
       config = function ()
         require("zen-mode").setup {
           window = {
+            width = 140,
             options = {
               number = true,
               relativenumber = true,
