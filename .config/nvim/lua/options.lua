@@ -23,10 +23,10 @@ o.shiftwidth = 4
 o.softtabstop = -1 -- If negative, shiftwidth value is used
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt="menu,menuone,preview,noinsert,noselect"
+o.completeopt="menu,menuone,preview,noinsert,noselect"
 
 -- Avoid showing message extra message when using completion
-vim.o.shortmess = vim.o.shortmess .. "c"
+o.shortmess = o.shortmess .. "c"
 
 -- Search
 o.hlsearch = false -- Never highlight all search matches
@@ -48,6 +48,9 @@ o.splitkeep = 'screen'
 -- Case insensitive searching UNLESS /C or capital in search
 o.ignorecase = true
 o.smartcase = true
+
+-- buffer
+o.fillchars = 'eob: '
 
 -- Map <leader> to space
 vim.g.mapleader = ' '
