@@ -6,8 +6,5 @@ error_symbol="[▶](bold red)"
 [battery]
 disabled=true
 
-[nodejs]
-#symbol="⬢ "
-
 [gcloud]
 disabled=true
