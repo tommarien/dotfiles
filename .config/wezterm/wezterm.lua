@@ -11,6 +11,10 @@ return {
     },
     font_size = 15.0,
     window_frame = rosePine.window_frame(),
+    window_padding = {
+        top = 10,
+        bottom = 10,
+    },
     keys = {
         {
             key = 'k',
