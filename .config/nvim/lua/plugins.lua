@@ -15,7 +15,7 @@ return require('packer').startup({
   function(use)
     use 'wbthomason/packer.nvim'
 
-    use 'tpope/vim-surround'
+    use 'tpope/vim-commentary'
     use({
       'kylechui/nvim-surround',
       tag = '*',
