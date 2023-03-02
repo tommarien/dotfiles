@@ -16,7 +16,13 @@ return require('packer').startup({
     use 'wbthomason/packer.nvim'
 
     use 'tpope/vim-surround'
-    use 'tpope/vim-commentary'
+    use({
+      'kylechui/nvim-surround',
+      tag = '*',
+      config = function()
+        require('nvim-surround').setup {}
+      end
+    })
     use 'tpope/vim-sleuth'
 
     -- Git
@@ -24,7 +30,7 @@ return require('packer').startup({
       'TimUntersberger/neogit',
       requires = 'nvim-lua/plenary.nvim',
       config = function()
-        require("neogit").setup({
+        require('neogit').setup({
           integrations = {
             diffview = true,
           }
@@ -43,7 +49,7 @@ return require('packer').startup({
       'sindrets/diffview.nvim',
       requires = { { 'nvim-lua/plenary.nvim' }, { 'kyazdani42/nvim-web-devicons' } },
       config = function()
-        require("diffview").setup({
+        require('diffview').setup({
           use_icons = true,
         })
       end
@@ -116,9 +122,9 @@ return require('packer').startup({
       'smjonas/live-command.nvim',
       tag = '*',
       config = function()
-        require("live-command").setup {
+        require('live-command').setup {
           commands = {
-            Norm = { cmd = "norm" },
+            Norm = { cmd = 'norm' },
           },
         }
       end
@@ -142,7 +148,7 @@ return require('packer').startup({
     use {
       'j-hui/fidget.nvim',
       config = function()
-        require "fidget".setup({
+        require 'fidget'.setup({
           window = {
             blend = 0,
           },
@@ -170,8 +176,8 @@ return require('packer').startup({
       'rose-pine/neovim',
       as = 'rose-pine',
       config = function()
-        require("rose-pine").setup({
-          dark_variant = "moon",
+        require('rose-pine').setup({
+          dark_variant = 'moon',
         })
         vim.cmd('colorscheme rose-pine')
       end
@@ -182,10 +188,10 @@ return require('packer').startup({
       tag = '*',
       requires = {
         { 'nvim-lua/plenary.nvim' },
-        { "nvim-telescope/telescope-live-grep-args.nvim" },
+        { 'nvim-telescope/telescope-live-grep-args.nvim' },
       },
       config = function()
-        require("telescope").load_extension("live_grep_args")
+        require('telescope').load_extension('live_grep_args')
       end
     }
 
@@ -197,7 +203,7 @@ return require('packer').startup({
     use {
       'folke/zen-mode.nvim',
       config = function()
-        require("zen-mode").setup {
+        require('zen-mode').setup {
           window = {
             width = 140,
             options = {
