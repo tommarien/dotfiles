@@ -64,9 +64,9 @@ cmp.setup({
   }, {
       { name = "buffer", keyword_length = 3 },
   }),
-  matching = {
-      disallow_fuzzy_matching = false,
-  },
+  -- matching = {
+  --     disallow_fuzzy_matching = false,
+  -- },
 })
 
 -- Set configuration for specific filetype.
