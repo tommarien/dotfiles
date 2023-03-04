@@ -157,6 +157,19 @@ return require('packer').startup({
       end
     }
 
+    use({
+      "vuki656/package-info.nvim",
+      requires = "MunifTanjim/nui.nvim",
+      after = "rose-pine",
+      config = function ()
+        local p = require("rose-pine.palette");
+        require("package-info").setup()
+
+        vim.api.nvim_set_hl(0, 'PackageInfoUpTodateVersion', { fg = p.pine })
+        vim.api.nvim_set_hl(0, 'PackageInfoOutdatedVersion', { fg = p.love })
+      end
+    })
+
     use {
       'akinsho/toggleterm.nvim',
       tag = '*',
@@ -174,7 +187,7 @@ return require('packer').startup({
     }
 
     use({
-      'rose-pine/neovim',
+      '~/git/tommarien/neovim',
       as = 'rose-pine',
       config = function()
         require('rose-pine').setup({

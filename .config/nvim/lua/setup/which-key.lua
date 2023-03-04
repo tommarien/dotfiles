@@ -23,6 +23,16 @@
         w = { "<cmd>Telescope grep_string<cr>", "Search word under cursor" },
     },
     h = harpoonMap,
+    n = {
+      name = 'PackageInfo',
+      s = { function() require("package-info").show() end, "Show dependency versions" },
+      c = { function() require("package-info").hide() end, "Hide dependency versions" },
+      t = { function() require("package-info").toggle() end, "Toggle dependency versions" },
+      u = { function() require("package-info").update() end, "Update dependency on the line" },
+      d = { function() require("package-info").delete() end, "Delete dependency on the line" },
+      i = { function() require("package-info").install() end, "Install a new dependency" },
+      p = { function() require("package-info").change_version() end, "Install a different version" },
+    },
   }, { prefix = "<leader>" })
 
   local windowMap = {
