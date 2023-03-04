@@ -187,7 +187,7 @@ return require('packer').startup({
     }
 
     use({
-      '~/git/tommarien/neovim',
+      'rose-pine/neovim',
       as = 'rose-pine',
       config = function()
         require('rose-pine').setup({
