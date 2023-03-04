@@ -201,6 +201,7 @@ return require('packer').startup({
       tag = '*',
       requires = {
         { 'nvim-lua/plenary.nvim' },
+        { 'nvim-telescope/telescope-fzy-native.nvim' },
         { 'nvim-telescope/telescope-live-grep-args.nvim' },
         { 'gbrlsnchs/telescope-lsp-handlers.nvim' },
         { 'nvim-telescope/telescope-ui-select.nvim' },
@@ -225,6 +226,7 @@ return require('packer').startup({
         telescope.load_extension('live_grep_args');
         telescope.load_extension('lsp_handlers');
         telescope.load_extension('ui-select');
+        telescope.load_extension('fzy_native');
 
       end
     }
