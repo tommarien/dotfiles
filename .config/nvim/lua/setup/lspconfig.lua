@@ -73,22 +73,10 @@ nvim_lsp.eslint.setup {
 }
 
 -- rust
-local rt = require 'rust-tools'
-
-rt.setup {
-    server = {
-        capabilities = capabilities,
-        on_attach = function(client, bufnr)
-            on_attach(client, bufnr);
-
-            -- Mappings.
-            -- See `:help vim.lsp.*` for documentation on any of the below functions
-            local bufopts = { noremap=true, silent=true, buffer=bufnr }
-            vim.keymap.set('n', 'K', rt.hover_actions.hover_actions, bufopts)
-            vim.keymap.set('n', '<leader>ca', rt.code_action_group.code_action_group, bufopts)
-        end,
-        cmd = { "rustup", "run", "stable", "rust-analyzer" },
-    },
+nvim_lsp.rust_analyzer.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    cmd = { "rustup", "run", "stable", "rust-analyzer" },
 }
 
 -- vim
