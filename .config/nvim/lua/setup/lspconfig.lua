@@ -73,11 +73,38 @@ nvim_lsp.eslint.setup {
 }
 
 -- rust
-nvim_lsp.rust_analyzer.setup {
-    capabilities = capabilities,
+local rt = require 'rust-tools'
+
+local rust_opts = {
     on_attach = on_attach,
-    cmd = { "rustup", "run", "stable", "rust-analyzer" },
-}
+    server = {
+        capabilities = capabilities,
+        on_attach = function(client, bufnr)
+            on_attach(client, bufnr);
+
+            -- Mappings.
+            -- See `:help vim.lsp.*` for documentation on any of the below functions
+            local bufopts = { noremap=true, silent=true, buffer=bufnr }
+            vim.keymap.set('n', 'K', rt.hover_actions.hover_actions, bufopts)
+        end,
+        standalone = false,
+        cmd = { "rustup", "run", "stable", "rust-analyzer" },
+        dap = {
+            adapter = {
+                type = "server",
+                port = "${port}",
+                host = "127.0.0.1",
+                executable = {
+                    command = "codelldb",
+                    args = { "--port", "${port}" },
+                },
+                name = "rt_lldb",
+            },
+        },
+    },
+};
+
+rt.setup(rust_opts);
 
 -- vim
 nvim_lsp.vimls.setup {
