@@ -144,13 +144,6 @@ return require('packer').startup({
     }
 
     use {
-      'ggandor/leap.nvim',
-      config = function()
-        require('leap').add_default_mappings()
-      end
-    }
-
-    use {
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true },
       config = function()
@@ -172,13 +165,8 @@ return require('packer').startup({
     use({
       "vuki656/package-info.nvim",
       requires = "MunifTanjim/nui.nvim",
-      after = "rose-pine",
       config = function ()
-        local p = require("rose-pine.palette");
         require("package-info").setup()
-
-        vim.api.nvim_set_hl(0, 'PackageInfoUpTodateVersion', { fg = p.pine })
-        vim.api.nvim_set_hl(0, 'PackageInfoOutdatedVersion', { fg = p.love })
       end
     })
 
@@ -206,6 +194,11 @@ return require('packer').startup({
           dark_variant = 'moon',
         })
         vim.cmd('colorscheme rose-pine')
+
+        local p = require("rose-pine.palette");
+
+        vim.api.nvim_set_hl(0, 'PackageInfoUpTodateVersion', { fg = p.pine })
+        vim.api.nvim_set_hl(0, 'PackageInfoOutdatedVersion', { fg = p.love })
       end
     })
 
