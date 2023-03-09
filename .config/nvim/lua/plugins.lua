@@ -204,7 +204,6 @@ return require('packer').startup({
 
     use {
       'nvim-telescope/telescope.nvim',
-      tag = '*',
       requires = {
         { 'nvim-lua/plenary.nvim' },
         { 'nvim-telescope/telescope-fzy-native.nvim' },
