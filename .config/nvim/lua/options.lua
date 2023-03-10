@@ -1,4 +1,5 @@
 local o = vim.o
+local g = vim.g
 
 o.termguicolors = true -- Enable 24 bit RGB colors
 
@@ -42,9 +43,6 @@ o.splitbelow = true
 -- Preserve view while jumping
 o.jumpoptions = 'view'
 
--- Stable buffer content on window open/close events.
-o.splitkeep = 'screen'
-
 -- Case insensitive searching UNLESS /C or capital in search
 o.ignorecase = true
 o.smartcase = true
@@ -53,10 +51,11 @@ o.smartcase = true
 o.fillchars = 'eob: '
 
 -- Map <leader> to space
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+g.mapleader = ' '
+g.maplocalleader = ' '
 
 -- Netrw
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 25
-vim.g.netrw_browse_split = 0
+g.netrw_banner = 0
+g.netrw_winsize = 25
+g.netrw_browse_split = 0
+
