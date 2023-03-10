@@ -64,6 +64,7 @@ nvim_lsp.yamlls.setup {
 nvim_lsp.tsserver.setup {
     capabilities = capabilities,
     on_attach = on_attach,
+    single_file_support = false,
 }
 
 -- eslint

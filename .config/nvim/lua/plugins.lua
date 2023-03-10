@@ -213,6 +213,23 @@ return require('packer').startup({
       config = function()
         local telescope = require 'telescope';
 
+        telescope.setup({
+          defaults = {
+            layout_strategy = "horizontal",
+            layout_config = { prompt_position = "top" },
+            sorting_strategy = "ascending",
+            winblend = 0,
+          },
+          pickers = {
+            buffers = {
+               previewer = false,
+            },
+            find_files = {
+               previewer = false,
+            },
+          }
+        });
+
         telescope.load_extension('live_grep_args');
         telescope.load_extension('lsp_handlers');
         telescope.load_extension('fzy_native');
