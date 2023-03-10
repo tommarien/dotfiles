@@ -209,32 +209,17 @@ return require('packer').startup({
         { 'nvim-telescope/telescope-fzy-native.nvim' },
         { 'nvim-telescope/telescope-live-grep-args.nvim' },
         { 'gbrlsnchs/telescope-lsp-handlers.nvim' },
-        { 'nvim-telescope/telescope-ui-select.nvim' },
       },
       config = function()
         local telescope = require 'telescope';
 
-        telescope.setup {
-          extensions = {
-            lsp_handlers = {
-              disable = {
-                -- prefer ui-select
-                ['textDocument/codeAction'] = true,
-              },
-            },
-            ["ui-select"] = {
-              require("telescope.themes").get_dropdown {},
-            },
-          },
-        }
-
         telescope.load_extension('live_grep_args');
         telescope.load_extension('lsp_handlers');
-        telescope.load_extension('ui-select');
         telescope.load_extension('fzy_native');
-
       end
     }
+
+    use {'stevearc/dressing.nvim'}
 
     use {
       'ThePrimeagen/harpoon',
