@@ -192,6 +192,7 @@ return require('packer').startup({
       config = function()
         require('rose-pine').setup({
           dark_variant = 'moon',
+          dim_nc_background = true,
         })
         vim.cmd('colorscheme rose-pine')
 
