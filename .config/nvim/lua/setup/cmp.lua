@@ -9,7 +9,23 @@ cmp.setup({
         format = lspkind.cmp_format({
             maxwidth = 50,
             ellipsis_char = '...',
+            menu =  {
+                buffer = "[BUF]",
+                cmdline = "[CMD]",
+                luasnip = "[SNIP]",
+                nvim_lsp = "[LSP]",
+                path = "[PATH]",
+            },
         })
+    },
+    window = {
+        documentation = vim.tbl_deep_extend('force', {},
+        cmp.config.window.bordered(),
+        {
+            max_height = 15,
+            max_width = 60,
+        }
+        ),
     },
     snippet = {
         expand = function(args)
@@ -58,7 +74,7 @@ cmp.setup({
   -- Installed sources
   sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      { name = 'luasnip' },
+      { name = 'luasnip', keyword_length = 2 },
       { name = "buffer", keyword_length = 3 },
       { name = "path" },
   }),

@@ -24,7 +24,7 @@ o.shiftwidth = 4
 o.softtabstop = -1 -- If negative, shiftwidth value is used
 
 -- Set completeopt to have a better completion experience
-o.completeopt="menu,menuone,preview,noinsert,noselect"
+o.completeopt="menu,menuone,noselect"
 
 -- Avoid showing message extra message when using completion
 o.shortmess = o.shortmess .. "c"
