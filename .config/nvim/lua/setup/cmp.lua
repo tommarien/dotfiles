@@ -7,7 +7,6 @@ local lspkind = require 'lspkind'
 cmp.setup({
     formatting = {
         format = lspkind.cmp_format({
-            mode = 'symbol_text',
             maxwidth = 50,
             ellipsis_char = '...',
         })
@@ -59,10 +58,9 @@ cmp.setup({
   -- Installed sources
   sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      { name = 'nvim_lsp_signature_help' },
       { name = 'luasnip' },
-  }, {
       { name = "buffer", keyword_length = 3 },
+      { name = "path" },
   }),
 })
 

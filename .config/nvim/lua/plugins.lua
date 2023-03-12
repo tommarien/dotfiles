@@ -86,7 +86,6 @@ return require('packer').startup({
       requires = {
         'onsails/lspkind.nvim',
         'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/cmp-nvim-lsp-signature-help',
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-path',
         'hrsh7th/cmp-cmdline',
@@ -131,6 +130,8 @@ return require('packer').startup({
     }
 
     -- Utilities
+    use { 'stevearc/dressing.nvim' }
+
     use {
       'smjonas/live-command.nvim',
       tag = '*',
@@ -236,8 +237,6 @@ return require('packer').startup({
         telescope.load_extension('fzy_native');
       end
     }
-
-    use {'stevearc/dressing.nvim'}
 
     use {
       'ThePrimeagen/harpoon',
