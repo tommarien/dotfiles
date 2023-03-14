@@ -60,10 +60,13 @@ return require('packer').startup({
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
       tag = '*',
-      config = function()
-        require('setup.treesitter')
-      end
     }
+
+    use({
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      after = "nvim-treesitter",
+      requires = "nvim-treesitter/nvim-treesitter",
+    })
 
     use {
       'jose-elias-alvarez/null-ls.nvim',
