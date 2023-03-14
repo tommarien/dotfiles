@@ -117,7 +117,7 @@ return require('packer').startup({
     use {
       'rcarriga/nvim-dap-ui',
       requires = { 'mfussenegger/nvim-dap' },
-      config = function ()
+      config = function()
         local dap, dapui = require("dap"), require("dapui")
         dap.listeners.after.event_initialized["dapui_config"] = function()
           dapui.open()
@@ -165,7 +165,7 @@ return require('packer').startup({
     use({
       "vuki656/package-info.nvim",
       requires = "MunifTanjim/nui.nvim",
-      config = function ()
+      config = function()
         require("package-info").setup()
       end
     })
@@ -220,10 +220,10 @@ return require('packer').startup({
           },
           pickers = {
             buffers = {
-               previewer = false,
+              previewer = false,
             },
             find_files = {
-               previewer = false,
+              previewer = false,
             },
           }
         });

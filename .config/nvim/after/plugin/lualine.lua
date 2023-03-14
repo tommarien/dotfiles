@@ -1,5 +1,5 @@
-local function windowNumber ()
-  return vim.fn.winnr();
+local function windowNumber()
+    return vim.fn.winnr();
 end
 
 require('lualine').setup({
@@ -15,7 +15,7 @@ require('lualine').setup({
                 path = 1,
             },
         },
-        lualine_x = {'encoding', 'fileformat', 'filetype', windowNumber},
+        lualine_x = { 'encoding', 'fileformat', 'filetype', windowNumber },
     },
     inactive_sections = {
         lualine_x = { windowNumber, 'location' },

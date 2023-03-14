@@ -11,20 +11,20 @@ o.updatetime = 200
 o.scrolloff = 8
 
 -- Editor ux
-o.number = true -- Show line numbers
+o.number = true         -- Show line numbers
 o.relativenumber = true -- Show relative line numbers, enables easy up,down jumping
-o.signcolumn = 'yes' -- Show sign column
+o.signcolumn = 'yes'    -- Show sign column
 
-o.wrap = false -- Never wrap
-o.autoindent = true -- Auto indent new lines
-o.expandtab = true -- Use spaces instead of tabs
+o.wrap = false          -- Never wrap
+o.autoindent = true     -- Auto indent new lines
+o.expandtab = true      -- Use spaces instead of tabs
 o.smartindent = true
 o.smarttab = true
 o.shiftwidth = 4
 o.softtabstop = -1 -- If negative, shiftwidth value is used
 
 -- Set completeopt to have a better completion experience
-o.completeopt="menu,menuone,noselect"
+o.completeopt = "menu,menuone,noselect"
 
 -- Avoid showing message extra message when using completion
 o.shortmess = o.shortmess .. "c"
@@ -58,4 +58,3 @@ g.maplocalleader = ' '
 g.netrw_banner = 0
 g.netrw_winsize = 25
 g.netrw_browse_split = 0
-
