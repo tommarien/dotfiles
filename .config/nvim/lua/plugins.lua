@@ -76,9 +76,6 @@ return require('packer').startup({
     use {
       'jose-elias-alvarez/null-ls.nvim',
       requires = { { 'nvim-lua/plenary.nvim' } },
-      config = function()
-        require('setup.null-ls')
-      end
     }
 
     use {
