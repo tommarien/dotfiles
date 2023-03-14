@@ -25,6 +25,11 @@ return require('packer').startup({
     })
     use 'tpope/vim-sleuth'
 
+    use {
+      'wellle/targets.vim',
+      tag = '*'
+    }
+
     -- Git
     use {
       'TimUntersberger/neogit',
