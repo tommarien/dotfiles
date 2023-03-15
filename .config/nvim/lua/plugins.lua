@@ -102,9 +102,6 @@ return require('packer').startup({
       after = {
         'mason-lspconfig.nvim',
       },
-      config = function()
-        require('setup.lspconfig')
-      end,
       requires = {
         {
           'simrat39/rust-tools.nvim',
