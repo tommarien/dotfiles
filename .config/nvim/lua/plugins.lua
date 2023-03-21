@@ -163,7 +163,9 @@ return require('packer').startup({
       "vuki656/package-info.nvim",
       requires = "MunifTanjim/nui.nvim",
       config = function()
-        require("package-info").setup()
+        require("package-info").setup({
+          autostart = false,
+        })
       end
     })
 
