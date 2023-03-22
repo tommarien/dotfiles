@@ -179,6 +179,11 @@ return require('packer').startup({
       tag = '*',
     }
 
+    use {
+      'folke/trouble.nvim',
+      requires = 'nvim-tree/nvim-web-devicons',
+    }
+
     use({
       'rose-pine/neovim',
       as = 'rose-pine',
