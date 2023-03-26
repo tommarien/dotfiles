@@ -187,6 +187,7 @@ return require('packer').startup({
 
     use {
       'folke/trouble.nvim',
+      tag = '*',
       requires = 'nvim-tree/nvim-web-devicons',
     }
 

@@ -17,6 +17,7 @@ wk.register({
     name = "Buffer",
     b = { "<cmd>BufferLinePick<cr>", "Pick buffer" },
     p = { "<cmd>BufferLineTogglePin<cr>", "Pin buffer" },
+    d = { "<cmd>bdelete!<cr>", "Delete buffer" },
   },
   f = {
     name = "File",
