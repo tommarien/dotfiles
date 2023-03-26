@@ -176,6 +176,16 @@ return require('packer').startup({
     })
 
     use {
+      'saecki/crates.nvim',
+      tag = '*',
+      requires = { 'nvim-lua/plenary.nvim' },
+      config = function()
+        require('crates').setup {
+        }
+      end,
+    }
+
+    use {
       'akinsho/toggleterm.nvim',
       tag = '*',
     }
