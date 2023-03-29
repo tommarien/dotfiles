@@ -144,12 +144,6 @@ return require('packer').startup({
     }
 
     use {
-      'akinsho/bufferline.nvim',
-      tag = '*',
-      requires = 'nvim-tree/nvim-web-devicons'
-    }
-
-    use {
       'nvim-lualine/lualine.nvim',
       requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     }
@@ -238,7 +232,12 @@ return require('packer').startup({
           },
           pickers = {
             buffers = {
+              show_all_buffers = true,
+              sort_lastused = true,
               previewer = false,
+              mappings = {
+                i = { ["<c-d>"] = "delete_buffer" }
+              }
             },
             find_files = {
               previewer = false,

@@ -13,12 +13,6 @@ for i = 1, 4 do
 end
 
 wk.register({
-  b = {
-    name = "Buffer",
-    s = { "<cmd>BufferLinePick<cr>", "Pick buffer" },
-    p = { "<cmd>BufferLineTogglePin<cr>", "Pin buffer" },
-    d = { "<cmd>bdelete!<cr>", "Delete buffer" },
-  },
   f = {
     name = "File",
     b = { "<cmd>Telescope buffers<cr>", "Open buffers" },
