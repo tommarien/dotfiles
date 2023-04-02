@@ -9,11 +9,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
-local jsonFtDetect = vim.api.nvim_create_augroup('jsonFtDetect', { clear = true })
+-- Set filetype to jsonc for some files
+local jsonFileTypeDetect = vim.api.nvim_create_augroup('jsonFtDetect', { clear = true })
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   pattern = { "tsconfig*.json", ".eslintrc.json" },
-  group = jsonFtDetect,
+  group = jsonFileTypeDetect,
   callback = function(ev)
     vim.api.nvim_buf_call(ev.buf, function()
       vim.api.nvim_cmd({ cmd = 'setf', args = { 'jsonc' } }, {})
@@ -21,8 +22,11 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   end,
 })
 
+-- Enable crates.nvim only on cargo.toml
+local cargoGroup = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true })
+
 vim.api.nvim_create_autocmd("BufRead", {
-  group = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true }),
+  group = cargoGroup,
   pattern = "Cargo.toml",
   callback = function()
     require("cmp").setup.buffer({ sources = { { name = "crates" } } })
