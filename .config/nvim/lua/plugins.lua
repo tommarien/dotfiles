@@ -23,7 +23,6 @@ return require('packer').startup({
         require('nvim-surround').setup {}
       end
     })
-    use 'tpope/vim-sleuth'
 
     use {
       'wellle/targets.vim',
@@ -64,7 +63,6 @@ return require('packer').startup({
     use {
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate',
-      tag = '*',
     }
 
     use({
