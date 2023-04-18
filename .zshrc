@@ -126,7 +126,7 @@ eval "$(fnm env --use-on-cd)"
 eval "$(starship init zsh)"
 
 # Add bin to path
-export PATH=$HOME/bin:$PATH
+export PATH=/opt/homebrew/opt/mysql-client/bin:HOME/bin:$PATH
 
 # Add custom aliases
 source $HOME/.zsh/aliases
