@@ -130,3 +130,7 @@ export PATH=/opt/homebrew/opt/mysql-client/bin:HOME/bin:$PATH
 
 # Add custom aliases
 source $HOME/.zsh/aliases
+
+# bit
+export PATH="$PATH:/Users/tommarien/bin"
+# bit end
