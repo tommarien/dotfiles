@@ -90,6 +90,13 @@ local rust_opts = {
             vim.keymap.set('n', 'K', rt.hover_actions.hover_actions, bufopts)
         end,
         standalone = false,
+        settings = {
+            ['rust-analyzer'] = {
+                procMacro = {
+                    enable = true
+                },
+            },
+        },
         cmd = { "rustup", "run", "stable", "rust-analyzer" },
         dap = {
             adapter = {
