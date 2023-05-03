@@ -39,8 +39,12 @@ wk.register({
     r = { function() require("crates").reload() end, "Reload" },
     v = { function() require("crates").show_versions_popup() end, "Show versions" },
     f = { function() require("crates").show_features_popup() end, "Show features" },
-    d = { function() require("crates").show_dependencies_popup() end, "Show deps" },
+    d = { function() require("crates").show_dependencies_popup() end, "Show dependencies" },
     s = { function() require("crates").focus_popup() end, "Focus popup" },
+    a = { function() require("crates").update_all_crates() end, "Update all crates" },
+    u = { function() require("crates").update_crate() end, "Update crate" },
+    A = { function() require("crates").upgrade_all_crates() end, "Upgrade all crates" },
+    U = { function() require("crates").upgrade_crate() end, "Upgrade crate" },
   }
 }, { prefix = "<leader>" })
 
