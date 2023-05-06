@@ -187,12 +187,6 @@ return require('packer').startup({
             tag = '*',
         }
 
-        use {
-            'folke/trouble.nvim',
-            tag = '*',
-            requires = 'nvim-tree/nvim-web-devicons',
-        }
-
         use({
             'rose-pine/neovim',
             as = 'rose-pine',
@@ -253,22 +247,6 @@ return require('packer').startup({
             'ThePrimeagen/harpoon',
             requires = { { 'nvim-lua/plenary.nvim' } }
         }
-
-        use {
-            'folke/zen-mode.nvim',
-            config = function()
-                require('zen-mode').setup {
-                    window = {
-                        width = 140,
-                        options = {
-                            number = true,
-                            relativenumber = true,
-                        }
-                    },
-                }
-            end
-        }
-
 
         use {
             'github/copilot.vim',
