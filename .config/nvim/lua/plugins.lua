@@ -140,6 +140,22 @@ return require('packer').startup({
                 }
             end
         }
+        use {
+            'alexghergh/nvim-tmux-navigation',
+            config = function()
+                require 'nvim-tmux-navigation'.setup {
+                    disable_when_zoomed = true, -- defaults to false
+                    keybindings = {
+                        left = "<C-h>",
+                        down = "<C-j>",
+                        up = "<C-k>",
+                        right = "<C-l>",
+                        last_active = "<C-\\>",
+                        next = "<C-Space>",
+                    }
+                }
+            end
+        }
 
         use {
             'nvim-lualine/lualine.nvim',
@@ -254,7 +270,7 @@ return require('packer').startup({
                 vim.g.copilot_no_tab_map = true
                 vim.g.copilot_assume_mapped = true
                 vim.keymap.set('i', '<M-j>', 'copilot#Accept("<CR>")',
-                { noremap = true, silent = true, expr = true, replace_keycodes = false })
+                    { noremap = true, silent = true, expr = true, replace_keycodes = false })
             end
         }
 
