@@ -51,7 +51,7 @@ return require('packer').startup({
         }
         use {
             'sindrets/diffview.nvim',
-            requires = { { 'nvim-lua/plenary.nvim' }, { 'kyazdani42/nvim-web-devicons' } },
+            requires = 'nvim-lua/plenary.nvim',
             config = function()
                 require('diffview').setup({
                     use_icons = true,
@@ -73,7 +73,7 @@ return require('packer').startup({
 
         use {
             'jose-elias-alvarez/null-ls.nvim',
-            requires = { { 'nvim-lua/plenary.nvim' } },
+            requires = 'nvim-lua/plenary.nvim',
         }
 
         use {
@@ -159,7 +159,8 @@ return require('packer').startup({
 
         use {
             'nvim-lualine/lualine.nvim',
-            requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+            requires = { 'nvim-tree/nvim-web-devicons' },
+            commit = '84ffb80',
         }
 
         use {
@@ -186,7 +187,7 @@ return require('packer').startup({
         use {
             'saecki/crates.nvim',
             tag = '*',
-            requires = { 'nvim-lua/plenary.nvim' },
+            requires = 'nvim-lua/plenary.nvim',
             config = function()
                 require('crates').setup {
                 }
@@ -261,7 +262,7 @@ return require('packer').startup({
 
         use {
             'ThePrimeagen/harpoon',
-            requires = { { 'nvim-lua/plenary.nvim' } }
+            requires = 'nvim-lua/plenary.nvim',
         }
 
         use {
