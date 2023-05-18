@@ -264,15 +264,15 @@ return require('packer').startup({
         --     requires = 'nvim-lua/plenary.nvim',
         -- }
 
-        use {
-            'github/copilot.vim',
-            config = function()
-                vim.g.copilot_no_tab_map = true
-                vim.g.copilot_assume_mapped = true
-                vim.keymap.set('i', '<M-j>', 'copilot#Accept("<CR>")',
-                    { noremap = true, silent = true, expr = true, replace_keycodes = false })
-            end
-        }
+        -- use {
+        --     'github/copilot.vim',
+        --     config = function()
+        --         vim.g.copilot_no_tab_map = true
+        --         vim.g.copilot_assume_mapped = true
+        --         vim.keymap.set('i', '<M-j>', 'copilot#Accept("<CR>")',
+        --             { noremap = true, silent = true, expr = true, replace_keycodes = false })
+        --     end
+        -- }
 
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins
