@@ -2,16 +2,6 @@ local wk = require 'which-key'
 
 wk.setup({})
 
--- local harpoonMap = {
---     name = 'Harpoon',
---     s = { function() require("harpoon.ui").toggle_quick_menu() end, "Show menu" },
---     a = { function() require("harpoon.mark").add_file() end, "Add mark" },
--- }
-
--- for i = 1, 4 do
---     harpoonMap[tostring(i)] = { function() require("harpoon.ui").nav_file(i) end, "Navigate to mark " .. i }
--- end
-
 wk.register({
     b = {
         name = "Buffer",

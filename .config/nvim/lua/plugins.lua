@@ -260,11 +260,6 @@ return require('packer').startup({
         }
 
         -- use {
-        --     'ThePrimeagen/harpoon',
-        --     requires = 'nvim-lua/plenary.nvim',
-        -- }
-
-        -- use {
         --     'github/copilot.vim',
         --     config = function()
         --         vim.g.copilot_no_tab_map = true
