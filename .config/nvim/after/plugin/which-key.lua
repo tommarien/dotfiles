@@ -45,17 +45,6 @@ wk.register({
     }
 }, { prefix = "<leader>" })
 
-local windowMap = {
-    name = 'Window',
-}
-
-for i = 1, 6 do
-    ---@diagnostic disable-next-line: assign-type-mismatch
-    windowMap[tostring(i)] = { i .. "<C-w><C-w>", "Navigate to window " .. i }
-end
-
-wk.register(windowMap, { prefix = "<leader>" })
-
 wk.register({
     B = { "<cmd>bfirst<cr>", "First buffer" },
     b = { "<cmd>bprev<cr>", "Previous buffer" },
