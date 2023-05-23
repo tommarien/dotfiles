@@ -78,7 +78,12 @@ return require('packer').startup({
 
         use {
             'williamboman/mason.nvim',
+            tag = '*',
+        }
+
+        use {
             'williamboman/mason-lspconfig.nvim',
+            tag = '*',
         }
 
         use({
