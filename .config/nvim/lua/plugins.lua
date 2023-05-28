@@ -62,6 +62,7 @@ return require('packer').startup({
         -- Language
         use {
             'nvim-treesitter/nvim-treesitter',
+            tag = '*',
             run = ':TSUpdate',
         }
 
@@ -132,8 +133,6 @@ return require('packer').startup({
         }
 
         -- Utilities
-        use { 'stevearc/dressing.nvim' }
-
         use {
             'smjonas/live-command.nvim',
             tag = '*',
@@ -208,22 +207,16 @@ return require('packer').startup({
             tag = '*',
         }
 
-        use({
-            'rose-pine/neovim',
-            as = 'rose-pine',
+        use {
+            'sainnhe/sonokai',
             config = function()
-                require('rose-pine').setup({
-                    dark_variant = 'moon',
-                    dim_nc_background = true,
-                })
-                vim.cmd('colorscheme rose-pine')
-
-                local p = require("rose-pine.palette");
-
-                vim.api.nvim_set_hl(0, 'PackageInfoUpTodateVersion', { fg = p.pine })
-                vim.api.nvim_set_hl(0, 'PackageInfoOutdatedVersion', { fg = p.love })
+                vim.g.sonokai_style = 'andromeda'
+                vim.g.sonokai_enable_italic = 1
+                vim.g.sonokai_better_performance = 1
+                vim.g.sonokai_transparent_background = 2
+                vim.cmd('colorscheme sonokai')
             end
-        })
+        }
 
         use {
             'nvim-telescope/telescope.nvim',
@@ -263,16 +256,6 @@ return require('packer').startup({
                 telescope.load_extension('fzy_native');
             end
         }
-
-        -- use {
-        --     'github/copilot.vim',
-        --     config = function()
-        --         vim.g.copilot_no_tab_map = true
-        --         vim.g.copilot_assume_mapped = true
-        --         vim.keymap.set('i', '<M-j>', 'copilot#Accept("<CR>")',
-        --             { noremap = true, silent = true, expr = true, replace_keycodes = false })
-        --     end
-        -- }
 
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins
