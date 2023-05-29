@@ -67,9 +67,9 @@ return require('packer').startup({
         }
 
         use({
-            "nvim-treesitter/nvim-treesitter-textobjects",
-            after = "nvim-treesitter",
-            requires = "nvim-treesitter/nvim-treesitter",
+            'nvim-treesitter/nvim-treesitter-textobjects',
+            after = 'nvim-treesitter',
+            requires = 'nvim-treesitter/nvim-treesitter',
         })
 
         use {
@@ -119,14 +119,14 @@ return require('packer').startup({
             'rcarriga/nvim-dap-ui',
             requires = { 'mfussenegger/nvim-dap' },
             config = function()
-                local dap, dapui = require("dap"), require("dapui")
-                dap.listeners.after.event_initialized["dapui_config"] = function()
+                local dap, dapui = require('dap'), require('dapui')
+                dap.listeners.after.event_initialized['dapui_config'] = function()
                     dapui.open()
                 end
-                dap.listeners.before.event_terminated["dapui_config"] = function()
+                dap.listeners.before.event_terminated['dapui_config'] = function()
                     dapui.close()
                 end
-                dap.listeners.before.event_exited["dapui_config"] = function()
+                dap.listeners.before.event_exited['dapui_config'] = function()
                     dapui.close()
                 end
             end
@@ -144,18 +144,19 @@ return require('packer').startup({
                 }
             end
         }
+
         use {
             'alexghergh/nvim-tmux-navigation',
             config = function()
                 require 'nvim-tmux-navigation'.setup {
                     disable_when_zoomed = true, -- defaults to false
                     keybindings = {
-                        left = "<C-h>",
-                        down = "<C-j>",
-                        up = "<C-k>",
-                        right = "<C-l>",
-                        last_active = "<C-\\>",
-                        next = "<C-Space>",
+                        left = '<C-h>',
+                        down = '<C-j>',
+                        up = '<C-k>',
+                        right = '<C-l>',
+                        last_active = '<C-\\>',
+                        next = '<C-Space>',
                     }
                 }
             end
@@ -178,10 +179,10 @@ return require('packer').startup({
         }
 
         use({
-            "vuki656/package-info.nvim",
-            requires = "MunifTanjim/nui.nvim",
+            'vuki656/package-info.nvim',
+            requires = 'MunifTanjim/nui.nvim',
             config = function()
-                require("package-info").setup({
+                require('package-info').setup({
                     autostart = false,
                 })
             end
@@ -215,6 +216,9 @@ return require('packer').startup({
                 vim.g.sonokai_better_performance = 1
                 vim.g.sonokai_transparent_background = 2
                 vim.cmd('colorscheme sonokai')
+
+                vim.api.nvim_set_hl(0, 'PackageInfoUpTodateVersion', { fg = '#9ed06c' })
+                vim.api.nvim_set_hl(0, 'PackageInfoOutdatedVersion', { fg = '#fb617e' })
             end
         }
 
@@ -231,9 +235,9 @@ return require('packer').startup({
 
                 telescope.setup({
                     defaults = {
-                        layout_strategy = "horizontal",
-                        layout_config = { prompt_position = "top" },
-                        sorting_strategy = "ascending",
+                        layout_strategy = 'horizontal',
+                        layout_config = { prompt_position = 'top' },
+                        sorting_strategy = 'ascending',
                         winblend = 0,
                     },
                     pickers = {
@@ -242,7 +246,7 @@ return require('packer').startup({
                             sort_lastused = true,
                             previewer = false,
                             mappings = {
-                                i = { ["<c-d>"] = "delete_buffer" }
+                                i = { ['<c-d>'] = 'delete_buffer' }
                             }
                         },
                         find_files = {
