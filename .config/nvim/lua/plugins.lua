@@ -209,16 +209,16 @@ return require('packer').startup({
         }
 
         use {
-            'sainnhe/sonokai',
+            'sainnhe/everforest',
             config = function()
-                vim.g.sonokai_style = 'atlantis'
-                vim.g.sonokai_enable_italic = 1
-                vim.g.sonokai_better_performance = 1
-                vim.g.sonokai_transparent_background = 2
-                vim.cmd('colorscheme sonokai')
+                vim.g.everforest_enable_italic = 1
+                vim.g.everforest_better_performance = 1
+                vim.g.everforest_transparent_background = 1
+                vim.g.everforest_background = 'hard'
+                vim.cmd('colorscheme everforest')
 
-                vim.api.nvim_set_hl(0, 'PackageInfoUpTodateVersion', { fg = '#9dd274' })
-                vim.api.nvim_set_hl(0, 'PackageInfoOutdatedVersion', { fg = '#ff6578' })
+                vim.api.nvim_set_hl(0, 'PackageInfoUpTodateVersion', { fg = '#a7c080' })
+                vim.api.nvim_set_hl(0, 'PackageInfoOutdatedVersion', { fg = '#e67e80' })
             end
         }
 
