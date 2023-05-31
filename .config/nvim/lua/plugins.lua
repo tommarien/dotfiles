@@ -211,14 +211,14 @@ return require('packer').startup({
         use {
             'sainnhe/sonokai',
             config = function()
-                vim.g.sonokai_style = 'andromeda'
+                vim.g.sonokai_style = 'atlantis'
                 vim.g.sonokai_enable_italic = 1
                 vim.g.sonokai_better_performance = 1
                 vim.g.sonokai_transparent_background = 2
                 vim.cmd('colorscheme sonokai')
 
-                vim.api.nvim_set_hl(0, 'PackageInfoUpTodateVersion', { fg = '#9ed06c' })
-                vim.api.nvim_set_hl(0, 'PackageInfoOutdatedVersion', { fg = '#fb617e' })
+                vim.api.nvim_set_hl(0, 'PackageInfoUpTodateVersion', { fg = '#9dd274' })
+                vim.api.nvim_set_hl(0, 'PackageInfoOutdatedVersion', { fg = '#ff6578' })
             end
         }
 
