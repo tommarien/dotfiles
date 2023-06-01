@@ -208,19 +208,22 @@ return require('packer').startup({
             tag = '*',
         }
 
-        use {
-            'sainnhe/everforest',
+        use({
+            'rose-pine/neovim',
+            as = 'rose-pine',
             config = function()
-                vim.g.everforest_enable_italic = 1
-                vim.g.everforest_better_performance = 1
-                vim.g.everforest_transparent_background = 1
-                vim.g.everforest_background = 'hard'
-                vim.cmd('colorscheme everforest')
+                require('rose-pine').setup({
+                    dark_variant = 'moon',
+                    disable_float_background = true,
+                })
+                vim.cmd('colorscheme rose-pine')
 
-                vim.api.nvim_set_hl(0, 'PackageInfoUpTodateVersion', { fg = '#a7c080' })
-                vim.api.nvim_set_hl(0, 'PackageInfoOutdatedVersion', { fg = '#e67e80' })
+                local p = require("rose-pine.palette");
+
+                vim.api.nvim_set_hl(0, 'PackageInfoUpTodateVersion', { fg = p.pine })
+                vim.api.nvim_set_hl(0, 'PackageInfoOutdatedVersion', { fg = p.love })
             end
-        }
+        })
 
         use {
             'nvim-telescope/telescope.nvim',
