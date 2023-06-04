@@ -208,22 +208,35 @@ return require('packer').startup({
             tag = '*',
         }
 
-        use({
-            'rose-pine/neovim',
-            as = 'rose-pine',
+        use {
+            'sainnhe/sonokai',
             config = function()
-                require('rose-pine').setup({
-                    dark_variant = 'moon',
-                    disable_float_background = true,
-                })
-                vim.cmd('colorscheme rose-pine')
+                vim.g.sonokai_style = 'andromeda'
+                vim.g.sonokai_enable_italic = 1
+                vim.g.sonokai_better_performance = 1
+                vim.cmd('colorscheme sonokai')
 
-                local p = require("rose-pine.palette");
-
-                vim.api.nvim_set_hl(0, 'PackageInfoUpTodateVersion', { fg = p.pine })
-                vim.api.nvim_set_hl(0, 'PackageInfoOutdatedVersion', { fg = p.love })
+                vim.api.nvim_set_hl(0, 'PackageInfoUpTodateVersion', { fg = '#9dd274' })
+                vim.api.nvim_set_hl(0, 'PackageInfoOutdatedVersion', { fg = '#ff6578' })
             end
-        })
+        }
+
+        -- use({
+        --     'rose-pine/neovim',
+        --     as = 'rose-pine',
+        --     config = function()
+        --         require('rose-pine').setup({
+        --             dark_variant = 'moon',
+        --             disable_float_background = true,
+        --         })
+        --         vim.cmd('colorscheme rose-pine')
+
+        --         local p = require("rose-pine.palette");
+
+        --         vim.api.nvim_set_hl(0, 'PackageInfoUpTodateVersion', { fg = p.pine })
+        --         vim.api.nvim_set_hl(0, 'PackageInfoOutdatedVersion', { fg = p.love })
+        --     end
+        -- })
 
         use {
             'nvim-telescope/telescope.nvim',
