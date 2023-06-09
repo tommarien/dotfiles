@@ -209,34 +209,43 @@ return require('packer').startup({
         }
 
         use {
-            'sainnhe/sonokai',
+            'ellisonleao/gruvbox.nvim',
             config = function()
-                vim.g.sonokai_style = 'andromeda'
-                vim.g.sonokai_enable_italic = 1
-                vim.g.sonokai_better_performance = 1
-                vim.cmd('colorscheme sonokai')
+                require('gruvbox').setup({
+                    undercurl = true,
+                    underline = true,
+                    bold = true,
+                    italic = {
+                        strings = true,
+                        comments = true,
+                        operators = false,
+                        folds = true,
+                    },
+                    strikethrough = true,
+                    invert_selection = false,
+                    invert_signs = false,
+                    invert_tabline = false,
+                    invert_intend_guides = false,
+                    inverse = true, -- invert background for search, diffs, statuslines and errors
+                    contrast = '',  -- can be "hard", "soft" or empty string
+                    palette_overrides = {},
+                    overrides = {
+                        SignColumn = { link = "Normal" },
+                        GruvboxGreenSign = { bg = "" },
+                        GruvboxOrangeSign = { bg = "" },
+                        GruvboxPurpleSign = { bg = "" },
+                        GruvboxYellowSign = { bg = "" },
+                        GruvboxRedSign = { bg = "" },
+                        GruvboxBlueSign = { bg = "" },
+                        GruvboxAquaSign = { bg = "" },
+                    },
+                    dim_inactive = false,
+                    transparent_mode = false,
+                })
 
-                vim.api.nvim_set_hl(0, 'PackageInfoUpTodateVersion', { fg = '#9dd274' })
-                vim.api.nvim_set_hl(0, 'PackageInfoOutdatedVersion', { fg = '#ff6578' })
+                vim.cmd('colorscheme gruvbox')
             end
         }
-
-        -- use({
-        --     'rose-pine/neovim',
-        --     as = 'rose-pine',
-        --     config = function()
-        --         require('rose-pine').setup({
-        --             dark_variant = 'moon',
-        --             disable_float_background = true,
-        --         })
-        --         vim.cmd('colorscheme rose-pine')
-
-        --         local p = require("rose-pine.palette");
-
-        --         vim.api.nvim_set_hl(0, 'PackageInfoUpTodateVersion', { fg = p.pine })
-        --         vim.api.nvim_set_hl(0, 'PackageInfoOutdatedVersion', { fg = p.love })
-        --     end
-        -- })
 
         use {
             'nvim-telescope/telescope.nvim',
