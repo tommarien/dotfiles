@@ -14,3 +14,7 @@ map('t', '<Esc>', '<C-\\><C-N>', { desc = "Exit Terminal mode", silent = true })
 
 map('n', '<leader>|', ':vsplit<CR>', { desc = 'Vertical split', silent = true })
 map('n', '<leader>-', ':split<CR>', { desc = 'Horizontal split', silent = true })
+
+-- next greatest remap ever : asbjornHaland
+vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
+vim.keymap.set('n', '<leader>Y', [["+Y]])
