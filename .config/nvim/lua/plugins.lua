@@ -211,6 +211,8 @@ return require('packer').startup({
         use {
             'ellisonleao/gruvbox.nvim',
             config = function()
+                local contrast = '' -- can be "hard", "soft" or empty string
+
                 require('gruvbox').setup({
                     undercurl = true,
                     underline = true,
@@ -227,7 +229,7 @@ return require('packer').startup({
                     invert_tabline = false,
                     invert_intend_guides = false,
                     inverse = true, -- invert background for search, diffs, statuslines and errors
-                    contrast = '',  -- can be "hard", "soft" or empty string
+                    contrast = contrast,
                     palette_overrides = {},
                     overrides = {
                         SignColumn = { link = "Normal" },
@@ -244,6 +246,11 @@ return require('packer').startup({
                 })
 
                 vim.cmd('colorscheme gruvbox')
+
+                local colors = require("gruvbox.palette").get_base_colors(vim.o.background, contrast);
+
+                vim.api.nvim_set_hl(0, 'PackageInfoUpTodateVersion', { fg = colors.green })
+                vim.api.nvim_set_hl(0, 'PackageInfoOutdatedVersion', { fg = colors.red })
             end
         }
 
