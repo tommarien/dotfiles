@@ -55,6 +55,7 @@ return require('packer').startup({
             config = function()
                 require('diffview').setup({
                     use_icons = true,
+                    enhanced_diff_hl = true,
                 })
             end
         }
@@ -250,6 +251,7 @@ return require('packer').startup({
 
                 local colors = require("gruvbox.palette").get_base_colors(vim.o.background, contrast);
 
+                -- PackageInfo
                 vim.api.nvim_set_hl(0, 'PackageInfoUpTodateVersion', { fg = colors.green })
                 vim.api.nvim_set_hl(0, 'PackageInfoOutdatedVersion', { fg = colors.red })
             end
