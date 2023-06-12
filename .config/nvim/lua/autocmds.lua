@@ -62,6 +62,8 @@ function FixGruvbox()
 
     vim.api.nvim_set_hl(0, 'PackageInfoUpTodateVersion', { fg = colors.green })
     vim.api.nvim_set_hl(0, 'PackageInfoOutdatedVersion', { fg = colors.red })
+
+    vim.api.nvim_set_hl(0, 'FloatBorder', { bg = colors.bg1 })
 end
 
 local colorSchemeGroup = vim.api.nvim_create_augroup('colorSchemeGroup', { clear = true })
