@@ -16,6 +16,7 @@ return require('packer').startup({
         use 'wbthomason/packer.nvim'
 
         use 'tpope/vim-commentary'
+
         use({
             'kylechui/nvim-surround',
             tag = '*',
@@ -203,11 +204,6 @@ return require('packer').startup({
                 require('crates').setup {
                 }
             end,
-        }
-
-        use {
-            'akinsho/toggleterm.nvim',
-            tag = '*',
         }
 
         use {
