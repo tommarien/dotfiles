@@ -56,6 +56,11 @@ return require('packer').startup({
                 require('diffview').setup({
                     use_icons = true,
                     enhanced_diff_hl = true,
+                    keymaps = {
+                        file_panel = {
+                            ['q'] = "<Cmd>DiffviewClose<CR>",
+                        },
+                    }
                 })
             end
         }
