@@ -96,6 +96,7 @@ return require('packer').startup({
 
         use({
             'hrsh7th/nvim-cmp',
+            -- commit = '950d0e3a93ba61c13b031c086d11eacf4bd48d24',
             requires = {
                 'onsails/lspkind.nvim',
                 'hrsh7th/cmp-nvim-lsp',
@@ -209,6 +210,10 @@ return require('packer').startup({
         use {
             'folke/which-key.nvim',
             tag = '*',
+        }
+
+        use {
+            'ThePrimeagen/vim-be-good'
         }
 
         use {
