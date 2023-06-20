@@ -96,7 +96,6 @@ return require('packer').startup({
 
         use({
             'hrsh7th/nvim-cmp',
-            -- commit = '950d0e3a93ba61c13b031c086d11eacf4bd48d24',
             requires = {
                 'onsails/lspkind.nvim',
                 'hrsh7th/cmp-nvim-lsp',
@@ -141,6 +140,14 @@ return require('packer').startup({
         }
 
         -- Utilities
+        use {
+            'stevearc/oil.nvim',
+            config = function()
+                require('oil').setup()
+                vim.keymap.set('n', '-', require('oil').open, { desc = 'Open parent directory' })
+            end
+        }
+
         use {
             'smjonas/live-command.nvim',
             tag = '*',
