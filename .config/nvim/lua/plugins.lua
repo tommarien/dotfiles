@@ -141,14 +141,6 @@ return require('packer').startup({
 
         -- Utilities
         use {
-            'stevearc/oil.nvim',
-            config = function()
-                require('oil').setup()
-                vim.keymap.set('n', '-', require('oil').open, { desc = 'Open parent directory' })
-            end
-        }
-
-        use {
             'smjonas/live-command.nvim',
             tag = '*',
             config = function()
