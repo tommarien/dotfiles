@@ -170,6 +170,12 @@ return require('packer').startup({
         }
 
         use {
+            'ThePrimeagen/harpoon',
+            requires = 'nvim-lua/plenary.nvim',
+        }
+
+        use {
+
             'nvim-lualine/lualine.nvim',
             requires = { 'nvim-tree/nvim-web-devicons' },
         }
