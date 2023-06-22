@@ -30,7 +30,7 @@ wk.register({
         s = { "<cmd>Telescope live_grep_args<cr>", "Search string" },
     },
     h = harpoonMap,
-    n = {
+    p = {
         name = 'PackageInfo',
         s = { function() require("package-info").show() end, "Show dependency versions" },
         c = { function() require("package-info").hide() end, "Hide dependency versions" },
@@ -40,7 +40,7 @@ wk.register({
         i = { function() require("package-info").install() end, "Install a new dependency" },
         p = { function() require("package-info").change_version() end, "Install a different version" },
     },
-    u = {
+    c = {
         name = 'Crates',
         t = { function() require("crates").toggle() end, "Toggle" },
         r = { function() require("crates").reload() end, "Reload" },

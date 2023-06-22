@@ -152,6 +152,8 @@ return require('packer').startup({
             end
         }
 
+        use 'mbbill/undotree'
+
         use {
             'alexghergh/nvim-tmux-navigation',
             config = function()
