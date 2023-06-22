@@ -218,10 +218,6 @@ return require('packer').startup({
         }
 
         use {
-            'ThePrimeagen/vim-be-good'
-        }
-
-        use {
             'ellisonleao/gruvbox.nvim',
             config = function()
                 local contrast = '' -- can be "hard", "soft" or empty string
