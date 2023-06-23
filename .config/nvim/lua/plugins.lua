@@ -228,6 +228,38 @@ return require('packer').startup({
         }
 
         use {
+            'edeneast/nightfox.nvim',
+            config = function()
+                -- Default options
+                require('nightfox').setup({
+                    options = {
+                        styles = {               -- Style to be applied to different syntax groups
+                            comments = "italic", -- Value is any valid attr-list value `:help attr-list`
+                            conditionals = "NONE",
+                            constants = "NONE",
+                            functions = "NONE",
+                            keywords = "NONE",
+                            numbers = "NONE",
+                            operators = "NONE",
+                            strings = "NONE",
+                            types = "NONE",
+                            variables = "NONE",
+                        },
+                    },
+                    groups = {
+                        duskfox = {
+                            NormalFloat = { bg = "NONE" },
+                        }
+                    }
+                })
+
+
+                -- setup must be called before loading
+                vim.cmd('colorscheme duskfox')
+            end
+        }
+
+        use {
             'ellisonleao/gruvbox.nvim',
             config = function()
                 local contrast = '' -- can be "hard", "soft" or empty string
@@ -264,7 +296,7 @@ return require('packer').startup({
                     transparent_mode = false,
                 })
 
-                vim.cmd('colorscheme gruvbox')
+                -- vim.cmd('colorscheme gruvbox')
             end
         }
 
