@@ -79,6 +79,8 @@ return require('packer').startup({
             requires = 'nvim-treesitter/nvim-treesitter',
         })
 
+        use 'nvim-treesitter/nvim-treesitter-context'
+
         use {
             'jose-elias-alvarez/null-ls.nvim',
             requires = 'nvim-lua/plenary.nvim',
@@ -217,7 +219,6 @@ return require('packer').startup({
         use {
             'edeneast/nightfox.nvim',
             config = function()
-                -- Default options
                 require('nightfox').setup({
                     options = {
                         styles = {               -- Style to be applied to different syntax groups
