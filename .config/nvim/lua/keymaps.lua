@@ -7,7 +7,7 @@ local function map(mode, key, cmd, opts)
     vim.keymap.set(mode, key, cmd, options)
 end
 
-map('n', '-', ':Ex<CR>', { desc = 'Browse containing folder', silent = true })
+-- map('n', '-', ':Ex<CR>', { desc = 'Browse containing folder', silent = true })
 map('n', '<C-s>', ':w<CR>', { desc = 'Save', silent = true })
 
 map('t', '<Esc>', '<C-\\><C-N>', { desc = "Exit Terminal mode", silent = true })
