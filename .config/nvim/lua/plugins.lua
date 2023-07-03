@@ -32,7 +32,7 @@ return require('packer').startup({
 
         -- Git
         use {
-            'TimUntersberger/neogit',
+            'neogitorg/neogit',
             requires = 'nvim-lua/plenary.nvim',
             config = function()
                 require('neogit').setup({
