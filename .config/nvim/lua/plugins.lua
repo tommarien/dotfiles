@@ -32,8 +32,21 @@ return require('packer').startup({
         })
 
         use {
-            'wellle/targets.vim',
-            tag = '*'
+            'echasnovski/mini.ai',
+            branch = 'stable',
+            config = function()
+                local spec_treesitter = require('mini.ai').gen_spec.treesitter
+                require('mini.ai').setup({
+                    custom_textobjects = {
+                        c = spec_treesitter({ a = '@class.outer', i = '@class.inner' }),
+                        F = spec_treesitter({ a = '@function.outer', i = '@function.inner' }),
+                        o = spec_treesitter({
+                            a = { '@conditional.outer', '@loop.outer' },
+                            i = { '@conditional.inner', '@loop.inner' },
+                        })
+                    }
+                })
+            end
         }
 
         -- Git
@@ -80,9 +93,9 @@ return require('packer').startup({
         }
 
         use({
-            'nvim-treesitter/nvim-treesitter-textobjects',
-            after = 'nvim-treesitter',
-            requires = 'nvim-treesitter/nvim-treesitter',
+            "nvim-treesitter/nvim-treesitter-textobjects",
+            after = "nvim-treesitter",
+            requires = "nvim-treesitter/nvim-treesitter",
         })
 
         use 'nvim-treesitter/nvim-treesitter-context'
