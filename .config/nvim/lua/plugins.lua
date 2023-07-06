@@ -15,7 +15,13 @@ return require('packer').startup({
     function(use)
         use 'wbthomason/packer.nvim'
 
-        use 'tpope/vim-commentary'
+        use {
+            'echasnovski/mini.comment',
+            branch = 'stable',
+            config = function()
+                require('mini.comment').setup()
+            end
+        }
 
         use({
             'kylechui/nvim-surround',
