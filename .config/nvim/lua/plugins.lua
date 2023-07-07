@@ -23,13 +23,13 @@ return require('packer').startup({
             end
         }
 
-        use({
-            'kylechui/nvim-surround',
-            tag = '*',
+        use {
+           'echasnovski/mini.surround',
+            branch = 'stable',
             config = function()
-                require('nvim-surround').setup {}
+                require('mini.surround').setup()
             end
-        })
+        }
 
         use {
             'echasnovski/mini.ai',
