@@ -151,3 +151,25 @@ vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
 vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, {
     border = 'rounded',
 })
+
+-- Set diagnostics signs
+local sign = function(o)
+    vim.fn.sign_define(o.name, {
+        texthl = o.name,
+        text = o.text,
+        numhl = ''
+    })
+end
+
+sign({ name = 'DiagnosticSignError', text = '󰅚 ' })
+sign({ name = 'DiagnosticSignWarn', text = '󰀪 ' })
+sign({ name = 'DiagnosticSignHint', text = '󰌶 ' })
+sign({ name = 'DiagnosticSignInfo', text = '󰋽 ' })
+
+vim.diagnostic.config({
+    severity_sort = true,
+    float = {
+        border = 'rounded',
+        source = 'always',
+    },
+})
