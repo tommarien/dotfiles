@@ -1,6 +1,0 @@
-# Allows the use of config status (to track dotfiles
-alias config='/usr/bin/git --git-dir=/Users/tommarien/.cfg/ --work-tree=/Users/tommarien'
-
-# Shorter nvim
-alias vi=nvim
-alias vim=nvim
