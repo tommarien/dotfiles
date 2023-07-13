@@ -24,7 +24,7 @@ return require('packer').startup({
         }
 
         use {
-           'echasnovski/mini.surround',
+            'echasnovski/mini.surround',
             branch = 'stable',
             config = function()
                 require('mini.surround').setup()
@@ -103,6 +103,10 @@ return require('packer').startup({
         use {
             'jose-elias-alvarez/null-ls.nvim',
             requires = 'nvim-lua/plenary.nvim',
+        }
+
+        use {
+            'mhartington/formatter.nvim'
         }
 
         use {

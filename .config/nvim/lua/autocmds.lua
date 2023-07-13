@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 local jsonFileTypeDetect = vim.api.nvim_create_augroup('jsonFtDetect', { clear = true })
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-    pattern = { "tsconfig*.json", ".eslintrc.json" },
+    pattern = {   "tsconfig*.json", ".eslintrc.json" },
     group = jsonFileTypeDetect,
     callback = function(ev)
         vim.api.nvim_buf_call(ev.buf, function()
