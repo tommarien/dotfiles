@@ -17,8 +17,12 @@ git clone git@github.com:tommarien/dotfiles.git
 
 ```
 cd ~/dotfiles
+```
 
+```
 stow -t ~ stow
+```
 
+```
 ./install_env
 ```
