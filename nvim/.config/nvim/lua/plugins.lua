@@ -24,7 +24,7 @@ return require('packer').startup({
         }
 
         use {
-           'echasnovski/mini.surround',
+            'echasnovski/mini.surround',
             branch = 'stable',
             config = function()
                 require('mini.surround').setup()
@@ -101,11 +101,6 @@ return require('packer').startup({
         use 'nvim-treesitter/nvim-treesitter-context'
 
         use {
-            'jose-elias-alvarez/null-ls.nvim',
-            requires = 'nvim-lua/plenary.nvim',
-        }
-
-        use {
             'williamboman/mason.nvim',
             tag = '*',
         }
@@ -138,6 +133,7 @@ return require('packer').startup({
                 {
                     'simrat39/rust-tools.nvim',
                     'b0o/schemastore.nvim',
+                    'mattn/efm-langserver'
                 },
             },
         })
