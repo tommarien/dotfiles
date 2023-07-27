@@ -131,6 +131,7 @@ return require('packer').startup({
             },
             requires = {
                 {
+                    'folke/neodev.nvim',
                     'simrat39/rust-tools.nvim',
                     'b0o/schemastore.nvim',
                     'mattn/efm-langserver'

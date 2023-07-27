@@ -1,10 +1,3 @@
-require('mason').setup()
-require('mason-lspconfig').setup({
-    ensure_installed = { 'lua_ls', 'tsserver', 'eslint', 'yamlls' },
-})
-
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
@@ -38,46 +31,79 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<leader>ga', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
     vim.keymap.set({ 'n', 'v' }, '<leader>F', function() vim.lsp.buf.format { async = true } end, bufopts)
+
+    -- Create a command `:Format` local to the LSP buffer
+    vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+        vim.lsp.buf.format()
+    end, { desc = 'Format current buffer with LSP' })
 end
+
+-- Setup neovim lua configuration
+require('neodev').setup()
+
+-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+-- Enable the following language servers
+local servers = {
+    eslint = {},
+    jsonls = {
+        settings = {
+            json = {
+                schemas = require('schemastore').json.schemas(),
+                validate = { enable = true },
+            },
+        },
+    },
+    lua_ls = {
+        settings = {
+            Lua = {
+                workspace = { checkThirdParty = false },
+                format = {
+                    enable = true,
+                    -- Put format options here
+                    -- NOTE: the value should be STRING!!
+                    defaultConfig = {
+                        indent_style = "space",
+                        indent_size = "4",
+                    }
+                },
+                diagnostics = {
+                    globals = { 'vim' }
+                }
+            }
+        }
+    },
+    tsserver = {
+        single_file_support = false,
+    },
+    vimls = {},
+    yamlls = {},
+}
+
+require('mason').setup()
+require('mason-lspconfig').setup({
+    -- ensure_installed = { 'lua_ls', 'tsserver', 'eslint', 'yamlls' },
+    -- install all necessary language servers
+    ensure_installed = vim.tbl_keys(servers),
+})
 
 -- nvim_lsp object
 local nvim_lsp = require 'lspconfig'
 
--- json
-nvim_lsp.jsonls.setup {
-    capabilities = capabilities,
-    settings = {
-        json = {
-            schemas = require('schemastore').json.schemas(),
-            validate = { enable = true },
-        },
-    },
-    on_attach = on_attach,
-}
+for server_name, server_settings in pairs(servers) do
+    nvim_lsp[server_name].setup(vim.tbl_extend('force', {
+        capabilities = capabilities,
+        on_attach = on_attach,
+    }, server_settings))
+end
 
--- yaml
-nvim_lsp.yamlls.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-}
-
--- typescript
-nvim_lsp.tsserver.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    single_file_support = false,
-}
-
--- eslint
-nvim_lsp.eslint.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-}
-
--- rust
+-- rust needs special handling
 local rt = require 'rust-tools'
 
 local rust_opts = {
+    capabilities = capabilities,
     on_attach = on_attach,
     server = {
         capabilities = capabilities,
@@ -115,35 +141,7 @@ local rust_opts = {
 
 rt.setup(rust_opts);
 
--- vim
-nvim_lsp.vimls.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-}
-
--- lua
-nvim_lsp.lua_ls.setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    settings = {
-        Lua = {
-            format = {
-                enable = true,
-                -- Put format options here
-                -- NOTE: the value should be STRING!!
-                defaultConfig = {
-                    indent_style = "space",
-                    indent_size = "4",
-                }
-            },
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
-}
-
--- efm
+-- efm goes last
 local prettier = {
     formatCanRange = true,
     formatCommand =
@@ -161,7 +159,8 @@ local prettier = {
         ".prettierrc.toml",
     },
 }
-require("lspconfig").efm.setup {
+
+nvim_lsp.efm.setup {
     on_attach = on_attach,
     init_options = {
         documentFormatting = true,
