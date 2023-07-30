@@ -232,40 +232,12 @@ return require('packer').startup({
             'nvim-telescope/telescope.nvim',
             requires = {
                 { 'nvim-lua/plenary.nvim' },
-                { 'nvim-telescope/telescope-fzy-native.nvim' },
                 { 'nvim-telescope/telescope-live-grep-args.nvim' },
-                { 'gbrlsnchs/telescope-lsp-handlers.nvim' },
-            },
-            config = function()
-                local telescope = require 'telescope';
-
-                telescope.setup({
-                    defaults = {
-                        layout_strategy = 'horizontal',
-                        layout_config = { prompt_position = 'top' },
-                        sorting_strategy = 'ascending',
-                        winblend = 0,
-                    },
-                    pickers = {
-                        buffers = {
-                            show_all_buffers = true,
-                            sort_lastused = true,
-                            previewer = false,
-                            mappings = {
-                                i = { ['<c-d>'] = 'delete_buffer' }
-                            }
-                        },
-                        find_files = {
-                            previewer = false,
-                        },
-                    }
-                });
-
-                telescope.load_extension('live_grep_args');
-                telescope.load_extension('lsp_handlers');
-                telescope.load_extension('fzy_native');
-            end
+            }
         }
+
+        use { 'nvim-telescope/telescope-fzf-native.nvim', run =
+        'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins
