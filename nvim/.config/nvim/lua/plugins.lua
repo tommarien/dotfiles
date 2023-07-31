@@ -51,7 +51,7 @@ return require('packer').startup({
 
         -- Git
         use {
-            'neogitorg/neogit',
+            'NeogitOrg/neogit',
             requires = 'nvim-lua/plenary.nvim',
             config = function()
                 require('neogit').setup({
