@@ -36,11 +36,13 @@ PACKAGES=(
     neovim
     readline
     ripgrep
+    skhd
     starship
     stow
     tmux
     tree-sitter
     wget
+    yabai
     zoxide
 )
 echo "Installing packages..."
@@ -48,7 +50,6 @@ brew install ${PACKAGES[@]} -q
 
 echo "Installing cask..."
 CASKS=(
-   amethyst
    cheatsheet
    fork
    kitty

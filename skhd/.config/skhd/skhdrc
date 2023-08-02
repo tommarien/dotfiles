@@ -1,0 +1,44 @@
+# *********************** Yabai *******************************
+
+# focus windows
+meh - j : yabai -m window --focus south
+meh - k : yabai -m window --focus north
+meh - h : yabai -m window --focus west
+meh - l : yabai -m window --focus east
+
+# resize windows
+shift + alt - l : yabai -m window --resize bottom_right:50:0
+shift + alt - h : yabai -m window --resize bottom_right:-50:0
+
+# change focus between external displays (left and right)
+meh - s: yabai -m display --focus west
+meh - g: yabai -m display --focus east
+
+# maximize 
+meh - m : yabai -m window --toggle zoom-fullscreen 
+
+# rotate clockwise
+meh - r : yabai -m space --rotate 90
+
+# flip along y-axis
+meh - y : yabai -m space --mirror y-axis
+
+# # flip along x-axis
+meh - x : yabai -m space --mirror x-axis
+
+# float toggle
+meh - t : yabai -m window --toggle float
+
+# Redistribute
+meh - b : yabai -m space --balance
+
+# space
+meh - 1 : yabai -m window --space 1
+meh - 2 : yabai -m window --space 2
+meh - 3 : yabai -m window --space 3
+meh - 4 : yabai -m window --space 4
+meh - 5 : yabai -m window --space 5
+meh - 6 : yabai -m window --space 6
+
+# reload yabai
+hyper - r : yabai --restart-service
