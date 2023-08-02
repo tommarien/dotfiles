@@ -9,9 +9,9 @@ meh - l : yabai -m window --focus east
 # resize windows
 shift + alt - l : yabai -m window --resize bottom_right:50:0
 shift + alt - h : yabai -m window --resize bottom_right:-50:0
-
-# change focus between external displays (left and right)
-meh - s: yabai -m display --focus west
+shift + alt - j : yabai -m window --focus prev
+shift + alt - k : yabai -m window --focus next
+# change focus between external displays (left and right) meh - s: yabai -m display --focus west
 meh - g: yabai -m display --focus east
 
 # maximize 
@@ -29,8 +29,8 @@ meh - x : yabai -m space --mirror x-axis
 # float toggle
 meh - t : yabai -m window --toggle float
 
-# Redistribute
-meh - b : yabai -m space --balance
+# Redistribute (=)
+meh - 0x18 : yabai -m space --balance
 
 # space
 meh - 1 : yabai -m window --space 1
