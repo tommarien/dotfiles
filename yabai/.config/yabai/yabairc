@@ -20,5 +20,8 @@ yabai -m config mouse_action1 move
 # set modifier + right-click drag to resize window (default: resize)
 yabai -m config mouse_action2 resize
 
+# Swap on drop in middle
+yabai -m config mouse_drop_action swap
+
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
