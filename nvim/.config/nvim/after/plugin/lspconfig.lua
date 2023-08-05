@@ -141,7 +141,7 @@ local rust_opts = {
 
 rt.setup(rust_opts);
 
--- efm goes last
+-- efm
 local prettier = {
     formatCanRange = true,
     formatCommand =
@@ -160,25 +160,36 @@ local prettier = {
     },
 }
 
+local prettier_formatted_languages = {
+    "css",
+    "html",
+    "javascript",
+    "javascript.jsx",
+    "javascriptreact",
+    "json",
+    "markdown",
+    "scss",
+    "typescript",
+    "typescript.tsx",
+    "typescriptreact",
+    "yaml",
+}
+
+local efm_languages = {}
+
+for _, lang in pairs(prettier_formatted_languages) do
+    efm_languages[lang] = { prettier }
+end
+
 nvim_lsp.efm.setup {
+    filetypes = prettier_formatted_languages,
     on_attach = on_attach,
     init_options = {
         documentFormatting = true,
         documentRangeFormatting = true,
     },
     settings = {
-        languages = {
-            javascript = { prettier },
-            javascriptreact = { prettier },
-            typescript = { prettier },
-            typescriptreact = { prettier },
-            yaml = { prettier },
-            scss = { prettier },
-            css = { prettier },
-            html = { prettier },
-            json = { prettier },
-            markdown = { prettier },
-        },
+        languages = efm_languages
     },
 }
 
