@@ -6,6 +6,87 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 
+-- Switch for controlling whether you want autoformatting.
+--  Use :FormatOnSaveToggle to toggle autoformatting on or off
+local format_on_save_enabled = true
+
+vim.api.nvim_create_user_command('FormatOnSaveToggle', function()
+    format_on_save_enabled = not format_on_save_enabled
+    if format_on_save_enabled then
+        vim.notify("Enabled format on save", vim.log.levels.INFO)
+    else
+        vim.notify("Disabled format on save", vim.log.levels.INFO)
+    end
+end, {})
+
+-- Gets all lsp clients that support formatting
+-- and have not disabled it in their client config
+-- @param client lsp.Client
+local supports_format = function(client)
+    if
+        client.config
+        and client.config.capabilities
+        and client.config.capabilities.documentFormattingProvider == false
+    then
+        return false
+    end
+    return client.supports_method("textDocument/formatting") or client.supports_method("textDocument/rangeFormatting")
+end
+
+-- Format current buffer
+-- @param opts? { bufnr?:number, async?:boolean, silent?:boolean }
+local format = function(opts)
+    opts = opts or {}
+    local bufnr = opts.bufnr or vim.api.nvim_get_current_buf()
+
+    local active_clients = vim.lsp.get_active_clients({ bufnr })
+    local formatting_clients = vim.tbl_filter(supports_format, active_clients)
+
+    local efm = nil
+
+    for _, cl in ipairs(formatting_clients) do
+        if cl.name == "efm" then
+            efm = cl
+            break
+        end
+    end
+
+    local silent = opts.silent or false
+
+    if vim.tbl_isempty(formatting_clients) then
+        if not silent then
+            vim.notify("No lsp clients attached that support formatting", vim.log.levels.WARN)
+        end
+        return
+    end
+
+    local async = opts.async or true
+
+    vim.lsp.buf.format({
+        async,
+        filter = function(client)
+            if not efm then
+                return true
+            else
+                return client.id == efm.id
+            end
+        end,
+    })
+end
+
+vim.api.nvim_create_user_command('Format', function()
+    format()
+end, { desc = "Format current buffer with LSP" })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = vim.api.nvim_create_augroup("FormatOnSave", {}),
+    callback = function()
+        if format_on_save_enabled then
+            format({ async = false, silent = true })
+        end
+    end,
+})
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -30,12 +111,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, bufopts)
-    vim.keymap.set({ 'n', 'v' }, '<leader>F', function() vim.lsp.buf.format { async = true } end, bufopts)
-
-    -- Create a command `:Format` local to the LSP buffer
-    vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-        vim.lsp.buf.format()
-    end, { desc = 'Format current buffer with LSP' })
+    vim.keymap.set({ 'n', 'v' }, '<leader>F', function() format({ async = true, bufnr }) end, bufopts)
 end
 
 -- Setup neovim lua configuration
@@ -192,69 +268,6 @@ nvim_lsp.efm.setup {
         languages = efm_languages
     },
 }
-
--- Switch for controlling whether you want autoformatting.
---  Use :FormatToggle to toggle autoformatting on or off
-local format_is_enabled = true
-vim.api.nvim_create_user_command('FormatToggle', function()
-    format_is_enabled = not format_is_enabled
-    print('Setting autoformatting to: ' .. tostring(format_is_enabled))
-end, {})
-
--- Create an augroup that is used for managing our formatting autocmds.
---      We need one augroup per client to make sure that multiple clients
---      can attach to the same buffer without interfering with each other.
-local _augroups = {}
-local get_augroup = function(client)
-    if not _augroups[client.id] then
-        local group_name = 'my-lsp-format-' .. client.name
-        local id = vim.api.nvim_create_augroup(group_name, { clear = true })
-        _augroups[client.id] = id
-    end
-
-    return _augroups[client.id]
-end
-
--- Whenever an LSP attaches to a buffer, we will run this function.
---
--- See `:help LspAttach` for more information about this autocmd event.
-vim.api.nvim_create_autocmd('LspAttach', {
-    group = vim.api.nvim_create_augroup('my-lsp-attach-format', { clear = true }),
-    -- This is where we attach the autoformatting for reasonable clients
-    callback = function(args)
-        local client_id = args.data.client_id
-        local client = vim.lsp.get_client_by_id(client_id)
-        local bufnr = args.buf
-
-        -- Only attach to clients that support document formatting
-        if not client.server_capabilities.documentFormattingProvider then
-            return
-        end
-
-        if client.name == 'tsserver' then
-            return
-        end
-
-        -- Create an autocmd that will run *before* we save the buffer.
-        --  Run the formatting command for the LSP that has just attached.
-        vim.api.nvim_create_autocmd('BufWritePre', {
-            group = get_augroup(client),
-            buffer = bufnr,
-            callback = function()
-                if not format_is_enabled then
-                    return
-                end
-
-                vim.lsp.buf.format {
-                    async = false,
-                    filter = function(c)
-                        return c.id == client.id
-                    end,
-                }
-            end,
-        })
-    end,
-})
 
 -- Make definition and signature_help bordered
 vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
