@@ -64,7 +64,7 @@ cmp.setup({
     },
     -- Installed sources
     sources = cmp.config.sources({
-        { name = 'nvim_lsp', keyword_lenght = 2, max_item_count = 15 },
+        { name = 'nvim_lsp', keyword_lenght = 2 },
         { name = 'luasnip' },
         { name = "path" },
     }, {
