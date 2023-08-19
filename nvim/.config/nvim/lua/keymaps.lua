@@ -14,3 +14,7 @@ map('t', '<Esc>', '<C-\\><C-N>', { desc = "Exit Terminal mode", silent = true })
 
 map('n', '<leader>|', ':vsplit<CR>', { desc = 'Vertical split', silent = true })
 map('n', '<leader>-', ':split<CR>', { desc = 'Horizontal split', silent = true })
+
+map('n', '<leader>zz', function()
+    require('zen-mode').toggle()
+end)
