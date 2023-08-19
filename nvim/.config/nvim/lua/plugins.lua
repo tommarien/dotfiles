@@ -165,12 +165,17 @@ return require('packer').startup({
                 require('live-command').setup {
                     commands = {
                         Norm = { cmd = 'norm' },
+                        S = { cmd = 'Subvert' },
                     },
                 }
             end
         }
 
         use 'mbbill/undotree'
+
+        use {
+            'tpope/vim-abolish',
+        }
 
         use {
             'christoomey/vim-tmux-navigator',
