@@ -187,10 +187,6 @@ return require('packer').startup({
         }
 
         use {
-            'folke/zen-mode.nvim'
-        }
-
-        use {
 
             'nvim-lualine/lualine.nvim',
             requires = { 'nvim-tree/nvim-web-devicons' },
