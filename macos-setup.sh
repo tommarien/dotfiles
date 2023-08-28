@@ -36,13 +36,13 @@ PACKAGES=(
     neovim
     readline
     ripgrep
-    skhd
+    koekeishiya/formulae/skhd
     starship
     stow
     tmux
     tree-sitter
     wget
-    yabai
+    koekeishiya/formulae/yabai
     zoxide
 )
 echo "Installing packages..."
@@ -54,6 +54,7 @@ CASKS=(
    fork
    kitty
    textmate
+   1password-cli
 )
 echo "Installing cask apps..."
 brew install --cask ${CASKS[@]} -q
