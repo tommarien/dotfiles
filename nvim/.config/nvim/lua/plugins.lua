@@ -244,20 +244,6 @@ return require('packer').startup({
         use { 'nvim-telescope/telescope-fzf-native.nvim', run =
         'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
-        use({
-            'jackMort/ChatGPT.nvim',
-            config = function()
-                require('chatgpt').setup({
-                    api_key_cmd = 'op read op://private/OpenAI/credential --no-newline'
-                })
-            end,
-            requires = {
-                'MunifTanjim/nui.nvim',
-                'nvim-lua/plenary.nvim',
-                'nvim-telescope/telescope.nvim'
-            }
-        })
-
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins
         if packer_bootstrap then
