@@ -39,24 +39,6 @@ return {
         end
     },
     {
-        'williamboman/mason.nvim',
-        version = '*',
-    },
-    {
-        'williamboman/mason-lspconfig.nvim',
-        version = '*',
-    },
-    {
-        'neovim/nvim-lspconfig',
-        dependencies = {
-            'mason-lspconfig.nvim',
-            'folke/neodev.nvim',
-            'simrat39/rust-tools.nvim',
-            'b0o/schemastore.nvim',
-            'mattn/efm-langserver'
-        },
-    },
-    {
         'smjonas/live-command.nvim',
         version = '*',
         config = function()
@@ -80,18 +62,6 @@ return {
     {
         'ThePrimeagen/harpoon',
         dependencies = 'nvim-lua/plenary.nvim',
-    },
-    {
-        'j-hui/fidget.nvim',
-        tag = 'legacy',
-        event = 'LspAttach',
-        config = function()
-            require 'fidget'.setup({
-                window = {
-                    blend = 0,
-                },
-            })
-        end
     },
     {
         'vuki656/package-info.nvim',
