@@ -65,16 +65,13 @@ return {
     },
     {
         'vuki656/package-info.nvim',
+        event = { 'BufRead package.json' },
         dependencies = 'MunifTanjim/nui.nvim',
-        config = function()
-            require('package-info').setup({
-                autostart = false,
-            })
-        end
+        config = true,
     },
     {
         'saecki/crates.nvim',
-        event = { "BufRead Cargo.toml" },
+        event = { 'BufRead Cargo.toml' },
         dependencies = 'nvim-lua/plenary.nvim',
         config = true,
     },
