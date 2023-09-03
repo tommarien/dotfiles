@@ -74,9 +74,9 @@ return {
     },
     {
         'saecki/crates.nvim',
-        version = '*',
+        event = { "BufRead Cargo.toml" },
         dependencies = 'nvim-lua/plenary.nvim',
-        opts = {},
+        config = true,
     },
     {
         'nvim-telescope/telescope.nvim',
