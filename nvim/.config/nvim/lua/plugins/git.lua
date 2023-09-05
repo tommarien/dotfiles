@@ -17,6 +17,7 @@ return {
     },
     {
         'sindrets/diffview.nvim',
+        event = 'VeryLazy',
         dependencies = 'nvim-lua/plenary.nvim',
         opts = {
             use_icons = true,
