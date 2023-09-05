@@ -134,6 +134,7 @@ return {
                 end, bufopts)
                 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
                 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
+                vim.keymap.set('n', '<M-.>', vim.lsp.buf.code_action, bufopts)
                 vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, bufopts)
                 vim.keymap.set({ 'n', 'v' }, '<leader>F', function() format({ async = true, bufnr }) end, bufopts)
             end
