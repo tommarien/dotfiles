@@ -43,15 +43,15 @@ return {
     },
     {
         'smjonas/live-command.nvim',
+        event = 'VeryLazy',
+        main = 'live-command',
         version = '*',
-        config = function()
-            require('live-command').setup {
-                commands = {
-                    Norm = { cmd = 'norm' },
-                    S = { cmd = 'Subvert' },
-                },
-            }
-        end
+        opts = {
+            commands = {
+                Norm = { cmd = 'norm' },
+                S = { cmd = 'Subvert' },
+            },
+        },
     },
     {
         'mbbill/undotree',
@@ -60,10 +60,21 @@ return {
             { '<leader>u', vim.cmd.UndotreeToggle, desc = 'Undotree' },
         },
     },
-    'tpope/vim-abolish',
+    {
+        'tpope/vim-abolish',
+        event = 'VeryLazy',
+    },
     'christoomey/vim-tmux-navigator',
     {
         'ThePrimeagen/harpoon',
+        keys = {
+            { '<leader>ha', function() require("harpoon.mark").add_file() end,        desc = 'Add mark' },
+            { '<leader>hs', function() require("harpoon.ui").toggle_quick_menu() end, desc = 'Show marks' },
+            { '<leader>h1', function() require("harpoon.ui").nav_file(1) end,         desc = 'Navigate to mark 1' },
+            { '<leader>h2', function() require("harpoon.ui").nav_file(2) end,         desc = 'Navigate to mark 2' },
+            { '<leader>h3', function() require("harpoon.ui").nav_file(3) end,         desc = 'Navigate to mark 3' },
+            { '<leader>h4', function() require("harpoon.ui").nav_file(4) end,         desc = 'Navigate to mark 4' },
+        },
         dependencies = 'nvim-lua/plenary.nvim',
     },
     {
@@ -89,26 +100,26 @@ return {
                 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
             },
         },
-        config = function()
-            local telescope = require 'telescope';
-
-            telescope.setup({
-                defaults = {
-                    layout_strategy = 'horizontal',
-                    layout_config = { prompt_position = 'top' },
-                    sorting_strategy = 'ascending',
-                    winblend = 0,
-                },
-                pickers = {
-                    buffers = {
-                        show_all_buffers = true,
-                        sort_lastused = true,
-                        mappings = {
-                            i = { ['<c-d>'] = 'delete_buffer' }
-                        }
+        opts = {
+            defaults = {
+                layout_strategy = 'horizontal',
+                layout_config = { prompt_position = 'top' },
+                sorting_strategy = 'ascending',
+                winblend = 0,
+            },
+            pickers = {
+                buffers = {
+                    show_all_buffers = true,
+                    sort_lastused = true,
+                    mappings = {
+                        i = { ['<c-d>'] = 'delete_buffer' }
                     }
                 }
-            });
+            }
+        },
+        config = function(_, opts)
+            local telescope = require 'telescope';
+            telescope.setup(opts);
 
             telescope.load_extension('live_grep_args');
             telescope.load_extension('fzf');
