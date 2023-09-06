@@ -5,6 +5,10 @@ return {
         event = { 'BufReadPost', 'BufNewFile' },
         cmd = { "TSUpdateSync" },
         build = ':TSUpdate',
+        keys = {
+            { "<M-Down>", desc = "Increment selection" },
+            { "<M-Up>",   desc = "Decrement selection", mode = "x" },
+        },
         dependencies = {
             'nvim-treesitter/nvim-treesitter-textobjects',
             {
@@ -47,10 +51,10 @@ return {
                 incremental_selection = {
                     enable = true,
                     keymaps = {
-                        init_selection = "gnn",
-                        node_incremental = "grn",
-                        scope_incremental = "grc",
-                        node_decremental = "grm",
+                        init_selection = '<M-Down>',
+                        node_incremental = '<M-Down>',
+                        scope_incremental = false,
+                        node_decremental = '<M-Up>',
                     },
                 },
 
