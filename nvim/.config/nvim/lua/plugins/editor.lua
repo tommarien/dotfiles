@@ -64,7 +64,10 @@ return {
         'tpope/vim-abolish',
         event = 'VeryLazy',
     },
-    'christoomey/vim-tmux-navigator',
+    {
+        'christoomey/vim-tmux-navigator',
+        event = 'VeryLazy'
+    },
     {
         'ThePrimeagen/harpoon',
         keys = {
@@ -91,6 +94,7 @@ return {
     },
     {
         'nvim-telescope/telescope.nvim',
+        event = 'VeryLazy',
         dependencies = {
             { 'nvim-lua/plenary.nvim' },
             { 'nvim-telescope/telescope-live-grep-args.nvim' },

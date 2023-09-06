@@ -1,11 +1,9 @@
 return {
     {
         'williamboman/mason.nvim',
-        version = '*',
-    },
-    {
-        'williamboman/mason-lspconfig.nvim',
-        version = '*',
+        build = ":MasonUpdate",
+        cmd = "Mason",
+        opts = {},
     },
     {
         'j-hui/fidget.nvim',
@@ -21,9 +19,10 @@ return {
     },
     {
         'neovim/nvim-lspconfig',
+        event = { "BufReadPre", "BufNewFile" },
         dependencies = {
-            'mason-lspconfig.nvim',
-            'folke/neodev.nvim',
+            'mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
             'simrat39/rust-tools.nvim',
             'b0o/schemastore.nvim',
             'mattn/efm-langserver'
@@ -139,9 +138,6 @@ return {
                 vim.keymap.set({ 'n', 'v' }, '<leader>F', function() format({ async = true, bufnr }) end, bufopts)
             end
 
-            -- Setup neovim lua configuration
-            require('neodev').setup()
-
             -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
@@ -183,7 +179,6 @@ return {
                 yamlls = {},
             }
 
-            require('mason').setup()
             require('mason-lspconfig').setup({
                 -- ensure_installed = { 'lua_ls', 'tsserver', 'eslint', 'yamlls' },
                 -- install all necessary language servers
