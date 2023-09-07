@@ -42,6 +42,11 @@ return {
         end
     },
     {
+        "echasnovski/mini.pairs",
+        event = "VeryLazy",
+        opts = {},
+    },
+    {
         'smjonas/live-command.nvim',
         event = 'VeryLazy',
         main = 'live-command',
