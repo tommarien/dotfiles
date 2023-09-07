@@ -61,6 +61,13 @@ return {
         },
     },
     {
+        "echasnovski/mini.bufremove",
+        keys = {
+            { "<leader>bd", function() require("mini.bufremove").delete(0, false) end, desc = "Delete Buffer" },
+            { "<leader>bD", function() require("mini.bufremove").delete(0, true) end,  desc = "Delete Buffer (Force)" },
+        },
+    },
+    {
         'folke/which-key.nvim',
         event = 'VeryLazy',
         version = '*',
@@ -70,7 +77,6 @@ return {
             wk.register({
                 b = {
                     name = 'Buffer',
-                    d = { '<cmd>bd<cr>', 'Delete buffer' },
                     n = { '<cmd>bn<cr>', 'Next buffer' },
                     p = { '<cmd>bp<cr>', 'Previous buffer' },
                     r = { '<cmd>Telescope buffers<cr>', 'Open recent buffer' },
