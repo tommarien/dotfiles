@@ -136,6 +136,12 @@ return {
         end
     },
     {
+        'm4xshen/hardtime.nvim',
+        event = 'VeryLazy',
+        dependencies = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim' },
+        opts = {}
+    },
+    {
         'folke/trouble.nvim',
         cmd = { 'TroubleToggle', 'Trouble' },
         opts = { use_diagnostic_signs = true },
