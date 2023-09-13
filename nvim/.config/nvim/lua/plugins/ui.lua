@@ -103,7 +103,7 @@ return {
                     i = { function() require('package-info').install() end, 'Install a new dependency' },
                     p = { function() require('package-info').change_version() end, 'Install a different version' },
                 },
-                c = {
+                t = {
                     name = 'Crates',
                     t = { function() require('crates').toggle() end, 'Toggle' },
                     r = { function() require('crates').reload() end, 'Reload' },
