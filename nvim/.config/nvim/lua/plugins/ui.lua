@@ -130,4 +130,16 @@ return {
         end,
         opts = {}
     },
+    {
+        'folke/zen-mode.nvim',
+        cmd = 'ZenMode',
+        keys = {
+            { '<leader>zz', vim.cmd.ZenMode, desc = 'ZenMode' },
+        },
+        opts = {
+            window = {
+                width = 160,
+            }
+        },
+    }
 }
