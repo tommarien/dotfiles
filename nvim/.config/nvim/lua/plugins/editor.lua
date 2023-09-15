@@ -6,7 +6,7 @@ return {
     {
         'echasnovski/mini.comment',
         event = 'VeryLazy',
-        branch = 'stable',
+        version = '*',
         opts = {
             options = {
                 custom_commentstring = function()
@@ -19,13 +19,13 @@ return {
     {
         'echasnovski/mini.surround',
         event = 'VeryLazy',
-        branch = 'stable',
+        version = '*',
         opts = {},
     },
     {
         'echasnovski/mini.ai',
         event = 'VeryLazy',
-        branch = 'stable',
+        version = '*',
         opts = function()
             local spec_treesitter = require('mini.ai').gen_spec.treesitter
             return {
