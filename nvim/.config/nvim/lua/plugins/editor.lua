@@ -169,12 +169,6 @@ return {
         },
     },
     {
-        'folke/todo-comments.nvim',
-        event = 'VeryLazy',
-        dependencies = { 'nvim-lua/plenary.nvim' },
-        config = true,
-    },
-    {
         'max397574/better-escape.nvim',
         event = 'VeryLazy',
         opts = {
