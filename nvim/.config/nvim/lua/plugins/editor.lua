@@ -42,6 +42,14 @@ return {
         end
     },
     {
+        'jinh0/eyeliner.nvim',
+        event = 'VeryLazy',
+        opts = {
+            highlight_on_key = true,
+            dim = true,
+        }
+    },
+    {
         'smjonas/live-command.nvim',
         event = 'VeryLazy',
         main = 'live-command',
