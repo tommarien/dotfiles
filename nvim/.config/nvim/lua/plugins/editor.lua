@@ -44,6 +44,12 @@ return {
     {
         'jinh0/eyeliner.nvim',
         event = 'VeryLazy',
+        init = function()
+            local palette = require('nightfox.palette').load('duskfox')
+
+            vim.api.nvim_set_hl(0, 'EyelinerPrimary', { fg = palette.pink.bright, bg = palette.bg1 })
+            vim.api.nvim_set_hl(0, 'EyelinerSecondary', { fg = palette.cyan.bright, bg = palette.bg1 })
+        end,
         opts = {
             highlight_on_key = true,
             dim = true,
