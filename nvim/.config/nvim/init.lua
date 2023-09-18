@@ -1,4 +1,5 @@
 require('options')
 require('keymaps')
 require('autocmds')
+require('diagnostics')
 require('plugin-manager')
