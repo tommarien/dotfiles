@@ -126,6 +126,12 @@ return {
                 winblend = 0,
             },
             pickers = {
+                find_files = {
+                    previewer = false,
+                },
+                git_files = {
+                    previewer = false,
+                },
                 buffers = {
                     show_all_buffers = true,
                     sort_lastused = true,
