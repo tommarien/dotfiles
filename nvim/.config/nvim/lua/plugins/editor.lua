@@ -23,6 +23,16 @@ return {
         opts = {},
     },
     {
+        'echasnovski/mini.pairs',
+        event = 'VeryLazy',
+        version = '*',
+        opts = {
+            mappings = {
+                ['"'] = { neigh_pattern = '[^\\]%W' },
+            }
+        },
+    },
+    {
         'echasnovski/mini.ai',
         event = 'VeryLazy',
         version = '*',
