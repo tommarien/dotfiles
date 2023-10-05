@@ -8,3 +8,7 @@ disabled=true
 
 [gcloud]
 disabled=true
+
+[git_status]
+ahead=""
+behind="󰁅"
