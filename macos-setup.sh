@@ -55,7 +55,7 @@ CASKS=(
    fork
    kitty
    textmate
-   1password-cli
+   wezterm
 )
 echo "Installing cask apps..."
 brew install --cask ${CASKS[@]} -q
