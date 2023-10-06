@@ -9,7 +9,7 @@ return {
     },
     font_size = 15.0,
     hide_tab_bar_if_only_one_tab = true,
-    window_background_opacity = 0.8,
+    window_background_opacity = 0.75,
     macos_window_background_blur = 10,
     window_padding = {
         left = '0.5cell',
