@@ -10,5 +10,5 @@ disabled=true
 disabled=true
 
 [git_status]
-ahead=""
-behind="󰁅"
+ahead="󰁞"
+behind="󰁆"
