@@ -27,7 +27,6 @@ return {
         event = 'VeryLazy',
         opts = {
             extra_keymaps = true,
-            max_length = 500,
         },
     },
     {
