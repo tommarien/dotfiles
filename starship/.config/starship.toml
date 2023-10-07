@@ -10,5 +10,13 @@ disabled=true
 disabled=true
 
 [git_status]
-ahead="󰁞"
-behind="󰁆"
+ahead = "[](purple)[$count](white)"
+behind = "[](cyan)[$count](white)"
+conflicted = '[=$count](yellow)'
+deleted = '[✘$count](black)'
+diverged = "[](cyan)[$ahead_count](white)[](purple)[$behind_count](white)"
+modified = '[*$count](red)'
+renamed = "[»$count](purple)"
+staged = "[+$count](green)"
+stashed = "[\\$$count](yellow)"
+style = "bold bright-white"
