@@ -263,6 +263,7 @@ return {
                 "javascript.jsx",
                 "javascriptreact",
                 "json",
+                "jsonc",
                 "markdown",
                 "scss",
                 "typescript",
