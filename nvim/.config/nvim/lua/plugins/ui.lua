@@ -23,13 +23,6 @@ return {
         },
     },
     {
-        'declancm/cinnamon.nvim',
-        event = 'VeryLazy',
-        opts = {
-            extra_keymaps = true,
-        },
-    },
-    {
         'folke/which-key.nvim',
         event = 'VeryLazy',
         version = '*',
