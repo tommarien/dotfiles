@@ -17,7 +17,7 @@ return {
     hide_tab_bar_if_only_one_tab = true,
     scrollback_lines = 5000,
     use_cap_height_to_scale_fallback_fonts = true,
-    window_background_opacity = 0.87,
+    window_background_opacity = 0.85,
     window_decorations = "RESIZE", -- Hide titlebar
     window_padding = {
         left = 20,
