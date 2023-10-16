@@ -25,25 +25,27 @@ return {
     -- },
     font = wezterm.font_with_fallback {
         {
-            family = 'Iosevka Term',
-            stretch = 'Expanded',
-            harfbuzz_features = { 'ss14', 'calt=0' },
+            family = 'JetBrains Mono',
         },
         -- {
-        --     family = 'MonoLisa'
+        --     family = 'Iosevka Term',
+        --     stretch = 'Expanded',
+        --     harfbuzz_features = { 'ss14', 'calt=0' },
+        -- },
+        -- {
+        --     family = 'MonoLisa',
         --     harfbuzz_features = { 'ss01' },
         -- },
         {
             family = 'Symbols Nerd Font Mono',
-            scale = 0.75
+            -- scale = 0.75
         }
     },
     font_size = 16,
-    line_height = 1.04,
     hide_tab_bar_if_only_one_tab = true,
     scrollback_lines = 5000,
     use_cap_height_to_scale_fallback_fonts = true,
-    window_background_opacity = 0.94,
+    window_background_opacity = 0.9,
     window_decorations = 'RESIZE', -- Hide titlebar
     window_padding = {
         left = 20,
