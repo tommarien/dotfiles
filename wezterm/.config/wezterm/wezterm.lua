@@ -24,18 +24,18 @@ return {
     --     indexed = { [16] = "#ffa066", [17] = "#ff5d62" },
     -- },
     font = wezterm.font_with_fallback {
+        -- {
+        --     family = 'JetBrains Mono',
+        -- },
         {
-            family = 'JetBrains Mono',
+            family = 'MonoLisa',
+            harfbuzz_features = {
+                'zero',
+                'ss02', -- script variant
+                'ss04', -- Alt g
+                'ss07', -- Alt curly
+            },
         },
-        -- {
-        --     family = 'Iosevka Term',
-        --     stretch = 'Expanded',
-        --     harfbuzz_features = { 'ss14', 'calt=0' },
-        -- },
-        -- {
-        --     family = 'MonoLisa',
-        --     harfbuzz_features = { 'ss01' },
-        -- },
         {
             family = 'Symbols Nerd Font Mono',
             -- scale = 0.75
