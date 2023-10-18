@@ -32,7 +32,6 @@ return {
             harfbuzz_features = {
                 'zero',
                 'ss02', -- script variant
-                'ss04', -- Alt g
                 'ss07', -- Alt curly
             },
         },
