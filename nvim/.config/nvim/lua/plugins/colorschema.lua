@@ -20,6 +20,10 @@ return {
                 },
             },
             groups = {
+                all = {
+                    EyelinerPrimary = { fg = 'palette.pink.bright', bg = 'NONE' },
+                    EyelinerSecondary = { fg = 'palette.cyan.bright', bg = 'NONE' },
+                },
                 duskfox = {
                     NormalFloat = { bg = 'NONE' },
                 }
@@ -27,11 +31,6 @@ return {
         },
         config = function(_, opts)
             require('nightfox').setup(opts)
-
-            local palette = require('nightfox.palette').load('duskfox')
-
-            vim.api.nvim_set_hl(0, 'EyelinerPrimary', { fg = palette.pink.bright, bg = palette.bg1 })
-            vim.api.nvim_set_hl(0, 'EyelinerSecondary', { fg = palette.cyan.bright, bg = palette.bg1 })
 
             vim.cmd('colorscheme duskfox')
         end
