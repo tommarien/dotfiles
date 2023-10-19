@@ -17,5 +17,8 @@ utils.map("n", "n", "nzzzv")
 utils.map("n", "N", "Nzzzv")
 
 -- Move lines up/down
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+utils.map('v', 'K', ":m '<-2<CR>gv=gv")
+utils.map('v', 'J', ":m '>+1<CR>gv=gv")
+
+-- Visual select last pasted value
+utils.map('n', 'gp', '`[v`]', { desc = 'Select last paste' })
