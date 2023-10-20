@@ -42,6 +42,7 @@ return {
     },
     font_size = 16,
     hide_tab_bar_if_only_one_tab = true,
+    line_height = 1.02,
     scrollback_lines = 5000,
     use_cap_height_to_scale_fallback_fonts = true,
     window_background_opacity = 0.92,
