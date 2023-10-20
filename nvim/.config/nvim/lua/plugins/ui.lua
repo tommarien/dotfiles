@@ -46,6 +46,7 @@ return {
                     g = { '<cmd>Telescope git_files<cr>', '[F]ind [G]it files' },
                     r = { '<cmd>Telescope oldfiles<cr>', '[F]ind [R]ecent files' },
                     s = { '<cmd>Telescope live_grep_args<cr>', 'Search string' },
+                    w = { '<cmd>Telescope grep_string<cr>', 'Search word under cursor' },
                 },
                 h = { name = 'Harpoon' },
                 p = {
