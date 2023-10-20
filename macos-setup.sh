@@ -56,6 +56,7 @@ CASKS=(
    kitty
    textmate
    wezterm
+   tomatobar
 )
 echo "Installing cask apps..."
 brew install --cask ${CASKS[@]} -q
