@@ -22,3 +22,7 @@ utils.map('v', 'J', ":m '>+1<CR>gv=gv")
 
 -- Visual select last pasted value
 utils.map('n', 'gp', '`[v`]', { desc = 'Select last paste' })
+
+-- Black hole register
+utils.map('x', '<leader>p', [["_dP]])
+utils.map({ 'n', 'v' }, '<leader>d', [["_d]])
