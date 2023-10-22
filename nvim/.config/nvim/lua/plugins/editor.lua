@@ -60,6 +60,15 @@ return {
         }
     },
     {
+        'stevearc/qf_helper.nvim',
+        event = 'VeryLazy',
+        keys = {
+            { ']q', vim.cmd.QNext, desc = 'Next QF/LL entry' },
+            { '[q', vim.cmd.QPrev, desc = 'Prev QF/LL entry' },
+        },
+        opts = {}
+    },
+    {
         'smjonas/live-command.nvim',
         event = 'VeryLazy',
         main = 'live-command',
