@@ -53,7 +53,6 @@ echo "Installing cask..."
 CASKS=(
    cheatsheet
    fork
-   kitty
    textmate
    wezterm
    tomatobar
