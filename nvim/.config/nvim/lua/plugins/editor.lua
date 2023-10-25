@@ -165,12 +165,5 @@ return {
             telescope.load_extension('live_grep_args');
             telescope.load_extension('fzf');
         end
-    },
-    {
-        'max397574/better-escape.nvim',
-        event = 'VeryLazy',
-        opts = {
-            clear_empty_lines = true,
-        },
     }
 }
