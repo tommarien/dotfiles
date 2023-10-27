@@ -29,7 +29,6 @@ brew update
 PACKAGES=(
     bat
     cmake
-    efm-langserver
     fnm
     fzf
     git
