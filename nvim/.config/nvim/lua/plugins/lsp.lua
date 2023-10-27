@@ -174,6 +174,12 @@ return {
                 },
                 tsserver = {
                     single_file_support = false,
+                    init_options = {
+                        hostInfo = 'neovim',
+                        -- preferences = {
+                        --     includeCompletionsForModuleExports = false
+                        -- }
+                    }
                 },
                 vimls = {},
                 yamlls = {},

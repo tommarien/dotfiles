@@ -47,6 +47,11 @@ return {
                         }
                     ),
                 },
+                matching = {
+                    disallow_prefix_unmatching = true,
+                    disallow_partial_fuzzy_matching = true,
+                    disallow_fullfuzzy_matching = true,
+                },
                 snippet = {
                     expand = function(args)
                         luasnip.lsp_expand(args.body)
@@ -84,11 +89,11 @@ return {
                 },
                 -- Installed sources
                 sources = cmp.config.sources({
-                    { name = 'nvim_lsp', keyword_lenght = 2, max_item_count = 30 },
-                    { name = 'luasnip' },
-                    { name = "path" },
+                    { name = 'nvim_lsp', keyword_lenght = 2, max_item_count = 20 },
+                    { name = 'luasnip',  keyword_lenght = 2, },
+                    { name = "path", },
                 }, {
-                    { name = "buffer", keyword_lenght = 2 },
+                    { name = "buffer", keyword_lenght = 4 },
                 }),
             })
 
