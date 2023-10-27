@@ -2,8 +2,12 @@
 local utils = require('utils');
 
 utils.map('n', '<leader>e', vim.diagnostic.open_float, { silent = true, desc = 'Show diagnostics' })
-utils.map('n', '[d', vim.diagnostic.goto_prev, { silent = true, desc = 'Previous diagnostic' })
-utils.map('n', ']d', vim.diagnostic.goto_next, { silent = true, desc = 'Next diagnostic' })
+utils.map('n', '[d', function()
+    vim.diagnostic.goto_prev({ severity = { min = vim.diagnostic.severity.WARN } })
+end, { silent = true, desc = 'Previous diagnostic' })
+utils.map('n', ']d', function()
+    vim.diagnostic.goto_next({ severity = { min = vim.diagnostic.severity.WARN } })
+end, { silent = true, desc = 'Next diagnostic' })
 utils.map('n', '<leader>q', vim.diagnostic.setloclist, { silent = true, desc = 'Show diagnostics quickfix' })
 
 -- Make definition and signature_help bordered
