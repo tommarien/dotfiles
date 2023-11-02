@@ -21,11 +21,16 @@ return {
             },
             groups = {
                 all = {
+                    NormalFloat = { bg = 'NONE' },
+                },
+                dawnfox = {
                     EyelinerPrimary = { fg = 'palette.pink.bright', bg = 'NONE' },
                     EyelinerSecondary = { fg = 'palette.cyan.bright', bg = 'NONE' },
-                    NormalFloat = { bg = 'NONE' },
-
                 },
+                duskfox = {
+                    EyelinerPrimary = { fg = 'palette.pink.bright', bg = 'NONE' },
+                    EyelinerSecondary = { fg = 'palette.cyan.bright', bg = 'NONE' },
+                }
             }
         },
         config = function(_, opts)
