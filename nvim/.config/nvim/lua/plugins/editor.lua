@@ -162,6 +162,23 @@ return {
         },
     },
     {
+        'stevearc/aerial.nvim',
+        event = 'VeryLazy',
+        keys = {
+            { '<leader>a', vim.cmd.AerialToggle, desc = 'AerialToggle' },
+        },
+        opts = {
+            on_attach = function(bufnr)
+                vim.keymap.set("n", "[a", "<cmd>AerialPrev<CR>", { buffer = bufnr })
+                vim.keymap.set("n", "]a", "<cmd>AerialNext<CR>", { buffer = bufnr })
+            end,
+        },
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-tree/nvim-web-devicons"
+        },
+    },
+    {
         'tpope/vim-abolish',
         event = 'VeryLazy',
     },
