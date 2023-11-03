@@ -29,8 +29,26 @@ return {
         },
         config = function(_, opts)
             require('nightfox').setup(opts)
+            -- vim.cmd('colorscheme dawnfox')
+        end
+    },
+    {
+        'rose-pine/neovim',
+        name = 'rose-pine',
+        lazy = false,
+        priority = 1000,
+        opts = {
+            disable_italics = true,
+            highlight_groups = {
+                Comment = { fg = 'muted', italic = true },
+                EyelinerPrimary = { link = 'IncSearch' },
+                EyelinerSecondary = { link = 'Search' },
+            }
+        },
+        config = function(_, opts)
+            require('rose-pine').setup(opts)
 
-            vim.cmd('colorscheme dawnfox')
+            vim.cmd('colorscheme rose-pine-dawn')
         end
     },
 }

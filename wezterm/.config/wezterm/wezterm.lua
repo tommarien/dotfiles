@@ -4,13 +4,15 @@ return {
     adjust_window_size_when_changing_font_size = false,
     bold_brightens_ansi_colors = 'No',
     -- color_scheme = 'Edge Light (base16)',
-    color_scheme = 'dawnfox',
+    -- color_scheme = 'dawnfox',
+    color_scheme = 'rose-pine-dawn',
     font = wezterm.font_with_fallback {
         -- {
         --     family = 'JetBrains Mono',
         -- },
         {
             family = 'MonoLisa',
+            -- weight = 'Medium',
             harfbuzz_features = {
                 'zero',
                 'ss02', -- script variant
