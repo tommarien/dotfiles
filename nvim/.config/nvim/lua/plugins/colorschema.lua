@@ -43,6 +43,7 @@ return {
                 Comment = { fg = 'muted', italic = true },
                 EyelinerPrimary = { link = 'IncSearch' },
                 EyelinerSecondary = { link = 'Search' },
+                TreesitterContextBottom = { underline = true }
             }
         },
         config = function(_, opts)
