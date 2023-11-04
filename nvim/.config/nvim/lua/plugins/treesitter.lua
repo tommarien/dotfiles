@@ -66,4 +66,14 @@ return {
             })
         end
     },
+    {
+        'Wansmer/treesj',
+        keys = {
+            { '<leader>m', vim.cmd.TSJToggle, desc = 'Split/Join' },
+        },
+        opts = {
+            max_join_length = 240,
+            use_default_keymaps = false,
+        },
+    }
 }
