@@ -40,10 +40,14 @@ return {
         opts = {
             disable_italics = true,
             highlight_groups = {
-                Comment = { fg = 'muted', italic = true },
+                Comment = {
+                    fg = 'muted',
+                    italic = true,
+                },
                 EyelinerPrimary = { link = 'IncSearch' },
                 EyelinerSecondary = { link = 'Search' },
-                TreesitterContextBottom = { underline = true }
+                TreesitterContext = { bg = 'overlay' },
+                TreesitterContextBottom = { underline = true, sp = 'iris' },
             }
         },
         config = function(_, opts)
