@@ -11,8 +11,8 @@ else
    xcode-select --install
 fi
 
-# Install OMZ
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# Install Zap
+zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
 
 # Check for Homebrew to be present, install if it's missing
 if test ! $(which brew); then
@@ -38,7 +38,6 @@ PACKAGES=(
     readline
     ripgrep
     koekeishiya/formulae/skhd
-    starship
     stow
     tmux
     tree-sitter
