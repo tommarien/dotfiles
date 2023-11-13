@@ -23,14 +23,9 @@ return {
         opts = {},
     },
     {
-        'echasnovski/mini.pairs',
-        event = 'VeryLazy',
-        version = '*',
-        opts = {
-            mappings = {
-                ['"'] = { neigh_pattern = '[^\\]%W' },
-            }
-        },
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        opts = {}
     },
     {
         'echasnovski/mini.ai',
