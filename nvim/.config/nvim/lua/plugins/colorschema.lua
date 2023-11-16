@@ -31,9 +31,10 @@ return {
         config = function(_, opts)
             require('nightfox').setup(opts)
 
-            vim.cmd('colorscheme dawnfox')
+            local variant = 'dawnfox';
+            vim.cmd('colorscheme ' .. variant)
 
-            local palette = require('nightfox.palette').load('dawnfox')
+            local palette = require('nightfox.palette').load(variant)
 
             vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { undercurl = true, sp = palette.magenta.base })
         end
