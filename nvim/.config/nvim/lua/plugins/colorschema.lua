@@ -21,39 +21,16 @@ return {
             },
             groups = {
                 all = {
-                    EyelinerPrimary = { link = 'Search' },
+                    EyelinerPrimary = { link = 'IncSearch' },
                     EyelinerSecondary = { fg = 'bg1', bg = 'diag.error' },
+                    TreesitterContext = { link = 'CursorLine' },
                     NormalFloat = { bg = 'NONE' },
                 },
             }
         },
         config = function(_, opts)
             require('nightfox').setup(opts)
-            -- vim.cmd('colorscheme dawnfox')
-        end
-    },
-    {
-        'rose-pine/neovim',
-        name = 'rose-pine',
-        lazy = false,
-        priority = 1000,
-        opts = {
-            disable_italics = true,
-            highlight_groups = {
-                Comment = {
-                    fg = 'muted',
-                    italic = true,
-                },
-                EyelinerPrimary = { link = 'IncSearch' },
-                EyelinerSecondary = { link = 'Search' },
-                TreesitterContext = { bg = 'overlay' },
-                TreesitterContextBottom = { underline = true, sp = 'iris' },
-            }
-        },
-        config = function(_, opts)
-            require('rose-pine').setup(opts)
-
-            vim.cmd('colorscheme rose-pine-dawn')
+            vim.cmd('colorscheme dawnfox')
         end
     },
 }
