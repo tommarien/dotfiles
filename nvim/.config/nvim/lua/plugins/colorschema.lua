@@ -23,14 +23,19 @@ return {
                 all = {
                     EyelinerPrimary = { link = 'IncSearch' },
                     EyelinerSecondary = { fg = 'bg1', bg = 'diag.error' },
-                    TreesitterContext = { link = 'CursorLine' },
+                    TreesitterContext = { bg = 'bg0' },
                     NormalFloat = { bg = 'NONE' },
                 },
             }
         },
         config = function(_, opts)
             require('nightfox').setup(opts)
+
             vim.cmd('colorscheme dawnfox')
+
+            local palette = require('nightfox.palette').load('dawnfox')
+
+            vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { undercurl = true, sp = palette.magenta.base })
         end
     },
 }
