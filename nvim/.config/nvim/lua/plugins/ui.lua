@@ -43,6 +43,33 @@ return {
         end
     },
     {
+        'stevearc/qf_helper.nvim',
+        event = 'VeryLazy',
+        keys = {
+            { ']q', vim.cmd.QNext, desc = 'Next QF/LL entry' },
+            { '[q', vim.cmd.QPrev, desc = 'Prev QF/LL entry' },
+        },
+        opts = {}
+    },
+    {
+        'stevearc/oil.nvim',
+        lazy = false,
+        opts = {
+            view_options = {
+                show_hidden = true,
+            }
+        },
+        keys = {
+            {
+                '-',
+                vim.cmd.Oil,
+                desc = "Browse containing folder"
+            }
+
+        },
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+    },
+    {
         'folke/which-key.nvim',
         event = 'VeryLazy',
         version = '*',
