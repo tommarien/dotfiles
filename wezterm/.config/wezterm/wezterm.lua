@@ -9,6 +9,7 @@ return {
             family = 'MonoLisa',
             -- weight = 'Medium',
             harfbuzz_features = {
+                'liga=0',
                 'zero',
                 'ss02', -- script variant
                 'ss07', -- Alt curly
