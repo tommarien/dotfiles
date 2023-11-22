@@ -6,6 +6,9 @@ return {
         opts = {
             suggestion = { enabled = false },
             panel = { enabled = false },
+            filetypes = {
+                ['*'] = true,
+            },
         },
     },
     {
@@ -139,6 +142,7 @@ return {
             -- Set configuration for specific filetype.
             cmp.setup.filetype('gitcommit', {
                 sources = cmp.config.sources({
+                    { name = 'copilot' },
                     { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
                 }, {
                     { name = 'buffer' },
