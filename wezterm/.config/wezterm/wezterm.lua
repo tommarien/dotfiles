@@ -3,7 +3,7 @@ local wezterm = require 'wezterm'
 return {
     adjust_window_size_when_changing_font_size = false,
     bold_brightens_ansi_colors = 'No',
-    color_scheme = 'dawnfox',
+    color_scheme = 'Rosebones_light',
     font = wezterm.font_with_fallback {
         {
             family = 'MonoLisa',
