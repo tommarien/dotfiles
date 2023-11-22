@@ -1,5 +1,14 @@
 return {
     {
+        'zbirenbaum/copilot.lua',
+        cmd = 'Copilot',
+        event = 'InsertEnter',
+        opts = {
+            suggestion = { enabled = false },
+            panel = { enabled = false },
+        },
+    },
+    {
         'hrsh7th/nvim-cmp',
         event = 'InsertEnter',
         dependencies = {
@@ -19,12 +28,22 @@ return {
                 end
             },
             'windwp/nvim-autopairs',
+            {
+                'zbirenbaum/copilot-cmp',
+                opts = {}
+            }
         },
         config = function()
             local cmp = require 'cmp'
             local cmp_autopairs = require('nvim-autopairs.completion.cmp')
             local luasnip = require 'luasnip'
             local lspkind = require 'lspkind'
+
+            lspkind.init({
+                symbol_map = {
+                    Copilot = "",
+                },
+            })
 
             cmp.event:on(
                 'confirm_done',
@@ -96,6 +115,7 @@ return {
                 }),
                 sorting = {
                     comparators = {
+                        require("copilot_cmp.comparators").prioritize,
                         cmp.config.compare.offset,
                         cmp.config.compare.exact,
                         cmp.config.compare.score,
@@ -107,6 +127,7 @@ return {
                 },
                 -- Installed sources
                 sources = cmp.config.sources({
+                    { name = 'copilot' },
                     { name = 'nvim_lsp', keyword_lenght = 2, max_item_count = 20 },
                     { name = 'luasnip',  keyword_lenght = 2, },
                     { name = "path", },

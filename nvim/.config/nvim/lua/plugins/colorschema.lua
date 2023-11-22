@@ -36,6 +36,7 @@ return {
 
             local palette = require('nightfox.palette').load(variant)
 
+            vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = palette.green.base })
             vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { undercurl = true, sp = palette.magenta.base })
         end
     },
