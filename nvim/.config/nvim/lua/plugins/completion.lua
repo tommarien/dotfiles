@@ -4,8 +4,12 @@ return {
         cmd = 'Copilot',
         event = 'InsertEnter',
         opts = {
-            suggestion = { enabled = false },
-            panel = { enabled = false },
+            suggestion = {
+                enabled = true,
+                auto_trigger = true,
+                accept = false, -- disable built-in keymapping
+            },
+            panel = { enabled = true, autorefresh = true },
             filetypes = {
                 ['*'] = true,
             },
@@ -31,10 +35,6 @@ return {
                 end
             },
             'windwp/nvim-autopairs',
-            {
-                'zbirenbaum/copilot-cmp',
-                opts = {}
-            }
         },
         config = function()
             local cmp = require 'cmp'
@@ -42,16 +42,18 @@ return {
             local luasnip = require 'luasnip'
             local lspkind = require 'lspkind'
 
-            lspkind.init({
-                symbol_map = {
-                    Copilot = "",
-                },
-            })
-
             cmp.event:on(
                 'confirm_done',
                 cmp_autopairs.on_confirm_done()
             )
+
+            cmp.event:on("menu_opened", function()
+                vim.b.copilot_suggestion_hidden = true
+            end)
+
+            cmp.event:on("menu_closed", function()
+                vim.b.copilot_suggestion_hidden = false
+            end)
 
             cmp.setup({
                 formatting = {
@@ -118,7 +120,6 @@ return {
                 }),
                 sorting = {
                     comparators = {
-                        require("copilot_cmp.comparators").prioritize,
                         cmp.config.compare.offset,
                         cmp.config.compare.exact,
                         cmp.config.compare.score,
@@ -130,7 +131,6 @@ return {
                 },
                 -- Installed sources
                 sources = cmp.config.sources({
-                    { name = 'copilot' },
                     { name = 'nvim_lsp', keyword_lenght = 2, max_item_count = 20 },
                     { name = 'luasnip',  keyword_lenght = 2, },
                     { name = "path", },
@@ -142,7 +142,6 @@ return {
             -- Set configuration for specific filetype.
             cmp.setup.filetype('gitcommit', {
                 sources = cmp.config.sources({
-                    { name = 'copilot' },
                     { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
                 }, {
                     { name = 'buffer' },
