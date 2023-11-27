@@ -139,10 +139,6 @@ return {
         keys = {
             { '<leader>zz', vim.cmd.ZenMode, desc = 'ZenMode' },
         },
-        opts = {
-            window = {
-                width = 160,
-            }
-        },
+        opts = {},
     }
 }
