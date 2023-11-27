@@ -5,7 +5,7 @@ return {
         priority = 1000,
         opts = {
             options = {
-                -- transparent = true,
+                transparent = true,
                 styles = {               -- Style to be applied to different syntax groups
                     comments = 'italic', -- Value is any valid attr-list value `:help attr-list`
                     conditionals = 'NONE',
@@ -31,27 +31,13 @@ return {
         config = function(_, opts)
             require('nightfox').setup(opts)
 
-            -- local variant = 'dawnfox';
-            -- vim.cmd('colorscheme ' .. variant)
+            local variant = 'duskfox';
+            vim.cmd('colorscheme ' .. variant)
 
-            -- local palette = require('nightfox.palette').load(variant)
+            local palette = require('nightfox.palette').load(variant)
 
-            -- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = palette.green.base })
-            -- vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { undercurl = true, sp = palette.magenta.base })
+            vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = palette.green.base })
+            vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { undercurl = true, sp = palette.magenta.base })
         end
     },
-    {
-        'mcchrish/zenbones.nvim',
-        lazy = false,
-        priority = 1000,
-        dependencies = 'rktjmp/lush.nvim',
-        config = function()
-            vim.o.bg = 'light'
-            vim.cmd('colorscheme rosebones')
-
-            vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { undercurl = true })
-            vim.api.nvim_set_hl(0, 'EyelinerPrimary', { link = 'IncSearch' })
-            vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' })
-        end
-    }
 }
