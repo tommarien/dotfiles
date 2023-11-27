@@ -23,7 +23,7 @@ return {
                 all = {
                     EyelinerPrimary = { link = 'IncSearch' },
                     EyelinerSecondary = { fg = 'bg1', bg = 'diag.error' },
-                    TreesitterContext = { bg = 'bg0' },
+                    -- TreesitterContext = { bg = 'bg0' },
                     NormalFloat = { bg = 'NONE' },
                 },
             }
