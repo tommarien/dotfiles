@@ -48,23 +48,26 @@ return {
                 end
             },
             'windwp/nvim-autopairs',
+            'zbirenbaum/copilot.lua',
         },
         config = function()
             local cmp = require 'cmp'
             local cmp_autopairs = require('nvim-autopairs.completion.cmp')
             local luasnip = require 'luasnip'
             local lspkind = require 'lspkind'
+            local copilot_suggestion = require('copilot.suggestion')
 
-            cmp.event:on(
-                'confirm_done',
-                cmp_autopairs.on_confirm_done()
-            )
+            cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
-            cmp.event:on("menu_opened", function()
+            cmp.event:on('menu_opened', function()
                 vim.b.copilot_suggestion_hidden = true
+
+                if copilot_suggestion.is_visible() then
+                    copilot_suggestion.dismiss()
+                end
             end)
 
-            cmp.event:on("menu_closed", function()
+            cmp.event:on('menu_closed', function()
                 vim.b.copilot_suggestion_hidden = false
             end)
 
@@ -113,8 +116,8 @@ return {
 
                         if cmp.visible() then
                             cmp.select_next_item()
-                        elseif require("copilot.suggestion").is_visible() then
-                            require("copilot.suggestion").accept()
+                        elseif copilot_suggestion.is_visible() then
+                            copilot_suggestion.accept()
                         elseif luasnip.expand_or_locally_jumpable() then
                             luasnip.expand_or_jump()
                         elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
