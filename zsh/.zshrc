@@ -6,8 +6,7 @@ plug "zap-zsh/zap-prompt"
 plug "wintermi/zsh-rust"
 plug "chivalryq/git-alias"
 plug "MichaelAquilina/zsh-you-should-use"
-
-fpath+="/opt/homebrew/share/zsh/site-functions"
+plug "wintermi/zsh-brew"
 
 # Load and initialise completion system
 autoload -Uz compinit
