@@ -3,7 +3,15 @@ return {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         event = 'VeryLazy',
-        opts = {
+        opts = function()
+            local copilotColors = {
+                [''] = 'Normal',
+                ['Normal'] = 'DiagnosticOk',
+                ['Warning'] = 'DiagnosticError',
+                ['InProgress'] = 'DiagnosticWarn',
+            }
+
+            return
             {
                 options = {
                     icons_enabled = true,
@@ -17,10 +25,33 @@ return {
                             path = 1,
                         },
                     },
-                    lualine_x = { 'encoding', 'fileformat', 'filetype' },
+                    lualine_x = {
+                        'encoding',
+                        'fileformat',
+                        'filetype',
+                        {
+                            function()
+                                local status = require('copilot.api').status.data
+
+                                return ' ' .. (status.message or '')
+                            end,
+                            cnd = function()
+                                local ok, clients = pcall(vim.lsp.get_active_clients, { name = 'copilot', bufnr = 0 })
+                                print(ok, clients);
+                                return ok and #clients > 0
+                            end,
+                            color = function()
+                                if not package.loaded['copilot'] then
+                                    return
+                                end
+                                local status = require('copilot.api').status.data
+                                return copilotColors[status.status] or copilotColors['']
+                            end
+                        }
+                    },
                 },
             }
-        },
+        end
     },
     {
         'echasnovski/mini.hipatterns',

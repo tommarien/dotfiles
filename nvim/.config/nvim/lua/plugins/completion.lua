@@ -61,10 +61,6 @@ return {
 
             cmp.event:on('menu_opened', function()
                 vim.b.copilot_suggestion_hidden = true
-
-                if copilot_suggestion.is_visible() then
-                    copilot_suggestion.dismiss()
-                end
             end)
 
             cmp.event:on('menu_closed', function()
@@ -136,17 +132,6 @@ return {
                         end
                     end, { 'i', 's' })
                 }),
-                sorting = {
-                    comparators = {
-                        cmp.config.compare.offset,
-                        cmp.config.compare.exact,
-                        cmp.config.compare.score,
-                        cmp.config.recently_used,
-                        cmp.config.compare.kind,
-                        cmp.config.compare.length,
-                        cmp.config.compare.order,
-                    },
-                },
                 -- Installed sources
                 sources = cmp.config.sources({
                     { name = 'nvim_lsp', keyword_lenght = 2, max_item_count = 20 },
