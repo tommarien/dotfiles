@@ -69,6 +69,7 @@ return {
                         },
                     },
                 },
+                gopls = {},
                 lua_ls = {
                     settings = {
                         Lua = {

@@ -32,3 +32,11 @@ vim.api.nvim_create_autocmd("BufRead", {
         require("cmp").setup.buffer({ sources = { { name = "crates" } } })
     end,
 })
+
+-- override go ft settings
+vim.api.nvim_exec([[
+  augroup go_settings
+    autocmd!
+    autocmd FileType go setlocal noexpandtab tabstop=4
+  augroup END
+]], false)
