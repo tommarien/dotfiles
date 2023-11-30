@@ -20,6 +20,7 @@ return {
             -- scale = 0.75
         }
     },
+    freetype_load_flags = 'NO_HINTING',
     font_size = 16,
     hide_tab_bar_if_only_one_tab = true,
     line_height = 1.02,
