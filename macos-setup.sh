@@ -27,13 +27,13 @@ echo "Updating homebrew"
 brew update
 
 PACKAGES=(
-    alacritty
     bat
     cmake
     fnm
     fzf
     git
     git-trim
+    kitty
     neovim
     readline
     ripgrep
@@ -53,7 +53,6 @@ CASKS=(
    cheatsheet
    fork
    textmate
-   wezterm
    tomatobar
 )
 echo "Installing cask apps..."
