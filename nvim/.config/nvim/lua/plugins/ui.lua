@@ -83,24 +83,6 @@ return {
         opts = {}
     },
     {
-        'stevearc/oil.nvim',
-        lazy = false,
-        opts = {
-            view_options = {
-                show_hidden = true,
-            }
-        },
-        keys = {
-            {
-                '-',
-                vim.cmd.Oil,
-                desc = "Browse containing folder"
-            }
-
-        },
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
-    },
-    {
         'folke/which-key.nvim',
         event = 'VeryLazy',
         version = '*',
