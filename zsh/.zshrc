@@ -23,7 +23,8 @@ eval "$(zoxide init zsh)"
 eval "$(fnm env --use-on-cd)"
 
 # Add bin to path
-export PATH=/opt/homebrew/opt/mysql-client/bin:HOME/bin:$PATH
+export GO_PATH=$HOME/go
+export PATH=/opt/homebrew/opt/mysql-client/bin:HOME/bin:$GO_PATH/bin:$PATH
 
 # Add custom aliases
 source $HOME/.zsh/aliases
