@@ -2,20 +2,8 @@ return {
     {
         'zbirenbaum/copilot.lua',
         cmd = 'Copilot',
+        build = ':Copilot auth',
         event = 'InsertEnter',
-        init = function()
-            local copilot_on = true
-            vim.api.nvim_create_user_command('CopilotToggle', function()
-                if copilot_on then
-                    vim.cmd("Copilot disable")
-                    print("Copilot OFF")
-                else
-                    vim.cmd("Copilot enable")
-                    print("Copilot ON")
-                end
-                copilot_on = not copilot_on
-            end, { nargs = 0 })
-        end,
         opts = {
             suggestion = {
                 enabled = true,
@@ -27,6 +15,22 @@ return {
                 ['*'] = true,
             },
         },
+        config = function(_, opts)
+            require('copilot').setup(opts)
+
+            -- hide copilot suggestions when cmp menu is open
+            -- to prevent odd behavior/garbled up suggestions
+            local cmp_status_ok, cmp = pcall(require, "cmp")
+            if cmp_status_ok then
+                cmp.event:on("menu_opened", function()
+                    vim.b.copilot_suggestion_hidden = true
+                end)
+
+                cmp.event:on("menu_closed", function()
+                    vim.b.copilot_suggestion_hidden = false
+                end)
+            end
+        end
     },
     {
         'hrsh7th/nvim-cmp',
@@ -48,7 +52,6 @@ return {
                 end
             },
             'windwp/nvim-autopairs',
-            'zbirenbaum/copilot.lua',
         },
         config = function()
             local cmp = require 'cmp'
@@ -58,18 +61,6 @@ return {
             local copilot_suggestion = require('copilot.suggestion')
 
             cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
-
-            cmp.event:on('menu_opened', function()
-                vim.b.copilot_suggestion_hidden = true
-
-                if copilot_suggestion.is_visible() then
-                    copilot_suggestion.dismiss()
-                end
-            end)
-
-            cmp.event:on('menu_closed', function()
-                vim.b.copilot_suggestion_hidden = false
-            end)
 
             cmp.setup({
                 formatting = {
