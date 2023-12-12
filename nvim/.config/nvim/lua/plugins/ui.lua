@@ -49,7 +49,6 @@ return {
     },
     {
         'echasnovski/mini.files',
-        event = 'VeryLazy',
         version = '*',
         keys = {
             { '<leader>x', '<Cmd>lua MiniFiles.open()<CR>', desc = 'Browse files' },
