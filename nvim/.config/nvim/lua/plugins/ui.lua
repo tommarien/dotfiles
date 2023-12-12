@@ -74,6 +74,19 @@ return {
         end
     },
     {
+        'echasnovski/mini.files',
+        event = 'VeryLazy',
+        version = '*',
+        keys = {
+            { '<leader>x', '<Cmd>lua MiniFiles.open()<CR>', desc = 'Browse files' },
+        },
+        opts = {
+            options = {
+                use_as_default_explorer = false,
+            }
+        },
+    },
+    {
         'stevearc/qf_helper.nvim',
         event = 'VeryLazy',
         keys = {
