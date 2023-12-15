@@ -29,15 +29,29 @@ return {
             }
         },
         config = function(_, opts)
-            require('nightfox').setup(opts)
-
-            local variant = 'duskfox';
-            vim.cmd('colorscheme ' .. variant)
-
-            local palette = require('nightfox.palette').load(variant)
-
-            vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = palette.green.base })
-            vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { undercurl = true, sp = palette.magenta.base })
+            -- require('nightfox').setup(opts)
+            --
+            -- local variant = 'duskfox';
+            -- vim.cmd('colorscheme ' .. variant)
+            --
+            -- local palette = require('nightfox.palette').load(variant)
+            --
+            -- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = palette.green.base })
+            -- vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { undercurl = true, sp = palette.magenta.base })
+        end
+    },
+    {
+        'shatur/neovim-ayu',
+        lazy = false,
+        priority = 1000,
+        opts = {
+            mirage = true,
+            overrides = {}
+        },
+        config = function(_, opts)
+            require('ayu').setup(opts)
+            vim.cmd('colorscheme ayu')
+            vim.cmd('highlight Normal guibg=none')
         end
     }
 }
