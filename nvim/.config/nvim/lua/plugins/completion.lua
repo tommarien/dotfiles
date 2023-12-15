@@ -24,6 +24,12 @@ return {
             if cmp_status_ok then
                 cmp.event:on("menu_opened", function()
                     vim.b.copilot_suggestion_hidden = true
+
+                    local copilot_suggestion = require('copilot.suggestion')
+
+                    if copilot_suggestion.is_visible() then
+                        copilot_suggestion.dismiss()
+                    end
                 end)
 
                 cmp.event:on("menu_closed", function()
