@@ -40,4 +40,15 @@ return {
             vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { undercurl = true, sp = palette.magenta.base })
         end
     },
+    {
+        'yorik1984/newpaper.nvim',
+        lazy = false,
+        priority = 1000,
+        enabled = false,
+        opts = {
+            italic_strings = false,
+            booleans = 'NONE',
+            keywords = 'NONE'
+        },
+    }
 }
