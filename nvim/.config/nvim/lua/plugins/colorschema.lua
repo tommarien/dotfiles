@@ -29,28 +29,15 @@ return {
             }
         },
         config = function(_, opts)
-            -- require('nightfox').setup(opts)
-            --
-            -- local variant = 'duskfox';
-            -- vim.cmd('colorscheme ' .. variant)
-            --
-            -- local palette = require('nightfox.palette').load(variant)
-            --
-            -- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = palette.green.base })
-            -- vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { undercurl = true, sp = palette.magenta.base })
-        end
-    },
-    {
-        'yorik1984/newpaper.nvim',
-        lazy = false,
-        priority = 1000,
-        opts = {
-            italic_strings = false,
-            booleans = 'NONE',
-            keywords = 'NONE'
-        },
-        config = function(_, opts)
-            require('newpaper').setup(opts)
+            require('nightfox').setup(opts)
+
+            local variant = 'duskfox';
+            vim.cmd('colorscheme ' .. variant)
+
+            local palette = require('nightfox.palette').load(variant)
+
+            vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = palette.green.base })
+            vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { undercurl = true, sp = palette.magenta.base })
         end
     }
 }
