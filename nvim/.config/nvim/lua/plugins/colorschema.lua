@@ -1,57 +1,24 @@
 return {
     {
-        'edeneast/nightfox.nvim',
-        lazy = false,
-        priority = 1000,
-        opts = {
-            options = {
-                transparent = true,
-                styles = {               -- Style to be applied to different syntax groups
-                    comments = 'italic', -- Value is any valid attr-list value `:help attr-list`
-                    conditionals = 'NONE',
-                    constants = 'NONE',
-                    functions = 'NONE',
-                    keywords = 'NONE',
-                    numbers = 'NONE',
-                    operators = 'NONE',
-                    strings = 'NONE',
-                    types = 'NONE',
-                    variables = 'NONE',
-                },
-            },
-            groups = {
-                all = {
-                    EyelinerPrimary = { link = 'IncSearch' },
-                    EyelinerSecondary = { fg = 'bg1', bg = 'diag.error' },
-                    -- TreesitterContext = { bg = 'bg0' },
-                    NormalFloat = { bg = 'NONE' },
-                },
-            }
-        },
-        config = function(_, opts)
-            -- require('nightfox').setup(opts)
-            --
-            -- local variant = 'duskfox';
-            -- vim.cmd('colorscheme ' .. variant)
-            --
-            -- local palette = require('nightfox.palette').load(variant)
-            --
-            -- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = palette.green.base })
-            -- vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { undercurl = true, sp = palette.magenta.base })
-        end
-    },
-    {
         'shatur/neovim-ayu',
         lazy = false,
         priority = 1000,
         opts = {
             mirage = true,
-            overrides = {}
+            overrides = {
+                Normal = { bg = 'None' },
+                ColorColumn = { bg = 'None' },
+                SignColumn = { bg = 'None' },
+                Folded = { bg = 'None' },
+                FoldColumn = { bg = 'None' },
+                CursorLine = { bg = 'None' },
+                CursorColumn = { bg = 'None' },
+                VertSplit = { bg = 'None' },
+            }
         },
         config = function(_, opts)
             require('ayu').setup(opts)
             vim.cmd('colorscheme ayu')
-            vim.cmd('highlight Normal guibg=none')
         end
     }
 }
