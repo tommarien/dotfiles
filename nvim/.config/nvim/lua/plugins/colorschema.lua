@@ -1,5 +1,39 @@
 return {
     {
+        'edeneast/nightfox.nvim',
+        lazy = false,
+        priority = 1000,
+        opts = {
+            options = {
+                transparent = true,
+                styles = {               -- Style to be applied to different syntax groups
+                    comments = 'italic', -- Value is any valid attr-list value `:help attr-list`
+                    conditionals = 'NONE',
+                    constants = 'NONE',
+                    functions = 'NONE',
+                    keywords = 'NONE',
+                    numbers = 'NONE',
+                    operators = 'NONE',
+                    strings = 'NONE',
+                    types = 'NONE',
+                    variables = 'NONE',
+                },
+            },
+            groups = {
+                all = {
+                    EyelinerPrimary = { link = 'IncSearch' },
+                    EyelinerSecondary = { fg = 'bg1', bg = 'diag.error' },
+                    TreesitterContext = { bg = 'bg1' },
+                    NormalFloat = { bg = 'NONE' },
+                },
+            }
+        },
+        config = function(_, opts)
+            require('nightfox').setup(opts)
+            -- vim.cmd('colorscheme duskfox')
+        end
+    },
+    {
         'shatur/neovim-ayu',
         lazy = false,
         priority = 1000,
@@ -17,35 +51,21 @@ return {
             }
         },
         config = function(_, opts)
-            -- require('ayu').setup(opts)
-            -- vim.cmd('colorscheme ayu')
+            require('ayu').setup(opts)
         end
     },
     {
-        'rebelot/kanagawa.nvim',
+        'neanias/everforest-nvim',
+        version = false,
         lazy = false,
         priority = 1000,
         opts = {
-            transparent = true,
+            italics = true,
         },
         config = function(_, opts)
-            require('kanagawa').setup(opts)
-            vim.cmd('colorscheme kanagawa')
-        end
-    },
-    {
-        'ellisonleao/gruvbox.nvim',
-        priority = 1000,
-        opts = {
-            transparent_mode = true,
-            contrast = 'hard',
-            italic = {
-                strings = false
-            }
-        },
-        config = function(_, opts)
-            require('gruvbox').setup(opts)
-            -- vim.cmd('colorscheme gruvbox')
-        end
+            vim.cmd('set background=light')
+            require("everforest").setup(opts)
+            vim.cmd('colorscheme everforest')
+        end,
     }
 }
