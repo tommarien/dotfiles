@@ -105,17 +105,6 @@ return {
                     i = { function() require('package-info').install() end, 'Install a new dependency' },
                     p = { function() require('package-info').change_version() end, 'Install a different version' },
                 },
-                t = {
-                    name = 'Crates',
-                    t = { function() require('crates').toggle() end, 'Toggle' },
-                    r = { function() require('crates').reload() end, 'Reload' },
-                    v = { function() require('crates').show_versions_popup() end, 'Show versions' },
-                    f = { function() require('crates').show_features_popup() end, 'Show features' },
-                    d = { function() require('crates').show_dependencies_popup() end, 'Show dependencies' },
-                    s = { function() require('crates').focus_popup() end, 'Focus popup' },
-                    u = { function() require('crates').update_crate() end, 'Update crate' },
-                    U = { function() require('crates').upgrade_crate() end, 'Upgrade crate' },
-                }
             }, { prefix = '<leader>' })
 
             wk.register({

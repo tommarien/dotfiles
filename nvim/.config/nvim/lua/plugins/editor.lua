@@ -193,12 +193,6 @@ return {
         config = true,
     },
     {
-        'saecki/crates.nvim',
-        event = { 'BufRead Cargo.toml' },
-        dependencies = 'nvim-lua/plenary.nvim',
-        config = true,
-    },
-    {
         'nvim-telescope/telescope.nvim',
         event = 'VeryLazy',
         version = '*',
