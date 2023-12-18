@@ -60,7 +60,10 @@ return {
         lazy = false,
         priority = 1000,
         opts = {
-            italics = true,
+            on_highlights = function(hl, palette)
+                hl.EyelinerPrimary = { bg = palette.green, fg = palette.bg1 }
+                hl.EyelinerSecondary = { bg = palette.orange, fg = palette.bg1 }
+            end
         },
         config = function(_, opts)
             vim.cmd('set background=light')
