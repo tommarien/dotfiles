@@ -7,8 +7,9 @@ return {
         opts = {
             suggestion = {
                 enabled = true,
-                auto_trigger = true,
                 accept = false, -- disable built-in keymapping
+                auto_trigger = true,
+                dismiss = "<M-e>"
             },
             panel = { enabled = true, autorefresh = true },
             filetypes = {
@@ -24,12 +25,6 @@ return {
             if cmp_status_ok then
                 cmp.event:on("menu_opened", function()
                     vim.b.copilot_suggestion_hidden = true
-
-                    local copilot_suggestion = require('copilot.suggestion')
-
-                    if copilot_suggestion.is_visible() then
-                        copilot_suggestion.dismiss()
-                    end
                 end)
 
                 cmp.event:on("menu_closed", function()
