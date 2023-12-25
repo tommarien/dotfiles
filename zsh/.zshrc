@@ -7,6 +7,7 @@ plug "wintermi/zsh-rust"
 plug "chivalryq/git-alias"
 plug "MichaelAquilina/zsh-you-should-use"
 plug "wintermi/zsh-brew"
+plug "Aloxaf/fzf-tab"
 
 # Load and initialise completion system
 autoload -Uz compinit
