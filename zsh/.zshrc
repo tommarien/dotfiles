@@ -18,7 +18,6 @@ compinit
 export LESS="--no-init --quit-if-one-screen -R"
 
 # zoxide
-
 eval "$(zoxide init zsh)"
 
 # fnm (Fast Node Manager)
