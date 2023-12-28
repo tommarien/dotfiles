@@ -48,16 +48,22 @@ return {
         end
     },
     {
-        'echasnovski/mini.files',
-        version = '*',
-        keys = {
-            { '<leader>x', '<Cmd>lua MiniFiles.open()<CR>', desc = 'Browse files' },
-        },
+        'stevearc/oil.nvim',
+        lazy = false,
         opts = {
-            options = {
-                use_as_default_explorer = false,
+            view_options = {
+                show_hidden = true,
             }
         },
+        keys = {
+            {
+                '-',
+                vim.cmd.Oil,
+                desc = "Browse containing folder"
+            }
+
+        },
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
     },
     {
         'stevearc/qf_helper.nvim',
