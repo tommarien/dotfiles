@@ -12,7 +12,11 @@ plug "Aloxaf/fzf-tab"
 
 # Load and initialise completion system
 autoload -Uz compinit
-compinit
+if [[ -n $HOME/.zcompdump(#qN.mh+24) ]]; then
+	compinit;
+else
+	compinit -C;
+fi;
 
 # Ensure less does not page if not necessary
 export LESS="--no-init --quit-if-one-screen -R"
