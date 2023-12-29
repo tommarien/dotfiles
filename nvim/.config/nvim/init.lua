@@ -1,5 +1,6 @@
 require('options')
 require('keymaps')
 require('autocmds')
+require('filetypes')
 require('diagnostics')
 require('plugin-manager')
