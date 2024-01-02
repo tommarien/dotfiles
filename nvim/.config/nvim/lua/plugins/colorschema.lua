@@ -86,7 +86,20 @@ return {
         config = function(_, opts)
             require('github-theme').setup(opts)
 
-            vim.cmd('colorscheme github_dark')
+            -- vim.cmd('colorscheme github_dark')
+        end,
+    },
+    {
+        'rebelot/kanagawa.nvim',
+        lazy = false,
+        priority = 1000,
+        opts = {
+            keywordStyle = { italic = false },
+            transparent = true,
+        },
+        config = function(_, opts)
+            require('kanagawa').setup(opts)
+            vim.cmd('colorscheme kanagawa')
         end,
     }
 }
