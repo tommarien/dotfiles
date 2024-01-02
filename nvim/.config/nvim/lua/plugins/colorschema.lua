@@ -59,9 +59,25 @@ return {
             end
         },
         config = function(_, opts)
-            require('catppuccin').setup(opts)
-            vim.cmd('colorscheme catppuccin')
+            -- require('catppuccin').setup(opts)
+            -- vim.cmd('colorscheme catppuccin')
         end
 
+    },
+    {
+        'projekt0n/github-nvim-theme',
+        lazy = false,
+        priority = 1000,
+        opts = {
+            transparent = true,
+            styles = {
+                comments = 'italic'
+            }
+        },
+        config = function(_, opts)
+            require('github-theme').setup({ options = opts })
+
+            vim.cmd('colorscheme github_dark')
+        end,
     }
 }
