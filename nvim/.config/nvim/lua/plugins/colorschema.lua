@@ -69,13 +69,22 @@ return {
         lazy = false,
         priority = 1000,
         opts = {
-            transparent = true,
-            styles = {
-                comments = 'italic'
+            options = {
+                transparent = true,
+                styles = {
+                    comments = 'italic',
+                    conditionals = 'italic'
+                },
+            },
+            groups = {
+                github_dark = {
+                    MatchParen = { fg = '#87ff00', style = { 'bold' } },
+                    TreesitterContextLineNumber = { bg = 'palette.accent.subtle' }
+                }
             }
         },
         config = function(_, opts)
-            require('github-theme').setup({ options = opts })
+            require('github-theme').setup(opts)
 
             vim.cmd('colorscheme github_dark')
         end,
