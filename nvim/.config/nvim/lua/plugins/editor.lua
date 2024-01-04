@@ -172,6 +172,13 @@ return {
         event = 'VeryLazy'
     },
     {
+        'max397574/better-escape.nvim',
+        event = 'InsertEnter',
+        opts = {
+            clear_empty_lines = true,
+        },
+    },
+    {
         'ThePrimeagen/harpoon',
         keys = {
             { '<leader>ha', function() require("harpoon.mark").add_file() end,        desc = 'Add mark' },
