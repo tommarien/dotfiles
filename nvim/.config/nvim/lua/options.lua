@@ -14,7 +14,6 @@ o.scrolloff = 8
 o.number = true         -- Show line numbers
 o.relativenumber = true -- Show relative line numbers, enables easy up,down jumping
 o.signcolumn = 'yes'    -- Show sign column
-o.cursorline = true
 o.wrap = false          -- Never wrap
 o.autoindent = true     -- Auto indent new lines
 o.expandtab = true      -- Use spaces instead of tabs
