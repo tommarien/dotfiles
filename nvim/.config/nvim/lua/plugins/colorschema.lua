@@ -11,5 +11,18 @@ return {
             -- vim.g.sonokai_enable_italic = 1
             vim.cmd('colorscheme sonokai')
         end
+    },
+    {
+        'yorik1984/newpaper.nvim',
+        lazy = false,
+        priority = 1001,
+        opts = {
+            italic_strings = false,
+            booleans = 'NONE',
+            keywords = 'NONE'
+        },
+        config = function(_, opts)
+            require('newpaper').setup(opts)
+        end
     }
 }
