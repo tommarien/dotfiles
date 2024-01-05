@@ -9,29 +9,15 @@ return {
                 enabled = true,
                 accept = false, -- disable built-in keymapping
                 auto_trigger = true,
-                dismiss = "<M-e>"
+                prev = '<M-[>',
+                next = '<M-]>',
+                dismiss = '<M-e>'
             },
             panel = { enabled = true, autorefresh = true },
             filetypes = {
                 ['*'] = true,
             },
         },
-        config = function(_, opts)
-            require('copilot').setup(opts)
-
-            -- hide copilot suggestions when cmp menu is open
-            -- to prevent odd behavior/garbled up suggestions
-            local cmp_status_ok, cmp = pcall(require, "cmp")
-            if cmp_status_ok then
-                cmp.event:on("menu_opened", function()
-                    vim.b.copilot_suggestion_hidden = true
-                end)
-
-                cmp.event:on("menu_closed", function()
-                    vim.b.copilot_suggestion_hidden = false
-                end)
-            end
-        end
     },
     {
         'hrsh7th/nvim-cmp',
@@ -61,7 +47,17 @@ return {
             local lspkind = require 'lspkind'
             local copilot_suggestion = require('copilot.suggestion')
 
+            -- Autopairs
             cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+
+            -- Copilot
+            cmp.event:on("menu_opened", function()
+                vim.b.copilot_suggestion_hidden = true
+            end)
+
+            cmp.event:on("menu_closed", function()
+                vim.b.copilot_suggestion_hidden = false
+            end)
 
             cmp.setup({
                 formatting = {
