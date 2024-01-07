@@ -25,6 +25,19 @@ return {
         end
     },
     {
+        'sainnhe/edge',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            vim.g.sonokai_style = 'neon'
+            vim.g.edge_better_performance = 1
+            vim.g.edge_diagnostic_virtual_text = 'colored'
+            vim.g.edge_enable_bold = 1
+            -- vim.g.edge_transparent_background = 1
+            vim.cmd('colorscheme edge')
+        end
+    },
+    {
         'ribru17/bamboo.nvim',
         lazy = false,
         priority = 1000,
@@ -33,7 +46,7 @@ return {
         },
         config = function(_, opts)
             require('bamboo').setup(opts)
-            vim.cmd('colorscheme bamboo')
+            -- vim.cmd('colorscheme bamboo')
         end,
     },
 }
