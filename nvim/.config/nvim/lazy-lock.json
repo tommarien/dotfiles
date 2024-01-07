@@ -2,6 +2,7 @@
   "FixCursorHold.nvim": { "branch": "master", "commit": "1900f89dc17c603eec29960f57c00bd9ae696495" },
   "LuaSnip": { "branch": "master", "commit": "68153ebb03e65d8a437c6240553645c57f17cf99" },
   "aerial.nvim": { "branch": "master", "commit": "e2e3bc2df4490690ea005395eecdc8eeb30c4def" },
+  "bamboo.nvim": { "branch": "master", "commit": "8df648cc2a5fab704ef00c2e6827f49dcf996ee5" },
   "better-escape.nvim": { "branch": "master", "commit": "d62cf3c04163a46f3895c70cc807f5ae68dd8ca1" },
   "cmp-buffer": { "branch": "main", "commit": "3022dbc9166796b644a841a02de8dd1cc1d311fa" },
   "cmp-cmdline": { "branch": "main", "commit": "8ee981b4a91f536f52add291594e89fb6645e451" },
