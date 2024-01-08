@@ -4,11 +4,15 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            vim.g.sonokai_style = 'andromeda'
+            vim.g.sonokai_style = 'atlantis'
             vim.g.sonokai_better_performance = 1
-            vim.g.sonokai_transparent_background = 1
+            vim.g.sonokai_transparent_background = 2
             vim.g.sonokai_diagnostic_virtual_text = 'colored'
-            -- vim.cmd('colorscheme sonokai')
+            vim.cmd('colorscheme sonokai')
+
+            vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' })
+            vim.api.nvim_set_hl(0, 'FloatBorder', { bg = 'NONE' })
+            vim.api.nvim_set_hl(0, 'MatchParen', { bg = 'NONE', fg = '#87ff00', bold = true })
         end
     },
     {
@@ -23,30 +27,5 @@ return {
             -- We set the background to light because i only use the light
             -- vim.opt.background = 'light'
         end
-    },
-    {
-        'sainnhe/edge',
-        lazy = false,
-        priority = 1000,
-        config = function()
-            vim.g.sonokai_style = 'neon'
-            vim.g.edge_better_performance = 1
-            vim.g.edge_diagnostic_virtual_text = 'colored'
-            vim.g.edge_enable_bold = 1
-            vim.g.edge_transparent_background = 1
-            vim.cmd('colorscheme edge')
-        end
-    },
-    {
-        'ribru17/bamboo.nvim',
-        lazy = false,
-        priority = 1000,
-        opts = {
-            -- transparent = true,
-        },
-        config = function(_, opts)
-            require('bamboo').setup(opts)
-            -- vim.cmd('colorscheme bamboo')
-        end,
-    },
+    }
 }
