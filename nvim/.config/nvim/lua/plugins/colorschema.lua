@@ -54,10 +54,10 @@ return {
                 transparent = true,
                 styles = {
                     comments = 'italic',
-                    conditionals = 'italic',
+                    conditionals = 'bold',
                     constants = 'NONE',
                     functions = 'NONE',
-                    keywords = 'NONE',
+                    keywords = 'italic',
                     numbers = 'NONE',
                     operators = 'NONE',
                     strings = 'NONE',
@@ -67,9 +67,10 @@ return {
             },
             groups = {
                 all = {
-                    EyelinerPrimary = { bg = 'bg1', fg = '#a4be8B' },
-                    -- EyelinerSecondary = { fg = 'bg1', bg = 'diag.error' },
+                    EyelinerPrimary = { bg = 'bg1', fg = 'palette.green.bright' },
+                    EyelinerSecondary = { bg = 'bg1', fg = 'palette.red.bright' },
                     NormalFloat = { bg = 'NONE' },
+                    ['@type.qualifier'] = { link = 'keyword' }
                 },
             }
         },
@@ -77,11 +78,15 @@ return {
             require('nightfox').setup(opts)
 
             local variant = 'duskfox';
+            vim.api.nvim_create_autocmd('ColorScheme', {
+                pattern = '*fox',
+                callback = function()
+                    local palette = require('nightfox.palette').load(variant)
+                    vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { undercurl = true, sp = palette.magenta.base })
+                end,
+            })
+
             vim.cmd('colorscheme ' .. variant)
-
-            local palette = require('nightfox.palette').load(variant)
-
-            vim.api.nvim_set_hl(0, 'TreesitterContextBottom', { undercurl = true, sp = palette.magenta.base })
         end
     }
 }
