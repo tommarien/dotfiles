@@ -16,19 +16,6 @@ return {
         end
     },
     {
-        'sainnhe/everforest',
-        lazy = false,
-        priority = 1000,
-        config = function()
-            vim.g.everforest_better_performance = 1
-            vim.g.everforest_diagnostic_virtual_text = 'colored'
-            vim.g.everforest_enable_bold = 1
-            -- vim.g.everforest_transparent_background = 1
-            -- We set the background to light because i only use the light
-            -- vim.opt.background = 'light'
-        end
-    },
-    {
         'sainnhe/edge',
         lazy = false,
         priority = 1000,
