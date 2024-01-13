@@ -86,7 +86,19 @@ return {
                 end,
             })
 
-            vim.cmd('colorscheme ' .. variant)
+            -- vim.cmd('colorscheme ' .. variant)
+        end
+    },
+    {
+        'Mofiqul/vscode.nvim',
+        lazy = false,
+        priority = 1000,
+        opts = {
+            italic_comments = true,
+        },
+        config = function(_, opts)
+            require('vscode').setup(opts)
+            vim.cmd('colorscheme vscode')
         end
     }
 }
