@@ -82,7 +82,15 @@ return {
         },
         config = function(_, opts)
             require('vscode').setup(opts)
+
+            vim.api.nvim_create_autocmd('ColorScheme', {
+                pattern = 'vscode',
+                callback = function()
+                    vim.api.nvim_set_hl(0, 'MatchParen', { bg = 'NONE', fg = '#87ff00', bold = true })
+                end,
+            })
+
             vim.cmd('colorscheme vscode')
         end
-    }
+    },
 }
