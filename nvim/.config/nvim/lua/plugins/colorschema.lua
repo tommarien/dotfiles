@@ -90,7 +90,22 @@ return {
                 end,
             })
 
-            vim.cmd('colorscheme vscode')
+            -- vim.cmd('colorscheme vscode')
         end
     },
+    {
+        'folke/tokyonight.nvim',
+        lazy = false,
+        priority = 1000,
+        opts = {
+            style = 'storm',
+            styles = {
+                floats = 'normal'
+            }
+        },
+        config = function(_, opts)
+            require('tokyonight').setup(opts)
+            vim.cmd('colorscheme tokyonight')
+        end
+    }
 }
