@@ -100,7 +100,8 @@ return {
         opts = {
             style = 'storm',
             styles = {
-                floats = 'normal'
+                floats = 'normal',
+                keywords = { italic = false },
             }
         },
         config = function(_, opts)
