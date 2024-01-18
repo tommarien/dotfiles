@@ -102,7 +102,8 @@ return {
             styles = {
                 floats = 'normal',
                 keywords = { italic = false },
-            }
+            },
+            lualine_bold = true,
         },
         config = function(_, opts)
             require('tokyonight').setup(opts)
