@@ -64,4 +64,6 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # Finder: show hidden files by default
 defaults write com.apple.finder AppleShowAllFiles -bool true
 
+echo "You might need to install rust and golang manually"
+
 echo "Macbook setup completed!"
