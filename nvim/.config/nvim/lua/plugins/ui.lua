@@ -98,15 +98,6 @@ return {
                     g = { '<cmd>Telescope git_files<cr>', '[F]ind [G]it files' },
                     r = { '<cmd>Telescope oldfiles<cr>', '[F]ind [R]ecent files' },
                     s = { '<cmd>Telescope live_grep_args<cr>', 'Search string' },
-                    S = { function()
-                        require('telescope.builtin').grep_string({
-                            shorten_path = true,
-                            word_match = "-w",
-                            only_sort_text = true,
-                            search =
-                            ''
-                        })
-                    end, 'Search string (fuzzy)' },
                     w = { '<cmd>Telescope grep_string<cr>', 'Search word under cursor' },
                 },
                 h = { name = 'Harpoon' },
