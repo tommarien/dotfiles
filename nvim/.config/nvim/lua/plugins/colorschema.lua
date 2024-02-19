@@ -27,7 +27,41 @@ return {
         },
         config = function(_, opts)
             require('tokyonight').setup(opts)
-            vim.cmd('colorscheme tokyonight')
+            -- vim.cmd('colorscheme tokyonight')
         end
+    },
+    {
+        'ellisonleao/gruvbox.nvim',
+        priority = 1000,
+        opts = {
+            -- contrast = 'soft',
+            overrides = {
+                SignColumn = { link = 'LineNr' },
+            }
+        },
+        config = function(_, opts)
+            require('gruvbox').setup(opts)
+            vim.cmd('colorscheme gruvbox')
+        end
+    },
+    {
+        'projekt0n/github-nvim-theme',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require('github-theme').setup({
+                -- ...
+            })
+        end,
+    },
+    {
+        'neanias/everforest-nvim',
+        version = false,
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require('everforest').setup({
+            })
+        end,
     }
 }
