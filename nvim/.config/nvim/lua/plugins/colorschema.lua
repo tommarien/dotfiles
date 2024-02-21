@@ -34,7 +34,6 @@ return {
         'ellisonleao/gruvbox.nvim',
         priority = 1000,
         opts = {
-            -- contrast = 'soft',
             overrides = {
                 SignColumn = { link = 'LineNr' },
             }
@@ -43,25 +42,5 @@ return {
             require('gruvbox').setup(opts)
             vim.cmd('colorscheme gruvbox')
         end
-    },
-    {
-        'projekt0n/github-nvim-theme',
-        lazy = false,
-        priority = 1000,
-        config = function()
-            require('github-theme').setup({
-                -- ...
-            })
-        end,
-    },
-    {
-        'neanias/everforest-nvim',
-        version = false,
-        lazy = false,
-        priority = 1000,
-        config = function()
-            require('everforest').setup({
-            })
-        end,
     }
 }
