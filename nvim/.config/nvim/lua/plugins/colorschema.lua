@@ -32,6 +32,7 @@ return {
     },
     {
         'ellisonleao/gruvbox.nvim',
+        lazy = false,
         priority = 1000,
         opts = {
             overrides = {
@@ -40,7 +41,17 @@ return {
         },
         config = function(_, opts)
             require('gruvbox').setup(opts)
-            vim.cmd('colorscheme gruvbox')
+            -- vim.cmd('colorscheme gruvbox')
+        end
+    },
+    {
+        'sainnhe/everforest',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            vim.g.everforest_better_performance = 1
+            vim.g.everforest_diagnostic_virtual_text = 1
+            vim.cmd('colorscheme everforest')
         end
     }
 }

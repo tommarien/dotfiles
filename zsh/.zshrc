@@ -32,7 +32,7 @@ export GO_PATH=$HOME/go
 export PATH=/opt/homebrew/opt/mysql-client/bin:HOME/bin:$GO_PATH/bin:$PATH
 
 # Load fzf theme
-source $HOME/.zsh/fzf-tokyonight-storm-theme
+source $HOME/.zsh/fzf-everforest-dark-theme
 
 # Add custom aliases
 source $HOME/.zsh/aliases
