@@ -27,6 +27,9 @@ eval "$(zoxide init zsh)"
 # fnm (Fast Node Manager)
 eval "$(fnm env --use-on-cd)"
 
+# direnv
+eval "$(direnv hook zsh)"
+
 # Add bin to path
 export GO_PATH=$HOME/go
 export PATH=/opt/homebrew/opt/mysql-client/bin:HOME/bin:$GO_PATH/bin:$PATH

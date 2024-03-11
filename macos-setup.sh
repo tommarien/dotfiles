@@ -29,6 +29,7 @@ brew update
 PACKAGES=(
     bat
     cmake
+    direnv
     fnm
     fzf
     git
