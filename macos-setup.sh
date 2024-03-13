@@ -34,6 +34,7 @@ PACKAGES=(
     fzf
     git
     git-trim
+    hurl
     kitty
     neovim
     readline
