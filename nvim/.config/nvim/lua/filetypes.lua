@@ -6,6 +6,13 @@ vim.api.nvim_exec([[
   augroup END
 ]], false)
 
+vim.api.nvim_exec([[
+  augroup make_settings
+    autocmd!
+    autocmd FileType make setlocal noexpandtab tabstop=4 shiftwidth=4
+  augroup END
+]], false)
+
 -- override md ft settings
 vim.api.nvim_exec([[
   augroup md_settings
