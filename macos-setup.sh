@@ -32,6 +32,7 @@ PACKAGES=(
     direnv
     fnm
     fzf
+    golang-migrate
     git
     git-trim
     hurl
