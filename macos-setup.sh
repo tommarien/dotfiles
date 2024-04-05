@@ -36,7 +36,6 @@ PACKAGES=(
     git
     git-trim
     hurl
-    kitty
     neovim
     readline
     ripgrep
@@ -44,6 +43,7 @@ PACKAGES=(
     stow
     tmux
     tree-sitter
+    wezterm
     wget
     koekeishiya/formulae/yabai
     zoxide
