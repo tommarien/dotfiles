@@ -96,6 +96,7 @@ return {
                     d = { '<cmd>Telescope diagnostics<cr>', 'Search diagnostics' },
                     f = { '<cmd>Telescope find_files<cr>', '[F]ind [F]iles' },
                     g = { '<cmd>Telescope git_files<cr>', '[F]ind [G]it files' },
+                    h = { '<cmd>Telescope help_tags<cr>', '[F]ind [H]elp' },
                     r = { '<cmd>Telescope oldfiles<cr>', '[F]ind [R]ecent files' },
                     s = { '<cmd>Telescope live_grep_args<cr>', 'Search string' },
                     w = { '<cmd>Telescope grep_string<cr>', 'Search word under cursor' },

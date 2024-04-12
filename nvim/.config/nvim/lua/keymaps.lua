@@ -18,6 +18,10 @@ utils.map("n", "N", "Nzzzv")
 utils.map('v', 'K', ":m '<-2<CR>gv=gv")
 utils.map('v', 'J', ":m '>+1<CR>gv=gv")
 
+-- Copy to clipboard
+utils.map({ 'n', 'v' }, '<leader>y', [["+y]], { desc = 'Copy selection to clipboard' })
+utils.map('n', '<leader>Y', [["+Y]], { desc = 'Copy lines to clipboard' })
+
 -- Visual select last pasted value
 utils.map('n', 'gp', '`[v`]', { desc = 'Select last paste' })
 

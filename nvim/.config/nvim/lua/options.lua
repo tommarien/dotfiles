@@ -5,7 +5,7 @@ o.termguicolors = true -- Enable 24 bit RGB colors
 
 -- Decrease update time
 o.timeoutlen = 500
-o.updatetime = 200
+o.updatetime = 100
 
 -- Number of screen lines to keep above and below the cursor
 o.scrolloff = 8
@@ -21,6 +21,7 @@ o.smartindent = true
 o.smarttab = true
 o.shiftwidth = 4
 o.softtabstop = -1 -- If negative, shiftwidth value is used
+o.colorcolumn = '80,120'
 
 -- Set completeopt to have a better completion experience
 o.completeopt = "menu,menuone,noselect"
@@ -33,7 +34,7 @@ o.hlsearch = false -- Never highlight all search matches
 o.incsearch = true -- Search for strings incrementally
 
 -- Makes neovim and host OS clipboard play nicely with each other
-o.clipboard = 'unnamedplus'
+-- o.clipboard = 'unnamedplus'
 
 -- Better buffer splitting
 o.splitright = true
