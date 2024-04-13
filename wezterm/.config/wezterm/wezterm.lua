@@ -22,7 +22,7 @@ return {
     },
     font_size = 16,
     hide_tab_bar_if_only_one_tab = true,
-    line_height = 1.06,
+    line_height = 1.04,
     -- macos_window_background_blur = 20,
     scrollback_lines = 5000,
     term = 'wezterm',
