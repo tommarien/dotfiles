@@ -11,7 +11,7 @@ return {
             -- vim.g.gruvbox_material_transparent_background = 1
             vim.g.gruvbox_material_enable_bold = 1
             vim.g.gruvbox_material_colors_override = {
-                red = { '#f2594b', 167 },
+                red = { '#FF5D62', 167 },
             }
 
             vim.cmd('colorscheme gruvbox-material')
