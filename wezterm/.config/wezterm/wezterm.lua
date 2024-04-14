@@ -2,18 +2,18 @@ local wezterm = require 'wezterm'
 
 return {
     adjust_window_size_when_changing_font_size = false,
-    bold_brightens_ansi_colors = 'No',
+    bold_brightens_ansi_colors = 'BrightAndBold',
     color_scheme = 'Gruvbox dark, medium (base16)',
     font = wezterm.font_with_fallback {
         {
             family = 'MonoLisa',
-            weight = 'Medium',
             harfbuzz_features = {
                 '-liga',
                 'zero',
                 'ss02', -- script variant
                 'ss07', -- Alt curly
             },
+            weight = 'Medium'
         },
         {
             family = 'Symbols Nerd Font Mono',
