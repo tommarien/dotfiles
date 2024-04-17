@@ -2,7 +2,7 @@ local wezterm = require 'wezterm'
 
 return {
     adjust_window_size_when_changing_font_size = false,
-    bold_brightens_ansi_colors = 'BrightAndBold',
+    bold_brightens_ansi_colors = true,
     color_scheme = 'Gruvbox dark, medium (base16)',
     font = wezterm.font_with_fallback {
         {
