@@ -21,6 +21,9 @@ fi;
 # Ensure less does not page if not necessary
 export LESS="--no-init --quit-if-one-screen -R"
 
+# Fzf
+eval "$(fzf --zsh)"
+
 # zoxide
 eval "$(zoxide init zsh)"
 
