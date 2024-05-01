@@ -4,16 +4,15 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
+            -- Set gruvbox material settings
             vim.g.gruvbox_material_foreground = 'original'
-            -- vim.g.gruvbox_material_background = 'hard'
             vim.g.gruvbox_material_better_performance = 1
             vim.g.gruvbox_material_diagnostic_virtual_text = 1
-            -- vim.g.gruvbox_material_transparent_background = 1
-            -- vim.g.gruvbox_material_enable_bold = 1
             vim.g.gruvbox_material_colors_override = {
                 red = { '#fb533e', 167 },
             }
 
+            -- Apply the colorscheme
             vim.cmd('colorscheme gruvbox-material')
 
             -- Override WhichKeySeparator, otherwise would be displayed as italic
