@@ -35,7 +35,9 @@ PACKAGES=(
     golang-migrate
     git
     git-trim
+    goose
     hurl
+    jq
     kitty
     neovim
     readline
