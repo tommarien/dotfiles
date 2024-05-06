@@ -10,7 +10,9 @@ return {
         opts = {
             options = {
                 custom_commentstring = function()
-                    return require('ts_context_commentstring').calculate_commentstring() or vim.bo
+                    local ts_context_commentstring = require('ts_context_commentstring')
+
+                    return ts_context_commentstring.calculate_commentstring() or vim.bo
                         .commentstring
                 end,
             },
@@ -36,8 +38,14 @@ return {
             return {
                 n_lines = 500,
                 custom_textobjects = {
-                    c = spec_treesitter({ a = '@class.outer', i = '@class.inner' }),
-                    F = spec_treesitter({ a = '@function.outer', i = '@function.inner' }),
+                    c = spec_treesitter({
+                        a = '@class.outer',
+                        i = '@class.inner'
+                    }),
+                    F = spec_treesitter({
+                        a = '@function.outer',
+                        i = '@function.inner'
+                    }),
                     o = spec_treesitter({
                         a = { '@conditional.outer', '@loop.outer' },
                         i = { '@conditional.inner', '@loop.inner' },
