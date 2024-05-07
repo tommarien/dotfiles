@@ -44,6 +44,7 @@ PACKAGES=(
     ripgrep
     koekeishiya/formulae/skhd
     stow
+    tldr
     tmux
     tree-sitter
     wget
