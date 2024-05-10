@@ -223,6 +223,9 @@ return {
                     mappings = {
                         i = { ['<c-d>'] = 'delete_buffer' }
                     }
+                },
+                lsp_references = {
+                    show_line = false,
                 }
             }
         },
