@@ -9,6 +9,7 @@ plug "chivalryq/git-alias"
 plug "MichaelAquilina/zsh-you-should-use"
 plug "wintermi/zsh-brew"
 plug "Aloxaf/fzf-tab"
+plug "jeffreytse/zsh-vi-mode"
 
 # Load and initialise completion system
 autoload -Uz compinit
