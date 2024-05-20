@@ -9,7 +9,8 @@ plug "chivalryq/git-alias"
 plug "MichaelAquilina/zsh-you-should-use"
 plug "wintermi/zsh-brew"
 plug "Aloxaf/fzf-tab"
-
+plug "jeffreytse/zsh-vi-mode"
+#
 # Load and initialise completion system
 autoload -Uz compinit
 if [[ -n $HOME/.zcompdump(#qN.mh+24) ]]; then
@@ -43,12 +44,6 @@ source $HOME/.zsh/fzf-gruvbox-dark-medium-theme
 # Add custom aliases
 source $HOME/.zsh/aliases
 
-# vi mode
-export KEYTIMEOUT=1
-bindkey -v
-bindkey -M viins '^X,' _history-complete-newer \
-                 '^X/' _history-complete-older \
-                 '^X`' _bash_complete-word
 # bit
 export PATH="$PATH:/Users/tommarien/bin"
 # bit end
