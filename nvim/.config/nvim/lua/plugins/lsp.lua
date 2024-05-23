@@ -23,7 +23,6 @@ return {
         dependencies = {
             'mason.nvim',
             'williamboman/mason-lspconfig.nvim',
-            'simrat39/rust-tools.nvim',
             'b0o/schemastore.nvim',
         },
         config = function()
@@ -34,9 +33,9 @@ return {
                 vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
                 -- InlayHints
-                -- if client.supports_method("textDocument/inlayHint") or client.server_capabilities.inlayHintProvider then
-                --     vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-                -- end
+                if client.supports_method("textDocument/inlayHint") or client.server_capabilities.inlayHintProvider then
+                    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+                end
 
                 -- Mappings.
                 -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -68,7 +67,7 @@ return {
                 includeInlayEnumMemberValueHints = true,
                 includeInlayFunctionLikeReturnTypeHints = true,
                 includeInlayFunctionParameterTypeHints = true,
-                includeInlayParameterNameHints = "literal",
+                includeInlayParameterNameHints = "all",
                 includeInlayParameterNameHintsWhenArgumentMatchesName = false,
                 includeInlayPropertyDeclarationTypeHints = true,
                 includeInlayVariableTypeHints = false,
@@ -145,6 +144,9 @@ return {
                 },
                 vimls = {},
                 yamlls = {},
+                rust_analyzer = {
+                    cmd = { "rustup", "run", "stable", "rust-analyzer" },
+                }
             }
 
             require('mason-lspconfig').setup({
@@ -162,48 +164,6 @@ return {
                     on_attach = on_attach,
                 }, server_settings))
             end
-
-            -- rust needs special handling
-            local rt = require 'rust-tools'
-
-            local rust_opts = {
-                capabilities = capabilities,
-                on_attach = on_attach,
-                server = {
-                    capabilities = capabilities,
-                    on_attach = function(client, bufnr)
-                        on_attach(client, bufnr);
-
-                        -- Mappings.
-                        -- See `:help vim.lsp.*` for documentation on any of the below functions
-                        local bufopts = { noremap = true, silent = true, buffer = bufnr }
-                        vim.keymap.set('n', 'K', rt.hover_actions.hover_actions, bufopts)
-                    end,
-                    standalone = false,
-                    settings = {
-                        ['rust-analyzer'] = {
-                            procMacro = {
-                                enable = true
-                            },
-                        },
-                    },
-                    cmd = { "rustup", "run", "stable", "rust-analyzer" },
-                    dap = {
-                        adapter = {
-                            type = "server",
-                            port = "${port}",
-                            host = "127.0.0.1",
-                            executable = {
-                                command = "codelldb",
-                                args = { "--port", "${port}" },
-                            },
-                            name = "rt_lldb",
-                        },
-                    },
-                },
-            };
-
-            rt.setup(rust_opts);
         end
     },
 }
