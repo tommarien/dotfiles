@@ -33,9 +33,9 @@ return {
                 vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
                 -- InlayHints
-                if client.supports_method("textDocument/inlayHint") or client.server_capabilities.inlayHintProvider then
-                    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-                end
+                -- if client.supports_method("textDocument/inlayHint") or client.server_capabilities.inlayHintProvider then
+                --     vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+                -- end
 
                 -- Mappings.
                 -- See `:help vim.lsp.*` for documentation on any of the below functions
