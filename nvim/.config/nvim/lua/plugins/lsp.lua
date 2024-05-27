@@ -65,7 +65,7 @@ return {
 
             local ts_inlay_hints_settings = {
                 includeInlayEnumMemberValueHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayFunctionLikeReturnTypeHints = false,
                 includeInlayFunctionParameterTypeHints = true,
                 includeInlayParameterNameHints = "all",
                 includeInlayParameterNameHintsWhenArgumentMatchesName = false,
