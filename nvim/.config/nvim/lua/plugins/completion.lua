@@ -75,7 +75,6 @@ return {
             cmp.setup({
                 formatting = {
                     format = lspkind.cmp_format({
-                        mode = 'symbol',
                         maxwidth = 60,
                         ellipsis_char = '...',
                         menu = {
