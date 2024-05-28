@@ -5,8 +5,16 @@ return {
         build = ':Copilot auth',
         event = 'InsertEnter',
         opts = {
-            suggestion = { enabled = false },
-            panel = { enabled = false },
+            -- setup suggestions for completion
+            suggestion = {
+                enabled = true,
+                accept = false,
+                auto_trigger = true,
+                prev = '<M-[>',
+                next = '<M-]>',
+                dismiss = '<M-e>'
+            },
+            panel = { enabled = true },
             filetypes = {
                 ['*'] = true,
             },
@@ -44,41 +52,27 @@ return {
                 end
             },
             'windwp/nvim-autopairs',
-            {
-                'zbirenbaum/copilot-cmp',
-                opts = {}
-            }
         },
         config = function()
             local cmp = require 'cmp'
             local cmp_autopairs = require('nvim-autopairs.completion.cmp')
             local luasnip = require 'luasnip'
             local lspkind = require 'lspkind'
-
-            -- Copilot
-            lspkind.init({
-                symbol_map = {
-                    Copilot = "",
-                },
-            })
+            local copilot_suggestion = require('copilot.suggestion')
 
             -- Autopairs
             cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+
+            -- Copilot
+            cmp.event:on('menu_opened', function()
+                vim.b.copilot_suggestion_hidden = true
+            end)
+
+            cmp.event:on('menu_closed', function()
+                vim.b.copilot_suggestion_hidden = false
+            end)
+
             cmp.setup({
-                sorting = {
-                    priority_weight = 2,
-                    comparators = {
-                        require('copilot_cmp.comparators').prioritize,
-                        cmp.config.compare.offset,
-                        -- cmp.config.compare.scopes, -- Commented in cmp 2
-                        cmp.config.compare.exact,
-                        cmp.config.compare.score,
-                        cmp.config.compare.kind,
-                        cmp.config.compare.sort_text,
-                        cmp.config.compare.length,
-                        cmp.config.compare.order,
-                    },
-                },
                 formatting = {
                     format = lspkind.cmp_format({
                         mode = 'symbol',
@@ -90,7 +84,6 @@ return {
                             luasnip = "[SNIP]",
                             nvim_lsp = "[LSP]",
                             path = "[PATH]",
-                            copilot = "[COP]"
                         },
                     })
                 },
@@ -125,6 +118,8 @@ return {
 
                         if cmp.visible() then
                             cmp.select_next_item()
+                        elseif copilot_suggestion.is_visible() then
+                            copilot_suggestion.accept()
                         elseif luasnip.expand_or_locally_jumpable() then
                             luasnip.expand_or_jump()
                         elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
@@ -145,7 +140,6 @@ return {
                 }),
                 -- Installed sources
                 sources = cmp.config.sources({
-                    { name = 'copilot' },
                     { name = 'nvim_lsp', keyword_lenght = 2, max_item_count = 20 },
                     { name = 'luasnip',  keyword_lenght = 2, },
                     { name = "path", },
@@ -157,7 +151,6 @@ return {
             -- Set configuration for specific filetype.
             cmp.setup.filetype('gitcommit', {
                 sources = cmp.config.sources({
-                    { name = 'copilot' },
                     { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
                 }, {
                     { name = 'buffer' },
