@@ -64,11 +64,25 @@ return {
 
             -- Autopairs
             cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
-
             cmp.setup({
+                sorting = {
+                    priority_weight = 2,
+                    comparators = {
+                        require('copilot_cmp.comparators').prioritize,
+                        cmp.config.compare.offset,
+                        -- cmp.config.compare.scopes, -- Commented in cmp 2
+                        cmp.config.compare.exact,
+                        cmp.config.compare.score,
+                        cmp.config.compare.kind,
+                        cmp.config.compare.sort_text,
+                        cmp.config.compare.length,
+                        cmp.config.compare.order,
+                    },
+                },
                 formatting = {
                     format = lspkind.cmp_format({
-                        maxwidth = 50,
+                        mode = 'symbol',
+                        maxwidth = 60,
                         ellipsis_char = '...',
                         menu = {
                             buffer = "[BUF]",
@@ -76,6 +90,7 @@ return {
                             luasnip = "[SNIP]",
                             nvim_lsp = "[LSP]",
                             path = "[PATH]",
+                            copilot = "[COP]"
                         },
                     })
                 },
