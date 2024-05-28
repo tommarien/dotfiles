@@ -28,14 +28,9 @@ return {
         config = function()
             -- Use an on_attach function to only map the following keys
             -- after the language server attaches to the current buffer
-            local on_attach = function(client, bufnr)
+            local on_attach = function(_, bufnr)
                 -- Enable completion triggered by <c-x><c-o>
                 vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-                -- InlayHints
-                -- if client.supports_method("textDocument/inlayHint") or client.server_capabilities.inlayHintProvider then
-                --     vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-                -- end
 
                 -- Mappings.
                 -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -63,17 +58,6 @@ return {
             capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 
-            local ts_inlay_hints_settings = {
-                includeInlayEnumMemberValueHints = true,
-                includeInlayFunctionLikeReturnTypeHints = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayParameterNameHints = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayVariableTypeHints = false,
-                includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-            }
-
             -- Enable the following language servers
             local servers = {
                 eslint = {},
@@ -85,27 +69,10 @@ return {
                         },
                     },
                 },
-                gopls = {
-                    settings = {
-                        gopls = {
-                            hints = {
-                                assignVariableTypes = true,
-                                compositeLiteralFields = true,
-                                compositeLiteralTypes = true,
-                                constantValues = true,
-                                functionTypeParameters = true,
-                                parameterNames = true,
-                                rangeVariableTypes = true,
-                            },
-                        }
-                    }
-                },
+                gopls = {},
                 lua_ls = {
                     settings = {
                         Lua = {
-                            hint = {
-                                enable = true,
-                            },
                             workspace = { checkThirdParty = false },
                             format = {
                                 enable = true,
@@ -131,12 +98,6 @@ return {
                         -- }
                     },
                     settings = {
-                        typescript = {
-                            inlayHints = ts_inlay_hints_settings
-                        },
-                        javascript = {
-                            inlayHints = ts_inlay_hints_settings
-                        },
                         completions = {
                             completeFunctionCalls = true,
                         }
