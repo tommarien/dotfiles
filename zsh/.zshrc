@@ -36,7 +36,7 @@ eval "$(direnv hook zsh)"
 
 # Add bin to path
 export GO_PATH=$HOME/go
-export PATH=$HOME/bin/scripts:/opt/homebrew/opt/mysql-client/bin:HOME/bin:$GO_PATH/bin:$PATH
+export PATH=$HOME/bin/scripts:/opt/homebrew/opt/mysql-client/bin:$HOME/bin:$GO_PATH/bin:$PATH
 
 # Load fzf theme
 source $HOME/.zsh/fzf-gruvbox-dark-medium-theme
