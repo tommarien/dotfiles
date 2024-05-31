@@ -19,6 +19,7 @@ o.autoindent = true     -- Auto indent new lines
 o.expandtab = true      -- Use spaces instead of tabs
 o.smartindent = true
 o.smarttab = true
+o.tabstop = 4
 o.shiftwidth = 4
 o.softtabstop = -1 -- If negative, shiftwidth value is used
 o.cursorline = true
