@@ -21,14 +21,3 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
         end)
     end,
 })
-
--- Enable crates.nvim only on cargo.toml
-local cargoGroup = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true })
-
-vim.api.nvim_create_autocmd("BufRead", {
-    group = cargoGroup,
-    pattern = "Cargo.toml",
-    callback = function()
-        require("cmp").setup.buffer({ sources = { { name = "crates" } } })
-    end,
-})
