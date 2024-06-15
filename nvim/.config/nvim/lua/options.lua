@@ -22,7 +22,7 @@ o.smarttab = true
 o.tabstop = 4
 o.shiftwidth = 4
 o.softtabstop = -1 -- If negative, shiftwidth value is used
-o.cursorline = true
+o.cursorline = false
 o.colorcolumn = '80,120'
 
 -- Set completeopt to have a better completion experience
