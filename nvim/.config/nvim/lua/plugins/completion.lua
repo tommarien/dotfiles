@@ -23,14 +23,25 @@ return {
     {
         'CopilotC-Nvim/CopilotChat.nvim',
         branch = 'canary',
+        cmd = {
+            'CopilotChat',
+            'CopilotChatOpen',
+            'CopilotChatToggle',
+            'CopilotChatExplain',
+            'CopilotChatReview',
+            'CopilotChatFix',
+            'CopilotChatOptimize',
+            'CopilotChatDocs',
+            'CopilotChatTests',
+            'CopilotChatFixDiagnostic',
+            'CopilotChatCommit',
+            'CopilotChatCommitStaged',
+        },
         dependencies = {
             { 'zbirenbaum/copilot.lua' }, -- or github/copilot.vim
             { 'nvim-lua/plenary.nvim' },  -- for curl, log wrapper
         },
-        opts = {
-            -- debug = true, -- Enable debugging
-            -- See Configuration section for rest
-        },
+        opts = {},
     },
     {
         'hrsh7th/nvim-cmp',
