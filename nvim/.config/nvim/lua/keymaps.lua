@@ -27,4 +27,3 @@ utils.map('n', 'gp', '`[v`]', { desc = 'Select last paste' })
 
 -- Black hole register
 utils.map('x', '<leader>p', [["_dP]])
-utils.map({ 'n', 'v' }, '<leader>d', [["_d]])
