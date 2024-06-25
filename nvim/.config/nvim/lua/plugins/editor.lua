@@ -170,10 +170,6 @@ return {
         },
     },
     {
-        'ThePrimeagen/vim-be-good',
-        event = 'VeryLazy'
-    },
-    {
         'ThePrimeagen/harpoon',
         keys = {
             { '<leader>ha', function() require("harpoon.mark").add_file() end,        desc = 'Add mark' },

@@ -40,7 +40,8 @@ return {
                     return vim.tbl_extend('force', bufopts, { desc = desc })
                 end
 
-                vim.keymap.set('n', 'gl', vim.diagnostic.open_float, with_desc('Open diagnostics'))
+                vim.keymap.set('n', 'gl', vim.diagnostic.open_float, with_desc('Show inline diagnostics'))
+                vim.keymap.set('n', 'gh', vim.diagnostic.open_float, with_desc('Show inline diagnostics'))
                 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, with_desc('Go to declaration'))
                 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, with_desc('Go to definition'))
                 vim.keymap.set('n', 'K', vim.lsp.buf.hover, with_desc('Show hover'))
@@ -56,6 +57,7 @@ return {
                 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, with_desc('Rename symbol'))
                 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, with_desc('Code action'))
                 vim.keymap.set('n', '<M-.>', vim.lsp.buf.code_action, with_desc('Code action'))
+                vim.keymap.set('n', 'g.', vim.lsp.buf.code_action, with_desc('Code action'))
                 vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references,
                     with_desc('Show references'))
             end

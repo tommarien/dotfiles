@@ -18,7 +18,7 @@ return {
             -- Override WhichKeySeparator, otherwise would be displayed as italic
             local hl_cmt = vim.api.nvim_get_hl_by_name("Comment", true)
             local hl_sep = vim.tbl_extend("force", hl_cmt, { italic = false })
-            vim.api.nvim_set_hl(0, "WhichKeySeparator", hl_sep)
+            vim.api.nvim_set_hl(0, 'WhichKeySeparator', hl_sep)
         end
     },
 }
