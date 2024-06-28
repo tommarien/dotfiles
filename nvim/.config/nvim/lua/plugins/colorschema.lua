@@ -18,4 +18,21 @@ return {
             vim.api.nvim_set_hl(0, 'WhichKeySeparator', hl_sep)
         end
     },
+    {
+        'sainnhe/everforest',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            vim.g.everforest_better_performance = 1
+            vim.g.everforest_diagnostic_virtual_text = 1
+        end
+    },
+    {
+        'zenbones-theme/zenbones.nvim',
+        lazy = false,
+        priority = 1000,
+        dependencies = {
+            'rktjmp/lush.nvim'
+        }
+    }
 }
