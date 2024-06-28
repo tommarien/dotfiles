@@ -8,9 +8,6 @@ return {
             vim.g.gruvbox_material_foreground = 'original'
             vim.g.gruvbox_material_better_performance = 1
             vim.g.gruvbox_material_diagnostic_virtual_text = 1
-            vim.g.gruvbox_material_colors_override = {
-                red = { '#fb533e', 167 },
-            }
 
             -- Apply the colorscheme
             vim.cmd('colorscheme gruvbox-material')
