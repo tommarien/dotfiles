@@ -66,6 +66,16 @@ return {
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+            local ts_inlay_hints_settings = {
+                includeInlayEnumMemberValueHints = true,
+                includeInlayFunctionLikeReturnTypeHints = false,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayParameterNameHints = "all",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayVariableTypeHints = false,
+                includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+            }
 
             -- Enable the following language servers
             local servers = {
@@ -78,10 +88,27 @@ return {
                         },
                     },
                 },
-                gopls = {},
+                gopls = {
+                    settings = {
+                        gopls = {
+                            hints = {
+                                assignVariableTypes = true,
+                                compositeLiteralFields = true,
+                                compositeLiteralTypes = true,
+                                constantValues = true,
+                                functionTypeParameters = true,
+                                parameterNames = true,
+                                rangeVariableTypes = true,
+                            },
+                        }
+                    }
+                },
                 lua_ls = {
                     settings = {
                         Lua = {
+                            hint = {
+                                enable = true,
+                            },
                             workspace = { checkThirdParty = false },
                             format = {
                                 enable = true,
@@ -108,6 +135,12 @@ return {
                         -- }
                     },
                     settings = {
+                        typescript = {
+                            inlayHints = ts_inlay_hints_settings
+                        },
+                        javascript = {
+                            inlayHints = ts_inlay_hints_settings
+                        },
                         completions = {
                             completeFunctionCalls = true,
                         }
