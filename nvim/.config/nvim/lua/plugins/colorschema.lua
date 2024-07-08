@@ -27,12 +27,4 @@ return {
             vim.g.everforest_diagnostic_virtual_text = 1
         end
     },
-    {
-        'zenbones-theme/zenbones.nvim',
-        lazy = false,
-        priority = 1000,
-        dependencies = {
-            'rktjmp/lush.nvim'
-        }
-    }
 }

@@ -4,7 +4,7 @@ local create_user_command = vim.api.nvim_create_user_command
 create_user_command('ToggleLightDark', function()
     if vim.o.background == 'dark' then
         vim.o.background = 'light'
-        vim.cmd [[colorscheme forestbones]]
+        vim.cmd [[colorscheme everforest]]
     else
         vim.o.background = 'dark'
         vim.cmd [[colorscheme gruvbox-material]]
