@@ -165,8 +165,8 @@ return {
     {
         'max397574/better-escape.nvim',
         event = 'InsertEnter',
-        opts = {
-            k = function()
+        config = function()
+            local clearEmptyLines = function()
                 vim.api.nvim_input("<esc>")
                 local current_line = vim.api.nvim_get_current_line()
                 if current_line:match('^%s+j$') then
@@ -175,7 +175,32 @@ return {
                     end)
                 end
             end
-        },
+
+            require('better_escape').setup({
+                k = function()
+                    vim.api.nvim_input("<esc>")
+                    local current_line = vim.api.nvim_get_current_line()
+                    if current_line:match('^%s+j$') then
+                        vim.schedule(function()
+                            vim.api.nvim_set_current_line('')
+                        end)
+                    end
+                end,
+                mappings = {
+                    i = {
+                        j = {
+                            k = clearEmptyLines,
+                            j = clearEmptyLines,
+                        },
+                    },
+                    v = {
+                        j = {
+                            k = false
+                        }
+                    }
+                }
+            })
+        end
     },
     {
         'ThePrimeagen/harpoon',

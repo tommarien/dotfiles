@@ -128,5 +128,5 @@ return {
             }, { prefix = ']' })
         end,
         opts = {}
-    }
+    },
 }
