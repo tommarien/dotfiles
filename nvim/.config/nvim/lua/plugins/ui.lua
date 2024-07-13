@@ -82,50 +82,46 @@ return {
         init = function()
             local wk = require('which-key')
 
-            wk.register({
-                b = {
-                    name = 'Buffer',
-                    d = { '<cmd>bd<cr>', 'Delete buffer' },
-                    n = { '<cmd>bn<cr>', 'Next buffer' },
-                    p = { '<cmd>bp<cr>', 'Previous buffer' },
-                    r = { '<cmd>Telescope buffers<cr>', 'Open recent buffer' },
-                    s = { '<cmd>Telescope current_buffer_fuzzy_find<cr>', 'Search buffer' },
-                },
-                f = {
-                    name = 'File',
-                    b = { '<cmd>Telescope buffers<cr>', 'Open buffers' },
-                    d = { '<cmd>Telescope diagnostics<cr>', 'Search diagnostics' },
-                    f = { '<cmd>Telescope find_files<cr>', '[F]ind [F]iles' },
-                    g = { '<cmd>Telescope git_files<cr>', '[F]ind [G]it files' },
-                    h = { '<cmd>Telescope help_tags<cr>', '[F]ind [H]elp' },
-                    r = { '<cmd>Telescope oldfiles<cr>', '[F]ind [R]ecent files' },
-                    s = { '<cmd>Telescope live_grep_args<cr>', 'Search string' },
-                    w = { '<cmd>Telescope grep_string<cr>', 'Search word under cursor' },
-                },
-                h = { name = 'Harpoon' },
-                p = {
-                    name = 'Packages',
-                    s = { function() require('package-info').show() end, 'Show dependency versions' },
-                    c = { function() require('package-info').hide() end, 'Hide dependency versions' },
-                    t = { function() require('package-info').toggle() end, 'Toggle dependency versions' },
-                    u = { function() require('package-info').update() end, 'Update dependency on the line' },
-                    d = { function() require('package-info').delete() end, 'Delete dependency on the line' },
-                    i = { function() require('package-info').install() end, 'Install a new dependency' },
-                    p = { function() require('package-info').change_version() end, 'Install a different version' },
-                },
-            }, { prefix = '<leader>' })
+            wk.add({
+                -- buffers
+                { '<leader>b',  group = 'Buffer' },
+                { '<leader>bd', '<cmd>bd<cr>',                                           desc = 'Delete buffer' },
+                { '<leader>bn', '<cmd>bn<cr>',                                           desc = 'Next buffer' },
+                { '<leader>bp', '<cmd>bp<cr>',                                           desc = 'Previous buffer' },
+                { '<leader>br', '<cmd>Telescope buffers<cr>',                            desc = 'Open recent buffer' },
+                { '<leader>bs', '<cmd>Telescope current_buffer_fuzzy_find<cr>',          desc = 'Search buffer' },
+                { '[b',         '<cmd>bprev<cr>',                                        desc = 'Previous buffer' },
+                { '[B',         '<cmd>bfirst<cr>',                                       desc = 'First buffer' },
+                { ']b',         '<cmd>bnext<cr>',                                        desc = 'Next buffer' },
+                { ']B',         '<cmd>blast<cr>',                                        desc = 'Last buffer' },
 
-            wk.register({
-                B = { '<cmd>bfirst<cr>', 'First buffer' },
-                b = { '<cmd>bprev<cr>', 'Previous buffer' },
-                h = { function() require('harpoon.ui').nav_prev() end, 'Previous harpoon mark' },
-            }, { prefix = '[' })
 
-            wk.register({
-                B = { '<cmd>blast<cr>', 'Last buffer' },
-                b = { '<cmd>bnext<cr>', 'Next buffer' },
-                h = { function() require('harpoon.ui').nav_next() end, 'Next harpoon mark' },
-            }, { prefix = ']' })
+                -- files
+                { '<leader>f',  group = 'File' },
+                { '<leader>fb', '<cmd>Telescope buffers<cr>',                            desc = 'Open buffers' },
+                { '<leader>fd', '<cmd>Telescope diagnostics<cr>',                        desc = 'Search diagnostics' },
+                { '<leader>ff', '<cmd>Telescope find_files<cr>',                         desc = '[F]ind [F]iles' },
+                { '<leader>fg', '<cmd>Telescope git_files<cr>',                          desc = '[F]ind [G]it files' },
+                { '<leader>fh', '<cmd>Telescope help_tags<cr>',                          desc = '[F]ind [H]elp' },
+                { '<leader>fr', '<cmd>Telescope oldfiles<cr>',                           desc = '[F]ind [R]ecent files' },
+                { '<leader>fs', '<cmd>Telescope live_grep_args<cr>',                     desc = 'Search string' },
+                { '<leader>fw', '<cmd>Telescope grep_string<cr>',                        desc = 'Search word under cursor' },
+
+                -- harpoon
+                { '<leader>h',  group = 'Harpoon' },
+                { '[h',         function() require('harpoon.ui').nav_prev() end,         desc = 'Previous harpoon mark' },
+                { ']h',         function() require('harpoon.ui').nav_next() end,         desc = 'Next harpoon mark' },
+
+                -- packages
+                { '<leader>p',  group = 'Packages' },
+                { '<leader>ps', function() require('package-info').show() end,           desc = 'Show dependency versions' },
+                { '<leader>pc', function() require('package-info').hide() end,           desc = 'Hide dependency versions' },
+                { '<leader>pt', function() require('package-info').toggle() end,         desc = 'Toggle dependency versions' },
+                { '<leader>pu', function() require('package-info').update() end,         desc = 'Update dependency on the line' },
+                { '<leader>pd', function() require('package-info').delete() end,         desc = 'Delete dependency on the line' },
+                { '<leader>pi', function() require('package-info').install() end,        desc = 'Install a new dependency' },
+                { '<leader>pp', function() require('package-info').change_version() end, desc = 'Install a different version' },
+            })
         end,
         opts = {}
     },
