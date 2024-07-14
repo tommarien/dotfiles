@@ -27,6 +27,7 @@ echo "Updating homebrew"
 brew update
 
 PACKAGES=(
+    alacritty
     bat
     cmake
     direnv

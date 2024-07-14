@@ -1,0 +1,38 @@
+import = [
+    "~/.config/alacritty/themes/gruvbox_dark.toml"
+]
+
+live_config_reload = true
+
+[window]
+decorations = "Buttonless"
+dynamic_padding = false
+opacity = 1
+blur = true
+option_as_alt = "Both"
+
+[window.padding]
+x = 5
+y = 5
+
+[font]
+size=16
+
+[font.normal]
+family = "MonoLisaPatch Nerd Font"
+style = "Regular" 
+[font.bold]
+style = "Bold"
+[font.italic]
+style = "Italic"
+[font.bold_italic]
+style = "Bold Italic"
+
+[font.offset]
+y = 2
+
+[scrolling]
+history = 10000
+
+[mouse]
+hide_when_typing = true
