@@ -39,7 +39,6 @@ PACKAGES=(
     goose
     hurl
     jq
-    kitty
     neovim
     readline
     ripgrep
