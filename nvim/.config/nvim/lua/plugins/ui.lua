@@ -106,6 +106,7 @@ return {
                 { '<leader>fr', '<cmd>Telescope oldfiles<cr>',                           desc = '[F]ind [R]ecent files' },
                 { '<leader>fs', '<cmd>Telescope live_grep_args<cr>',                     desc = 'Search string' },
                 { '<leader>fw', '<cmd>Telescope grep_string<cr>',                        desc = 'Search word under cursor' },
+                { '<leader>fS', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>',      desc = 'Search symbol' },
 
                 -- harpoon
                 { '<leader>h',  group = 'Harpoon' },
@@ -123,6 +124,8 @@ return {
                 { '<leader>pp', function() require('package-info').change_version() end, desc = 'Install a different version' },
             })
         end,
-        opts = {}
+        opts = {
+            preset = 'modern'
+        }
     },
 }
