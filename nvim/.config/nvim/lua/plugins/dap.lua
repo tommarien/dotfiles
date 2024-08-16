@@ -27,6 +27,10 @@ return {
                 "theHamsta/nvim-dap-virtual-text",
                 opts = {},
             },
+            {
+                "leoluz/nvim-dap-go",
+                opts = {},
+            }
         },
 
         -- stylua: ignore
@@ -69,15 +73,6 @@ return {
                 }
             }
 
-            dap.adapters.go = {
-                type = "server",
-                port = "${port}",
-                executable = {
-                    command = vim.fn.stdpath("data") .. '/mason/bin/dlv',
-                    args = { "dap", "-l", "127.0.0.1:${port}" },
-                },
-            }
-
             local js_filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" }
 
             local vscode = require("dap.ext.vscode")
@@ -105,27 +100,9 @@ return {
                 end
             end
 
-            dap.configurations.go = {
-                {
-                    type = "go",
-                    name = "Debug",
-                    request = "launch",
-                    program = "${file}",
-                },
-
-                {
-                    type = "go",
-                    name = "Debug Test",
-                    request = "launch",
-                    mode = "test",
-                    program = "${file}",
-                },
-            }
-
             vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
             -- setup dap config by VsCode launch.json file
-            local vscode = require("dap.ext.vscode")
             local json = require("plenary.json")
             vscode.json_decode = function(str)
                 return vim.json.decode(json.json_strip_comments(str))
