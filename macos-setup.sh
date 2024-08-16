@@ -58,7 +58,6 @@ echo "Installing cask..."
 CASKS=(
    cheatsheet
    fork
-   textmate
    tomatobar
 )
 echo "Installing cask apps..."
