@@ -24,6 +24,7 @@ return {
             'mason.nvim',
             'williamboman/mason-lspconfig.nvim',
             'b0o/schemastore.nvim',
+            'yioneko/nvim-vtsls'
         },
         config = function()
             -- Use an on_attach function to only map the following keys
@@ -66,15 +67,19 @@ return {
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-            local ts_inlay_hints_settings = {
-                includeInlayEnumMemberValueHints = true,
-                includeInlayFunctionLikeReturnTypeHints = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayParameterNameHints = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayVariableTypeHints = false,
-                includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+            local vstlsLanguageSettings = {
+                updateImportsOnFileMove = { enabled = "always" },
+                suggest = {
+                    completeFunctionCalls = true,
+                },
+                inlayHints = {
+                    enumMemberValues = { enabled = true },
+                    functionLikeReturnTypes = { enabled = true },
+                    parameterNames = { enabled = "literals" },
+                    parameterTypes = { enabled = true },
+                    propertyDeclarationTypes = { enabled = true },
+                    variableTypes = { enabled = false },
+                },
             }
 
             -- Enable the following language servers
@@ -126,27 +131,23 @@ return {
                     }
                 },
                 templ = {},
-                tsserver = {
-                    single_file_support = false,
-                    init_options = {
-                        hostInfo = 'neovim',
-                        -- preferences = {
-                        --     includeCompletionsForModuleExports = false
-                        -- }
-                    },
-                    settings = {
-                        typescript = {
-                            inlayHints = ts_inlay_hints_settings
-                        },
-                        javascript = {
-                            inlayHints = ts_inlay_hints_settings
-                        },
-                        completions = {
-                            completeFunctionCalls = true,
-                        }
-                    }
-                },
                 vimls = {},
+                vtsls = {
+                    settings = {
+                        complete_function_calls = true,
+                        vtsls = {
+                            enableMoveToFileCodeAction = true,
+                            autoUseWorkspaceTsdk = true,
+                            experimental = {
+                                completion = {
+                                    enableServerSideFuzzyMatch = true,
+                                },
+                            },
+                        },
+                        typescript = vstlsLanguageSettings,
+                        javascript = vstlsLanguageSettings,
+                    },
+                },
                 yamlls = {},
                 rust_analyzer = {
                     cmd = { "rustup", "run", "stable", "rust-analyzer" },
