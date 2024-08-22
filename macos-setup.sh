@@ -29,14 +29,15 @@ brew update
 PACKAGES=(
     bat
     cmake
+    curl
     direnv
     fnm
     fzf
-    golang-migrate
+    goose 
     git
     git-trim
     goose
-    hurl
+    hugo
     jq
     neovim
     readline
