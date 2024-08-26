@@ -163,46 +163,6 @@ return {
         event = 'VeryLazy'
     },
     {
-        'max397574/better-escape.nvim',
-        event = 'InsertEnter',
-        config = function()
-            local clearEmptyLines = function()
-                vim.api.nvim_input("<esc>")
-                local current_line = vim.api.nvim_get_current_line()
-                if current_line:match('^%s+j$') then
-                    vim.schedule(function()
-                        vim.api.nvim_set_current_line('')
-                    end)
-                end
-            end
-
-            require('better_escape').setup({
-                k = function()
-                    vim.api.nvim_input("<esc>")
-                    local current_line = vim.api.nvim_get_current_line()
-                    if current_line:match('^%s+j$') then
-                        vim.schedule(function()
-                            vim.api.nvim_set_current_line('')
-                        end)
-                    end
-                end,
-                mappings = {
-                    i = {
-                        j = {
-                            k = clearEmptyLines,
-                            j = clearEmptyLines,
-                        },
-                    },
-                    v = {
-                        j = {
-                            k = false
-                        }
-                    }
-                }
-            })
-        end
-    },
-    {
         'ThePrimeagen/harpoon',
         keys = {
             { '<leader>ha', function() require("harpoon.mark").add_file() end,        desc = 'Add mark' },
