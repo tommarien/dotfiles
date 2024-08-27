@@ -11,7 +11,9 @@ shift + alt - l : yabai -m window --resize bottom_right:50:0
 shift + alt - h : yabai -m window --resize bottom_right:-50:0
 shift + alt - j : yabai -m window --focus prev
 shift + alt - k : yabai -m window --focus next
-# change focus between external displays (left and right) meh - s: yabai -m display --focus west
+
+# change focus between external displays (left and right) 
+meh - s: yabai -m display --focus west
 meh - g: yabai -m display --focus east
 
 # maximize 
