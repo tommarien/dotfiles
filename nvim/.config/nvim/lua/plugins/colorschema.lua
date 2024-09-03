@@ -6,8 +6,9 @@ return {
         config = function()
             -- Set gruvbox material settings
             vim.g.gruvbox_material_foreground = 'original'
+            vim.g.gruvbox_material_statusline_style = 'original'
             vim.g.gruvbox_material_better_performance = 1
-            vim.g.gruvbox_material_diagnostic_virtual_text = 1
+            vim.g.gruvbox_material_diagnostic_virtual_text = 'highlighted'
             vim.g.gruvbox_material_ui_contrast = 'high'
 
             -- Apply the colorscheme
@@ -22,7 +23,6 @@ return {
     {
         'sainnhe/everforest',
         lazy = false,
-        priority = 1000,
         config = function()
             vim.g.everforest_better_performance = 1
             vim.g.everforest_diagnostic_virtual_text = 1
