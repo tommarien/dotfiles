@@ -85,27 +85,36 @@ return {
             wk.add({
                 -- buffers
                 { '<leader>b',  group = 'Buffer' },
-                { '<leader>bd', '<cmd>bd<cr>',                                           desc = 'Delete buffer' },
-                { '<leader>bn', '<cmd>bn<cr>',                                           desc = 'Next buffer' },
-                { '<leader>bp', '<cmd>bp<cr>',                                           desc = 'Previous buffer' },
-                { '<leader>br', '<cmd>Telescope buffers<cr>',                            desc = 'Open recent buffer' },
-                { '<leader>bs', '<cmd>Telescope current_buffer_fuzzy_find<cr>',          desc = 'Search buffer' },
-                { '[b',         '<cmd>bprev<cr>',                                        desc = 'Previous buffer' },
-                { '[B',         '<cmd>bfirst<cr>',                                       desc = 'First buffer' },
-                { ']b',         '<cmd>bnext<cr>',                                        desc = 'Next buffer' },
-                { ']B',         '<cmd>blast<cr>',                                        desc = 'Last buffer' },
+                { '<leader>bd', '<cmd>bd<cr>',                                  desc = 'Delete buffer' },
+                { '<leader>bn', '<cmd>bn<cr>',                                  desc = 'Next buffer' },
+                { '<leader>bp', '<cmd>bp<cr>',                                  desc = 'Previous buffer' },
+                { '<leader>br', '<cmd>Telescope buffers<cr>',                   desc = 'Open recent buffer' },
+                { '<leader>bs', '<cmd>Telescope current_buffer_fuzzy_find<cr>', desc = 'Search buffer' },
+                { '[b',         '<cmd>bprev<cr>',                               desc = 'Previous buffer' },
+                { '[B',         '<cmd>bfirst<cr>',                              desc = 'First buffer' },
+                { ']b',         '<cmd>bnext<cr>',                               desc = 'Next buffer' },
+                { ']B',         '<cmd>blast<cr>',                               desc = 'Last buffer' },
 
 
                 -- files
                 { '<leader>f',  group = 'File' },
-                { '<leader>fb', '<cmd>Telescope buffers<cr>',                            desc = 'Open buffers' },
-                { '<leader>fd', '<cmd>Telescope diagnostics<cr>',                        desc = 'Search diagnostics' },
-                { '<leader>ff', '<cmd>Telescope find_files<cr>',                         desc = '[F]ind [F]iles' },
-                { '<leader>fg', '<cmd>Telescope git_files<cr>',                          desc = '[F]ind [G]it files' },
-                { '<leader>fh', '<cmd>Telescope help_tags<cr>',                          desc = '[F]ind [H]elp' },
-                { '<leader>fr', '<cmd>Telescope oldfiles<cr>',                           desc = '[F]ind [R]ecent files' },
-                { '<leader>fs', '<cmd>Telescope live_grep_args<cr>',                     desc = 'Search string' },
-                { '<leader>fw', '<cmd>Telescope grep_string<cr>',                        desc = 'Search word under cursor' },
+                { '<leader>fb', '<cmd>Telescope buffers<cr>',                   desc = 'Open buffers' },
+                { '<leader>fd', '<cmd>Telescope diagnostics<cr>',               desc = 'Search diagnostics' },
+                { '<leader>ff', '<cmd>Telescope find_files<cr>',                desc = '[F]ind [F]iles' },
+                { '<leader>fg', '<cmd>Telescope git_files<cr>',                 desc = '[F]ind [G]it files' },
+                { '<leader>fh', '<cmd>Telescope help_tags<cr>',                 desc = '[F]ind [H]elp' },
+                { '<leader>fr', '<cmd>Telescope oldfiles<cr>',                  desc = '[F]ind [R]ecent files' },
+                { '<leader>fs', '<cmd>Telescope live_grep_args<cr>',            desc = 'Search string' },
+                { '<leader>fw', '<cmd>Telescope grep_string<cr>',               desc = 'Search word under cursor' },
+                {
+                    '<leader>fw',
+                    function()
+                        local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
+                        live_grep_args_shortcuts.grep_visual_selection()
+                    end,
+                    desc = 'Search visual selection',
+                    mode = 'v'
+                },
                 { '<leader>fS', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>',      desc = 'Search symbol' },
 
                 -- harpoon
