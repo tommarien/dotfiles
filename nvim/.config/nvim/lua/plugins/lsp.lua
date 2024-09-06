@@ -155,7 +155,6 @@ return {
             }
 
             require('mason-lspconfig').setup({
-                -- ensure_installed = { 'lua_ls', 'tsserver', 'eslint', 'yamlls' },
                 -- install all necessary language servers
                 ensure_installed = vim.tbl_keys(servers),
             })
