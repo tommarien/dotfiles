@@ -29,7 +29,6 @@ brew update
 PACKAGES=(
     bat
     cmake
-    curl
     direnv
     fnm
     fzf
