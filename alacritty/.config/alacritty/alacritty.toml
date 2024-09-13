@@ -10,6 +10,7 @@ dynamic_padding = false
 opacity = 1
 blur = true
 option_as_alt = "Both"
+decorations_theme_variant = "Dark"
 
 [window.padding]
 x = 5
