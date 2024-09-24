@@ -9,7 +9,7 @@ return {
             suggestion = {
                 enabled = true,
                 accept = false,
-                auto_trigger = true,
+                auto_trigger = false,
                 prev = '<M-[>',
                 next = '<M-]>',
                 dismiss = '<M-e>'
