@@ -27,7 +27,6 @@ echo "Updating homebrew"
 brew update
 
 PACKAGES=(
-    alacritty
     bat
     cmake
     direnv
@@ -42,6 +41,7 @@ PACKAGES=(
     neovim
     readline
     ripgrep
+    kitty
     koekeishiya/formulae/skhd
     stow
     tldr
