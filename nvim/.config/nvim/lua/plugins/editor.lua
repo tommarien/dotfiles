@@ -136,6 +136,11 @@ return {
         end
     },
     {
+        'stevearc/overseer.nvim',
+        event = 'VeryLazy',
+        opts = {},
+    },
+    {
         'smjonas/live-command.nvim',
         event = 'VeryLazy',
         main = 'live-command',
