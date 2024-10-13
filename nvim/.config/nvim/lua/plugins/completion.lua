@@ -122,7 +122,7 @@ return {
                     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
                     ['<C-f>'] = cmp.mapping.scroll_docs(4),
                     ['<C-Space>'] = cmp.mapping.complete(),
-                    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+                    ['<C-y>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
                     ['<C-k>'] = cmp.mapping(function()
                         if luasnip.expand_or_locally_jumpable() then
                             luasnip.expand_or_jump()
@@ -134,7 +134,7 @@ return {
                         end
                     end, { 'i', 's' }),
                     ['<C-e>'] = cmp.mapping.abort(),
-                    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+                    ['<CR>'] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
                     ['<Tab>'] = cmp.mapping(function(fallback)
                         local col = vim.fn.col('.') - 1
 
