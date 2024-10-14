@@ -141,6 +141,11 @@ return {
         opts = {},
     },
     {
+        'stevearc/dressing.nvim',
+        event = 'VeryLazy',
+        opts = {},
+    },
+    {
         'smjonas/live-command.nvim',
         event = 'VeryLazy',
         main = 'live-command',

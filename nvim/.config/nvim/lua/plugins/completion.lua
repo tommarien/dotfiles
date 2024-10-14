@@ -21,27 +21,27 @@ return {
         },
     },
     {
-        'CopilotC-Nvim/CopilotChat.nvim',
-        branch = 'canary',
-        cmd = {
-            'CopilotChat',
-            'CopilotChatOpen',
-            'CopilotChatToggle',
-            'CopilotChatExplain',
-            'CopilotChatReview',
-            'CopilotChatFix',
-            'CopilotChatOptimize',
-            'CopilotChatDocs',
-            'CopilotChatTests',
-            'CopilotChatFixDiagnostic',
-            'CopilotChatCommit',
-            'CopilotChatCommitStaged',
-        },
+        "olimorris/codecompanion.nvim",
         dependencies = {
-            { 'zbirenbaum/copilot.lua' }, -- or github/copilot.vim
-            { 'nvim-lua/plenary.nvim' },  -- for curl, log wrapper
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "hrsh7th/nvim-cmp",                      -- Optional: For using slash commands and variables in the chat buffer
+            "nvim-telescope/telescope.nvim",         -- Optional: For using slash commands
+            { "stevearc/dressing.nvim", opts = {} }, -- Optional: Improves `vim.ui.select`
         },
-        opts = {},
+        config = {
+            strategies = {
+                chat = {
+                    adapter = "copilot"
+                },
+                inline = {
+                    adapter = "copilot",
+                },
+                agent = {
+                    adapter = "copilot",
+                },
+            }
+        }
     },
     {
         'hrsh7th/nvim-cmp',
