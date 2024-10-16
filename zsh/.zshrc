@@ -39,7 +39,7 @@ export GO_PATH=$HOME/go
 export PATH=$HOME/bin/scripts:/opt/homebrew/opt/mysql-client/bin:$HOME/bin:$GO_PATH/bin:$PATH
 
 # Load fzf theme
-source $HOME/.zsh/fzf-gruvbox-dark-medium-theme
+source $HOME/.zsh/fzf-kanagawa-theme
 
 # Add custom aliases
 source $HOME/.zsh/aliases
