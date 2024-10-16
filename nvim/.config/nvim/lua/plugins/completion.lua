@@ -25,11 +25,20 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
-            "hrsh7th/nvim-cmp",                      -- Optional: For using slash commands and variables in the chat buffer
-            "nvim-telescope/telescope.nvim",         -- Optional: For using slash commands
-            { "stevearc/dressing.nvim", opts = {} }, -- Optional: Improves `vim.ui.select`
+            "hrsh7th/nvim-cmp",              -- Optional: For using slash commands and variables in the chat buffer
+            "nvim-telescope/telescope.nvim", -- Optional: For using slash commands
+            "stevearc/dressing.nvim",        -- Optional: Improves `vim.ui.select`
         },
         config = {
+            adapters = {
+                anthropic = function()
+                    return require("codecompanion.adapters").extend("anthropic", {
+                        env = {
+                            api_key = "cmd:op read op://personal/Anthropic/credential --no-newline",
+                        },
+                    })
+                end,
+            },
             strategies = {
                 chat = {
                     adapter = "copilot"

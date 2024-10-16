@@ -27,6 +27,7 @@ echo "Updating homebrew"
 brew update
 
 PACKAGES=(
+    1password-cli
     bat
     cmake
     direnv
