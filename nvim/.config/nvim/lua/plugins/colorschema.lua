@@ -43,7 +43,11 @@ return {
                 },
             },
             overrides = function()
-                return { ['@lsp.mod.readonly'] = { link = '@lsp' }, }
+                return {
+                    ['@lsp.mod.readonly'] = { link = '@lsp' },
+                    ['@repeat'] = { link = '@keyword' },
+                    ['@conditional'] = { link = '@keyword' },
+                }
             end,
             keywordStyle = { italic = false },
             transparent = false,
