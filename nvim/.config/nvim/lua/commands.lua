@@ -7,7 +7,7 @@ create_user_command('ToggleLightDark', function()
         vim.cmd [[colorscheme everforest]]
     else
         vim.o.background = 'dark'
-        vim.cmd [[colorscheme gruvbox-material]]
+        vim.cmd [[colorscheme kanagawa]]
     end
 end, { desc = 'Toggle Light/Dark mode' })
 
