@@ -25,9 +25,9 @@ return {
                 -- print(vim.inspect(colors))
                 return {
                     ['@lsp.mod.readonly'] = { link = '@lsp' },
-                    ['@repeat'] = { fg = colors.theme.syn.keyword, italic = true },
-                    ['@conditional'] = { fg = colors.theme.syn.keyword, italic = true },
-                    ['@exception'] = { fg = colors.theme.syn.keyword, italic = true },
+                    ['@repeat'] = { fg = colors.theme.syn.keyword },
+                    ['@conditional'] = { fg = colors.theme.syn.keyword },
+                    ['@exception'] = { fg = colors.theme.syn.keyword },
                 }
             end,
             keywordStyle = { italic = false },
