@@ -56,6 +56,8 @@ o.fillchars = 'eob: '
 o.foldmethod = 'expr'
 o.foldexpr = "nvim_treesitter#foldexpr()"
 o.foldlevel = 99
+-- completion
+o.pumheight = 12
 
 -- Map <leader> to space
 g.mapleader = ' '
@@ -65,7 +67,6 @@ g.maplocalleader = ' '
 -- g.netrw_banner = 0
 g.netrw_winsize = 25
 g.netrw_browse_split = 0
-
 
 -- Remap common typos
 vim.cmd("cnoreabbrev W! w!")
