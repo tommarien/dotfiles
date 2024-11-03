@@ -28,6 +28,7 @@ brew update
 
 PACKAGES=(
     1password-cli
+    alacritty
     bat
     cmake
     direnv
@@ -42,7 +43,6 @@ PACKAGES=(
     neovim
     readline
     ripgrep
-    kitty
     koekeishiya/formulae/skhd
     stow
     tldr

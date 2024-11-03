@@ -40,9 +40,7 @@ return {
                     MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
 
                     ['@lsp.mod.readonly'] = { link = '@lsp' },
-                    ['@repeat'] = { fg = theme.syn.keyword },
-                    ['@conditional'] = { fg = theme.syn.keyword },
-                    ['@exception'] = { fg = theme.syn.keyword },
+                    ['@keyword.exception'] = { fg = theme.syn.keyword },
                 }
             end,
             keywordStyle = { italic = false },
