@@ -28,7 +28,6 @@ brew update
 
 PACKAGES=(
     1password-cli
-    alacritty
     bat
     cmake
     direnv
@@ -40,6 +39,7 @@ PACKAGES=(
     goose
     hugo
     jq
+    kitty
     neovim
     readline
     ripgrep
