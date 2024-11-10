@@ -186,6 +186,23 @@ return {
         opts = {},
     },
     {
+        'stevearc/aerial.nvim',
+        event = 'VeryLazy',
+        keys = {
+            { '<leader>a', vim.cmd.AerialToggle, desc = 'AerialToggle' },
+        },
+        opts = {
+            on_attach = function(bufnr)
+                vim.keymap.set('n', '[a', '<cmd>AerialPrev<CR>', { buffer = bufnr })
+                vim.keymap.set('n', ']a', '<cmd>AerialNext<CR>', { buffer = bufnr })
+            end,
+        },
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter',
+            'nvim-tree/nvim-web-devicons'
+        },
+    },
+    {
         'smjonas/live-command.nvim',
         event = 'VeryLazy',
         main = 'live-command',
@@ -294,44 +311,4 @@ return {
             telescope.load_extension('fzf');
         end
     },
-    {
-        'folke/trouble.nvim',
-        cmd = { 'Trouble' },
-        opts = { use_diagnostic_signs = true },
-        keys = {
-            { '<leader>xx', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',                desc = 'Document Diagnostics (Trouble)' },
-            { '<leader>xX', '<cmd>Trouble diagnostics toggle<cr>',                             desc = 'Workspace Diagnostics (Trouble)' },
-            { '<leader>xL', '<cmd>Trouble loclist toggle<cr>',                                 desc = 'Location List (Trouble)' },
-            { '<leader>xQ', '<cmd>Trouble qflist toggle<cr>',                                  desc = 'Quickfix List (Trouble)' },
-            { '<leader>o',  '<cmd>Trouble lsp_document_symbols toggle win.position=right<cr>', desc = 'Document Symbols(Trouble)' },
-            {
-                '[q',
-                function()
-                    if require('trouble').is_open() then
-                        require('trouble').previous({ skip_groups = true, jump = true })
-                    else
-                        local ok, err = pcall(vim.cmd.cprev)
-                        if not ok then
-                            vim.notify(err, vim.log.levels.ERROR)
-                        end
-                    end
-                end,
-                desc = 'Previous trouble/quickfix item',
-            },
-            {
-                ']q',
-                function()
-                    if require('trouble').is_open() then
-                        require('trouble').next({ skip_groups = true, jump = true })
-                    else
-                        local ok, err = pcall(vim.cmd.cnext)
-                        if not ok then
-                            vim.notify(err, vim.log.levels.ERROR)
-                        end
-                    end
-                end,
-                desc = 'Next trouble/quickfix item',
-            },
-        },
-    }
 }
