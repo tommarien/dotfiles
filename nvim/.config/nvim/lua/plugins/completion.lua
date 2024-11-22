@@ -1,57 +1,57 @@
 return {
-    {
-        'zbirenbaum/copilot.lua',
-        cmd = 'Copilot',
-        build = ':Copilot auth',
-        event = 'InsertEnter',
-        opts = {
-            -- setup suggestions for completion
-            suggestion = {
-                enabled = true,
-                accept = false,
-                auto_trigger = false,
-                prev = '<M-[>',
-                next = '<M-]>',
-                dismiss = '<M-e>'
-            },
-            panel = { enabled = true },
-            filetypes = {
-                ['*'] = true,
-            },
-        },
-    },
-    {
-        "olimorris/codecompanion.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-treesitter/nvim-treesitter",
-            "hrsh7th/nvim-cmp",              -- Optional: For using slash commands and variables in the chat buffer
-            "nvim-telescope/telescope.nvim", -- Optional: For using slash commands
-            "stevearc/dressing.nvim",        -- Optional: Improves `vim.ui.select`
-        },
-        config = {
-            adapters = {
-                anthropic = function()
-                    return require("codecompanion.adapters").extend("anthropic", {
-                        env = {
-                            api_key = "cmd:op read op://personal/Anthropic/credential --no-newline",
-                        },
-                    })
-                end,
-            },
-            strategies = {
-                chat = {
-                    adapter = "copilot"
-                },
-                inline = {
-                    adapter = "copilot",
-                },
-                agent = {
-                    adapter = "copilot",
-                },
-            }
-        }
-    },
+    -- {
+    --     'zbirenbaum/copilot.lua',
+    --     cmd = 'Copilot',
+    --     build = ':Copilot auth',
+    --     event = 'InsertEnter',
+    --     opts = {
+    --         -- setup suggestions for completion
+    --         suggestion = {
+    --             enabled = true,
+    --             accept = false,
+    --             auto_trigger = false,
+    --             prev = '<M-[>',
+    --             next = '<M-]>',
+    --             dismiss = '<M-e>'
+    --         },
+    --         panel = { enabled = true },
+    --         filetypes = {
+    --             ['*'] = true,
+    --         },
+    --     },
+    -- },
+    -- {
+    --     "olimorris/codecompanion.nvim",
+    --     dependencies = {
+    --         "nvim-lua/plenary.nvim",
+    --         "nvim-treesitter/nvim-treesitter",
+    --         "hrsh7th/nvim-cmp",              -- Optional: For using slash commands and variables in the chat buffer
+    --         "nvim-telescope/telescope.nvim", -- Optional: For using slash commands
+    --         "stevearc/dressing.nvim",        -- Optional: Improves `vim.ui.select`
+    --     },
+    --     config = {
+    --         adapters = {
+    --             anthropic = function()
+    --                 return require("codecompanion.adapters").extend("anthropic", {
+    --                     env = {
+    --                         api_key = "cmd:op read op://personal/Anthropic/credential --no-newline",
+    --                     },
+    --                 })
+    --             end,
+    --         },
+    --         strategies = {
+    --             chat = {
+    --                 adapter = "copilot"
+    --             },
+    --             inline = {
+    --                 adapter = "copilot",
+    --             },
+    --             agent = {
+    --                 adapter = "copilot",
+    --             },
+    --         }
+    --     }
+    -- },
     {
         'hrsh7th/nvim-cmp',
         event = 'InsertEnter',
@@ -78,7 +78,7 @@ return {
             local cmp_autopairs = require('nvim-autopairs.completion.cmp')
             local luasnip = require 'luasnip'
             local lspkind = require 'lspkind'
-            local copilot_suggestion = require('copilot.suggestion')
+            -- local copilot_suggestion = require('copilot.suggestion')
 
             -- Autopairs
             cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
@@ -149,8 +149,8 @@ return {
 
                         if cmp.visible() then
                             cmp.select_next_item()
-                        elseif copilot_suggestion.is_visible() then
-                            copilot_suggestion.accept()
+                            -- elseif copilot_suggestion.is_visible() then
+                            --     copilot_suggestion.accept()
                         elseif luasnip.expand_or_locally_jumpable() then
                             luasnip.expand_or_jump()
                         elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
