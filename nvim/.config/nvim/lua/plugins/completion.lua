@@ -1,57 +1,49 @@
 return {
-    -- {
-    --     'zbirenbaum/copilot.lua',
-    --     cmd = 'Copilot',
-    --     build = ':Copilot auth',
-    --     event = 'InsertEnter',
-    --     opts = {
-    --         -- setup suggestions for completion
-    --         suggestion = {
-    --             enabled = true,
-    --             accept = false,
-    --             auto_trigger = false,
-    --             prev = '<M-[>',
-    --             next = '<M-]>',
-    --             dismiss = '<M-e>'
-    --         },
-    --         panel = { enabled = true },
-    --         filetypes = {
-    --             ['*'] = true,
-    --         },
-    --     },
-    -- },
-    -- {
-    --     "olimorris/codecompanion.nvim",
-    --     dependencies = {
-    --         "nvim-lua/plenary.nvim",
-    --         "nvim-treesitter/nvim-treesitter",
-    --         "hrsh7th/nvim-cmp",              -- Optional: For using slash commands and variables in the chat buffer
-    --         "nvim-telescope/telescope.nvim", -- Optional: For using slash commands
-    --         "stevearc/dressing.nvim",        -- Optional: Improves `vim.ui.select`
-    --     },
-    --     config = {
-    --         adapters = {
-    --             anthropic = function()
-    --                 return require("codecompanion.adapters").extend("anthropic", {
-    --                     env = {
-    --                         api_key = "cmd:op read op://personal/Anthropic/credential --no-newline",
-    --                     },
-    --                 })
-    --             end,
-    --         },
-    --         strategies = {
-    --             chat = {
-    --                 adapter = "copilot"
-    --             },
-    --             inline = {
-    --                 adapter = "copilot",
-    --             },
-    --             agent = {
-    --                 adapter = "copilot",
-    --             },
-    --         }
-    --     }
-    -- },
+    {
+        'zbirenbaum/copilot.lua',
+        cmd = 'Copilot',
+        build = ':Copilot auth',
+        event = 'InsertEnter',
+        opts = {
+            suggestion = { enabled = false },
+            panel = { enabled = false },
+            filetypes = {
+                ['*'] = true,
+            },
+        },
+    },
+    {
+        "olimorris/codecompanion.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "hrsh7th/nvim-cmp",              -- Optional: For using slash commands and variables in the chat buffer
+            "nvim-telescope/telescope.nvim", -- Optional: For using slash commands
+            "stevearc/dressing.nvim",        -- Optional: Improves `vim.ui.select`
+        },
+        config = {
+            adapters = {
+                anthropic = function()
+                    return require("codecompanion.adapters").extend("anthropic", {
+                        env = {
+                            api_key = "cmd:op read op://personal/Anthropic/credential --no-newline",
+                        },
+                    })
+                end,
+            },
+            strategies = {
+                chat = {
+                    adapter = "copilot"
+                },
+                inline = {
+                    adapter = "copilot",
+                },
+                agent = {
+                    adapter = "copilot",
+                },
+            }
+        }
+    },
     {
         'hrsh7th/nvim-cmp',
         event = 'InsertEnter',
@@ -71,6 +63,10 @@ return {
                     require('luasnip.loaders.from_vscode').lazy_load()
                 end
             },
+            {
+                'zbirenbaum/copilot-cmp',
+                opts = {}
+            },
             'windwp/nvim-autopairs',
         },
         config = function()
@@ -78,19 +74,9 @@ return {
             local cmp_autopairs = require('nvim-autopairs.completion.cmp')
             local luasnip = require 'luasnip'
             local lspkind = require 'lspkind'
-            -- local copilot_suggestion = require('copilot.suggestion')
 
             -- Autopairs
             cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
-
-            -- Copilot
-            cmp.event:on('menu_opened', function()
-                vim.b.copilot_suggestion_hidden = true
-            end)
-
-            cmp.event:on('menu_closed', function()
-                vim.b.copilot_suggestion_hidden = false
-            end)
 
             cmp.setup({
                 formatting = {
@@ -103,7 +89,9 @@ return {
                             luasnip = "[SNIP]",
                             nvim_lsp = "[LSP]",
                             path = "[PATH]",
+                            copilot = "[COP]",
                         },
+                        symbol_map = { Copilot = "" }
                     })
                 },
                 window = {
@@ -149,8 +137,6 @@ return {
 
                         if cmp.visible() then
                             cmp.select_next_item()
-                            -- elseif copilot_suggestion.is_visible() then
-                            --     copilot_suggestion.accept()
                         elseif luasnip.expand_or_locally_jumpable() then
                             luasnip.expand_or_jump()
                         elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
@@ -171,6 +157,7 @@ return {
                 }),
                 -- Installed sources
                 sources = cmp.config.sources({
+                    { name = 'copilot' },
                     { name = 'nvim_lsp', keyword_lenght = 2, max_item_count = 20 },
                     { name = 'luasnip',  keyword_lenght = 2, },
                     { name = "path", },
@@ -182,6 +169,7 @@ return {
             -- Set configuration for specific filetype.
             cmp.setup.filetype('gitcommit', {
                 sources = cmp.config.sources({
+                    { name = 'copilot' },
                     { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
                 }, {
                     { name = 'buffer' },
