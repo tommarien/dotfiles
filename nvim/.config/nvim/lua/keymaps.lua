@@ -14,6 +14,10 @@ utils.map('n', "<C-b>", "<C-b>zz")
 utils.map("n", "n", "nzzzv")
 utils.map("n", "N", "Nzzzv")
 
+-- better indent handling
+utils.map("v", "<", "<gv")
+utils.map("v", ">", ">gv")
+
 -- Move lines up/down
 utils.map('v', 'K', ":m '<-2<CR>gv=gv")
 utils.map('v', 'J', ":m '>+1<CR>gv=gv")
