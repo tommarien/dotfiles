@@ -103,6 +103,10 @@ return {
         }
     },
     {
+        'preservim/vimux',
+        event = 'VeryLazy',
+    },
+    {
         'stevearc/conform.nvim',
         event = 'VeryLazy',
         cmd = { 'ConformInfo' },
