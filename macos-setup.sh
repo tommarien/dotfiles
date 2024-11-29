@@ -50,6 +50,7 @@ PACKAGES=(
     tree-sitter
     wget
     koekeishiya/formulae/yabai
+    yazi
     zoxide
 )
 echo "Installing packages..."
