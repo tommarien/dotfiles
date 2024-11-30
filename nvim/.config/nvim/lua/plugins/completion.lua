@@ -5,7 +5,16 @@ return {
         build = ':Copilot auth',
         event = 'InsertEnter',
         opts = {
-            suggestion = { enabled = false },
+            -- Enable copilot
+            suggestion = {
+                enabled = true,
+                accept = "<M-l>",
+                accept_word = false,
+                accept_line = false,
+                next = "<M-]>",
+                prev = "<M-[>",
+                dismiss = "<M-]>",
+            },
             panel = { enabled = false },
             filetypes = {
                 ['*'] = true,
@@ -63,10 +72,6 @@ return {
                     require('luasnip.loaders.from_vscode').lazy_load()
                 end
             },
-            {
-                'zbirenbaum/copilot-cmp',
-                opts = {}
-            },
             'windwp/nvim-autopairs',
         },
         config = function()
@@ -89,9 +94,7 @@ return {
                             luasnip = "[SNIP]",
                             nvim_lsp = "[LSP]",
                             path = "[PATH]",
-                            copilot = "[COP]",
                         },
-                        symbol_map = { Copilot = "" }
                     })
                 },
                 window = {
@@ -157,7 +160,6 @@ return {
                 }),
                 -- Installed sources
                 sources = cmp.config.sources({
-                    { name = 'copilot' },
                     { name = 'nvim_lsp', keyword_lenght = 2, max_item_count = 20 },
                     { name = 'luasnip',  keyword_lenght = 2, },
                     { name = "path", },
@@ -169,7 +171,6 @@ return {
             -- Set configuration for specific filetype.
             cmp.setup.filetype('gitcommit', {
                 sources = cmp.config.sources({
-                    { name = 'copilot' },
                     { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
                 }, {
                     { name = 'buffer' },
