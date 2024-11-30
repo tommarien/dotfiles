@@ -21,6 +21,7 @@ return {
         }
     },
     font_size = 16,
+    force_reverse_video_cursor = true,
     hide_tab_bar_if_only_one_tab = true,
     line_height = 1.1,
     -- macos_window_background_blur = 20,
