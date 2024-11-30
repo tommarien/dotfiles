@@ -20,7 +20,7 @@ return {
             -- scale = 0.75
         }
     },
-    font_size = 15.6,
+    font_size = 15.4,
     hide_tab_bar_if_only_one_tab = true,
     line_height = 1.08,
     -- macos_window_background_blur = 20,
