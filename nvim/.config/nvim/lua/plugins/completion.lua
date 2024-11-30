@@ -81,7 +81,7 @@ return {
             cmp.setup({
                 formatting = {
                     format = lspkind.cmp_format({
-                        maxwidth = 60,
+                        maxwidth = 80,
                         ellipsis_char = '...',
                         menu = {
                             buffer = "[BUF]",
