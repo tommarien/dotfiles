@@ -39,7 +39,6 @@ PACKAGES=(
     goose
     hugo
     jq
-    kitty
     neovim
     readline
     ripgrep
@@ -48,6 +47,7 @@ PACKAGES=(
     tldr
     tmux
     tree-sitter
+    wezterm
     wget
     koekeishiya/formulae/yabai
     yazi

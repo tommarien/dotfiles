@@ -2,8 +2,7 @@ local wezterm = require 'wezterm'
 
 return {
     adjust_window_size_when_changing_font_size = false,
-    bold_brightens_ansi_colors = 'No',
-    color_scheme = 'Gruvbox dark, medium (base16)',
+    color_scheme = 'Kanagawa (Gogh)',
     font = wezterm.font_with_fallback {
         {
             family = 'MonoLisa',
@@ -12,6 +11,7 @@ return {
                 '-liga',
                 'zero',
                 'ss02', -- script variant
+                'ss03', -- Alt g
                 'ss07', -- Alt curly
             },
         },
@@ -20,9 +20,9 @@ return {
             -- scale = 0.75
         }
     },
-    font_size = 16,
+    font_size = 15.6,
     hide_tab_bar_if_only_one_tab = true,
-    line_height = 1.06,
+    line_height = 1.08,
     -- macos_window_background_blur = 20,
     scrollback_lines = 5000,
     term = 'wezterm',
