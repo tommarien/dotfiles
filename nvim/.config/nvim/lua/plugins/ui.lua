@@ -83,6 +83,8 @@ return {
         },
         opts = {
             mappings = {
+                go_out = '-',
+                go_in = '<CR>',
                 go_in_plus = '<CR>'
             }
         }
