@@ -11,6 +11,7 @@ return {
                 accept = "<M-l>",
                 accept_word = false,
                 accept_line = false,
+                auto_trigger = true,
                 next = "<M-]>",
                 prev = "<M-[>",
                 dismiss = "<M-]>",
