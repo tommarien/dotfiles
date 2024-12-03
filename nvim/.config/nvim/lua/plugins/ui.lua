@@ -62,7 +62,6 @@ return {
                 vim.cmd.Oil,
                 desc = "Browse containing folder"
             }
-
         },
         dependencies = { 'nvim-tree/nvim-web-devicons' },
     },
