@@ -47,47 +47,24 @@ return {
             })
         end
     },
-    -- {
-    --     'stevearc/oil.nvim',
-    --     lazy = false,
-    --     opts = {
-    --         skip_confirm_for_simple_edits = true,
-    --         view_options = {
-    --             show_hidden = true,
-    --         }
-    --     },
-    --     keys = {
-    --         {
-    --             '-',
-    --             vim.cmd.Oil,
-    --             desc = "Browse containing folder"
-    --         }
-    --
-    --     },
-    --     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    -- },
     {
-        'echasnovski/mini.files',
-        version = '*',
+        'stevearc/oil.nvim',
         lazy = false,
+        opts = {
+            skip_confirm_for_simple_edits = true,
+            view_options = {
+                show_hidden = true,
+            }
+        },
         keys = {
             {
                 '-',
-                function()
-                    local MiniFiles = require('mini.files')
-                    MiniFiles.open(vim.api.nvim_buf_get_name(0), true)
-                end,
+                vim.cmd.Oil,
                 desc = "Browse containing folder"
             }
 
         },
-        opts = {
-            mappings = {
-                go_out = '-',
-                go_in = '<CR>',
-                go_in_plus = '<CR>'
-            }
-        }
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
     },
     {
         'stevearc/qf_helper.nvim',
