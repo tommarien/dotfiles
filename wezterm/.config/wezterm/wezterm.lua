@@ -27,7 +27,6 @@ return {
     -- macos_window_background_blur = 20,
     scrollback_lines = 5000,
     term = 'wezterm',
-    use_cap_height_to_scale_fallback_fonts = true,
     -- window_background_opacity = 0.9,
     window_decorations = 'RESIZE', -- Hide titlebar
     window_padding = {
