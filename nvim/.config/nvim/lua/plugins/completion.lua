@@ -17,29 +17,6 @@ return {
             }
         end
     },
-    -- {
-    --     'zbirenbaum/copilot.lua',
-    --     cmd = 'Copilot',
-    --     build = ':Copilot auth',
-    --     event = 'InsertEnter',
-    --     opts = {
-    --         -- Enable copilot
-    --         suggestion = {
-    --             enabled = true,
-    --             accept = "<M-l>",
-    --             accept_word = false,
-    --             accept_line = false,
-    --             auto_trigger = true,
-    --             next = "<M-]>",
-    --             prev = "<M-[>",
-    --             dismiss = "<M-]>",
-    --         },
-    --         panel = { enabled = false },
-    --         filetypes = {
-    --             ['*'] = true,
-    --         },
-    --     },
-    -- },
     {
         "olimorris/codecompanion.nvim",
         dependencies = {
