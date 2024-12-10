@@ -24,10 +24,10 @@ return {
     force_reverse_video_cursor = true,
     hide_tab_bar_if_only_one_tab = true,
     line_height = 1.1,
-    -- macos_window_background_blur = 20,
+    macos_window_background_blur = 20,
     scrollback_lines = 5000,
     term = 'wezterm',
-    -- window_background_opacity = 0.9,
+    window_background_opacity = 0.94,
     window_decorations = 'RESIZE', -- Hide titlebar
     window_padding = {
         left = 20,
