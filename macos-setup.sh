@@ -42,12 +42,12 @@ PACKAGES=(
     neovim
     readline
     ripgrep
+    kitty
     koekeishiya/formulae/skhd
     stow
     tldr
     tmux
     tree-sitter
-    wezterm
     wget
     koekeishiya/formulae/yabai
     yazi
