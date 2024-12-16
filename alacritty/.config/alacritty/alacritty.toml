@@ -14,7 +14,7 @@ y = 5
 size=16
 
 [font.normal]
-family = "MonoLisaPatch Nerd Font"
+family = "MonoLisaMine Nerd Font"
 style = "Regular" 
 [font.bold]
 style = "Bold"
@@ -24,7 +24,7 @@ style = "Italic"
 style = "Bold Italic"
 
 [font.offset]
-y = 2
+y = 3
 
 [scrolling]
 history = 10000
@@ -32,8 +32,10 @@ history = 10000
 [mouse]
 hide_when_typing = true
 
-[general]
+[colors]
+draw_bold_text_with_bright_colors = true
 
+[general]
 live_config_reload = true
 import = [
     "~/.config/alacritty/themes/kanagawa.toml"
