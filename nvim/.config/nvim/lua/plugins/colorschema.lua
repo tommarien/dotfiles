@@ -8,6 +8,19 @@ return {
         end
     },
     {
+        'navarasu/onedark.nvim',
+        opts = {
+            style = 'darker',
+            diagnostics = {
+                darker = false,
+            }
+        },
+        config = function(_, opts)
+            require('onedark').setup(opts)
+            vim.cmd('colorscheme onedark')
+        end,
+    },
+    {
         'rebelot/kanagawa.nvim',
         lazy = false,
         priority = 1000,
@@ -48,7 +61,6 @@ return {
         },
         config = function(_, opts)
             require('kanagawa').setup(opts)
-            vim.cmd('colorscheme kanagawa')
         end,
     },
 }

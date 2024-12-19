@@ -38,5 +38,5 @@ draw_bold_text_with_bright_colors = true
 [general]
 live_config_reload = true
 import = [
-    "~/.config/alacritty/themes/kanagawa.toml"
+    "~/.config/alacritty/themes/onedark_darker.toml"
 ]
