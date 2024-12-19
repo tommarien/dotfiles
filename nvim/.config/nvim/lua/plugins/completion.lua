@@ -26,7 +26,8 @@ return {
             "nvim-telescope/telescope.nvim", -- Optional: For using slash commands
             "stevearc/dressing.nvim",        -- Optional: Improves `vim.ui.select`
         },
-        config = {
+        cmd = "CodeCompanionChat",
+        opts = {
             adapters = {
                 anthropic = function()
                     return require("codecompanion.adapters").extend("anthropic", {

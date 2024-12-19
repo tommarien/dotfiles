@@ -48,6 +48,10 @@ return {
         end
     },
     {
+        'preservim/vimux',
+        event = 'VeryLazy',
+    },
+    {
         'stevearc/oil.nvim',
         lazy = false,
         opts = {

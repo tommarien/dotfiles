@@ -103,8 +103,18 @@ return {
         }
     },
     {
-        'preservim/vimux',
-        event = 'VeryLazy',
+        'smoka7/hop.nvim',
+        version = "*",
+        keys = {
+            {
+                '<leader><leader>',
+                vim.cmd.HopChar1,
+                desc = 'Hop',
+            },
+        },
+        opts = {
+            keys = 'etovxqpdygfblzhckisuran'
+        }
     },
     {
         'stevearc/conform.nvim',
