@@ -26,7 +26,12 @@ return {
             "nvim-telescope/telescope.nvim", -- Optional: For using slash commands
             "stevearc/dressing.nvim",        -- Optional: Improves `vim.ui.select`
         },
-        cmd = "CodeCompanionChat",
+        cmd = {
+            "CodeCompanion",
+            "CodeCompanionActions",
+            "CodeCompanionChat",
+            "CodeCompanionCmd",
+        },
         opts = {
             adapters = {
                 anthropic = function()
