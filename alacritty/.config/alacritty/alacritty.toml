@@ -11,7 +11,7 @@ x = 5
 y = 5
 
 [font]
-size=16
+size= 16
 
 [font.normal]
 family = "MonoLisaMine Nerd Font"
@@ -22,9 +22,6 @@ style = "Bold"
 style = "Italic"
 [font.bold_italic]
 style = "Bold Italic"
-
-[font.offset]
-y = 3
 
 [scrolling]
 history = 10000
