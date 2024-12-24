@@ -12,6 +12,7 @@ y = 5
 
 [font]
 size= 16
+offset.y = 1
 
 [font.normal]
 family = "MonoLisaMine Nerd Font"
@@ -28,9 +29,6 @@ history = 10000
 
 [mouse]
 hide_when_typing = true
-
-[colors]
-draw_bold_text_with_bright_colors = true
 
 [general]
 live_config_reload = true
