@@ -56,15 +56,9 @@ return {
         }
     },
     {
-        'hrsh7th/nvim-cmp',
-        event = 'InsertEnter',
+        'saghen/blink.cmp',
+        -- optional: provides snippets for the snippet source
         dependencies = {
-            'onsails/lspkind.nvim',
-            'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-buffer',
-            'hrsh7th/cmp-path',
-            'hrsh7th/cmp-cmdline',
-            'saadparwaiz1/cmp_luasnip',
             {
                 'L3MON4D3/LuaSnip',
                 dependencies = {
@@ -74,120 +68,60 @@ return {
                     require('luasnip.loaders.from_vscode').lazy_load()
                 end
             },
-            'windwp/nvim-autopairs',
         },
-        config = function()
-            local cmp = require 'cmp'
-            local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-            local luasnip = require 'luasnip'
-            local lspkind = require 'lspkind'
 
-            -- Autopairs
-            cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+        -- use a release tag to download pre-built binaries
+        version = '*',
+        -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+        -- build = 'cargo build --release',
+        -- If you use nix, you can build from source using latest nightly rust with:
+        -- build = 'nix run .#build-plugin',
 
-            cmp.setup({
-                formatting = {
-                    format = lspkind.cmp_format({
-                        maxwidth = 80,
-                        ellipsis_char = '...',
-                        menu = {
-                            buffer = "[BUF]",
-                            cmdline = "[CMD]",
-                            luasnip = "[SNIP]",
-                            nvim_lsp = "[LSP]",
-                            path = "[PATH]",
-                        },
-                    })
-                },
-                window = {
-                    documentation = vim.tbl_deep_extend('force', {},
-                        cmp.config.window.bordered(),
-                        {
-                            max_height = 15,
-                            max_width = 60,
-                        }
-                    ),
-                },
-                matching = {
-                    disallow_prefix_unmatching = true,
-                    disallow_partial_fuzzy_matching = true,
-                    disallow_fullfuzzy_matching = true,
-                },
-                snippet = {
-                    expand = function(args)
-                        luasnip.lsp_expand(args.body)
-                    end,
-                },
-                mapping = cmp.mapping.preset.insert({
-                    ['<C-n'] = cmp.mapping.select_next_item(),
-                    ['<C-p>'] = cmp.mapping.select_prev_item(),
-                    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-                    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-                    ['<C-Space>'] = cmp.mapping.complete(),
-                    ['<C-y>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
-                    ['<C-k>'] = cmp.mapping(function()
-                        if luasnip.expand_or_locally_jumpable() then
-                            luasnip.expand_or_jump()
-                        end
-                    end, { 'i', 's' }),
-                    ['<C-j>'] = cmp.mapping(function()
-                        if luasnip.jumpable(-1) then
-                            luasnip.jump(-1)
-                        end
-                    end, { 'i', 's' }),
-                    ['<C-e>'] = cmp.mapping.abort(),
-                    ['<CR>'] = cmp.mapping.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace }),
-                    ['<Tab>'] = cmp.mapping(function(fallback)
-                        local col = vim.fn.col('.') - 1
+        ---@module 'blink.cmp'
+        ---@type blink.cmp.Config
+        opts = {
+            -- 'default' for mappings similar to built-in completion
+            -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
+            -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
+            -- See the full 'keymap' documentation for information on defining your own keymap.
+            keymap = {
+                preset = 'enter',
+                ['<C-y>'] = { 'select_and_accept' },
+                ['<Tab>'] = { 'select_next', 'snippet_backward', 'fallback' },
+                ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
+            },
 
-                        if cmp.visible() then
-                            cmp.select_next_item()
-                        elseif luasnip.expand_or_locally_jumpable() then
-                            luasnip.expand_or_jump()
-                        elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-                            fallback()
-                        else
-                            cmp.complete()
-                        end
-                    end, { 'i', 's' }),
-                    ['<S-Tab>'] = cmp.mapping(function(fallback)
-                        if cmp.visible() then
-                            cmp.select_prev_item()
-                        elseif luasnip.jumpable(-1) then
-                            luasnip.jump(-1)
-                        else
-                            fallback()
-                        end
-                    end, { 'i', 's' })
-                }),
-                -- Installed sources
-                sources = cmp.config.sources({
-                    { name = 'nvim_lsp', keyword_lenght = 2, max_item_count = 20 },
-                    { name = 'luasnip',  keyword_lenght = 2, },
-                    { name = "path", },
-                }, {
-                    { name = "buffer", keyword_lenght = 4 },
-                }),
-            })
+            appearance = {
+                -- Sets the fallback highlight groups to nvim-cmp's highlight groups
+                -- Useful for when your theme doesn't support blink.cmp
+                -- Will be removed in a future release
+                -- use_nvim_cmp_as_default = true,
+                -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+                -- Adjusts spacing to ensure icons are aligned
+                nerd_font_variant = 'mono'
+            },
+            completion = {
+                -- Insert completion item on selection, don't select by default
+                list = { selection = 'auto_insert' },
 
-            -- Set configuration for specific filetype.
-            cmp.setup.filetype('gitcommit', {
-                sources = cmp.config.sources({
-                    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-                }, {
-                    { name = 'buffer' },
-                })
-            })
+            },
+            snippets = {
+                expand = function(snippet) require('luasnip').lsp_expand(snippet) end,
+                active = function(filter)
+                    if filter and filter.direction then
+                        return require('luasnip').jumpable(filter.direction)
+                    end
+                    return require('luasnip').in_snippet()
+                end,
+                jump = function(direction) require('luasnip').jump(direction) end,
+            },
 
-            -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-            cmp.setup.cmdline(':', {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = cmp.config.sources({
-                    { name = 'path' }
-                }, {
-                    { name = 'cmdline' }
-                })
-            })
-        end
+            -- Default list of enabled providers defined so that you can extend it
+            -- elsewhere in your config, without redefining it, due to `opts_extend`
+            sources = {
+                default = { 'lsp', 'path', 'luasnip', 'buffer' },
+            },
+        },
+        opts_extend = { 'sources.default' }
     },
 }
