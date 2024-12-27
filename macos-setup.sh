@@ -28,28 +28,27 @@ brew update
 
 PACKAGES=(
     1password-cli
-    alacritty
     bat
     cmake
     direnv
     fnm
     fzf
-    goose 
+    ghostty
     git
     git-trim
     goose
     hugo
     jq
+    koekeishiya/formulae/skhd
+    koekeishiya/formulae/yabai
     neovim
     readline
     ripgrep
-    koekeishiya/formulae/skhd
     stow
     tldr
     tmux
     tree-sitter
     wget
-    koekeishiya/formulae/yabai
     yazi
     zoxide
 )

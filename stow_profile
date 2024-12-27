@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 if [[ -z $STOW_FOLDERS ]]; then
-    STOW_FOLDERS="stow,git,zsh,bat,tmux,nvim,yabai,skhd,bin,alacritty"
+    STOW_FOLDERS="stow,git,zsh,bat,tmux,nvim,yabai,skhd,bin,ghostty"
 fi
 
 if [[ -z $DOTFILES ]]; then
