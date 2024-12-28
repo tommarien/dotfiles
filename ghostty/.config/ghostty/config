@@ -18,6 +18,7 @@ font-feature = ss03
 font-feature = ss07
 
 macos-option-as-alt = true
+mouse-hide-while-typing = true
 
 theme = onedark-darker
 
