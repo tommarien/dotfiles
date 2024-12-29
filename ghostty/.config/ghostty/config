@@ -1,4 +1,5 @@
 adjust-cell-width = -1
+adjust-cell-height = 2%
 
 cursor-invert-fg-bg = true
 
