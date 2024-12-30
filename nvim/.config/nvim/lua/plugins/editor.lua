@@ -190,11 +190,6 @@ return {
         end
     },
     {
-        'stevearc/overseer.nvim',
-        event = 'VeryLazy',
-        opts = {},
-    },
-    {
         'stevearc/dressing.nvim',
         event = 'VeryLazy',
         opts = {},
