@@ -25,7 +25,7 @@ return {
             'williamboman/mason-lspconfig.nvim',
             'b0o/schemastore.nvim',
             'yioneko/nvim-vtsls',
-            'saghen/blink.cmp'
+            'hrsh7th/cmp-nvim-lsp',
         },
         config = function()
             -- Use an on_attach function to only map the following keys
@@ -66,7 +66,7 @@ return {
 
             -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
             local capabilities = vim.lsp.protocol.make_client_capabilities()
-            capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
+            capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
             local vstlsLanguageSettings = {
                 updateImportsOnFileMove = { enabled = "always" },
