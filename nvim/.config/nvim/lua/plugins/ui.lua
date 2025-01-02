@@ -70,13 +70,15 @@ return {
         dependencies = { 'nvim-tree/nvim-web-devicons' },
     },
     {
-        'stevearc/qf_helper.nvim',
+        'stevearc/quicker.nvim',
         event = 'VeryLazy',
         keys = {
-            { ']q', vim.cmd.QNext, desc = 'Next QF/LL entry' },
-            { '[q', vim.cmd.QPrev, desc = 'Prev QF/LL entry' },
+            { ']q', vim.cmd.cnext, desc = 'Next QF/LL entry' },
+            { '[q', vim.cmd.cprev, desc = 'Prev QF/LL entry' },
         },
-        opts = {}
+        ---@module "quicker"
+        ---@type quicker.SetupOptions
+        opts = {},
     },
     {
         'folke/which-key.nvim',
