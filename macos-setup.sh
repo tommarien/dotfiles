@@ -27,13 +27,11 @@ echo "Updating homebrew"
 brew update
 
 PACKAGES=(
-    1password-cli
     bat
     cmake
     direnv
     fnm
     fzf
-    ghostty
     git
     git-trim
     goose
@@ -57,8 +55,12 @@ brew install ${PACKAGES[@]} -q
 
 echo "Installing cask..."
 CASKS=(
+   1password-cli
+   appcleaner
    cheatsheet
+   ghostty
    fork
+   homerow
    tomatobar
 )
 echo "Installing cask apps..."
