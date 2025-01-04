@@ -142,10 +142,4 @@ return {
             preset = 'modern'
         }
     },
-    {
-        'echasnovski/mini.notify',
-        event = 'VeryLazy',
-        version = '*',
-        opts = {}
-    },
 }
