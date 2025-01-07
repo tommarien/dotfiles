@@ -62,7 +62,6 @@ return {
         dependencies = {
             'onsails/lspkind.nvim',
             'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-nvim-lsp-signature-help',
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-cmdline',
@@ -157,9 +156,8 @@ return {
                 }),
                 -- Installed sources
                 sources = cmp.config.sources({
-                    { name = 'luasnip',                keyword_lenght = 2, },
-                    { name = 'nvim_lsp',               keyword_lenght = 2, max_item_count = 20 },
-                    { name = 'nvim_lsp_signature_help' },
+                    { name = 'luasnip',  keyword_lenght = 2, },
+                    { name = 'nvim_lsp', keyword_lenght = 2, max_item_count = 20 },
                     { name = "path", },
                 }, {
                     { name = "buffer", keyword_lenght = 4 },
