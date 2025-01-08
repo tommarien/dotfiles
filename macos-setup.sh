@@ -57,7 +57,6 @@ echo "Installing cask..."
 CASKS=(
    1password-cli
    appcleaner
-   cheatsheet
    ghostty
    fork
    homerow
