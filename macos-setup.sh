@@ -27,9 +27,12 @@ echo "Updating homebrew"
 brew update
 
 PACKAGES=(
+    awscli
     bat
     cmake
+    delve
     direnv
+    fd
     fnm
     fzf
     git
