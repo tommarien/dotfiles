@@ -165,4 +165,17 @@ return {
             end
         end
     },
+    {
+        "olexsmir/gopher.nvim",
+        ft = "go",
+        -- branch = "develop", -- if you want develop branch
+        -- keep in mind, it might break everything
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        -- (optional) will update plugin's deps on every update
+        ---@type gopher.Config
+        opts = {},
+    }
 }
