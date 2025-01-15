@@ -2,6 +2,7 @@ return {
     {
         'github/copilot.vim',
         lazy = false,
+        enabled = false,
         config = function()
             vim.g.copilot_enabled = false
             vim.g.copilot_no_tab_map = true
@@ -20,6 +21,7 @@ return {
     },
     {
         "olimorris/codecompanion.nvim",
+        enabled = false,
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
