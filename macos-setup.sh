@@ -63,6 +63,7 @@ CASKS=(
    ghostty
    fork
    homerow
+   textmate
    tomatobar
 )
 echo "Installing cask apps..."
