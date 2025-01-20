@@ -68,6 +68,9 @@ g.maplocalleader = ' '
 g.netrw_winsize = 25
 g.netrw_browse_split = 0
 
+-- Spelling
+o.spell = true
+
 -- Remap common typos
 vim.cmd("cnoreabbrev W! w!")
 vim.cmd("cnoreabbrev Q! q!")
