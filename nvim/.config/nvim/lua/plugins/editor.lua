@@ -281,6 +281,9 @@ return {
                 winblend = 0,
             },
             pickers = {
+                oldfiles = {
+                    cwd_only = true,
+                },
                 find_files = {
                     previewer = false,
                 },
