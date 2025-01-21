@@ -60,9 +60,9 @@ echo "Installing cask..."
 CASKS=(
    1password-cli
    appcleaner
-   ghostty
    fork
    homerow
+   kitty
    textmate
    tomatobar
 )
