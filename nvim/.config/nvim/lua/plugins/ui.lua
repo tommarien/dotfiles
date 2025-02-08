@@ -58,6 +58,11 @@ return {
             skip_confirm_for_simple_edits = true,
             view_options = {
                 show_hidden = true,
+            },
+            keymaps = {
+                ["<C-h>"] = false,
+                ["<C-r>"] = "actions.refresh",
+                ["<C-l>"] = false,
             }
         },
         keys = {
