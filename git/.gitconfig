@@ -4,7 +4,7 @@
 	name = Tom Marien
 	email = tommarien@gmail.com
 [core]
-	excludesfile = /Users/tommarien/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = nvim
 [pull]
 	ff = only
