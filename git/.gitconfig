@@ -3,6 +3,8 @@
 [user]
 	name = Tom Marien
 	email = tommarien@gmail.com
+[includeIf "gitdir:~/Projects/sinch/"]
+    path = ~/Projects/sinch/.gitconfig
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = nvim
