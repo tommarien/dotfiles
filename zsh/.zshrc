@@ -35,6 +35,12 @@ eval "$(direnv hook zsh)"
 export GO_PATH=$HOME/go
 export PATH=/opt/homebrew/bin:$HOME/bin/scripts:/opt/homebrew/Caskroom/google-cloud-sdk/510.0.0/google-cloud-sdk/bin:$HOME/bin:$GO_PATH/bin:$PATH
 
+# Openssl
+export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
+
 # Load fzf theme
 source $HOME/.zsh/fzf-onedark-darker-theme
 
@@ -46,3 +52,7 @@ function zvm_after_init() {
     # Fzf
     source <(fzf --zsh)
 }
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/tommar/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
