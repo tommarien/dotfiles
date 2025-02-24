@@ -1,7 +1,7 @@
 adjust-cell-width = -1
 adjust-cell-height = 2%
 
-cursor-invert-fg-bg = true
+#cursor-invert-fg-bg = true
 
 font-family = MonoLisa
 font-style = Regular
