@@ -22,18 +22,19 @@ fi;
 # Ensure less does not page if not necessary
 export LESS="--no-init --quit-if-one-screen -R"
 
+# Add bin to path
+export GO_PATH=$HOME/go
+export PATH=/opt/homebrew/bin:$HOME/bin/scripts:/opt/homebrew/Caskroom/google-cloud-sdk/510.0.0/google-cloud-sdk/bin:$HOME/bin:$GO_PATH/bin:$PATH
+
 # zoxide
 eval "$(zoxide init zsh)"
-
-# fnm (Fast Node Manager)
-eval "$(fnm env --use-on-cd --shell zsh)"
 
 # direnv
 eval "$(direnv hook zsh)"
 
-# Add bin to path
-export GO_PATH=$HOME/go
-export PATH=/opt/homebrew/bin:$HOME/bin/scripts:/opt/homebrew/Caskroom/google-cloud-sdk/510.0.0/google-cloud-sdk/bin:$HOME/bin:$GO_PATH/bin:$PATH
+
+# fnm (Fast Node Manager)
+eval "$(fnm env --use-on-cd --shell zsh)"
 
 # Openssl
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
