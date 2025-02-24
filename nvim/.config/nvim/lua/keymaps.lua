@@ -1,12 +1,19 @@
 local utils = require('utils')
 
+-- Remove s map (conflicts with mini.surround)
+vim.keymap.set({ "n", "x" }, "s", "<Nop>")
+
+-- Save
 utils.map('n', '<C-s>', ':update<CR>', { desc = 'Save', silent = true })
+
+-- Exit terminal mode
 utils.map('t', '<Esc>', '<C-\\><C-N>', { desc = "Exit Terminal mode", silent = true })
 
+-- Splits
 utils.map('n', '<leader>|', ':vsplit<CR>', { desc = 'Vertical split', silent = true })
 utils.map('n', '<leader>-', ':split<CR>', { desc = 'Horizontal split', silent = true })
 
--- better scrolling
+-- Better scrolling
 utils.map('n', "<C-u>", "<C-u>zz")
 utils.map('n', "<C-d>", "<C-d>zz")
 utils.map('n', "<C-f>", "<C-f>zz")
@@ -14,7 +21,7 @@ utils.map('n', "<C-b>", "<C-b>zz")
 utils.map("n", "n", "nzzzv")
 utils.map("n", "N", "Nzzzv")
 
--- better indent handling
+-- Better indent handling
 utils.map("v", "<", "<gv")
 utils.map("v", ">", ">gv")
 
