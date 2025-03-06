@@ -23,4 +23,7 @@ mouse-hide-while-typing = true
 
 theme = onedark-darker
 
+background-opacity = 0.9
+background-blur-radius = 10
+
 window-decoration = false

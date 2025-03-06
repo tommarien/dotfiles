@@ -11,14 +11,14 @@ return {
         lazy = false,
         priority = 1000,
         opts = {
+            transparent = true,
             style = 'darker',
             diagnostics = {
                 darker = false,
             },
         },
-        config = function(_, opts)
-            require('onedark').setup(opts)
+        init = function()
             vim.cmd('colorscheme onedark')
-        end,
+        end
     },
 }
