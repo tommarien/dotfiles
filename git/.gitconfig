@@ -11,7 +11,7 @@
 [pull]
 	ff = only
 [trim]
-	bases = develop,master,main
+	bases = develop,master,main,prod
 [diff]
 	tool = p4mergetool
 [difftool]
