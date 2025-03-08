@@ -61,8 +61,8 @@ CASKS=(
    1password-cli
    appcleaner
    fork
-   ghostty
    homerow
+   kitty
    textmate
    tomatobar
 )
