@@ -1,4 +1,4 @@
-set -g mode-style "fg=${thm_fg},bg=${thm_bg}"
+set -g mode-style "fg=${thm_selection_fg},bg=${thm_selection_bg}"
 set -g message-style "fg=${thm_fg},bg=${thm_bg}"
 set -g message-command-style "fg=${thm_fg},bg=${thm_bg}"
 set -g pane-border-style "fg=${thm_inactive_pane_bg}"
