@@ -35,7 +35,7 @@ o.shortmess = o.shortmess .. "c"
 o.hlsearch = false -- Never highlight all search matches
 o.incsearch = true -- Search for strings incrementally
 
--- Makes neovim and host OS clipboard play nicely with each other
+-- Makes Neovim and host OS clipboard play nicely with each other
 -- o.clipboard = 'unnamedplus'
 
 -- Better buffer splitting
@@ -68,8 +68,8 @@ g.maplocalleader = ' '
 g.netrw_winsize = 25
 g.netrw_browse_split = 0
 
--- Spelling
-o.spell = true
+-- Spelling (replaced by harper)
+-- o.spell = true
 
 -- Remap common typos
 vim.cmd("cnoreabbrev W! w!")

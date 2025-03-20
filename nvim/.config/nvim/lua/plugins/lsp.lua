@@ -130,6 +130,7 @@ return {
                         }
                     }
                 },
+                harper_ls = {},
                 templ = {},
                 vimls = {},
                 vtsls = {
