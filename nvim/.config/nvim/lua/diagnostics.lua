@@ -19,16 +19,19 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.s
     border = 'rounded',
 })
 
-
-utils.sign({ name = 'DiagnosticSignError', text = '󰅚 ' })
-utils.sign({ name = 'DiagnosticSignWarn', text = '󰀪 ' })
-utils.sign({ name = 'DiagnosticSignHint', text = '󰌶 ' })
-utils.sign({ name = 'DiagnosticSignInfo', text = '󰋽 ' })
-
 vim.diagnostic.config({
+    virtual_text = true,
     severity_sort = true,
     float = {
         border = 'rounded',
         source = 'always',
     },
+    signs = {
+        text = {
+            [vim.diagnostic.severity.HINT] = '󰌶 ',
+            [vim.diagnostic.severity.INFO] = '󰋽 ',
+            [vim.diagnostic.severity.WARN] = '󰀪 ',
+            [vim.diagnostic.severity.ERROR] = '󰅚 ',
+        }
+    }
 })

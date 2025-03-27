@@ -3,9 +3,6 @@ local utils = require('utils')
 -- Remove s map (conflicts with mini.surround)
 vim.keymap.set({ "n", "x" }, "s", "<Nop>")
 
--- Save
-utils.map('n', '<C-s>', ':update<CR>', { desc = 'Save', silent = true })
-
 -- Exit terminal mode
 utils.map('t', '<Esc>', '<C-\\><C-N>', { desc = "Exit Terminal mode", silent = true })
 

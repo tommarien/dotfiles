@@ -48,7 +48,7 @@ return {
                 vim.keymap.set('n', 'K', vim.lsp.buf.hover, with_desc('Show hover'))
                 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, with_desc('Go to implementation'))
                 vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, with_desc('Go to type definition'))
-                vim.keymap.set({ 'n', 'i' }, '<M-k>', vim.lsp.buf.signature_help, with_desc('Show signature help'))
+                vim.keymap.set({ 'n', 'i' }, '<c-s>', vim.lsp.buf.signature_help, with_desc('Show signature help'))
                 vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, with_desc('Add workspace folder'))
                 vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder,
                     with_desc('Remove workspace folder'))
