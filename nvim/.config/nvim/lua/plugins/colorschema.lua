@@ -5,6 +5,13 @@ vim.api.nvim_create_autocmd('ColorScheme', {
     end,
 })
 
+vim.api.nvim_create_autocmd('ColorScheme', {
+    pattern = 'melange',
+    callback = function()
+        vim.cmd('highlight Comment gui=italic')
+    end,
+})
+
 return {
     {
         'navarasu/onedark.nvim',
@@ -26,8 +33,14 @@ return {
             transparent = true,
             italic_comments = true,
         },
+    },
+    {
+        'savq/melange-nvim',
+        priority = 1000,
+        lazy = false,
         init = function()
-            vim.cmd('colorscheme vscode')
+            vim.g.melange_enable_font_variants = 0
+            vim.cmd('colorscheme melange')
         end
     }
 }
