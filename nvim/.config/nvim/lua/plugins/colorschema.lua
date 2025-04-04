@@ -40,7 +40,24 @@ return {
         lazy = false,
         init = function()
             vim.g.melange_enable_font_variants = 0
-            vim.cmd('colorscheme melange')
+        end
+    },
+    {
+        'ramojus/mellifluous.nvim',
+        priority = 1000,
+        lazy = false,
+        opts = {
+            plugins = {
+                telescope = {
+                    nvchad_like = false,
+                },
+            },
+            transparent_background = {
+                enabled = true,
+            }
+        },
+        init = function()
+            vim.cmd('colorscheme mellifluous')
         end
     }
 }
