@@ -50,7 +50,6 @@ PACKAGES=(
     tmux
     tree-sitter
     wget
-    yazi
     zoxide
 )
 echo "Installing packages..."
