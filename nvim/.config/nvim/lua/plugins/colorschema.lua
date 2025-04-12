@@ -1,7 +1,7 @@
 vim.api.nvim_create_autocmd('ColorScheme', {
     pattern = 'melange',
     callback = function()
-        vim.cmd('highlight Comment gui=italic')
+        vim.cmd('highlight String gui=none')
         vim.cmd('highlight CursorLine guibg=none')
     end,
 })
@@ -12,7 +12,7 @@ return {
         priority = 1000,
         lazy = false,
         init = function()
-            vim.g.melange_enable_font_variants = 0
+            local test
             vim.cmd('colorscheme melange')
         end
     },
