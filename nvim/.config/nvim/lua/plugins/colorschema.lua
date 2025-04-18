@@ -12,7 +12,6 @@ return {
         priority = 1000,
         lazy = false,
         init = function()
-            local test
             vim.cmd('colorscheme melange')
         end
     },
