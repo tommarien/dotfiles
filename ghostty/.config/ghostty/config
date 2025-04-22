@@ -13,6 +13,7 @@ font-size = 16
 font-synthetic-style = false
 font-thicken = true
 
+font-feature = -liga
 font-feature = zero
 font-feature = ss02
 font-feature = ss03
@@ -21,9 +22,9 @@ font-feature = ss07
 macos-option-as-alt = true
 mouse-hide-while-typing = true
 
-theme = onedark-darker
+theme = Melange_dark
 
-background-opacity = 0.9
-background-blur-radius = 10
+background-opacity = 0.86
+background-blur-radius = 15
 
 window-decoration = false

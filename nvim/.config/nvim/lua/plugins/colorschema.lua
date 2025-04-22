@@ -2,7 +2,6 @@ vim.api.nvim_create_autocmd('ColorScheme', {
     pattern = 'melange',
     callback = function()
         vim.cmd('highlight String gui=none')
-        vim.cmd('highlight CursorLine guibg=none')
     end,
 })
 
