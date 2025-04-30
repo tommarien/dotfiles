@@ -24,7 +24,7 @@ mouse-hide-while-typing = true
 
 theme = Melange_dark
 
-background-opacity = 0.86
+background-opacity = 0.9
 background-blur-radius = 15
 
 window-decoration = false
