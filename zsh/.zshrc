@@ -34,7 +34,7 @@ eval "$(direnv hook zsh)"
 
 
 # fnm (Fast Node Manager)
-eval "$(fnm env --use-on-cd --shell zsh)"
+eval "$(fnm env --use-on-cd --resolve-engines false --shell zsh)"
 
 # Openssl
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
