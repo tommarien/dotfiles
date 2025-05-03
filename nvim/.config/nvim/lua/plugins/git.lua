@@ -8,16 +8,6 @@ return {
             "Gdelete", "Gremove", "Gbrowse",
         },
     },
-    -- {
-    --     'NeogitOrg/neogit',
-    --     dependencies = 'nvim-lua/plenary.nvim',
-    --     cmd = 'Neogit',
-    --     opts = {
-    --         integrations = {
-    --             diffview = true,
-    --         }
-    --     },
-    -- },
     {
         'lewis6991/gitsigns.nvim',
         event = { 'BufReadPre', 'BufNewFile' },

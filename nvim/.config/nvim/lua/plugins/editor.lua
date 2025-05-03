@@ -191,9 +191,22 @@ return {
         end
     },
     {
-        'stevearc/dressing.nvim',
-        event = 'VeryLazy',
-        opts = {},
+        'folke/snacks.nvim',
+        priority = 1000,
+        lazy = false,
+        ---@type snacks.Config
+        opts = {
+            bigfile = { enabled = true },
+            input = { enabled = true },
+            picker = { enabled = true },
+            notifier = { enabled = true },
+            quickfile = { enabled = true },
+            words = { enabled = true },
+        },
+        keys = {
+            { ']]', function() Snacks.words.jump(vim.v.count1) end,  desc = 'Next Reference', mode = { 'n', 't' } },
+            { '[[', function() Snacks.words.jump(-vim.v.count1) end, desc = 'Prev Reference', mode = { 'n', 't' } },
+        }
     },
     {
         'stevearc/aerial.nvim',
