@@ -5,6 +5,13 @@ vim.api.nvim_create_autocmd('ColorScheme', {
     end,
 })
 
+vim.api.nvim_create_autocmd('ColorScheme', {
+    pattern = 'jellybeans',
+    callback = function()
+        vim.cmd('highlight Comment gui=italic')
+    end,
+})
+
 return {
     {
         'savq/melange-nvim',
@@ -14,4 +21,15 @@ return {
             vim.cmd('colorscheme melange')
         end
     },
+    {
+        'wtfox/jellybeans.nvim',
+        enabled = false,
+        lazy = false,
+        priority = 1000,
+        opts = {
+            flat_ui = false,
+            italics = false,
+            transparant = true
+        },
+    }
 }
