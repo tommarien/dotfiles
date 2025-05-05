@@ -29,7 +29,15 @@ return {
         opts = {
             flat_ui = false,
             italics = false,
-            transparant = true
+            transparent = true,
+            on_colors = function(c)
+                if vim.o.background == 'dark' then
+                    c.background = '#1f2329'
+                end
+            end
         },
+        init = function()
+            vim.cmd('colorscheme jellybeans')
+        end
     }
 }
