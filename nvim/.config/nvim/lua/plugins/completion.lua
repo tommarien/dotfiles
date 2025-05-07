@@ -5,7 +5,6 @@ return {
         config = function()
             vim.g.copilot_enabled = false
             vim.g.copilot_no_tab_map = true
-            vim.g.copilot_node_command = '/opt/homebrew/bin/node'
 
             vim.keymap.set('i', '<M-j>', 'copilot#Accept("\\<CR>")', {
                 expr = true,
