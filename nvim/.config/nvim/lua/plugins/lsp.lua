@@ -3,6 +3,7 @@ return {
         'williamboman/mason.nvim',
         build = ":MasonUpdate",
         cmd = "Mason",
+        version = "v1.x",
         opts = {},
     },
     {
@@ -21,7 +22,7 @@ return {
         event = { "BufReadPre", "BufNewFile" },
         dependencies = {
             'mason.nvim',
-            'williamboman/mason-lspconfig.nvim',
+            { 'williamboman/mason-lspconfig.nvim', version = 'v1.x' },
             'b0o/schemastore.nvim',
             'yioneko/nvim-vtsls',
             'hrsh7th/cmp-nvim-lsp',
