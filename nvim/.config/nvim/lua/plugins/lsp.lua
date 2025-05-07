@@ -161,14 +161,16 @@ return {
                 ensure_installed = vim.tbl_keys(servers),
             })
 
-            -- nvim_lsp object
-            local nvim_lsp = require 'lspconfig'
+            -- global config
+            vim.lsp.config('*', {
+                capabilities = capabilities,
+                on_attach = on_attach,
+            })
 
+            -- config specific settings and enable
             for server_name, server_settings in pairs(servers) do
-                nvim_lsp[server_name].setup(vim.tbl_extend('force', {
-                    capabilities = capabilities,
-                    on_attach = on_attach,
-                }, server_settings))
+                vim.lsp.config(server_name, server_settings)
+                vim.lsp.enable(server_name)
             end
         end
     },
