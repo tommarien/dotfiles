@@ -105,7 +105,6 @@ return {
                 { ']b',         '<cmd>bnext<cr>',                               desc = 'Next buffer' },
                 { ']B',         '<cmd>blast<cr>',                               desc = 'Last buffer' },
 
-
                 -- files
                 { '<leader>f',  group = 'File' },
                 { '<leader>fb', '<cmd>Telescope buffers<cr>',                   desc = 'Open buffers' },

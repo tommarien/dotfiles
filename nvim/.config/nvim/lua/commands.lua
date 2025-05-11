@@ -1,16 +1,5 @@
 local create_user_command = vim.api.nvim_create_user_command
 
--- Light/Dark
-create_user_command('ToggleLightDark', function()
-    if vim.o.background == 'dark' then
-        vim.o.background = 'light'
-        vim.cmd [[colorscheme everforest]]
-    else
-        vim.o.background = 'dark'
-        vim.cmd [[colorscheme kanagawa]]
-    end
-end, { desc = 'Toggle Light/Dark mode' })
-
 -- InlayHints
 create_user_command('InlayHintsEnable', function(args)
     local bufnr = nil
