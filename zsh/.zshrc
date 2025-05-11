@@ -53,7 +53,3 @@ function zvm_after_init() {
     # Fzf
     source <(fzf --zsh)
 }
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/tommar/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
