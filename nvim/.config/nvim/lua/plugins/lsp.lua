@@ -1,33 +1,3 @@
-vim.api.nvim_create_autocmd('LspAttach', {
-    callback = function(args)
-        -- Enable completion triggered by <c-x><c-o>
-        vim.api.nvim_buf_set_option(args.buf, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-        -- Mappings
-        local keyBindOpts = { noremap = true, silent = true, buffer = args.buf }
-
-        local function with_desc(desc)
-            return vim.tbl_extend('force', keyBindOpts, { desc = desc })
-        end
-
-        vim.keymap.set('n', 'gl', vim.diagnostic.open_float, with_desc('Show inline diagnostics'))
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, with_desc('Go to declaration'))
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, with_desc('Go to definition'))
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, with_desc('Show hover'))
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, with_desc('Go to implementation'))
-        vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, with_desc('Go to type definition'))
-        vim.keymap.set({ 'n', 'i' }, '<c-s>', vim.lsp.buf.signature_help, with_desc('Show signature help'))
-        vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, with_desc('Add workspace folder'))
-        vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, with_desc('Remove workspace folder'))
-        vim.keymap.set('n', '<leader>wl', function()
-            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, with_desc('List workspace folders'))
-        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, with_desc('Rename symbol'))
-        vim.keymap.set('n', 'g.', vim.lsp.buf.code_action, with_desc('Code action'))
-        vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, with_desc('Show references'))
-    end,
-})
-
 return {
     {
         'williamboman/mason.nvim',
@@ -170,6 +140,29 @@ return {
             vim.keymap.del('n', 'gri')
             vim.keymap.del('n', 'grn')
             vim.keymap.del('n', 'grr')
+
+            -- add custom
+            local keyBindOpts = { noremap = true, silent = true }
+
+            local function with_desc(desc)
+                return vim.tbl_extend('force', keyBindOpts, { desc = desc })
+            end
+
+            vim.keymap.set('n', 'gl', vim.diagnostic.open_float, with_desc('Show inline diagnostics'))
+            vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, with_desc('Go to declaration'))
+            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, with_desc('Go to definition'))
+            vim.keymap.set('n', 'K', vim.lsp.buf.hover, with_desc('Show hover'))
+            vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, with_desc('Go to implementation'))
+            vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, with_desc('Go to type definition'))
+            vim.keymap.set({ 'n', 'i' }, '<c-s>', vim.lsp.buf.signature_help, with_desc('Show signature help'))
+            vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, with_desc('Add workspace folder'))
+            vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, with_desc('Remove workspace folder'))
+            vim.keymap.set('n', '<leader>wl', function()
+                print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+            end, with_desc('List workspace folders'))
+            vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, with_desc('Rename symbol'))
+            vim.keymap.set('n', 'g.', vim.lsp.buf.code_action, with_desc('Code action'))
+            vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, with_desc('Show references'))
         end
     },
     {
