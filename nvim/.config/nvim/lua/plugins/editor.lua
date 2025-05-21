@@ -103,21 +103,6 @@ return {
         }
     },
     {
-        'smoka7/hop.nvim',
-        version = "*",
-        event = 'VeryLazy',
-        keys = {
-            {
-                '<leader><leader>',
-                vim.cmd.HopChar1,
-                desc = 'Hop',
-            },
-        },
-        opts = {
-            keys = 'etovxqpdygfblzhckisuran'
-        }
-    },
-    {
         'stevearc/conform.nvim',
         event = 'VeryLazy',
         cmd = { 'ConformInfo' },
