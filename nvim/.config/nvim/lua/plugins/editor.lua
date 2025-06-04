@@ -1,5 +1,8 @@
 return {
     {
+        'tpope/vim-sleuth'
+    },
+    {
         'JoosepAlviste/nvim-ts-context-commentstring',
         lazy = true
     },
@@ -182,7 +185,9 @@ return {
         ---@type snacks.Config
         opts = {
             bigfile = { enabled = true },
+            gitbrowse = { enabled = true },
             input = { enabled = true },
+            indent = { enabled = true },
             picker = { enabled = true },
             notifier = { enabled = true },
             quickfile = { enabled = true },
@@ -191,7 +196,15 @@ return {
         keys = {
             { ']]', function() Snacks.words.jump(vim.v.count1) end,  desc = 'Next Reference', mode = { 'n', 't' } },
             { '[[', function() Snacks.words.jump(-vim.v.count1) end, desc = 'Prev Reference', mode = { 'n', 't' } },
-        }
+        },
+        init = function()
+            vim.api.nvim_create_user_command('GitBrowse', function()
+                local snacks = require('snacks');
+                snacks.gitbrowse()
+            end, {
+                desc = 'Open the repo of the active file in the browser',
+            })
+        end
     },
     {
         'stevearc/aerial.nvim',
