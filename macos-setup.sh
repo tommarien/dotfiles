@@ -46,7 +46,7 @@ PACKAGES=(
     readline
     ripgrep
     stow
-    tldr
+    tlrc
     tmux
     tree-sitter
     wget
