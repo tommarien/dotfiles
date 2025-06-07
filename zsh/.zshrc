@@ -42,7 +42,7 @@ export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
 
 # Load fzf theme
-source $HOME/.zsh/fzf-melange-dark-theme
+source $HOME/.zsh/fzf-sonokai-shushia-theme
 
 # Add custom aliases
 source $HOME/.zsh/aliases

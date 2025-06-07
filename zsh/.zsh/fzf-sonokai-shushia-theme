@@ -1,0 +1,13 @@
+export FZF_DEFAULT_OPTS="
+--color=bg+:#423f46,bg:#2d2a2e,spinner:#ab9df2,hl:#f85e84
+--color=fg:#e3e1e4,header:#9ecd6f,info:#7accd7,pointer:#ab9df2
+--color=marker:#ef9062,fg+:#e3e1e4,prompt:#f85e84,hl+:#f85e84
+--color=selected-bg:#423f46
+--border rounded
+--height 40%
+--layout reverse
+--info inline
+--prompt '❯ '
+--pointer '▶'
+--marker '✓'"
+
