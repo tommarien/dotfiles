@@ -37,6 +37,7 @@ PACKAGES=(
     fzf
     git
     git-trim
+    go
     goose
     hugo
     jq

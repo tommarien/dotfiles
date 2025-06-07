@@ -23,8 +23,7 @@ fi;
 export LESS="--no-init --quit-if-one-screen -R"
 
 # Add bin to path
-export GO_PATH=$HOME/go
-export PATH=/opt/homebrew/bin:$HOME/bin/scripts:/opt/homebrew/Caskroom/google-cloud-sdk/510.0.0/google-cloud-sdk/bin:$HOME/bin:$GO_PATH/bin:$PATH
+export PATH=/opt/homebrew/bin:$HOME/bin/scripts:/opt/homebrew/Caskroom/google-cloud-sdk/510.0.0/google-cloud-sdk/bin:$HOME/bin:$PATH
 
 # zoxide
 eval "$(zoxide init zsh)"
