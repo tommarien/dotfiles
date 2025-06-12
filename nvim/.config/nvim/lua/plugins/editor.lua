@@ -113,7 +113,10 @@ return {
             {
                 '<leader>F',
                 function()
-                    require('conform').format({ async = true, lsp_fallback = true })
+                    require('conform').format({
+                        async = true,
+                        lsp_fallback = true,
+                    })
                 end,
                 mode = '',
                 desc = 'Format buffer',
@@ -141,7 +144,7 @@ return {
                     if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
                         return
                     end
-                    return { timeout_ms = 500, lsp_fallback = true }
+                    return { timeout_ms = 500, lsp_format = 'fallback' }
                 end,
             }
         end,
@@ -155,7 +158,7 @@ return {
                         ['end'] = { args.line2, end_line:len() },
                     }
                 end
-                require('conform').format({ async = true, lsp_fallback = true, range = range })
+                require('conform').format({ async = true, lsp_format = 'fallback', range = range })
             end, { range = true })
 
             vim.api.nvim_create_user_command('FormatDisable', function(args)
