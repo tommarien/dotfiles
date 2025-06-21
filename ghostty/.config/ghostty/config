@@ -22,9 +22,9 @@ font-feature = ss07
 macos-option-as-alt = true
 mouse-hide-while-typing = true
 
-theme = sonokai-shushia
+theme = melange_dark
 
 background-opacity = 0.9
-background-blur-radius = 15
+background-blur-radius = 20
 
 window-decoration = false
