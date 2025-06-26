@@ -89,7 +89,10 @@ return {
         'folke/which-key.nvim',
         event = 'VeryLazy',
         version = '*',
-        init = function()
+        opts = {
+            preset = 'modern'
+        },
+        config = function(_, opts)
             local wk = require('which-key')
 
             wk.add({
@@ -141,9 +144,8 @@ return {
                 { '<leader>pi', function() require('package-info').install() end,        desc = 'Install a new dependency' },
                 { '<leader>pp', function() require('package-info').change_version() end, desc = 'Install a different version' },
             })
+
+            wk.setup(opts)
         end,
-        opts = {
-            preset = 'modern'
-        }
     },
 }

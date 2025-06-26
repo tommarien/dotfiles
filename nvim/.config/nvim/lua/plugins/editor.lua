@@ -184,7 +184,7 @@ return {
     {
         'folke/snacks.nvim',
         priority = 1000,
-        lazy = false,
+        event = 'VeryLazy',
         ---@type snacks.Config
         opts = {
             bigfile = { enabled = true },
@@ -200,7 +200,8 @@ return {
             { ']]', function() Snacks.words.jump(vim.v.count1) end,  desc = 'Next Reference', mode = { 'n', 't' } },
             { '[[', function() Snacks.words.jump(-vim.v.count1) end, desc = 'Prev Reference', mode = { 'n', 't' } },
         },
-        init = function()
+        config = function(_, opts)
+            require('snacks').setup(opts)
             vim.api.nvim_create_user_command('GitBrowse', function()
                 local snacks = require('snacks');
                 snacks.gitbrowse()
