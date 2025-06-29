@@ -1,17 +1,18 @@
 adjust-cell-width = -1
-adjust-cell-height = 2%
+adjust-cell-height = 5
 
 #cursor-invert-fg-bg = true
 
 font-family = MonoLisa
 font-style = Regular
 font-style-bold = Bold
-font-style-italic = Italic 
-font-style-bold-italic = bold-italic 
+font-style-italic = Regular Italic 
+font-style-bold-italic = Bold Italic
 
 font-size = 16
 font-synthetic-style = false
 font-thicken = true
+font-thicken-strength = 150
 
 font-feature = -liga
 font-feature = zero
@@ -20,6 +21,7 @@ font-feature = ss03
 font-feature = ss07
 
 macos-option-as-alt = true
+minimum-contrast = 1.1
 mouse-hide-while-typing = true
 
 theme = melange_dark
@@ -27,4 +29,8 @@ theme = melange_dark
 background-opacity = 0.9
 background-blur-radius = 20
 
-window-decoration = false
+macos-titlebar-style = hidden
+window-decoration = none
+
+window-padding-x = 5
+window-padding-y = 5

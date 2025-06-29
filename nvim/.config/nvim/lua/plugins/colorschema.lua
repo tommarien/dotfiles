@@ -3,6 +3,7 @@ vim.api.nvim_create_autocmd('ColorScheme', {
     callback = function()
         vim.cmd('highlight CursorLine guibg=none')
         vim.cmd('highlight LspReferenceText gui=none')
+        vim.cmd('highlight NormalFloat guibg=none')
         vim.cmd('highlight SnacksIndent guifg=#3a3734')
         vim.cmd('highlight SnacksIndentScope guifg=#8a7d73')
         vim.cmd('highlight String gui=none')
