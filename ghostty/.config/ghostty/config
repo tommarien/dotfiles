@@ -1,7 +1,9 @@
-adjust-cell-width = -1
-adjust-cell-height = 5
+adjust-cell-width = -4%
+adjust-cell-height = 10%
 
-#cursor-invert-fg-bg = true
+cursor-invert-fg-bg = true
+
+freetype-load-flags = no-hinting,no-autohint
 
 font-family = MonoLisa
 font-style = Regular
@@ -12,7 +14,7 @@ font-style-bold-italic = Bold Italic
 font-size = 16
 font-synthetic-style = false
 font-thicken = true
-font-thicken-strength = 150
+font-thicken-strength = 50
 
 font-feature = -liga
 font-feature = zero
@@ -30,7 +32,6 @@ background-opacity = 0.9
 background-blur-radius = 20
 
 macos-titlebar-style = hidden
-window-decoration = none
 
 window-padding-x = 5
 window-padding-y = 5

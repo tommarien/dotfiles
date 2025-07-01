@@ -190,7 +190,6 @@ return {
             bigfile = { enabled = true },
             gitbrowse = { enabled = true },
             input = { enabled = true },
-            indent = { enabled = true },
             picker = { enabled = true },
             notifier = { enabled = true },
             quickfile = { enabled = true },
@@ -314,7 +313,7 @@ return {
                 },
                 lsp_references = {
                     show_line = false,
-                }
+                },
             }
         },
         config = function(_, opts)
