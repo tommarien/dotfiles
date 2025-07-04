@@ -68,11 +68,6 @@ return {
         opts = {},
     },
     {
-        'windwp/nvim-autopairs',
-        event = "InsertEnter",
-        opts = {}
-    },
-    {
         'echasnovski/mini.ai',
         event = 'VeryLazy',
         version = '*',

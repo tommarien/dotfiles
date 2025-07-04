@@ -76,16 +76,11 @@ return {
                     require('luasnip.loaders.from_vscode').lazy_load()
                 end
             },
-            'windwp/nvim-autopairs',
         },
         config = function()
             local cmp = require 'cmp'
-            local cmp_autopairs = require('nvim-autopairs.completion.cmp')
             local luasnip = require 'luasnip'
             local lspkind = require 'lspkind'
-
-            -- Autopairs
-            cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
             cmp.setup({
                 formatting = {
