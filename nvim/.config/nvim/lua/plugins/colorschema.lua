@@ -1,8 +1,9 @@
 vim.api.nvim_create_autocmd('ColorScheme', {
     pattern = 'melange',
     callback = function()
+        vim.cmd('highlight Comment guifg=#9d8b78')
         vim.cmd('highlight CursorLine guibg=none')
-        vim.cmd('highlight LspReferenceText gui=none')
+        vim.cmd('highlight LspReferenceText guibg=none gui=none')
         vim.cmd('highlight NormalFloat guibg=none')
         vim.cmd('highlight SnacksIndent guifg=#3a3734')
         vim.cmd('highlight SnacksIndentScope guifg=#8a7d73')
