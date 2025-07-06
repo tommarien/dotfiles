@@ -1,26 +1,14 @@
-adjust-cell-width = -4%
-adjust-cell-height = 10%
-
-cursor-invert-fg-bg = true
+adjust-cell-height = 20%
 
 freetype-load-flags = no-hinting,no-autohint
-
-font-family = MonoLisa
-font-style = Regular
-font-style-bold = Bold
-font-style-italic = Regular Italic 
-font-style-bold-italic = Bold Italic
 
 font-size = 16
 font-synthetic-style = false
 font-thicken = true
 font-thicken-strength = 50
 
-font-feature = -liga
-font-feature = zero
-font-feature = ss02
-font-feature = ss03
-font-feature = ss07
+# Broken equals ligatures
+font-feature = ss19
 
 macos-option-as-alt = true
 minimum-contrast = 1.1
