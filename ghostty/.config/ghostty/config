@@ -1,12 +1,11 @@
-adjust-cell-height = 20%
+adjust-cell-height = 10%
 
-freetype-load-flags = no-hinting,no-autohint
-
-font-size = 16
+font-size = 17
 font-synthetic-style = false
 font-thicken = true
-font-thicken-strength = 50
+font-thicken-strength = 40
 
+font-feature = cv03
 # Broken equals ligatures
 font-feature = ss19
 
