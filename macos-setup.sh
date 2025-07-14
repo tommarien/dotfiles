@@ -60,6 +60,7 @@ echo "Installing cask..."
 CASKS=(
    1password-cli
    appcleaner
+   font-jetbrains-mono
    fork
    ghostty
    homerow
