@@ -94,7 +94,9 @@ return {
                         }
                     }
                 },
-                harper_ls = {},
+                harper_ls = {
+                    userDictPath = "~/dict.txt"
+                },
                 templ = {},
                 vimls = {},
                 vtsls = {
