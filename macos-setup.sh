@@ -44,6 +44,7 @@ PACKAGES=(
     koekeishiya/formulae/skhd
     koekeishiya/formulae/yabai
     neovim
+    opencode
     readline
     ripgrep
     stow
@@ -60,10 +61,10 @@ echo "Installing cask..."
 CASKS=(
    1password-cli
    appcleaner
+   bruno
    font-jetbrains-mono
    fork
    ghostty
-   homerow
    kitty
    textmate
    tomatobar
