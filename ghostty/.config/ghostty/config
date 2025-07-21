@@ -6,7 +6,6 @@ font-synthetic-style = false
 font-thicken = true
 font-thicken-strength = 40
 
-font-feature = cv03
 # Broken equals ligatures
 font-feature = ss19
 
