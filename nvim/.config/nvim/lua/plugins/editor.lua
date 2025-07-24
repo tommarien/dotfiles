@@ -206,7 +206,6 @@ return {
     },
     {
         'stevearc/aerial.nvim',
-        event = 'VeryLazy',
         keys = {
             { '<leader>a', vim.cmd.AerialToggle, desc = 'AerialToggle' },
         },
