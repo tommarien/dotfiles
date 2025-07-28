@@ -16,7 +16,7 @@ mouse-hide-while-typing = true
 theme = melange_dark
 
 background-opacity = 0.9
-background-blur-radius = 20
+background-blur-radius = 10
 
 macos-titlebar-style = hidden
 
