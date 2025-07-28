@@ -95,7 +95,6 @@ return {
                         }
                     }
                 },
-                templ = {},
                 vimls = {},
                 vtsls = {
                     settings = {

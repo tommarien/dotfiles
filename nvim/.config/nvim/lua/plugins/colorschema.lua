@@ -7,6 +7,7 @@ vim.api.nvim_create_autocmd('ColorScheme', {
         vim.cmd('highlight LspReferenceText guibg=#383128 gui=none')
         vim.cmd('highlight MatchParen guibg=#413a30')
         vim.cmd('highlight NormalFloat guibg=none')
+        vim.cmd('highlight Spellbad guifg=none guisp=#bd8183')
         vim.cmd('highlight String gui=none')
     end,
 })
