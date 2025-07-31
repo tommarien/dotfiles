@@ -159,7 +159,7 @@ return {
             vim.keymap.set('n', '<leader>wl', function()
                 print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
             end, with_desc('List workspace folders'))
-            vim.keymap.set('n', 'gn', vim.lsp.buf.rename, with_desc('Rename symbol'))
+            vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, with_desc('Rename symbol'))
             vim.keymap.set('n', 'g.', vim.lsp.buf.code_action, with_desc('Code action'))
             vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, with_desc('Show references'))
         end
