@@ -1,0 +1,105 @@
+#!/bin/bash
+
+# Git checkout with fzf - interactive branch selection
+# Usage: ./git-checkout-fzf.sh [options]
+# Options:
+#   -a, --all     Include remote branches
+#   -r, --remote  Show only remote branches
+#   -h, --help    Show this help message
+
+show_help() {
+    echo "Git checkout with fzf - interactive branch selection"
+    echo ""
+    echo "Usage: $0 [options]"
+    echo ""
+    echo "Options:"
+    echo "  -a, --all     Include remote branches"
+    echo "  -r, --remote  Show only remote branches"
+    echo "  -h, --help    Show this help message"
+    echo ""
+    echo "Controls:"
+    echo "  Enter:        Checkout selected branch"
+    echo "  Ctrl-C/Esc:   Cancel"
+    echo "  Tab:          Toggle selection"
+}
+
+# Check if we're in a git repository
+if ! git rev-parse --git-dir > /dev/null 2>&1; then
+    echo "Error: Not in a git repository"
+    exit 1
+fi
+
+# Check if fzf is installed
+if ! command -v fzf &> /dev/null; then
+    echo "Error: fzf is not installed"
+    echo "Install with: brew install fzf (macOS) or apt install fzf (Ubuntu)"
+    exit 1
+fi
+
+# Parse command line options
+SHOW_REMOTE=false
+REMOTE_ONLY=false
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -a|--all)
+            SHOW_REMOTE=true
+            shift
+            ;;
+        -r|--remote)
+            SHOW_REMOTE=true
+            REMOTE_ONLY=true
+            shift
+            ;;
+        -h|--help)
+            show_help
+            exit 0
+            ;;
+        *)
+            echo "Unknown option: $1"
+            show_help
+            exit 1
+            ;;
+    esac
+done
+
+# Get current branch for highlighting
+current_branch=$(git branch --show-current 2>/dev/null || echo "")
+
+# Build git branch command based on options
+if [ "$REMOTE_ONLY" = true ]; then
+    # Only remote branches, strip origin/ prefix for display
+    branches=$(git branch -r --format='%(refname:short)' | grep -v HEAD | sed 's|origin/||')
+    branch_cmd="git branch -r --format='%(refname:short)' | grep -v HEAD | sed 's|origin/||'"
+elif [ "$SHOW_REMOTE" = true ]; then
+    # Local and remote branches
+    branches=$(git branch -a --format='%(refname:short)' | grep -v HEAD | sed 's|origin/||' | sort -u)
+    branch_cmd="git branch -a --format='%(refname:short)' | grep -v HEAD | sed 's|origin/||' | sort -u"
+else
+    # Only local branches
+    branches=$(git branch --format='%(refname:short)')
+    branch_cmd="git branch --format='%(refname:short)'"
+fi
+
+# Use fzf to select branch with preview
+selected_branch=$(echo "$branches" | fzf \
+    --height=40% \
+    --border \
+    --ansi \
+    --reverse \
+    --header="Select branch to checkout (Current: $current_branch)" \
+    --preview="git log --oneline --graph --color=always --max-count=10 {}" \
+    --preview-window=right:50% \
+    --bind="enter:accept" \
+    --prompt="Branch: ")
+
+# Check if a branch was selected
+if [ -z "$selected_branch" ]; then
+    echo "No branch selected"
+    exit 0
+fi
+
+# Remove any leading/trailing whitespace
+selected_branch=$(echo "$selected_branch" | xargs)
+
+git checkout "$selected_branch"
