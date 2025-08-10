@@ -7,10 +7,28 @@
 // from the command palette.
 [
   {
+    "context": "Dock || Terminal || Editor",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !VimObject",
+    "bindings": {
+      "shift-j": "editor::MoveLineDown",
+      "shift-k": "editor::MoveLineUp"
+    }
+  },
+  {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
-      // put key-bindings here if you want them to work in normal & visual mode
-      "-": "project_panel::ToggleFocus"
+      "-": "project_panel::ToggleFocus",
+      "space f f": "file_finder::Toggle",
+      "space |": "pane::SplitRight",
+      "space -": "pane::SplitDown"
     }
   }
 ]
