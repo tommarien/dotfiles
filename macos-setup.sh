@@ -63,6 +63,7 @@ CASKS=(
    appcleaner
    bruno
    font-jetbrains-mono
+   font-jetbrains-mono-nerd-font
    fork
    ghostty
    kitty

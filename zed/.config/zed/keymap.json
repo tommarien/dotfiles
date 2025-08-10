@@ -26,9 +26,14 @@
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
       "-": "project_panel::ToggleFocus",
-      "space f f": "file_finder::Toggle",
       "space |": "pane::SplitRight",
       "space -": "pane::SplitDown"
+    }
+  },
+  {
+    "context": "Workspace && !VimWaiting",
+    "bindings": {
+      "space f f": "file_finder::Toggle"
     }
   }
 ]
