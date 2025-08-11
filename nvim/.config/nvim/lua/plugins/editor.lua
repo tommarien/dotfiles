@@ -62,10 +62,10 @@ return {
         },
     },
     {
-        'echasnovski/mini.surround',
+        'kylechui/nvim-surround',
+        version = '^3.0.0',
         event = 'VeryLazy',
-        version = '*',
-        opts = {},
+        opts = {}
     },
     {
         'echasnovski/mini.ai',

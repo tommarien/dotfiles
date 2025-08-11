@@ -9,6 +9,10 @@ vim.api.nvim_create_autocmd('ColorScheme', {
         vim.cmd('highlight NormalFloat guibg=none')
         vim.cmd('highlight Spellbad guifg=none guisp=#bd8183')
         vim.cmd('highlight String gui=none')
+        vim.api.nvim_set_hl(0, 'FloatBorder', {
+            fg = '#7d6b58',
+            bg = 'NONE'
+        })
     end,
 })
 
