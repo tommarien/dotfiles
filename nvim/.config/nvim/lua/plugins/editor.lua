@@ -332,4 +332,21 @@ return {
             telescope.load_extension('fzf');
         end
     },
+    {
+        'ThePrimeagen/refactoring.nvim',
+        lazy = false,
+        ft = { 'typescript', 'javascript', 'lua', 'c', 'cpp', 'go', 'python', 'java', 'php' },
+        event = 'BufReadPost',
+        keys = {
+            {
+                '<leader>rr',
+                mode = { 'n', 'x' },
+                function() require('refactoring').select_refactor({ prefer_ex_cmd = true }) end,
+                desc = 'Apply Refactoring',
+            },
+        },
+        config = function()
+            require('refactoring').setup {}
+        end,
+    }
 }
