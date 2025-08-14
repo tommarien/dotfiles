@@ -7,21 +7,6 @@ return {
         lazy = true
     },
     {
-        'lukas-reineke/indent-blankline.nvim',
-        main = 'ibl',
-        event = 'VeryLazy',
-        ---@module 'ibl'
-        ---@type ibl.config
-        opts = {
-            indent = {
-                char = "▏"
-            },
-            scope = {
-                enabled = false
-            }
-        },
-    },
-    {
         'max397574/better-escape.nvim',
         event = 'InsertEnter',
         config = function()
@@ -200,6 +185,7 @@ return {
             bigfile = { enabled = true },
             gitbrowse = { enabled = true },
             input = { enabled = true },
+            indent = { enabled = true },
             picker = { enabled = true },
             notifier = { enabled = true },
             quickfile = { enabled = true },
