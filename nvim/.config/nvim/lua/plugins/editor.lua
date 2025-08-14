@@ -7,6 +7,21 @@ return {
         lazy = true
     },
     {
+        'lukas-reineke/indent-blankline.nvim',
+        main = 'ibl',
+        event = 'VeryLazy',
+        ---@module 'ibl'
+        ---@type ibl.config
+        opts = {
+            indent = {
+                char = "▏"
+            },
+            scope = {
+                enabled = false
+            }
+        },
+    },
+    {
         'max397574/better-escape.nvim',
         event = 'InsertEnter',
         config = function()
@@ -348,5 +363,5 @@ return {
         config = function()
             require('refactoring').setup {}
         end,
-    }
+    },
 }
