@@ -1,6 +1,9 @@
 adjust-cell-height = 15%
 
 font-family = JetBrains Mono
+font-style = Light
+font-style-bold = Semi Bold
+font-style-bold-italic = Semi Bold Italic
 font-size = 17
 font-synthetic-style = false
 font-thicken = true
@@ -14,7 +17,7 @@ mouse-hide-while-typing = true
 
 theme = melange_dark
 
-background-opacity = 0.9
+background-opacity = 0.94
 background-blur-radius = 10
 
 macos-titlebar-style = hidden
