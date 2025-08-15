@@ -31,7 +31,7 @@
     }
   },
   {
-    "context": "Workspace && !VimWaiting",
+    "context": "Workspace && VimControl && !VimWaiting",
     "bindings": {
       "space f f": "file_finder::Toggle"
     }
