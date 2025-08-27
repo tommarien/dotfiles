@@ -2,8 +2,8 @@ adjust-cell-height = 15%
 
 font-family = JetBrains Mono
 font-style = Light
-font-style-bold = Semi Bold
-font-style-bold-italic = Semi Bold Italic
+font-style-bold = SemiBold
+font-style-bold-italic = SemiBold Italic
 font-size = 16
 font-synthetic-style = false
 font-thicken = true
