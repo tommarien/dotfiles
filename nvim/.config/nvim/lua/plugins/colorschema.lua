@@ -23,6 +23,12 @@ vim.api.nvim_create_autocmd('ColorScheme', {
             fg = '#7d6b58',
             nocombine = true,
         })
+        vim.api.nvim_set_hl(0, 'DiagnosticUnnecessary', {
+            fg = '#a89984', -- Dimmed color from melange palette
+            italic = true,
+            undercurl = true,
+            sp = '#928374' -- Subtle underline
+        })
     end,
 })
 

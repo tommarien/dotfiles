@@ -73,7 +73,6 @@ return {
                         }
                     }
                 },
-                golangci_lint_ls = {},
                 lua_ls = {
                     settings = {
                         Lua = {

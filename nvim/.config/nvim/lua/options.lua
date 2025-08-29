@@ -36,7 +36,7 @@ o.hlsearch = false -- Never highlight all search matches
 o.incsearch = true -- Search for strings incrementally
 
 -- Spelling
-o.spell = true
+-- o.spell = true
 
 -- Makes Neovim and host OS clipboard play nicely with each other
 -- o.clipboard = 'unnamedplus'
