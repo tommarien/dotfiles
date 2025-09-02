@@ -9,20 +9,13 @@ vim.api.nvim_create_autocmd('ColorScheme', {
         vim.cmd('highlight NormalFloat guibg=none')
         vim.cmd('highlight Spellbad guifg=none guisp=#bd8183')
         vim.cmd('highlight String gui=none')
+        vim.cmd('highlight IblIndent guifg=#54524f')
 
         vim.api.nvim_set_hl(0, 'FloatBorder', {
             fg = '#7d6b58',
             bg = 'NONE'
         })
 
-        vim.api.nvim_set_hl(0, 'SnacksIndent', {
-            fg = '#54524f',
-            nocombine = true,
-        })
-        vim.api.nvim_set_hl(0, 'SnacksIndentScope', {
-            fg = '#7d6b58',
-            nocombine = true,
-        })
         vim.api.nvim_set_hl(0, 'DiagnosticUnnecessary', {
             fg = '#a89984', -- Dimmed color from melange palette
             italic = true,
