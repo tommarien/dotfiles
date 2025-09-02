@@ -185,11 +185,9 @@ return {
             bigfile = { enabled = true },
             gitbrowse = { enabled = true },
             input = { enabled = true },
-            indent = { enabled = true },
             picker = { enabled = true },
             notifier = { enabled = true },
             quickfile = { enabled = true },
-            words = { enabled = true },
         },
         keys = {
             { ']]', function() Snacks.words.jump(vim.v.count1) end,  desc = 'Next Reference', mode = { 'n', 't' } },
