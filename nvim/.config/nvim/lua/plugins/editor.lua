@@ -220,21 +220,6 @@ return {
         },
     },
     {
-        'lukas-reineke/indent-blankline.nvim',
-        main = 'ibl',
-        event = 'VeryLazy',
-        ---@module 'ibl'
-        ---@type ibl.config
-        opts = {
-            indent = {
-                char = "▏"
-            },
-            scope = {
-                enabled = false
-            }
-        },
-    },
-    {
         'smjonas/live-command.nvim',
         event = 'VeryLazy',
         main = 'live-command',
