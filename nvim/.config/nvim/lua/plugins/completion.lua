@@ -19,30 +19,27 @@ return {
         end
     },
     {
-        "olimorris/codecompanion.nvim",
+        'olimorris/codecompanion.nvim',
         dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-treesitter/nvim-treesitter",
-            "hrsh7th/nvim-cmp",              -- Optional: For using slash commands and variables in the chat buffer
-            "nvim-telescope/telescope.nvim", -- Optional: For using slash commands
-            "stevearc/dressing.nvim",        -- Optional: Improves `vim.ui.select`
+            'nvim-lua/plenary.nvim',
+            'nvim-treesitter/nvim-treesitter',
         },
         cmd = {
-            "CodeCompanion",
-            "CodeCompanionActions",
-            "CodeCompanionChat",
-            "CodeCompanionCmd",
+            'CodeCompanion',
+            'CodeCompanionActions',
+            'CodeCompanionChat',
+            'CodeCompanionCmd',
         },
         opts = {
             strategies = {
                 chat = {
-                    adapter = "copilot"
+                    adapter = 'copilot'
                 },
                 inline = {
-                    adapter = "copilot",
+                    adapter = 'copilot',
                 },
                 agent = {
-                    adapter = "copilot",
+                    adapter = 'copilot',
                 },
             }
         }

@@ -37,31 +37,6 @@ return {
         lazy = false,
     },
     {
-        'projekt0n/github-nvim-theme',
-        name = 'github-theme',
-        lazy = false,
-        priority = 1000,
-        config = function()
-            require('github-theme').setup({
-                options = {
-                    darken = {
-                        floats = false,
-                    },
-                    styles = {
-                        comments = 'italic',
-                    }
-                },
-                groups = {
-                    all = {
-                        DiffAdd = { fg = 'NONE' },
-                        DiffChange = { fg = 'NONE' },
-                        DiffRemove = { fg = 'NONE' },
-                    }
-                }
-            })
-        end,
-    },
-    {
         'navarasu/onedark.nvim',
         lazy = false,
         priority = 1000,
