@@ -1,0 +1,16 @@
+# Corrected GitHub Dark fzf theme
+export FZF_DEFAULT_OPTS="
+  --color=fg:#e6edf3,bg:#30363d,hl:#58a6ff
+  --color=fg+:#f0f6fc,bg+:#484f58,hl+:#79c0ff
+  --color=info:#f85149,prompt:#7c3aed,pointer:#a5f3fc
+  --color=marker:#a5f3fc,spinner:#f85149,header:#8b949e
+  --color=border:#484f58,scrollbar:#21262d,preview-bg:#30363d
+  --color=preview-fg:#e6edf3,query:#f0f6fc:regular
+  --layout=reverse
+  --border=rounded
+  --height=60%
+  --info=inline
+  --prompt='❯ '
+  --pointer='▶'
+  --marker='✓'
+"

@@ -23,13 +23,57 @@ vim.api.nvim_create_autocmd('ColorScheme', {
     end,
 })
 
+vim.api.nvim_create_autocmd('ColorScheme', {
+    pattern = 'onedark',
+    callback = function()
+        vim.api.nvim_set_hl(0, 'QuickFixLine', { link = 'CursorLine' })
+    end,
+})
+
 return {
     {
         'savq/melange-nvim',
         priority = 1000,
         lazy = false,
+    },
+    {
+        'projekt0n/github-nvim-theme',
+        name = 'github-theme',
+        lazy = false,
+        priority = 1000,
         config = function()
-            vim.cmd('colorscheme melange')
-        end
+            require('github-theme').setup({
+                options = {
+                    darken = {
+                        floats = false,
+                    },
+                    styles = {
+                        comments = 'italic',
+                    }
+                },
+                groups = {
+                    all = {
+                        DiffAdd = { fg = 'NONE' },
+                        DiffChange = { fg = 'NONE' },
+                        DiffRemove = { fg = 'NONE' },
+                    }
+                }
+            })
+        end,
+    },
+    {
+        'navarasu/onedark.nvim',
+        lazy = false,
+        priority = 1000,
+        opts = {
+            style = 'darker',
+            diagnostics = {
+                darker = false,
+            },
+        },
+        config = function(_, opts)
+            require('onedark').setup(opts)
+            vim.cmd('colorscheme onedark')
+        end,
     },
 }

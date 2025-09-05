@@ -1,0 +1,34 @@
+# GitHub Dark theme for Ghostty
+# Save as: ~/.config/ghostty/themes/github-dark.conf
+
+# Background and foreground
+background = #30363d
+foreground = #e6edf3
+
+# Cursor
+cursor-color = #58a6ff
+cursor-text = #0d1117
+
+# Selection
+selection-background = #264f78
+selection-foreground = #e6edf3
+
+# Normal colors
+palette = 0=#6e7681 
+palette = 1=#ff7b72 
+palette = 2=#3fb950 
+palette = 3=#d29922 
+palette = 4=#58a6ff 
+palette = 5=#bc8cff 
+palette = 6=#39c5cf 
+palette = 7=#b1bac4 
+
+# Bright colors
+palette = 8=#6e7681 
+palette = 9=#ffa198 
+palette = 10=#56d364
+palette = 11=#e3b341
+palette = 12=#79c0ff
+palette = 13=#d2a8ff
+palette = 14=#56d4dd
+palette = 15=#f0f6fc
