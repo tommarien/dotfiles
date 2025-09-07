@@ -15,7 +15,7 @@ macos-option-as-alt = true
 minimum-contrast = 1.1
 mouse-hide-while-typing = true
 
-theme = rose-pine-moon
+theme = tokyonight_night
 
 background-opacity = 0.86
 background-blur-radius = 10
