@@ -7,6 +7,11 @@ return {
         lazy = true
     },
     {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        opts = {}
+    },
+    {
         'max397574/better-escape.nvim',
         event = 'InsertEnter',
         config = function()
