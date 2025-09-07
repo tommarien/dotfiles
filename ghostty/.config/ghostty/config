@@ -15,9 +15,9 @@ macos-option-as-alt = true
 minimum-contrast = 1.1
 mouse-hide-while-typing = true
 
-theme = onedark-darker
+theme = rose-pine-moon
 
-background-opacity = 0.94
+background-opacity = 0.86
 background-blur-radius = 10
 
 macos-titlebar-style = hidden

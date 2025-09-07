@@ -1,54 +1,41 @@
-vim.api.nvim_create_autocmd('ColorScheme', {
-    pattern = 'melange',
-    callback = function()
-        vim.cmd('highlight Comment guifg=#9d8b78')
-        vim.cmd('highlight GitSignsCurrentLineBlame guifg=#7d6b58')
-        vim.cmd('highlight LspReferenceText guibg=#383128 gui=none')
-        vim.cmd('highlight MatchParen guibg=#413a30')
-        vim.cmd('highlight NormalFloat guibg=none')
-        vim.cmd('highlight Spellbad guifg=none guisp=#bd8183')
-        vim.cmd('highlight String gui=none')
-
-        vim.api.nvim_set_hl(0, 'FloatBorder', {
-            fg = '#7d6b58',
-            bg = 'NONE'
-        })
-
-        vim.api.nvim_set_hl(0, 'DiagnosticUnnecessary', {
-            fg = '#a89984', -- Dimmed color from melange palette
-            italic = true,
-            undercurl = true,
-            sp = '#928374' -- Subtle underline
-        })
-    end,
-})
-
-vim.api.nvim_create_autocmd('ColorScheme', {
-    pattern = 'onedark',
-    callback = function()
-        vim.api.nvim_set_hl(0, 'QuickFixLine', { link = 'CursorLine' })
-    end,
-})
-
 return {
     {
-        'savq/melange-nvim',
-        priority = 1000,
-        lazy = false,
-    },
-    {
-        'navarasu/onedark.nvim',
-        lazy = false,
-        priority = 1000,
-        opts = {
-            style = 'darker',
-            diagnostics = {
-                darker = false,
-            },
-        },
-        config = function(_, opts)
-            require('onedark').setup(opts)
-            vim.cmd('colorscheme onedark')
-        end,
+        'rose-pine/neovim',
+        name = 'rose-pine',
+        config = function()
+            require('rose-pine').setup({
+                variant = 'auto',      -- auto, main, moon, or dawn
+                dark_variant = 'moon', -- main, moon, or dawn
+                dim_inactive_windows = false,
+                extend_background_behind_borders = true,
+
+                enable = {
+                    terminal = true,
+                    legacy_highlights = false, -- Improve compatibility for previous versions of Neovim
+                    migrations = true,         -- Handle deprecated options automatically
+                },
+
+                styles = {
+                    bold = true,
+                    italic = false,
+                    transparency = true,
+                },
+
+                palette = {
+                    --Override the builtin palette per variant
+                    moon = {
+                        base = '#1c1c1e',
+                    },
+                },
+
+                -- NOTE: Highlight groups are extended (merged) by default. Disable this
+                -- per group via `inherit = false`
+                highlight_groups = {
+                    Comment = { italic = true },
+                    DiffviewNormal = { bg = 'NONE' }
+                },
+            })
+            vim.cmd('colorscheme rose-pine')
+        end
     },
 }
