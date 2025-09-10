@@ -5,10 +5,9 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --layout=reverse \
   --border=none \
   --color=bg+:#2d3748 \
-  --color=bg:#1f2329 \
   --color=border:#27a1b9 \
   --color=fg:#c0caf5 \
-  --color=gutter:#1f2329\
+  --color=gutter:#1e1f29\
   --color=header:#ff9e64 \
   --color=hl+:#2ac3de \
   --color=hl:#2ac3de \
@@ -21,3 +20,4 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
   --color=separator:#ff9e64 \
   --color=spinner:#ff007c \
 "
+
