@@ -47,7 +47,7 @@ export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
 
 # Load fzf theme
-source $HOME/.zsh/fzf-tokyonight-night-theme
+source $HOME/.zsh/fzf-melange-dark-theme
 
 # Add custom aliases
 source $HOME/.zsh/aliases
