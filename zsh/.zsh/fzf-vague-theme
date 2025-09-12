@@ -6,7 +6,7 @@ export FZF_DEFAULT_OPTS="
     --highlight-line
     --color=hl:#f3be7c
     --color=gutter:-1
-    --color=bg+:#252530
+    --color=bg+:#2d2e3a
     --color=fg+:#aeaed1
     --color=hl+:#f3be7c
     --color=border:#606079

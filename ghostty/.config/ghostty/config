@@ -16,6 +16,7 @@ minimum-contrast = 1.1
 mouse-hide-while-typing = true
 
 theme = Melange_dark
+theme = vague
 
 background-opacity = 0.92
 background-blur-radius = 10

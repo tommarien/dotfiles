@@ -29,7 +29,28 @@ return {
         priority = 1000,
         lazy = false,
         config = function()
-            vim.cmd('colorscheme melange')
+            -- vim.cmd('colorscheme melange')
+        end
+    },
+    {
+        'vague2k/vague.nvim',
+        lazy = false,
+        priority = 1000,
+        opts = {
+            transparent = true,
+            style = {
+                strings = 'none'
+            },
+            colors = {
+                line = '#2d2e3a'
+            },
+            on_highlights = function(highlights, colors)
+                highlights['Visual'] = vim.tbl_deep_extend('force', highlights['Visual'],
+                    { fg = 'none', bg = colors.line })
+            end,
+        },
+        init = function()
+            vim.cmd('colorscheme vague')
         end
     }
 }
