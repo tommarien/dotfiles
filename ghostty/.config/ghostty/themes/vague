@@ -26,6 +26,7 @@ background = #141415
 background = #1f1f28
 background = #1e1f29
 background = #1f2029
+background = #1e2326
 foreground = #cdcdcd
 selection-background = #252530
 selection-foreground = #cdcdcd

@@ -1,6 +1,8 @@
 vim.api.nvim_create_autocmd('ColorScheme', {
     pattern = 'melange',
     callback = function()
+        vim.cmd('highlight Normal guibg=none')
+        vim.cmd('highlight ColorColumn guibg=#282826')
         vim.cmd('highlight Comment guifg=#9d8b78')
         vim.cmd('highlight GitSignsCurrentLineBlame guifg=#7d6b58')
         vim.cmd('highlight LspReferenceText guibg=#383128 gui=none')
@@ -29,28 +31,7 @@ return {
         priority = 1000,
         lazy = false,
         config = function()
-            -- vim.cmd('colorscheme melange')
-        end
-    },
-    {
-        'vague2k/vague.nvim',
-        lazy = false,
-        priority = 1000,
-        opts = {
-            transparent = true,
-            style = {
-                strings = 'none'
-            },
-            colors = {
-                line = '#2d2e3a'
-            },
-            on_highlights = function(highlights, colors)
-                highlights['Visual'] = vim.tbl_deep_extend('force', highlights['Visual'],
-                    { fg = 'none', bg = colors.line })
-            end,
-        },
-        init = function()
-            vim.cmd('colorscheme vague')
+            vim.cmd('colorscheme melange')
         end
     }
 }

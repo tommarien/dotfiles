@@ -15,10 +15,9 @@ macos-option-as-alt = true
 minimum-contrast = 1.1
 mouse-hide-while-typing = true
 
-theme = Melange_dark
-theme = vague
+theme = melange-dark
 
-background-opacity = 0.92
+background-opacity = 0.88
 background-blur-radius = 10
 
 macos-titlebar-style = hidden
