@@ -32,7 +32,7 @@ o.completeopt = "menu,menuone,noselect"
 o.shortmess = o.shortmess .. "c"
 
 -- Search
-o.hlsearch = false -- Never highlight all search matches
+o.hlsearch = true  -- Never highlight all search matches
 o.incsearch = true -- Search for strings incrementally
 
 -- Spelling

@@ -21,3 +21,15 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
         end)
     end,
 })
+
+-- Enable spelling for Git commit messages
+vim.api.nvim_create_autocmd('BufRead', {
+    desc = 'Enable spell check for Git commit messages',
+    group = vim.api.nvim_create_augroup('my-git-spelling', { clear = true }),
+    pattern = "COMMIT_EDITMSG",
+    callback = function()
+        vim.opt_local.spell = true
+        vim.opt_local.spelllang = "en_us"
+        vim.api.nvim_feedkeys("ggi", "t", true)
+    end,
+})

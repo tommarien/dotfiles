@@ -6,6 +6,14 @@ vim.keymap.set({ "n", "x" }, "s", "<Nop>")
 -- Save
 utils.map('n', '<leader>s', ':update<CR>', { desc = 'Save', silent = true })
 
+-- Remove search highlighting
+vim.keymap.set({ 'n', 'v', 'i' }, '<Esc>', function()
+    if vim.v.hlsearch == 1 then
+        vim.cmd 'nohlsearch | redraw!'
+    end
+    return '<Esc>'
+end, { desc = 'Remove search highlighting', expr = true, silent = true })
+
 -- Exit terminal mode
 utils.map('t', '<Esc>', '<C-\\><C-N>', { desc = "Exit Terminal mode", silent = true })
 
