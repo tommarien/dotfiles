@@ -45,6 +45,7 @@ PACKAGES=(
     koekeishiya/formulae/yabai
     neovim
     opencode
+    rancher
     readline
     ripgrep
     stow
