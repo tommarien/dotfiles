@@ -7,7 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "theme": "Ayu Mirage",
+  "theme": "Melange Dark",
   "cursor_blink": false,
   "features": {
     "edit_prediction_provider": "copilot"
