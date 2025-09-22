@@ -1,0 +1,15 @@
+# Terafox fzf theme
+# Add this to your shell config (.bashrc, .zshrc, etc.)
+
+export FZF_DEFAULT_OPTS="
+--color=fg:#e6eaea,hl:#5a93aa
+--color=fg+:#eeeeee,bg+:#293e40,hl+:#73a3b7
+--color=info:#fda47f,prompt:#ad5c7c,pointer:#7aa4a1
+--color=marker:#7aa4a1,spinner:#a1cdd8,header:#afd4de
+--color=border:#4e5157,gutter:#0d1a1d
+--border=rounded
+--height=40%
+--layout=reverse
+--preview-window=right:50%:wrap
+--bind='ctrl-u:preview-page-up,ctrl-d:preview-page-down'
+"

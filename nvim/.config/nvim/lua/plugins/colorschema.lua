@@ -29,9 +29,27 @@ return {
     {
         'savq/melange-nvim',
         priority = 1000,
+        lazy = false
+    },
+    {
+        'EdenEast/nightfox.nvim',
+        priority = 1000,
         lazy = false,
         config = function()
-            vim.cmd('colorscheme melange')
+            require('nightfox').setup({
+                options = {
+                    transparent = true,
+                    styles = {
+                        comments = 'italic'
+                    }
+                },
+                groups = {
+                    terafox = {
+                        CursorLine = { bg = '#1a2428' }
+                    }
+                }
+            })
+            vim.cmd('colorscheme terafox')
         end
-    }
+    },
 }
