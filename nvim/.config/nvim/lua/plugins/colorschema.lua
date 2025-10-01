@@ -25,6 +25,13 @@ vim.api.nvim_create_autocmd('ColorScheme', {
     end,
 })
 
+vim.api.nvim_create_autocmd('ColorScheme', {
+    pattern = 'onedark',
+    callback = function()
+        vim.api.nvim_set_hl(0, 'QuickFixLine', { link = 'CursorLine' })
+    end,
+})
+
 return {
     {
         'savq/melange-nvim',
@@ -49,7 +56,22 @@ return {
                     }
                 }
             })
-            vim.cmd('colorscheme terafox')
+            -- vim.cmd('colorscheme terafox')
+        end
+    },
+    {
+        'Mofiqul/vscode.nvim',
+        priority = 1000,
+        lazy = false,
+        opts = {
+            transparent = true,
+            italic_comments = true,
+            group_overrides = {
+                CursorLine = { bg = "#252525" }
+            }
+        },
+        init = function()
+            vim.cmd('colorscheme vscode')
         end
     },
 }

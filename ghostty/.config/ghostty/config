@@ -1,7 +1,6 @@
 adjust-cell-height = 15%
 
 font-family = JetBrains Mono
-font-style = Light
 font-style-bold = SemiBold
 font-style-bold-italic = SemiBold Italic
 font-size = 17
@@ -15,9 +14,9 @@ macos-option-as-alt = true
 minimum-contrast = 1.1
 mouse-hide-while-typing = true
 
-theme = terafox
+theme = vscode-dark
 
-background-opacity = 0.86
+background-opacity = 0.9
 background-blur-radius = 10
 
 macos-titlebar-style = hidden
