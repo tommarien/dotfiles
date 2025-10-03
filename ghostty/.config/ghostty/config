@@ -16,7 +16,7 @@ mouse-hide-while-typing = true
 
 theme = vscode-dark
 
-background-opacity = 0.9
+background-opacity = 0.86
 background-blur-radius = 10
 
 macos-titlebar-style = hidden

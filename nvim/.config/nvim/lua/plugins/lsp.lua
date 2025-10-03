@@ -1,8 +1,8 @@
 return {
     {
         'williamboman/mason.nvim',
-        build = ":MasonUpdate",
-        cmd = "Mason",
+        build = ':MasonUpdate',
+        cmd = 'Mason',
         opts = {},
     },
     {
@@ -18,7 +18,7 @@ return {
     },
     {
         'neovim/nvim-lspconfig',
-        event = { "BufReadPre", "BufNewFile" },
+        event = { 'BufReadPre', 'BufNewFile' },
         dependencies = {
             'mason.nvim',
             'williamboman/mason-lspconfig.nvim',
@@ -32,14 +32,14 @@ return {
             capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
             local vstlsLanguageSettings = {
-                updateImportsOnFileMove = { enabled = "always" },
+                updateImportsOnFileMove = { enabled = 'always' },
                 suggest = {
                     completeFunctionCalls = true,
                 },
                 inlayHints = {
                     enumMemberValues = { enabled = true },
                     functionLikeReturnTypes = { enabled = true },
-                    parameterNames = { enabled = "literals" },
+                    parameterNames = { enabled = 'literals' },
                     parameterTypes = { enabled = true },
                     propertyDeclarationTypes = { enabled = true },
                     variableTypes = { enabled = false },
@@ -85,8 +85,8 @@ return {
                                 -- Put format options here
                                 -- NOTE: the value should be STRING!!
                                 defaultConfig = {
-                                    indent_style = "space",
-                                    indent_size = "4",
+                                    indent_style = 'space',
+                                    indent_size = '4',
                                 }
                             },
                             diagnostics = {
@@ -114,7 +114,7 @@ return {
                 },
                 yamlls = {},
                 rust_analyzer = {
-                    cmd = { "rustup", "run", "stable", "rust-analyzer" },
+                    cmd = { 'rustup', 'run', 'stable', 'rust-analyzer' },
                 }
             }
 
@@ -165,13 +165,13 @@ return {
         end
     },
     {
-        "olexsmir/gopher.nvim",
-        ft = "go",
-        -- branch = "develop", -- if you want develop branch
+        'olexsmir/gopher.nvim',
+        ft = 'go',
+        -- branch = 'develop', -- if you want develop branch
         -- keep in mind, it might break everything
         dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-treesitter/nvim-treesitter",
+            'nvim-lua/plenary.nvim',
+            'nvim-treesitter/nvim-treesitter',
         },
         -- (optional) will update plugin's deps on every update
         ---@type gopher.Config
