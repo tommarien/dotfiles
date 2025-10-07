@@ -24,10 +24,9 @@ return {
             'williamboman/mason-lspconfig.nvim',
             'b0o/schemastore.nvim',
             'yioneko/nvim-vtsls',
-            -- 'hrsh7th/cmp-nvim-lsp',
+            'WhoIsSethDaniel/mason-tool-installer.nvim',
         },
         config = function()
-            -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
 
@@ -121,6 +120,14 @@ return {
             require('mason-lspconfig').setup({
                 -- install all necessary language servers
                 ensure_installed = vim.tbl_keys(servers),
+            })
+
+            require('mason-tool-installer').setup({
+                -- install other tools
+                ensure_installed = {
+                    'delve',
+                    'prettierd',
+                },
             })
 
             -- global config
