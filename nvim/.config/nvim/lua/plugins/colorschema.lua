@@ -67,7 +67,7 @@ return {
             transparent = true,
             italic_comments = true,
             group_overrides = {
-                CursorLine = { bg = "#252525" }
+                CursorLine = { bg = "#303030" }
             }
         },
         init = function()
