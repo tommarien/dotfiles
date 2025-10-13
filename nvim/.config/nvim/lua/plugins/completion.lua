@@ -2,6 +2,7 @@ return {
     {
         'github/copilot.vim',
         lazy = false,
+        enabled = not vim.g.vscode,
         config = function()
             vim.g.copilot_enabled = false
             vim.g.copilot_no_tab_map = true
@@ -20,6 +21,7 @@ return {
     },
     {
         'olimorris/codecompanion.nvim',
+        enabled = not vim.g.vscode,
         dependencies = {
             'nvim-lua/plenary.nvim',
             'nvim-treesitter/nvim-treesitter',
@@ -48,6 +50,8 @@ return {
         'saghen/blink.cmp',
         -- optional: provides snippets for the snippet source
         dependencies = { 'rafamadriz/friendly-snippets' },
+
+        enabled = not vim.g.vscode,
 
         -- use a release tag to download pre-built binaries
         version = '1.*',

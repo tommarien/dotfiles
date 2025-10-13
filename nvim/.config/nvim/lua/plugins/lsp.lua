@@ -2,11 +2,13 @@ return {
     {
         'williamboman/mason.nvim',
         build = ':MasonUpdate',
+        enabled = not vim.g.vscode,
         cmd = 'Mason',
         opts = {},
     },
     {
         'j-hui/fidget.nvim',
+        enabled = not vim.g.vscode,
         event = 'LspAttach',
         opts = {
             notification = {
@@ -18,6 +20,7 @@ return {
     },
     {
         'neovim/nvim-lspconfig',
+        enabled = not vim.g.vscode,
         event = { 'BufReadPre', 'BufNewFile' },
         dependencies = {
             'mason.nvim',
@@ -173,6 +176,7 @@ return {
     },
     {
         'olexsmir/gopher.nvim',
+        enabled = not vim.g.vscode,
         ft = 'go',
         -- branch = 'develop', -- if you want develop branch
         -- keep in mind, it might break everything

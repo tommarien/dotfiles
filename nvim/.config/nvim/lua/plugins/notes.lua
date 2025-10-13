@@ -2,6 +2,7 @@ return {
     {
         'renerocksai/telekasten.nvim',
         dependencies = { 'nvim-telescope/telescope.nvim' },
+        enabled = not vim.g.vscode,
         event = 'VeryLazy',
         opts = {
             home = vim.fn.expand('~/notes')

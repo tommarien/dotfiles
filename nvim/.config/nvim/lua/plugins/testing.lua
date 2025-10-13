@@ -15,6 +15,7 @@ return {
     {
         'vim-test/vim-test',
         event = 'VeryLazy',
+        enabled = not vim.g.vscode,
         dependencies = {
             'preservim/vimux'
         },

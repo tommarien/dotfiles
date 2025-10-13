@@ -1,6 +1,7 @@
 return {
     {
-        'tpope/vim-sleuth'
+        'tpope/vim-sleuth',
+        enabled = not vim.g.vscode,
     },
     {
         'JoosepAlviste/nvim-ts-context-commentstring',
@@ -14,6 +15,7 @@ return {
     {
         'chentoast/marks.nvim',
         event = 'VeryLazy',
+        enabled = not vim.g.vscode,
         opts = {},
     },
     {
@@ -105,6 +107,7 @@ return {
     {
         'jinh0/eyeliner.nvim',
         event = 'VeryLazy',
+        enabled = not vim.g.vscode,
         opts = {
             highlight_on_key = true,
             dim = true,
@@ -113,6 +116,7 @@ return {
     {
         'stevearc/conform.nvim',
         event = 'VeryLazy',
+        enabled = not vim.g.vscode,
         cmd = { 'ConformInfo' },
         keys = {
             {
@@ -189,6 +193,7 @@ return {
     {
         'folke/snacks.nvim',
         priority = 1000,
+        enabled = not vim.g.vscode,
         event = 'VeryLazy',
         ---@type snacks.Config
         opts = {
@@ -215,6 +220,7 @@ return {
     },
     {
         'stevearc/aerial.nvim',
+        enabled = not vim.g.vscode,
         keys = {
             { '<leader>a', vim.cmd.AerialToggle, desc = 'AerialToggle' },
         },
@@ -243,6 +249,7 @@ return {
     },
     {
         'mbbill/undotree',
+        enabled = not vim.g.vscode,
         cmd = 'UndotreeToggle',
         keys = {
             { '<leader>u', vim.cmd.UndotreeToggle, desc = 'Undotree' },
@@ -254,6 +261,7 @@ return {
     },
     {
         'christoomey/vim-tmux-navigator',
+        enabled = not vim.g.vscode,
         cmd = {
             'TmuxNavigateLeft',
             'TmuxNavigateDown',
@@ -272,6 +280,7 @@ return {
     },
     {
         'ThePrimeagen/harpoon',
+        enabled = not vim.g.vscode,
         keys = {
             { '<leader>ha', function() require("harpoon.mark").add_file() end,        desc = 'Add mark' },
             { '<leader>hs', function() require("harpoon.ui").toggle_quick_menu() end, desc = 'Show marks' },
@@ -284,6 +293,7 @@ return {
     },
     {
         'vuki656/package-info.nvim',
+        enabled = not vim.g.vscode,
         event = { 'BufRead package.json' },
         dependencies = 'MunifTanjim/nui.nvim',
         opts = {
@@ -293,6 +303,7 @@ return {
     },
     {
         'nvim-telescope/telescope.nvim',
+        enabled = not vim.g.vscode,
         event = 'VeryLazy',
         version = '*',
         dependencies = {

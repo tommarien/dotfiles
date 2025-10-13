@@ -11,12 +11,29 @@ vim.keymap.set({ 'n', 'v', 'i' }, '<Esc>', function()
     return '<Esc>'
 end, { desc = 'Remove search highlighting', expr = true, silent = true })
 
--- Exit terminal mode
-utils.map('t', '<Esc>', '<C-\\><C-N>', { desc = "Exit Terminal mode", silent = true })
+if not vim.g.vscode then
+    -- Exit terminal mode
+    utils.map('t', '<Esc>', '<C-\\><C-N>', { desc = "Exit Terminal mode", silent = true })
+end
 
 -- Splits
-utils.map('n', '<leader>|', ':vsplit<CR>', { desc = 'Vertical split', silent = true })
-utils.map('n', '<leader>-', ':split<CR>', { desc = 'Horizontal split', silent = true })
+if vim.g.vscode then
+    utils.map(
+        'n',
+        '<leader>|',
+        function() require('vscode').action('workbench.action.splitEditorRight') end,
+        { desc = 'Vertical split', silent = true }
+    )
+    utils.map(
+        'n',
+        '<leader>-',
+        function() require('vscode').action('workbench.action.splitEditorDown') end,
+        { desc = 'Horizontal split', silent = true }
+    )
+else
+    utils.map('n', '<leader>|', ':vsplit<CR>', { desc = 'Vertical split', silent = true })
+    utils.map('n', '<leader>-', ':split<CR>', { desc = 'Horizontal split', silent = true })
+end
 
 -- Better scrolling
 utils.map('n', "<C-u>", "<C-u>zz")
@@ -44,5 +61,20 @@ end, { desc = 'Copy relative file to clipboard' })
 -- Visual select last pasted value
 utils.map('n', 'gp', '`[v`]', { desc = 'Select last paste' })
 
--- Black hole register
+-- Blaj́k hole register
 utils.map('x', '<leader>p', [["_dP]])
+
+if vim.g.vscode then
+    -- Pane handling
+    utils.map('n', '<C-h>', function() require('vscode').action('workbench.action.focusLeftGroup') end)
+    utils.map('n', '<C-l>', function() require('vscode').action('workbench.action.focusRightGroup') end)
+    utils.map('n', '<C-k>', function() require('vscode').action('workbench.action.focusBelowGroup') end)
+    utils.map('n', '<C-j>', function() require('vscode').action('workbench.action.focusAboveGroup') end)
+
+    --Find
+    utils.map('n', '<leader>ff', function() require('vscode').action('workbench.action.quickOpen') end)
+    utils.map('n', '<leader>fg', function() require('vscode').action('workbench.action.quickOpen') end)
+
+    --Lsp
+    utils.map('n', '<leader>rn', function() require('vscode').action('editor.action.rename') end)
+end

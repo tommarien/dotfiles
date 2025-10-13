@@ -2,6 +2,7 @@ return {
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
+        enabled = not vim.g.vscode,
         event = 'VeryLazy',
         opts = function()
             return
@@ -30,6 +31,7 @@ return {
     {
         'echasnovski/mini.hipatterns',
         event = 'VeryLazy',
+        enabled = not vim.g.vscode,
         version = '*',
         config = function()
             local hipatterns = require('mini.hipatterns')
@@ -49,10 +51,12 @@ return {
     },
     {
         'preservim/vimux',
+        enabled = not vim.g.vscode,
         event = 'VeryLazy',
     },
     {
         'stevearc/oil.nvim',
+        enabled = not vim.g.vscode,
         lazy = false,
         opts = {
             skip_confirm_for_simple_edits = true,
@@ -76,6 +80,7 @@ return {
     },
     {
         'stevearc/quicker.nvim',
+        enabled = not vim.g.vscode,
         event = 'VeryLazy',
         keys = {
             { ']q', vim.cmd.cnext, desc = 'Next QF/LL entry' },
@@ -88,6 +93,7 @@ return {
     {
         'folke/which-key.nvim',
         event = 'VeryLazy',
+        enabled = not vim.g.vscode,
         version = '*',
         opts = {
             preset = 'modern'

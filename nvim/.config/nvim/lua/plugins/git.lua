@@ -2,6 +2,7 @@ return {
     {
         "tpope/vim-fugitive",
         opt = true,
+        enabled = not vim.g.vscode,
         cmd = {
             "G", "Git", "Gdiffsplit", "Gvdiffsplit", "Gedit", "Gsplit",
             "Gread", "Gwrite", "Ggrep", "Glgrep", "Gmove",
@@ -11,6 +12,7 @@ return {
     {
         'lewis6991/gitsigns.nvim',
         event = { 'BufReadPre', 'BufNewFile' },
+        enabled = not vim.g.vscode,
         version = '*',
         opts = {
             signs = {
@@ -58,6 +60,7 @@ return {
     {
         'sindrets/diffview.nvim',
         event = 'VeryLazy',
+        enabled = not vim.g.vscode,
         dependencies = 'nvim-lua/plenary.nvim',
         opts = {
             use_icons = true,
