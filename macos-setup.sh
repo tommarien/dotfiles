@@ -67,7 +67,6 @@ CASKS=(
    font-jetbrains-mono
    font-jetbrains-mono-nerd-font
    fork
-   ghostty
    kitty
    textmate
    tomatobar
