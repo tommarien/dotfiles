@@ -20,11 +20,12 @@ return {
     yellow_dark = '#b99167',
     green = '#57ab5a',
     green_light = '#8edb8c',
+
     cyan = '#96d0ff',
     blue = '#539bf5',
-    purple = '#b083f0',
-    pink = '#e275ad',
+    purple = '#b477cf',
     purple_light = '#dcbdfb',
+    pink = '#e275ad',
 
     -- Special colors
     comment = '#9198a1',
@@ -32,6 +33,7 @@ return {
     warning = '#daaa3f',
     info = '#539bf5',
     hint = '#768390',
+    string = '#a6e3a1',
 
     -- Git colors
     git_add = '#46954a',
