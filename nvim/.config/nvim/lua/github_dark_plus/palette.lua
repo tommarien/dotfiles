@@ -23,32 +23,33 @@ return {
     green         = '#57ab5a',
     green_light   = '#8edb8c',
 
-    cyan          = '#96d0ff',
+    cyan          = '#a5d6ff',
     blue          = '#539bf5',
+    blue_light    = '#79c0ff',
     purple        = '#b083f0',
-    purple_light  = '#c69ff5',
+    purple_light  = '#d2a8ff',
     pink          = '#e275ad',
 
     -- Special colors
-    comment       = '#9198a1',
+    comment       = '#8b949e',
     error         = '#e5534b',
     warning       = '#daaa3f',
     info          = '#539bf5',
     hint          = '#768390',
-    string        = '#a6e3a1',
-    operator      = '#90a0b5',
+    operator      = '#9bb4bc',
+
 
     -- Git colors
-    git_add       = '#46954a',
-    git_change    = '#daaa3f',
-    git_delete    = '#f47067',
+    git_add     = '#46954a',
+    git_change  = '#daaa3f',
+    git_delete  = '#f47067',
 
     -- Diff colors
-    diff_add      = '#1c4523',
-    diff_change   = '#3d3415',
-    diff_delete   = '#462c32',
-    diff_text     = '#56401c',
+    diff_add    = '#1c4523',
+    diff_change = '#3d3415',
+    diff_delete = '#462c32',
+    diff_text   = '#56401c',
 
     -- None
-    none          = 'NONE',
+    none        = 'NONE',
 }
