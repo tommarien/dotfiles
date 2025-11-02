@@ -42,6 +42,9 @@ M.setup = function()
         WarningMsg                           = { fg = c.warning },
         Whitespace                           = { fg = c.fg_dim },
         WinSeparator                         = { fg = c.border },
+        Added                                = { fg = c.git_add, bg = c.diff_add, bold = true },
+        Changed                              = { fg = c.git_change, bg = c.diff_change, bold = true },
+        Removed                              = { fg = c.git_delete, bg = c.diff_delete, bold = true },
 
         -- Syntax highlighting
         Boolean                              = { fg = c.cyan },
