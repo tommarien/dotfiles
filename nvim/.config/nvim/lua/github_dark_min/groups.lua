@@ -1,6 +1,6 @@
 local M = {}
 
-local c = require('github_dark_plus.palette')
+local c = require('github_dark_min.palette')
 
 M.setup = function()
     return {

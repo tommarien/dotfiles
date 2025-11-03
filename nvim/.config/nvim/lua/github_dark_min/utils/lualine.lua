@@ -1,5 +1,5 @@
 return function()
-    local c = require('github_dark_plus.palette')
+    local c = require('github_dark_min.palette')
     local theme = {}
 
     theme.normal = {

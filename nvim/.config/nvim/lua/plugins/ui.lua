@@ -9,8 +9,7 @@ return {
             {
                 options = {
                     icons_enabled = true,
-                    -- theme = 'auto'
-                    theme = 'github_dark_plus'
+                    theme = 'github_dark_min'
                 },
                 sections = {
                     lualine_c = {
