@@ -9,7 +9,7 @@ return {
     border        = '#444c56',
     selection     = '#3c444d',
     search        = '#496380',
-    cursor_line   = '#2d323b',
+    cursor_line   = '#2c313a',
     visual        = '#3c444d',
 
     -- Syntax colors
@@ -31,7 +31,7 @@ return {
     pink          = '#e275ad',
 
     -- Special colors
-    comment       = '#8b949e',
+    comment       = '#a4a4a4',
     error         = '#e5534b',
     warning       = '#daaa3f',
     info          = '#539bf5',
