@@ -31,7 +31,7 @@ return {
     pink          = '#e275ad',
 
     -- Special colors
-    comment       = '#a4a4a4',
+    comment       = '#9098a1',
     error         = '#e5534b',
     warning       = '#daaa3f',
     info          = '#539bf5',

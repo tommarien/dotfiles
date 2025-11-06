@@ -16,7 +16,6 @@ return {
     red           = '#f47067',
     red_dark      = '#b0574b',
     orange        = '#f69d50',
-    orange_dark   = '#b36a3c',
     yellow        = '#daaa3f',
     yellow_bright = '#f2cc60',
     yellow_dark   = '#b99167',

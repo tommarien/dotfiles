@@ -47,7 +47,7 @@ M.setup = function()
         Removed                              = { fg = c.git_delete, bg = c.diff_delete, bold = true },
 
         -- Syntax highlighting
-        Boolean                              = { fg = c.cyan },
+        Boolean                              = { fg = c.orange },
         Character                            = { fg = c.red },
         Comment                              = { fg = c.comment, italic = true },
         Conditional                          = { fg = c.red },
@@ -57,7 +57,7 @@ M.setup = function()
         Delimiter                            = { fg = c.fg },
         Error                                = { fg = c.error },
         Exception                            = { fg = c.red },
-        Float                                = { fg = c.cyan },
+        Float                                = { fg = c.orange },
         Function                             = { fg = c.purple_light },
         Identifier                           = { fg = c.fg },
         Ignore                               = { fg = c.fg_dim },
@@ -65,7 +65,7 @@ M.setup = function()
         Keyword                              = { fg = c.red },
         Label                                = { fg = c.red },
         Macro                                = { fg = c.red },
-        Number                               = { fg = c.cyan },
+        Number                               = { fg = c.orange },
         Operator                             = { fg = c.operator },
         PreCondit                            = { fg = c.red },
         PreProc                              = { fg = c.red },
@@ -257,8 +257,8 @@ M.setup = function()
 
         -- Blink.cmp
         BlinkCmpMenu                         = { fg = c.fg, bg = c.bg_lighter },
-        BlinkCmpMenuBorder                   = { fg = c.border, bg = c.bg_lighter },
-        BlinkCmpMenuSelection                = { link = 'PmenuSel' },
+        BlinkCmpMenuBorder                   = { link = 'FloatBorder' },
+        -- BlinkCmpMenuSelection                = { link = 'PmenuSel' },
         BlinkCmpScrollBarThumb               = { bg = c.fg_dim },
         BlinkCmpScrollBarGutter              = { bg = c.bg_lighter },
         BlinkCmpLabel                        = { fg = c.fg },
