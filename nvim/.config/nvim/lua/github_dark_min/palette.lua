@@ -21,7 +21,7 @@ return {
     yellow_bright = '#f2cc60',
     yellow_dark   = '#b99167',
     green         = '#57ab5a',
-    green_light   = '#8edb8c',
+    green_light   = '#9edb8c',
 
     cyan          = '#a5d6ff',
     blue          = '#539bf5',
