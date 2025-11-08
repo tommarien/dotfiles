@@ -3,7 +3,7 @@ adjust-cell-height = 15%
 font-family = JetBrains Mono
 font-style-bold = SemiBold
 font-style-bold-italic = SemiBold Italic
-font-size = 17
+font-size = 16
 font-synthetic-style = false
 font-thicken = true
 
@@ -14,7 +14,7 @@ macos-option-as-alt = true
 minimum-contrast = 1.1
 mouse-hide-while-typing = true
 
-theme = vscode-dark
+theme = github_dark_min
 
 background-opacity = 0.86
 background-blur-radius = 10

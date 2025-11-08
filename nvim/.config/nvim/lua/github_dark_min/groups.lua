@@ -2,7 +2,7 @@ local M = {}
 
 local c = require('github_dark_min.palette')
 
-M.setup = function()
+M.setup = function(opts)
     return {
         -- Editor highlights
         ColorColumn                 = { bg = c.bg_lighter },
@@ -22,7 +22,7 @@ M.setup = function()
         ModeMsg                     = { fg = c.fg },
         MoreMsg                     = { fg = c.blue },
         NonText                     = { fg = c.fg_dim },
-        Normal                      = { fg = c.fg, bg = c.bg },
+        Normal                      = { fg = c.fg, bg = opts.transparent and 'NONE' or c.bg },
         NormalFloat                 = { fg = c.fg, bg = c.bg_lighter },
         Pmenu                       = { fg = c.fg, bg = c.bg_lighter },
         PmenuSbar                   = { bg = c.bg_lighter },
