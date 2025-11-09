@@ -3,40 +3,40 @@ return function()
     local theme = {}
 
     theme.normal = {
-        a = { bg = c.blue, fg = c.bg, gui = 'bold' },
-        b = { bg = c.bg_darker, fg = c.fg },
-        c = { bg = c.bg_darker, fg = c.fg_dim },
+        a = { bg = c.blue.base, fg = c.bg.base, gui = 'bold' },
+        b = { bg = c.bg.dim, fg = c.fg.base },
+        c = { bg = c.bg.dim, fg = c.fg.dim },
     }
 
     theme.insert = {
-        a = { bg = c.green_light, fg = c.bg, gui = 'bold' },
-        b = { bg = c.bg_darker, fg = c.fg },
+        a = { bg = c.green.bright, fg = c.bg.base, gui = 'bold' },
+        b = { bg = c.bg.dim, fg = c.fg.base },
     }
 
     theme.terminal = {
-        a = { bg = c.blue, fg = c.bg, gui = 'bold' },
-        b = { bg = c.bg_darker, fg = c.fg },
+        a = { bg = c.blue.base, fg = c.bg.base, gui = 'bold' },
+        b = { bg = c.bg.dim, fg = c.fg.base },
     }
 
     theme.command = {
-        a = { bg = c.yellow, fg = c.bg, gui = 'bold' },
-        b = { bg = c.bg_darker, fg = c.fg },
+        a = { bg = c.yellow.base, fg = c.bg.base, gui = 'bold' },
+        b = { bg = c.bg.dim, fg = c.fg.base },
     }
 
     theme.visual = {
-        a = { bg = c.purple_light, fg = c.bg, gui = 'bold' },
-        b = { bg = c.bg_darker, fg = c.fg },
+        a = { bg = c.purple.bright, fg = c.bg.base, gui = 'bold' },
+        b = { bg = c.bg.dim, fg = c.fg.base },
     }
 
     theme.replace = {
-        a = { bg = c.cyan, fg = c.bg, gui = 'bold' },
-        b = { bg = c.bg_darker, fg = c.fg },
+        a = { bg = c.cyan.base, fg = c.bg.base, gui = 'bold' },
+        b = { bg = c.bg.dim, fg = c.fg.base },
     }
 
     theme.inactive = {
-        a = { bg = c.bg, fg = c.blue },
-        b = { bg = c.bg, fg = c.fg, gui = 'bold' },
-        c = { bg = c.bf, fg = c.fg },
+        a = { bg = c.bg.base, fg = c.blue.base },
+        b = { bg = c.bg.base, fg = c.fg.base, gui = 'bold' },
+        c = { bg = c.bg.base, fg = c.fg.base },
     }
 
     return theme
