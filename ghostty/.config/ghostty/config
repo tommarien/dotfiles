@@ -1,8 +1,9 @@
 adjust-cell-height = 15%
 
 font-family = JetBrains Mono
-font-style-bold = SemiBold
-font-style-bold-italic = SemiBold Italic
+font-style-bold = Semibold
+font-style-bold-italic = Semibold Italic
+ 
 font-size = 16
 font-synthetic-style = false
 font-thicken = true
@@ -16,17 +17,14 @@ mouse-hide-while-typing = true
 
 theme = github_dark_min
 
-background-opacity = 0.86
-background-blur-radius = 10
+background-opacity = 0.88
+background-blur-radius = 15
 
 macos-titlebar-style = hidden
 
 window-padding-x = 4
 window-padding-y = 4
 window-padding-balance = true
-
-freetype-load-flags = no-force-autohint
-scrollback-limit = 10000
 
 # reload ghostty config
 keybind = cmd+r=reload_config

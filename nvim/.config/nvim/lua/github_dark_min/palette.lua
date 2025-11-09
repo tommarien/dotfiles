@@ -1,3 +1,4 @@
+--- @class GithubDarkMin.Palette
 return {
     bg            = '#22272e',
     bg_lighter    = '#2d333b',
@@ -9,26 +10,25 @@ return {
     border        = '#444c56',
     selection     = '#3c444d',
     search        = '#496380',
-    cursor_line   = '#2c313a',
     visual        = '#3c444d',
 
     -- Syntax colors
     red           = '#f47067',
-    red_dark      = '#b0574b',
+    red_light     = '#ff938a',
     orange        = '#f69d50',
-    orange_dark   = '#b36a3c',
+    orange_light  = '#ffb86b',
     yellow        = '#daaa3f',
     yellow_bright = '#f2cc60',
-    yellow_dark   = '#b99167',
     green         = '#57ab5a',
     green_light   = '#9edb8c',
-
-    cyan          = '#a5d6ff',
+    cyan          = '#96d0ff',
+    cyan_light    = '#a5d6ff',
     blue          = '#539bf5',
     blue_light    = '#79c0ff',
     purple        = '#b083f0',
     purple_light  = '#d2a8ff',
     pink          = '#e275ad',
+    pink_light    = '#ffb3d8',
 
     -- Special colors
     comment       = '#9098a1',

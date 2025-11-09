@@ -3,6 +3,7 @@ return {
         dir = '~/.config/nvim/lua/github_dark_min',
         lazy = false,
         priority = 1000,
+        --- @type GithubDarkMin.Overrides
         opts = {
             transparent = true,
         },
