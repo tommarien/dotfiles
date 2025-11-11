@@ -108,7 +108,7 @@ M.setup = function(p, opts)
         ['@define']                 = { fg = p.red.base },
         ['@macro']                  = { fg = p.red.base },
         ['@string']                 = { link = 'String' },
-        ['@string.escape']          = { fg = p.green.bright },
+        ['@string.escape']          = { fg = p.ui.escape },
         ['@string.special']         = { link = 'Special' },
         ['@character']              = { link = 'Character' },
         ['@character.special']      = { link = 'Character' },

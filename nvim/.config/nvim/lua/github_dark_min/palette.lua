@@ -18,6 +18,7 @@
 --- @field visual string
 --- @field comment string
 --- @field operator string
+--- @field escape string
 
 --- @class GithubDarkMin.Palette
 --- @field bg BrightDimColor
@@ -40,7 +41,7 @@
 local p = {
     black  = { base = '#22272e', bright = '#768390' },
     red    = { base = '#f47067', bright = '#ff938a' },
-    green  = { base = '#57ab5a', bright = '#9edb8c' },
+    green  = { base = '#57ab5a', bright = '#8edb8c' },
     yellow = { base = '#daaa3f', bright = '#f2cc60' },
     orange = { base = '#f69d50', bright = '#ffb86b' },
     blue   = { base = '#539bf5', bright = '#79c0ff' },
@@ -72,7 +73,8 @@ p.ui = {
     selection = '#3c444d',
     search    = '#496380',
     visual    = '#3c444d',
-    comment   = '#9098a1',
+    comment   = '#9198a1',
+    escape    = '#878e98',
     operator  = '#9bb4bc',
 }
 
