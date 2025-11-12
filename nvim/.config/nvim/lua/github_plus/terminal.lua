@@ -1,6 +1,6 @@
 local M = {}
 
---- @param p GithubDarkMin.Palette
+--- @param p GithubPlus.Palette
 M.set_terminal_colors = function(p)
     vim.g.terminal_color_0 = p.black.base
     vim.g.terminal_color_1 = p.red.base

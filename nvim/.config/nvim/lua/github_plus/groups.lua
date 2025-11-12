@@ -8,8 +8,8 @@ local M = {}
 --- @field link? string
 
 
---- @param p GithubDarkMin.Palette
---- @param opts GithubDarkMin.Options
+--- @param p GithubPlus.Palette
+--- @param opts GithubPlus.Options
 M.setup = function(p, opts)
     ---@type table<string, Highlight>
     return {

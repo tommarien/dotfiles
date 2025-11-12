@@ -15,7 +15,7 @@ macos-option-as-alt = true
 minimum-contrast = 1.1
 mouse-hide-while-typing = true
 
-theme = github_dark_min
+theme = github_plus_dark
 
 background-opacity = 0.86
 background-blur-radius = 15

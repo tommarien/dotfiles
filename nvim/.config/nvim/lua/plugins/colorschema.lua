@@ -1,15 +1,15 @@
 return {
     {
-        dir = '~/.config/nvim/lua/github_dark_min',
+        dir = '~/.config/nvim/lua/github_plus',
         lazy = false,
         priority = 1000,
-        --- @type GithubDarkMin.Overrides
+        --- @type GithubPlus.Overrides
         opts = {
             transparent = true,
         },
         config = function(_, opts)
-            require('github_dark_min').setup(opts)
-            vim.cmd('colorscheme github_dark_min')
+            require('github_plus').setup(opts)
+            vim.cmd('colorscheme github_plus')
         end
     },
 }

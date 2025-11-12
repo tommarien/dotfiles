@@ -50,7 +50,7 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
 source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
 
 # Load fzf theme
-source $HOME/.zsh/fzf-github-dark-min-theme
+source $HOME/.zsh/fzf-github-plus-dark-theme
 
 # Add custom aliases
 source $HOME/.zsh/aliases

@@ -1,17 +1,17 @@
---- @class BrightColor
+--- @class GithubPlus.Palette.BrightColor
 --- @field base string
 --- @field bright string
 
---- @class DimColor
+--- @class GithubPlus.Palette.DimColor
 --- @field base string
 --- @field dim string
 
---- @class BrightDimColor
+--- @class GithubPlus.Palette.BrightDimColor
 --- @field base string
 --- @field bright string
 --- @field dim string
 
---- @class UI
+--- @class GithubPlus.Palette.UI
 --- @field border string
 --- @field selection string
 --- @field search string
@@ -20,24 +20,24 @@
 --- @field operator string
 --- @field escape string
 
---- @class GithubDarkMin.Palette
---- @field bg BrightDimColor
---- @field fg DimColor
---- @field black BrightColor
---- @field red BrightColor
---- @field green BrightColor
---- @field yellow BrightColor
---- @field orange BrightColor
---- @field blue BrightColor
---- @field purple BrightColor
---- @field cyan BrightColor
---- @field white BrightColor
---- @field pink BrightColor
+--- @class GithubPlus.Palette
+--- @field bg GithubPlus.Palette.BrightDimColor
+--- @field fg GithubPlus.Palette.DimColor
+--- @field black GithubPlus.Palette.BrightColor
+--- @field red GithubPlus.Palette.BrightColor
+--- @field green GithubPlus.Palette.BrightColor
+--- @field yellow GithubPlus.Palette.BrightColor
+--- @field orange GithubPlus.Palette.BrightColor
+--- @field blue GithubPlus.Palette.BrightColor
+--- @field purple GithubPlus.Palette.BrightColor
+--- @field cyan GithubPlus.Palette.BrightColor
+--- @field white GithubPlus.Palette.BrightColor
+--- @field pink GithubPlus.Palette.BrightColor
 --- @field none string
 --- @field diagnostics { hint: string, info: string, warn:string, error: string }
 --- @field git { add:string, change:string, delete:string }
 --- @field diff { add:string, change:string, delete:string, text:string }
---- @field ui UI
+--- @field ui GithubPlus.Palette.UI
 local p = {
     black  = { base = '#22272e', bright = '#768390' },
     red    = { base = '#f47067', bright = '#ff938a' },
