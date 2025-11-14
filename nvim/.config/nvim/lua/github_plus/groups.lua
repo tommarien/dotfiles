@@ -59,7 +59,7 @@ M.setup = function(p, opts)
         -- Syntax highlighting
         Boolean                     = { fg = p.cyan.bright },
         Character                   = { fg = p.red.base },
-        Comment                     = { fg = p.ui.comment, italic = true },
+        Comment                     = vim.tbl_extend('force', { fg = p.ui.comment }, opts.styles.comments),
         Conditional                 = { fg = p.red.base },
         Constant                    = { fg = p.cyan.bright },
         Debug                       = { fg = p.red.base },
@@ -85,7 +85,7 @@ M.setup = function(p, opts)
         SpecialComment              = { link = 'Comment' },
         Statement                   = { fg = p.red.base },
         StorageClass                = { fg = p.red.base },
-        String                      = { fg = p.green.bright },
+        String                      = vim.tbl_extend('force', { fg = p.green.bright }, opts.styles.strings),
         Structure                   = { fg = p.purple.bright },
         Tag                         = { fg = p.green.bright },
         Todo                        = { fg = p.purple.base, bold = true },

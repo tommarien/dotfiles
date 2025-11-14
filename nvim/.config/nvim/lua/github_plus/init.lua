@@ -2,10 +2,9 @@ local config = require('github_plus.config')
 local palette = require('github_plus.palette')
 local M = {}
 
---- @param opts? GithubPlus.Overrides
-M.setup = function(opts)
-    config.setup(opts)
+M.setup = config.setup
 
+M.load = function()
     vim.o.termguicolors = true
     vim.g.colors_name = 'github_plus'
 

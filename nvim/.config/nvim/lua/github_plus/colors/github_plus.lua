@@ -1,1 +1,1 @@
-require('github_plus.init').setup()
+require('github_plus.init').load()
