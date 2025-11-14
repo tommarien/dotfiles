@@ -61,9 +61,9 @@ function zvm_after_init() {
     source <(fzf --zsh)
 }
 
+# psql
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/tommar/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
-# psql
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
