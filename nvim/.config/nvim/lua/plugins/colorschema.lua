@@ -1,8 +1,10 @@
 return {
     {
         'tommarien/github-plus.nvim',
+        -- dir = '~/Projects/tommarien/github-plus.nvim',
         lazy = false,
         priority = 1000,
+        version = false,
         --- @type GithubPlus.Overrides
         opts = {
             transparent = true,
