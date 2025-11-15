@@ -1,6 +1,6 @@
 return {
     {
-        dir = '~/.config/nvim/lua/github_plus',
+        'tommarien/github-plus.nvim',
         lazy = false,
         priority = 1000,
         --- @type GithubPlus.Overrides
