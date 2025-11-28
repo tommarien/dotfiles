@@ -1,3 +1,4 @@
 nvim/.config/nvim/plugin
 tmux/.config/tmux/plugins
+bin/bin/scripts/appcli
 

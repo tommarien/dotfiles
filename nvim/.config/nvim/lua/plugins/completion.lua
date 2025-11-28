@@ -4,7 +4,7 @@ return {
         lazy = false,
         enabled = not vim.g.vscode,
         config = function()
-            vim.g.copilot_enabled = false
+            vim.g.copilot_enabled = true
             vim.g.copilot_no_tab_map = true
 
             vim.keymap.set('i', '<M-j>', 'copilot#Accept("\\<CR>")', {
