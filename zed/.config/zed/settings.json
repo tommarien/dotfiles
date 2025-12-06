@@ -7,6 +7,17 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "edit_predictions": {
+    "mode": "eager"
+  },
+  "agent": {
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4.5"
+    },
+    "model_parameters": []
+  },
   "theme": "Github Plus Dark",
   "cursor_blink": false,
   "features": {
@@ -22,5 +33,8 @@
   "ui_font_size": 16,
   "buffer_font_size": 17,
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
-  "relative_line_numbers": "enabled"
+  "relative_line_numbers": "enabled",
+  "buffer_font_features": {
+    "ss19": true
+  }
 }

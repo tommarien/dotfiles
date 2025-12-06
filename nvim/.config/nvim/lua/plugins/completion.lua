@@ -1,23 +1,23 @@
 return {
     {
-        'github/copilot.vim',
-        lazy = false,
-        enabled = not vim.g.vscode,
+        'zbirenbaum/copilot.lua',
+        cmd = 'Copilot',
+        event = 'InsertEnter',
         config = function()
-            vim.g.copilot_enabled = true
-            vim.g.copilot_no_tab_map = true
-
-            vim.keymap.set('i', '<M-j>', 'copilot#Accept("\\<CR>")', {
-                expr = true,
-                replace_keycodes = false
+            require('copilot').setup({
+                suggestion = {
+                    enabled = false,
+                    auto_trigger = true,
+                    keymap = {
+                        accept = false,
+                        accept_line = '<M-j>',
+                        accept_word = '<M-l>',
+                        dismiss = "<M-e>",
+                    },
+                },
+                panel = { enabled = false },
             })
-
-            vim.keymap.set('i', '<M-l>', '<Plug>(copilot-accept-word)')
-
-            vim.g.copilot_filetypes = {
-                gitcommit = true
-            }
-        end
+        end,
     },
     {
         'olimorris/codecompanion.nvim',
