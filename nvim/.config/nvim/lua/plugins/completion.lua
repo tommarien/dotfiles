@@ -22,6 +22,7 @@ return {
     {
         'olimorris/codecompanion.nvim',
         enabled = not vim.g.vscode,
+        version = '*',
         dependencies = {
             'nvim-lua/plenary.nvim',
             'nvim-treesitter/nvim-treesitter',
