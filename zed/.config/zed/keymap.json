@@ -27,13 +27,28 @@
     "bindings": {
       "-": "project_panel::ToggleFocus",
       "space |": "pane::SplitRight",
-      "space -": "pane::SplitDown"
+      "space -": "pane::SplitDown",
+      "space f f": "file_finder::Toggle",
+      "space f s": "pane::DeploySearch"
     }
   },
   {
-    "context": "Workspace && VimControl && !VimWaiting",
+    "context": "EmptyPane || SharedScreen",
     "bindings": {
-      "space f f": "file_finder::Toggle"
+      "space f f": "file_finder::Toggle",
+      "space f s": "pane::DeploySearch"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "ctrl-f": ["workspace::SendKeystrokes", "ctrl-f z z"],
+      "ctrl-b": ["workspace::SendKeystrokes", "ctrl-b z z"],
+      "ctrl-s": "workspace::Save",
+      "space s": "workspace::Save",
+      "n": ["workspace::SendKeystrokes", "n z z z v"],
+      "shift-n": ["workspace::SendKeystrokes", "shift-n z z z v"],
+      "g r": "editor::FindAllReferences"
     }
   }
 ]
