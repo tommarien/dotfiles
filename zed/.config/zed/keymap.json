@@ -47,8 +47,7 @@
       "ctrl-s": "workspace::Save",
       "space s": "workspace::Save",
       "n": ["workspace::SendKeystrokes", "n z z z v"],
-      "shift-n": ["workspace::SendKeystrokes", "shift-n z z z v"],
-      "g r": "editor::FindAllReferences"
+      "shift-n": ["workspace::SendKeystrokes", "shift-n z z z v"]
     }
   }
 ]
