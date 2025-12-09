@@ -39,7 +39,7 @@ o.incsearch = true -- Search for strings incrementally
 -- o.spell = true
 
 -- Makes Neovim and host OS clipboard play nicely with each other
--- o.clipboard = 'unnamedplus'
+o.clipboard = 'unnamedplus'
 
 -- Better buffer splitting
 o.splitright = true
