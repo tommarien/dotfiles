@@ -18,7 +18,7 @@
     },
     "model_parameters": []
   },
-  "theme": "Melange Dark",
+  "theme": "Github Plus Dark",
   "cursor_blink": false,
   "features": {
     "edit_prediction_provider": "copilot"
