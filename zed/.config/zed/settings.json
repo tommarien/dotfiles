@@ -8,9 +8,10 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "edit_predictions": {
-    "mode": "eager"
+    "mode": "subtle"
   },
   "agent": {
+    "always_allow_tool_actions": true,
     "default_profile": "ask",
     "default_model": {
       "provider": "copilot_chat",

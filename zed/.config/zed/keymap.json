@@ -12,15 +12,15 @@
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown"
-    }
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
   },
   {
     "context": "Editor && vim_mode == visual && !VimWaiting && !VimObject",
     "bindings": {
       "shift-j": "editor::MoveLineDown",
-      "shift-k": "editor::MoveLineUp"
-    }
+      "shift-k": "editor::MoveLineUp",
+    },
   },
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
@@ -29,15 +29,15 @@
       "space |": "pane::SplitRight",
       "space -": "pane::SplitDown",
       "space f f": "file_finder::Toggle",
-      "space f s": "pane::DeploySearch"
-    }
+      "space f s": "pane::DeploySearch",
+    },
   },
   {
     "context": "EmptyPane || SharedScreen",
     "bindings": {
       "space f f": "file_finder::Toggle",
-      "space f s": "pane::DeploySearch"
-    }
+      "space f s": "pane::DeploySearch",
+    },
   },
   {
     "context": "VimControl && !menu",
@@ -47,7 +47,14 @@
       "ctrl-s": "workspace::Save",
       "space s": "workspace::Save",
       "n": ["workspace::SendKeystrokes", "n z z z v"],
-      "shift-n": ["workspace::SendKeystrokes", "shift-n z z z v"]
-    }
-  }
+      "shift-n": ["workspace::SendKeystrokes", "shift-n z z z v"],
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": ["workspace::SendKeystrokes", "escape"],
+      "j j": ["workspace::SendKeystrokes", "escape"],
+    },
+  },
 ]
