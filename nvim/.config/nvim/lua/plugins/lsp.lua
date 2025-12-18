@@ -97,6 +97,7 @@ return {
                         }
                     }
                 },
+                terraformls = {},
                 vimls = {},
                 vtsls = {
                     settings = {
