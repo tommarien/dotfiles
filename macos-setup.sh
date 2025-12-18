@@ -50,6 +50,7 @@ PACKAGES=(
     readline
     ripgrep
     stow
+    thefuck
     tlrc
     tmux
     tree-sitter

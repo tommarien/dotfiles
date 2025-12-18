@@ -36,9 +36,11 @@ eval "$(zoxide init zsh)"
 # direnv
 eval "$(direnv hook zsh)"
 
-
 # fnm (Fast Node Manager)
 eval "$(fnm env --use-on-cd --resolve-engines false --shell zsh)"
+
+# thefuck
+eval $(thefuck --alias)
 
 # Openssl
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
