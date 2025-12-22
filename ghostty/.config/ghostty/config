@@ -7,6 +7,7 @@ font-style-bold-italic = Bold Italic
 font-size = 16
 font-synthetic-style = false
 font-thicken = true
+font-thicken-strength = 20
 
 # Broken equals ligatures
 font-feature = ss19
