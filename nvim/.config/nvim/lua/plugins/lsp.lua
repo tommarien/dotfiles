@@ -28,10 +28,11 @@ return {
             'b0o/schemastore.nvim',
             'yioneko/nvim-vtsls',
             'WhoIsSethDaniel/mason-tool-installer.nvim',
+            'hrsh7th/cmp-nvim-lsp',
         },
         config = function()
             local capabilities = vim.lsp.protocol.make_client_capabilities()
-            capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
+            capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
             local vstlsLanguageSettings = {
                 updateImportsOnFileMove = { enabled = 'always' },
