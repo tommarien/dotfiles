@@ -18,8 +18,8 @@ mouse-hide-while-typing = true
 
 theme = github_plus_dark
 
-background-opacity = 0.88
-background-blur-radius = 15
+background-opacity = 0.86
+background-blur-radius = 10
 
 macos-titlebar-style = hidden
 

@@ -211,6 +211,7 @@ return {
             notifier = { enabled = true },
             statuscolumn = { enabled = true },
             quickfile = { enabled = true },
+            words = { enabled = true },
         },
         keys = {
             { ']]', function() Snacks.words.jump(vim.v.count1) end,  desc = 'Next Reference', mode = { 'n', 't' } },

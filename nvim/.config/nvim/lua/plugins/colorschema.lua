@@ -7,6 +7,7 @@ return {
         version = false,
         --- @type GithubPlus.Overrides
         opts = {
+            semantic = true,
             transparent = true,
         },
         config = function(_, opts)
