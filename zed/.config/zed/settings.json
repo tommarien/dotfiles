@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "completions": {
+    "lsp_insert_mode": "insert"
+  },
   "edit_predictions": {
     "mode": "subtle"
   },
