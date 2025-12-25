@@ -15,5 +15,4 @@ return {
             vim.cmd('colorscheme github_plus')
         end
     },
-    { 'projekt0n/github-nvim-theme', name = 'github-theme' }
 }
