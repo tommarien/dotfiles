@@ -231,7 +231,7 @@ return {
         'stevearc/aerial.nvim',
         enabled = not vim.g.vscode,
         keys = {
-            { '<leader>a', vim.cmd.AerialToggle, desc = 'AerialToggle' },
+            { '<leader>o', vim.cmd.AerialToggle, desc = 'AerialToggle' },
         },
         opts = {
             on_attach = function(bufnr)
