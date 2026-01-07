@@ -32,14 +32,14 @@ o.completeopt = "menu,menuone,noselect"
 o.shortmess = o.shortmess .. "c"
 
 -- Search
-o.hlsearch = true  -- Never highlight all search matches
+o.hlsearch = true  -- Highlight all search matches
 o.incsearch = true -- Search for strings incrementally
 
 -- Spelling
 -- o.spell = true
 
 -- Makes Neovim and host OS clipboard play nicely with each other
-o.clipboard = 'unnamedplus'
+-- o.clipboard = 'unnamedplus'
 
 -- Better buffer splitting
 o.splitright = true
