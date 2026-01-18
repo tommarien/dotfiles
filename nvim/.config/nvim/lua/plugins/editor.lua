@@ -194,7 +194,7 @@ return {
         'folke/snacks.nvim',
         priority = 1000,
         enabled = not vim.g.vscode,
-        event = 'VeryLazy',
+        lazy = false,
         ---@type snacks.Config
         opts = {
             bigfile = { enabled = true },
@@ -209,7 +209,11 @@ return {
             input = { enabled = true },
             picker = { enabled = true },
             notifier = { enabled = true },
-            statuscolumn = { enabled = true },
+            statuscolumn = {
+                enabled = true,
+                left = { 'git', 'mark' },
+                right = { 'fold', 'sign' }
+            },
             quickfile = { enabled = true },
             words = { enabled = true },
         },
