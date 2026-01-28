@@ -211,15 +211,8 @@ return {
             notifier = { enabled = true },
             statuscolumn = {
                 enabled = true,
-                left = { 'git', 'mark' },
-                right = { 'fold', 'sign' }
             },
             quickfile = { enabled = true },
-            words = { enabled = true },
-        },
-        keys = {
-            { ']]', function() Snacks.words.jump(vim.v.count1) end,  desc = 'Next Reference', mode = { 'n', 't' } },
-            { '[[', function() Snacks.words.jump(-vim.v.count1) end, desc = 'Prev Reference', mode = { 'n', 't' } },
         },
         config = function(_, opts)
             require('snacks').setup(opts)
@@ -380,7 +373,7 @@ return {
         end
     },
     {
-        'ggandor/leap.nvim',
+        url = "https://codeberg.org/andyg/leap.nvim",
         config = function()
             local leap = require('leap')
             -- Highly recommended: define a preview filter to reduce visual noise
