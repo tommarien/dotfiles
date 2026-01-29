@@ -15,5 +15,5 @@ set -g status-right "#[fg=${thm_selection_fg},bg=default]  #(date -I) #[fg=${
 setw -g window-status-activity-style "underscore,fg=${thm_fg},bg=${thm_bg}"
 setw -g window-status-separator ""
 setw -g window-status-style "NONE,fg=${thm_fg},bg=default"
-setw -g window-status-format "#[fg=${thm_inactive_pane_bg},bg=default] #I-#W "
-setw -g window-status-current-format "#[fg=${thm_active_pane_bg},bg=default,nobold] 󰮯 -#W "
+setw -g window-status-format "#[fg=${thm_selection_bg},bg=default] #I-#W "
+setw -g window-status-current-format "#[fg=${thm_active_pane_bg},bg=${thm_bg},nobold] 󰮯  #I-#W "
