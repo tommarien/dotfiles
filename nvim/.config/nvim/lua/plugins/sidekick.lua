@@ -60,10 +60,14 @@ return {
                 mode = { 'n', 'x' },
                 desc = 'Sidekick Select Prompt',
             },
-            -- Example of a keybinding to open Claude directly
+            {
+                '<leader>am',
+                function() require('sidekick.cli').toggle({ name = 'copilot', focus = true }) end,
+                desc = 'Sidekick Toggle Copilot',
+            },
             {
                 '<leader>ac',
-                function() require('sidekick.cli').toggle({ name = 'copilot', focus = true }) end,
+                function() require('sidekick.cli').toggle({ name = 'claude', focus = true }) end,
                 desc = 'Sidekick Toggle Copilot',
             },
         },

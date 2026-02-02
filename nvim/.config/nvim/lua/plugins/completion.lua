@@ -21,34 +21,6 @@ return {
         end,
     },
     {
-        'olimorris/codecompanion.nvim',
-        enabled = not vim.g.vscode,
-        version = '*',
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-            'nvim-treesitter/nvim-treesitter',
-        },
-        cmd = {
-            'CodeCompanion',
-            'CodeCompanionActions',
-            'CodeCompanionChat',
-            'CodeCompanionCmd',
-        },
-        opts = {
-            strategies = {
-                chat = {
-                    adapter = 'copilot'
-                },
-                inline = {
-                    adapter = 'copilot',
-                },
-                agent = {
-                    adapter = 'copilot',
-                },
-            }
-        }
-    },
-    {
         'hrsh7th/nvim-cmp',
         event = 'InsertEnter',
         dependencies = {
