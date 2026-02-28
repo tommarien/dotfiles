@@ -13,12 +13,6 @@ return {
         opts = {}
     },
     {
-        'chentoast/marks.nvim',
-        event = 'VeryLazy',
-        enabled = not vim.g.vscode,
-        opts = {},
-    },
-    {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
         build = "cd app && yarn install",
