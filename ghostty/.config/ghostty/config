@@ -7,7 +7,9 @@ font-style-bold-italic = Bold Italic
 font-size = 16
 font-synthetic-style = false
 font-thicken = true
-font-thicken-strength = 20
+font-thicken-strength = 0
+
+adjust-cell-height = 10%
 
 # Broken equals ligatures
 font-feature = ss19
@@ -19,7 +21,7 @@ mouse-hide-while-typing = true
 theme = github_plus_dark
 
 background-opacity = 0.88
-background-blur-radius = 10
+background-blur-radius = 15
 
 macos-titlebar-style = hidden
 
