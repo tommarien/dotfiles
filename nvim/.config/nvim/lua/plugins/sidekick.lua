@@ -61,14 +61,9 @@ return {
                 desc = 'Sidekick Select Prompt',
             },
             {
-                '<leader>am',
-                function() require('sidekick.cli').toggle({ name = 'copilot', focus = true }) end,
-                desc = 'Sidekick Toggle Copilot',
-            },
-            {
                 '<leader>ac',
                 function() require('sidekick.cli').toggle({ name = 'claude', focus = true }) end,
-                desc = 'Sidekick Toggle Copilot',
+                desc = 'Sidekick Toggle Claude',
             },
         },
     }
