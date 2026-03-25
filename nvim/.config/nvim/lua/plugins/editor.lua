@@ -211,11 +211,16 @@ return {
             },
             input = { enabled = true },
             picker = { enabled = true },
+            words = { enabled = true },
             notifier = { enabled = true },
             statuscolumn = {
                 enabled = true,
             },
             quickfile = { enabled = true },
+        },
+        keys = {
+            { "]]", function() Snacks.words.jump(vim.v.count1) end,  desc = "Next Reference", mode = { "n", "t" } },
+            { "[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
         },
         config = function(_, opts)
             require('snacks').setup(opts)
