@@ -10,7 +10,17 @@ plug "MichaelAquilina/zsh-you-should-use"
 plug "wintermi/zsh-brew"
 plug "Aloxaf/fzf-tab"
 plug "jeffreytse/zsh-vi-mode"
-#
+
+# Override git prompt for worktrees
++vi-git-bare() {
+  if [[ $(git rev-parse --is-bare-repository 2>/dev/null) == 'true' ]]; then
+    hook_com[branch]='⬡ bare'
+    hook_com[staged]=''
+    hook_com[unstaged]=''
+  fi
+}
+zstyle ':vcs_info:git*+set-message:*' hooks git-bare git-untracked
+
 # Load and initialise completion system
 autoload -Uz compinit
 if [[ -n $HOME/.zcompdump(#qN.mh+24) ]]; then
