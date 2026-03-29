@@ -31,3 +31,6 @@ window-padding-balance = true
 
 # reload ghostty config
 keybind = cmd+r=reload_config
+
+# shift-enter claude
+keybind = shift+enter=text:\x1b\r
