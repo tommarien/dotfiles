@@ -76,13 +76,18 @@ return {
                     end,
                 },
                 window = {
+                    completion = {
+                        border = vim.o.winborder,
+                        winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:Visual,Search:None',
+                    },
                     documentation = vim.tbl_deep_extend('force', {},
                         cmp.config.window.bordered(),
                         {
+                            border = vim.o.winborder,
+                            winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:Visual,Search:None',
                             max_height = 15,
                             max_width = 60,
-                        }
-                    ),
+                        })
                 },
                 matching = {
                     disallow_prefix_unmatching = true,
