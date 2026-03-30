@@ -103,6 +103,10 @@ return {
                         a = { '@conditional.outer', '@loop.outer' },
                         i = { '@conditional.inner', '@loop.inner' },
                     })
+                },
+                mappings = {
+                    around_next = 'A',
+                    inside_next = 'I',
                 }
             }
         end

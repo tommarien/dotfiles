@@ -59,8 +59,12 @@ o.fillchars = 'eob: '
 o.foldmethod = 'expr'
 o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 o.foldlevel = 99
+
 -- completion
 o.pumheight = 12
+
+-- winborder (definition and signature_help)
+vim.o.winborder = 'rounded'
 
 -- Map <leader> to space
 g.mapleader = ' '

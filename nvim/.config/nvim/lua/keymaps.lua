@@ -61,7 +61,7 @@ end, { desc = 'Copy relative file to clipboard' })
 -- Visual select last pasted value
 utils.map('n', 'gp', '`[v`]', { desc = 'Select last paste' })
 
--- Blaj́k hole register
+-- Black hole register
 utils.map('x', '<leader>p', [["_dP]])
 
 if vim.g.vscode then
