@@ -54,6 +54,7 @@ PACKAGES=(
     tlrc
     tmux
     tree-sitter
+    tree-sitter-cli
     wget
     zoxide
 )
