@@ -4,10 +4,6 @@ return {
         enabled = not vim.g.vscode,
     },
     {
-        'JoosepAlviste/nvim-ts-context-commentstring',
-        lazy = true
-    },
-    {
         'windwp/nvim-autopairs',
         event = "InsertEnter",
         opts = {}
@@ -65,13 +61,18 @@ return {
         'echasnovski/mini.comment',
         event = 'VeryLazy',
         version = '*',
+        dependencies = {
+            {
+                'JoosepAlviste/nvim-ts-context-commentstring',
+                opts = {
+                    enable_autocmd = false,
+                }
+            }
+        },
         opts = {
             options = {
                 custom_commentstring = function()
-                    local ts_context_commentstring = require('ts_context_commentstring')
-
-                    return ts_context_commentstring.calculate_commentstring() or vim.bo
-                        .commentstring
+                    return require('ts_context_commentstring').calculate_commentstring() or vim.bo.commentstring
                 end,
             },
         },
