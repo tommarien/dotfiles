@@ -268,14 +268,6 @@ return {
         },
     },
     {
-        'mbbill/undotree',
-        enabled = not vim.g.vscode,
-        cmd = 'UndotreeToggle',
-        keys = {
-            { '<leader>u', vim.cmd.UndotreeToggle, desc = 'Undotree' },
-        },
-    },
-    {
         'tpope/vim-abolish',
         event = 'VeryLazy',
     },

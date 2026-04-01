@@ -78,3 +78,7 @@ if vim.g.vscode then
     --Lsp
     utils.map('n', '<leader>rn', function() require('vscode').action('editor.action.rename') end)
 end
+
+-- Build in undotree
+vim.cmd("packadd nvim.undotree")
+vim.keymap.set("n", "<leader>u", require("undotree").open)
