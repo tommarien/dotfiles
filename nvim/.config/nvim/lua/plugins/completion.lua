@@ -78,6 +78,7 @@ return {
                 window = {
                     completion = {
                         border = vim.o.winborder,
+                        scrollbar = false,
                         winhighlight = 'Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:Visual,Search:None',
                     },
                     documentation = vim.tbl_deep_extend('force', {},

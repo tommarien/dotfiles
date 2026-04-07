@@ -8,6 +8,7 @@ local languages = {
     'tsx',
     'vim',
     'vimdoc',
+    'yaml',
 }
 
 return {
