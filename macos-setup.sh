@@ -43,6 +43,7 @@ PACKAGES=(
     jq
     koekeishiya/formulae/skhd
     koekeishiya/formulae/yabai
+    lazygit
     libpq
     neovim
     opencode
