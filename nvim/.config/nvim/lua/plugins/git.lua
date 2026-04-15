@@ -58,10 +58,8 @@ return {
         },
     },
     {
-        'sindrets/diffview.nvim',
-        event = 'VeryLazy',
+        'dlyongemallo/diffview.nvim',
         enabled = not vim.g.vscode,
-        dependencies = 'nvim-lua/plenary.nvim',
         opts = {
             use_icons = true,
             enhanced_diff_hl = true,
