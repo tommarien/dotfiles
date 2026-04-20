@@ -11,7 +11,14 @@ return {
         },
         config = function(_, opts)
             require('github_plus').setup(opts)
-            vim.cmd('colorscheme github_plus')
+            -- vim.cmd('colorscheme github_plus')
         end
     },
+    {
+        'adibhanna/yukinord.nvim',
+        priority = 1000,
+        config = function()
+            vim.cmd([[colorscheme yukinord]])
+        end,
+    }
 }
