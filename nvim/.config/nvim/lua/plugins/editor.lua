@@ -3,6 +3,7 @@ return {
         'tpope/vim-sleuth',
         enabled = not vim.g.vscode,
     },
+    { 'skywind3000/asyncrun.vim' },
     {
         'windwp/nvim-autopairs',
         event = "InsertEnter",
