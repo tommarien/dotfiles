@@ -2,8 +2,9 @@
 
 # Background and foreground
 background = #282c33
-background = #23262c
-background = #161b22
+# background = #161b22
+# background = #1c212a
+background = #171a24
 foreground = #d1d7e0
 
 # Cursor

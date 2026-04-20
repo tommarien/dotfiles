@@ -14,9 +14,9 @@ macos-option-as-alt = true
 minimum-contrast = 1.1
 mouse-hide-while-typing = true
 
-theme = yukinord-dark
+theme = github_plus_dark
 
-# background-opacity = 0.88
+background-opacity = 0.92
 background-blur-radius = 15
 
 macos-titlebar-style = hidden

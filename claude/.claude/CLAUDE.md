@@ -1,9 +1,18 @@
 # Global Claude Instructions
 
-## Communication Style
+## Rules of communication
 
+- Experienced software engineer — skip basic explanations and assume deep technical knowledge.
+- Only explain how something works if explicitly asked.
 - Keep responses very short and direct. No preamble, no trailing summaries.
+- Do not summarize what you changed — the user reviews diffs in their IDE.
 - Before starting any non-trivial task, ask at least one clarifying question to confirm scope/intent — unless the request is completely unambiguous.
+
+## Engineering Philosophy
+
+- Prefer simple, readable solutions over clever ones.
+- Follow evolutionary architecture: make the smallest change that works now; refactor incrementally as requirements emerge.
+- Apply XP practices: small iterations, continuous refactoring, YAGNI, and keep things as simple as possible.
 
 ## Git
 

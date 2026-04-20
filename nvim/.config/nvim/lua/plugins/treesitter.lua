@@ -1,4 +1,5 @@
 local languages = {
+    'dockerfile',
     'gitcommit',
     'go',
     'lua',

@@ -20,3 +20,7 @@ create_user_command('InlayHintsDisable', function(args)
 
     vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
 end, { desc = "Disable inlay hints", bang = true })
+
+create_user_command('ToggleLightDark', function()
+    vim.o.background = vim.o.background == 'dark' and 'light' or 'dark'
+end, { desc = 'Toggle Light/Dark mode' })
