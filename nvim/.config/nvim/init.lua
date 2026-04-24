@@ -1,3 +1,6 @@
+-- Enable neovim's ui2
+require('vim._core.ui2').enable()
+
 -- Temp workaround
 vim.hl = vim.highlight
 
