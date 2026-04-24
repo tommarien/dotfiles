@@ -14,6 +14,10 @@
 - Follow evolutionary architecture: make the smallest change that works now; refactor incrementally as requirements emerge.
 - Apply XP practices: small iterations, continuous refactoring, YAGNI, and keep things as simple as possible.
 
+## Agents
+
+- Always verify agent findings against actual code before reporting them as valid — agents can hallucinate facts like lock semantics, line numbers, or API behavior.
+
 ## Git
 
 - Never add `Co-Authored-By` trailers to commit messages.
@@ -21,6 +25,11 @@
 ## Tests
 
 - Tests are the source of truth. Never change tests to fix failures — fix source code only.
+- A task is not done until the tests pass. Writing code is not enough — run the tests and confirm they're green before reporting completion.
+
+## Tool Denials
+
+- If a tool call is denied, always ask why before proceeding.
 
 ## Plan Mode
 
