@@ -7,8 +7,8 @@ return {
             -- Any ACP-compatible provider works. Built-in: 'claude-agent-acp' | 'gemini-acp' | 'codex-acp' | 'opencode-acp' | 'cursor-acp' | 'copilot-acp' | 'auggie-acp' | 'mistral-vibe-acp' | 'cline-acp' | 'goose-acp'
             provider = 'claude-agent-acp', -- setting the name here is all you need to get started
             windows = {
-                width = '30%',
-            }
+                width = '20%',
+            },
         },
 
         -- these are just suggested keymaps; customize as desired
