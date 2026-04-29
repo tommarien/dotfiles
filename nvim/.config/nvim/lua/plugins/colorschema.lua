@@ -15,7 +15,6 @@ return {
         config = function(_, opts)
             require('github_plus').setup(opts)
             vim.cmd('colorscheme github_plus')
-            vim.api.nvim_set_hl(0, 'SidekickChat', { link = 'Normal' })
         end
     }
 }

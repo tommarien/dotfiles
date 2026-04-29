@@ -40,11 +40,13 @@ PACKAGES=(
     go
     goose
     hugo
+    imagemagick
     jq
     koekeishiya/formulae/skhd
     koekeishiya/formulae/yabai
     lazygit
     libpq
+    mermaid-cli
     neovim
     opencode
     rancher

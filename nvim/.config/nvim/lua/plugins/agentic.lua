@@ -6,6 +6,11 @@ return {
         opts = {
             -- Any ACP-compatible provider works. Built-in: 'claude-agent-acp' | 'gemini-acp' | 'codex-acp' | 'opencode-acp' | 'cursor-acp' | 'copilot-acp' | 'auggie-acp' | 'mistral-vibe-acp' | 'cline-acp' | 'goose-acp'
             provider = 'claude-agent-acp', -- setting the name here is all you need to get started
+            keymaps = {
+                widget = {
+                    change_thought_level = "<localLeader>e", -- change to whatever you prefer
+                },
+            },
             windows = {
                 width = '25%',
             },
