@@ -61,5 +61,12 @@ return {
                 desc = 'Add all buffer diagnostics to Agentic',
                 mode = { 'n' },
             },
+            {
+                "<leader>as",
+                function()
+                    require("agentic").stop_generation()
+                end,
+                desc = "Stop agent generation",
+            },
         },
     } }
