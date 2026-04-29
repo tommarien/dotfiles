@@ -51,7 +51,7 @@ return {
         event = 'VeryLazy',
     },
     {
-        'stevearc/oil.nvim',
+        'barrettruth/canola.nvim',
         enabled = not vim.g.vscode,
         lazy = false,
         opts = {
@@ -73,6 +73,9 @@ return {
             }
         },
         dependencies = { 'nvim-tree/nvim-web-devicons' },
+        config = function(_, opts)
+            require('oil').setup(opts)
+        end,
     },
     {
         'stevearc/quicker.nvim',
