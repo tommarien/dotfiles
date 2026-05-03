@@ -22,7 +22,6 @@ return {
         branch = 'main',
         build = ':TSUpdate',
         dependencies = {
-            'nvim-treesitter/nvim-treesitter-textobjects',
             {
                 'nvim-treesitter/nvim-treesitter-context',
                 config = function()
@@ -71,6 +70,10 @@ return {
                 end,
             })
         end,
+    },
+    {
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
     },
     {
         'Wansmer/treesj',
