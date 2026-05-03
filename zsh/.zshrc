@@ -59,7 +59,8 @@ export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
 
 # google-cloud-sdk
-source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+local gcloud_path="$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+[[ -f "$gcloud_path" ]] && source "$gcloud_path"
 
 # Load fzf theme
 source $HOME/.zsh/fzf-github-plus-dark-theme
