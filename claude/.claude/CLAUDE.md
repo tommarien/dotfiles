@@ -31,6 +31,13 @@
 
 - If a tool call is denied, always ask why before proceeding.
 
+## Notes
+
+- Bear is used for notes via the CLI at `/Applications/Bear.app/Contents/MacOS/bearcli`. Use Bash to invoke it directly (e.g. `bearcli search`, `bearcli open`, etc.).
+- For unfamiliar CLI tools, run `--help` before issuing commands — don't guess flags or option values.
+- Use `bearcli cat <id> --format json` to read note content. `bearcli open` just opens Bear UI and returns `{"ok":true}` — it does not return content.
+- `bearcli write` replaces the entire note. Bear derives the title from the first `#` heading and tags from inline `#hashtags`. Always include both in the content or they will be silently stripped.
+
 ## Plan Mode
 
 - Don't auto-exit plan mode. Let the user direct next steps.
