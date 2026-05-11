@@ -13,6 +13,8 @@
 - Prefer simple, readable solutions over clever ones.
 - Follow evolutionary architecture: make the smallest change that works now; refactor incrementally as requirements emerge.
 - Apply XP practices: small iterations, continuous refactoring, YAGNI, and keep things as simple as possible.
+- State assumptions explicitly before acting on them. Push back when a simpler approach exists.
+- Touch only what you must. Don't improve adjacent code, comments, or formatting. Don't refactor what isn't broken. Match existing style.
 
 ## Agents
 
