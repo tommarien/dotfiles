@@ -75,7 +75,6 @@ CASKS=(
    ghostty
    kitty
    textmate
-   tomatobar
 )
 echo "Installing cask apps..."
 brew install --cask ${CASKS[@]} -q
