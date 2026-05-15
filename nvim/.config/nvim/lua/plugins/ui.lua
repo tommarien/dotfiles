@@ -49,6 +49,11 @@ return {
         'preservim/vimux',
         enabled = not vim.g.vscode,
         event = 'VeryLazy',
+        config = function()
+            -- vimux config
+            vim.g.VimuxUseNearest = 0  -- never steal an existing pane (sidekick's)
+            vim.g.VimuxCloseOnExit = 1 -- clean up vimux's own pane on exit
+        end,
     },
     {
         'barrettruth/canola.nvim',
