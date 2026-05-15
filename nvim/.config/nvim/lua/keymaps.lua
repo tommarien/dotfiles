@@ -1,8 +1,5 @@
 local utils = require('utils')
 
--- Save
-utils.map('n', '<leader>s', ':update<CR>', { desc = 'Save', silent = true })
-
 -- Remove search highlighting
 vim.keymap.set({ 'n', 'v', 'i' }, '<Esc>', function()
     if vim.v.hlsearch == 1 then
