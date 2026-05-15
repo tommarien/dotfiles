@@ -4,9 +4,8 @@
 
 - Experienced software engineer — skip basic explanations and assume deep technical knowledge.
 - Only explain how something works if explicitly asked.
-- Keep responses very short and direct. No preamble, no trailing summaries.
-- Do not summarize what you changed — the user reviews diffs in their IDE.
-- Before starting any non-trivial task, ask at least one clarifying question to confirm scope/intent — unless the request is completely unambiguous.
+- Keep responses very short and direct. No preamble, no summaries — the user reviews diffs in their IDE.
+- Only ask a clarifying question when ambiguity would meaningfully change the approach.
 
 ## Engineering Philosophy
 
@@ -40,9 +39,17 @@
 - Use `bearcli cat <id> --format json` to read note content. `bearcli open` just opens Bear UI and returns `{"ok":true}` — it does not return content.
 - `bearcli write` replaces the entire note. Bear derives the title from the first `#` heading and tags from inline `#hashtags`. Always include both in the content or they will be silently stripped.
 
+## Environment
+
+- direnv is in use. It is safe to run `source .envrc` from the project root to load environment variables — never read `.envrc` directly.
+
 ## Plan Mode
 
-- Don't auto-exit plan mode. Let the user direct next steps.
+- NEVER call `ExitPlanMode` on your own. Wait for the user to explicitly say to proceed or exit.
+
+## Package Management
+
+- In npm/yarn workspace projects, always run commands from the repo root using the workspace flag (e.g. `yarn workspace <module> <cmd>` or `npm run <cmd> -w <module>`). Never `cd` into a workspace package to run commands.
 
 ## Formatting
 
