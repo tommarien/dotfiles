@@ -7,10 +7,15 @@ return {
                 enabled = false,
             },
             cli = {
+                win = {
+                    split = {
+                        width = 60, -- smaller width for right/left splits (default is 80)
+                    },
+                },
                 mux = {
                     backend = 'tmux',
                     enabled = true,
-                    create = 'split',
+                    -- create = 'split',
                     split = {
                         size = 0.3, -- size of the split (0-1 for percentage)
                     },
@@ -22,11 +27,6 @@ return {
                 '<leader>ac',
                 function() require('sidekick.cli').select({ filter = { installed = true } }) end,
                 desc = 'Select CLI',
-            },
-            {
-                '<leader>ad',
-                function() require('sidekick.cli').close() end,
-                desc = 'Detach a CLI Session',
             },
             {
                 '<leader>af',
