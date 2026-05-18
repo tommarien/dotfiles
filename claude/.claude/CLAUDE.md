@@ -7,7 +7,11 @@
 - Tests are the source of truth. Never change tests to make them pass — fix the source. A task isn't done until tests are green and you've run them.
 - Always verify agent findings against actual code — agents hallucinate line numbers, API behavior, lock semantics.
 - If a tool call is denied, ask why before retrying.
-- Never call `ExitPlanMode` on your own — wait for explicit user approval.
+
+## Commits
+
+- Follow conventional commit format (feat:, fix:, chore:, etc.)
+- Do not commit until user explicitly requests it
 
 ## Git
 
@@ -26,8 +30,19 @@
 - Go: `gofmt -w <file>`
 - Rust: `rustfmt <file>`
 
+## Planning Mode
+
+- Never call `ExitPlanMode` on your own — wait for explicit user approval.
+- When in plan mode, do NOT make edits — only produce the plan
+- Do not suggest invoking other skills (e.g., settings/update-config) when the user only wants a direct CLAUDE.md edit
+
 ## Bear (notes CLI)
 
 - Binary: `/Applications/Bear.app/Contents/MacOS/bearcli`. Invoke directly via Bash.
 - `bearcli cat <id> --format json` reads note content. `bearcli open` only opens the UI — it does NOT return content.
 - `bearcli write` replaces the entire note. Always include a `#` heading (becomes title) and `#hashtags` (become tags), or they're stripped silently.
+
+## Typescript
+
+- Fix root type issues rather than adding @ts-ignore
+- Check if types already exist before suggesting extensions
