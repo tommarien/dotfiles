@@ -7,6 +7,7 @@
 - Tests are the source of truth. Never change tests to make them pass — fix the source. A task isn't done until tests are green and you've run them.
 - Always verify agent findings against actual code — agents hallucinate line numbers, API behavior, lock semantics.
 - If a tool call is denied, ask why before retrying.
+- For any file search or grep in the current git-indexed directory, use fff tools.
 
 ## Commits
 
