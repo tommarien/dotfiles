@@ -56,31 +56,65 @@ return {
         end,
     },
     {
-        'barrettruth/canola.nvim',
-        enabled = not vim.g.vscode,
-        lazy = false,
+        'nvim-mini/mini.files',
+        version = '*',
         opts = {
-            skip_confirm_for_simple_edits = true,
-            view_options = {
-                show_hidden = true,
+            mappings = {
+                -- This opens the file, but quits out of mini.files (default L)
+                go_in_plus = "<CR>",
+                -- I swapped the following 2 (default go_out: h)
+                -- go_out_plus: when you go out, it shows you only 1 item to the right
+                -- go_out: shows you all the items to the right
+                go_out = "H",
+                go_out_plus = "h",
             },
-            keymaps = {
-                ["<C-h>"] = false,
-                ["<C-r>"] = "actions.refresh",
-                ["<C-l>"] = false,
-            }
         },
+        config = function(_, opts)
+            require("mini.files").setup(opts)
+            vim.api.nvim_create_autocmd("User", {
+                pattern = "MiniFilesBufferCreate",
+                callback = function(args)
+                    vim.keymap.set("n", "`", function()
+                        local entry = require("mini.files").get_fs_entry()
+                        local dir = entry and
+                        (entry.fs_type == "directory" and entry.path or vim.fn.fnamemodify(entry.path, ":h")) or
+                        vim.uv.cwd()
+                        vim.fn.chdir(dir)
+                        vim.notify("cwd: " .. dir, vim.log.levels.INFO)
+                    end, { buffer = args.data.buf_id, desc = "Set cwd to current directory" })
+                end,
+            })
+        end,
         keys = {
             {
-                '-',
-                vim.cmd.Oil,
-                desc = "Browse containing folder"
+                -- Open the directory of the file currently being edited
+                -- If the file doesn't exist because you maybe switched to a new git branch
+                -- open the current working directory
+                "-",
+                function()
+                    local buf_name = vim.api.nvim_buf_get_name(0)
+                    local dir_name = vim.fn.fnamemodify(buf_name, ":p:h")
+                    if vim.fn.filereadable(buf_name) == 1 then
+                        -- Pass the full file path to highlight the file
+                        require("mini.files").open(buf_name, true)
+                    elseif vim.fn.isdirectory(dir_name) == 1 then
+                        -- If the directory exists but the file doesn't, open the directory
+                        require("mini.files").open(dir_name, true)
+                    else
+                        -- If neither exists, fallback to the current working directory
+                        require("mini.files").open(vim.uv.cwd(), true)
+                    end
+                end,
+                desc = "Open mini.files (Directory of Current File or CWD if not exists)",
+            },
+            {
+                '<leader>-',
+                function()
+                    require("mini.files").open(vim.uv.cwd(), true)
+                end,
+                desc = "Open mini.files (cwd)",
             }
         },
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
-        config = function(_, opts)
-            require('oil').setup(opts)
-        end,
     },
     {
         'stevearc/quicker.nvim',
