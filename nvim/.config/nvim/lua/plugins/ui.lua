@@ -108,52 +108,44 @@ return {
             wk.add({
                 -- buffers
                 { '<leader>b',       group = 'Buffer' },
-                { '<leader>bd',      '<cmd>bd<cr>',                                  desc = 'Delete buffer' },
-                { '<leader>bn',      '<cmd>bn<cr>',                                  desc = 'Next buffer' },
-                { '<leader>bp',      '<cmd>bp<cr>',                                  desc = 'Previous buffer' },
-                { '<leader>br',      '<cmd>Telescope buffers<cr>',                   desc = 'Open recent buffer' },
-                { '<leader>bs',      '<cmd>Telescope current_buffer_fuzzy_find<cr>', desc = 'Search buffer' },
-                { '[b',              '<cmd>bprev<cr>',                               desc = 'Previous buffer' },
-                { '[B',              '<cmd>bfirst<cr>',                              desc = 'First buffer' },
-                { ']b',              '<cmd>bnext<cr>',                               desc = 'Next buffer' },
-                { ']B',              '<cmd>blast<cr>',                               desc = 'Last buffer' },
+                { '<leader>bd',      '<cmd>bd<cr>',                                                                 desc = 'Delete buffer' },
+                { '<leader>bn',      '<cmd>bn<cr>',                                                                 desc = 'Next buffer' },
+                { '<leader>bp',      '<cmd>bp<cr>',                                                                 desc = 'Previous buffer' },
+                { '<leader>br',      function() Snacks.picker.buffers() end,                                        desc = 'Open recent buffer' },
+                { '<leader>bs',      function() Snacks.picker.lines() end,                                          desc = 'Search buffer' },
+                { '[b',              '<cmd>bprev<cr>',                                                              desc = 'Previous buffer' },
+                { '[B',              '<cmd>bfirst<cr>',                                                             desc = 'First buffer' },
+                { ']b',              '<cmd>bnext<cr>',                                                              desc = 'Next buffer' },
+                { ']B',              '<cmd>blast<cr>',                                                              desc = 'Last buffer' },
 
                 -- files
                 { '<leader>f',       group = 'File' },
-                { '<leader>fb',      '<cmd>Telescope buffers<cr>',                   desc = 'Open buffers' },
-                { '<leader>fd',      '<cmd>Telescope diagnostics<cr>',               desc = 'Search diagnostics' },
-                { '<leader><space>', '<cmd>Telescope find_files<cr>',                desc = '[F]ind [F]iles' },
-                { '<leader>ff',      '<cmd>Telescope find_files<cr>',                desc = '[F]ind [F]iles' },
-                { '<leader>fg',      '<cmd>Telescope git_files<cr>',                 desc = '[F]ind [G]it files' },
-                { '<leader>fh',      '<cmd>Telescope help_tags<cr>',                 desc = '[F]ind [H]elp' },
-                { '<leader>fr',      '<cmd>Telescope oldfiles<cr>',                  desc = '[F]ind [R]ecent files' },
-                { '<leader>fs',      '<cmd>Telescope live_grep_args<cr>',            desc = 'Search string' },
-                { '<leader>fw',      '<cmd>Telescope grep_string<cr>',               desc = 'Search word under cursor' },
-                {
-                    '<leader>fw',
-                    function()
-                        local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
-                        live_grep_args_shortcuts.grep_visual_selection()
-                    end,
-                    desc = 'Search visual selection',
-                    mode = 'v'
-                },
-                { '<leader>fS', '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>',      desc = 'Search symbol' },
+                { '<leader>fb',      function() Snacks.picker.buffers() end,                                        desc = 'Open buffers' },
+                { '<leader>fd',      function() Snacks.picker.diagnostics() end,                                    desc = 'Search diagnostics' },
+                { '<leader><space>', function() Snacks.picker.files() end,                                          desc = '[F]ind [F]iles' },
+                { '<leader>ff',      function() require('fff').find_files() end,                                    desc = '[F]ind [F]iles' },
+                { '<leader>fg',      function() Snacks.picker.git_files() end,                                      desc = '[F]ind [G]it files' },
+                { '<leader>fh',      function() Snacks.picker.help() end,                                           desc = '[F]ind [H]elp' },
+                { '<leader>fr',      function() Snacks.picker.recent({ filter = { cwd = true } }) end,              desc = '[F]ind [R]ecent files' },
+                { '<leader>fs',      function() require('fff').live_grep() end,                                     desc = 'Search string' },
+                { '<leader>fS',      function() Snacks.picker.grep() end,                                           desc = 'Search string' },
+                { '<leader>fw',      function() require('fff').live_grep({ query = vim.fn.expand('<cword>') }) end, desc = 'Search word under cursor' },
+                { '<leader>fS',      function() Snacks.picker.lsp_workspace_symbols() end,                          desc = 'Search symbol' },
 
                 -- harpoon
-                { '<leader>h',  group = 'Harpoon' },
-                { '[h',         function() require('harpoon.ui').nav_prev() end,         desc = 'Previous harpoon mark' },
-                { ']h',         function() require('harpoon.ui').nav_next() end,         desc = 'Next harpoon mark' },
+                { '<leader>h',       group = 'Harpoon' },
+                { '[h',              function() require('harpoon.ui').nav_prev() end,                               desc = 'Previous harpoon mark' },
+                { ']h',              function() require('harpoon.ui').nav_next() end,                               desc = 'Next harpoon mark' },
 
                 -- packages
-                { '<leader>p',  group = 'Packages' },
-                { '<leader>ps', function() require('package-info').show() end,           desc = 'Show dependency versions' },
-                { '<leader>pc', function() require('package-info').hide() end,           desc = 'Hide dependency versions' },
-                { '<leader>pt', function() require('package-info').toggle() end,         desc = 'Toggle dependency versions' },
-                { '<leader>pu', function() require('package-info').update() end,         desc = 'Update dependency on the line' },
-                { '<leader>pd', function() require('package-info').delete() end,         desc = 'Delete dependency on the line' },
-                { '<leader>pi', function() require('package-info').install() end,        desc = 'Install a new dependency' },
-                { '<leader>pp', function() require('package-info').change_version() end, desc = 'Install a different version' },
+                { '<leader>p',       group = 'Packages' },
+                { '<leader>ps',      function() require('package-info').show() end,                                 desc = 'Show dependency versions' },
+                { '<leader>pc',      function() require('package-info').hide() end,                                 desc = 'Hide dependency versions' },
+                { '<leader>pt',      function() require('package-info').toggle() end,                               desc = 'Toggle dependency versions' },
+                { '<leader>pu',      function() require('package-info').update() end,                               desc = 'Update dependency on the line' },
+                { '<leader>pd',      function() require('package-info').delete() end,                               desc = 'Delete dependency on the line' },
+                { '<leader>pi',      function() require('package-info').install() end,                              desc = 'Install a new dependency' },
+                { '<leader>pp',      function() require('package-info').change_version() end,                       desc = 'Install a different version' },
             })
 
             wk.setup(opts)

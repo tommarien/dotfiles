@@ -173,7 +173,7 @@ return {
             end, with_desc('List workspace folders'))
             vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, with_desc('Rename symbol'))
             vim.keymap.set('n', 'g.', vim.lsp.buf.code_action, with_desc('Code action'))
-            vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, with_desc('Show references'))
+            vim.keymap.set('n', 'gr', function() Snacks.picker.lsp_references() end, with_desc('Show references'))
         end
     },
     {

@@ -322,70 +322,82 @@ return {
         config = true,
     },
     {
-        'nvim-telescope/telescope.nvim',
-        enabled = not vim.g.vscode,
-        event = 'VeryLazy',
-        version = '*',
-        dependencies = {
-            { 'nvim-lua/plenary.nvim' },
-            { 'nvim-telescope/telescope-live-grep-args.nvim' },
-            {
-                'nvim-telescope/telescope-fzf-native.nvim',
-                build =
-                'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
-            },
-        },
+        'dmtrKovalenko/fff.nvim',
+        build = function()
+            require('fff.download').download_or_build_binary()
+        end,
         opts = {
-            defaults = {
-                layout_strategy = 'horizontal',
-                layout_config = { prompt_position = 'top' },
-                sorting_strategy = 'ascending',
-                winblend = 0,
-            },
-            pickers = {
-                oldfiles = {
-                    cwd_only = true,
-                },
-                find_files = {
-                    previewer = false,
-                },
-                git_files = {
-                    previewer = false,
-                },
-                buffers = {
-                    show_all_buffers = true,
-                    sort_lastused = true,
-                    mappings = {
-                        i = { ['<c-d>'] = 'delete_buffer' }
-                    }
-                },
-                lsp_references = {
-                    show_line = false,
-                },
+            layout = {
+                prompt_position = 'top',
             }
         },
-        config = function(_, opts)
-            local telescope = require 'telescope';
-            local lga_actions = require("telescope-live-grep-args.actions")
-
-            opts.extensions = {
-                live_grep_args = {
-                    auto_quoting = true, -- enable/disable auto-quoting
-                    -- define mappings, e.g.
-                    mappings = {         -- extend mappings
-                        i = {
-                            ["<C-k>"] = lga_actions.quote_prompt(),
-                            ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
-                        },
-                    },
-                }
-            }
-            telescope.setup(opts);
-
-            telescope.load_extension('live_grep_args');
-            telescope.load_extension('fzf');
-        end
+        lazy = false,
     },
+    -- {
+    --     'nvim-telescope/telescope.nvim',
+    --     enabled = not vim.g.vscode,
+    --     event = 'VeryLazy',
+    --     version = '*',
+    --     dependencies = {
+    --         { 'nvim-lua/plenary.nvim' },
+    --         { 'nvim-telescope/telescope-live-grep-args.nvim' },
+    --         {
+    --             'nvim-telescope/telescope-fzf-native.nvim',
+    --             build =
+    --             'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+    --         },
+    --     },
+    --     opts = {
+    --         defaults = {
+    --             layout_strategy = 'horizontal',
+    --             layout_config = { prompt_position = 'top' },
+    --             sorting_strategy = 'ascending',
+    --             winblend = 0,
+    --         },
+    --         pickers = {
+    --             oldfiles = {
+    --                 cwd_only = true,
+    --             },
+    --             find_files = {
+    --                 previewer = false,
+    --             },
+    --             git_files = {
+    --                 previewer = false,
+    --             },
+    --             buffers = {
+    --                 show_all_buffers = true,
+    --                 sort_lastused = true,
+    --                 mappings = {
+    --                     i = { ['<c-d>'] = 'delete_buffer' }
+    --                 }
+    --             },
+    --             lsp_references = {
+    --                 show_line = false,
+    --             },
+    --         }
+    --     },
+    --     config = function(_, opts)
+    --         local telescope = require 'telescope';
+    --         local lga_actions = require("telescope-live-grep-args.actions")
+    --
+    --         opts.extensions = {
+    --             live_grep_args = {
+    --                 auto_quoting = true, -- enable/disable auto-quoting
+    --                 -- define mappings, e.g.
+    --                 mappings = {         -- extend mappings
+    --                     i = {
+    --                         ["<C-k>"] = lga_actions.quote_prompt(),
+    --                         ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+    --                     },
+    --                 },
+    --             }
+    --         }
+    --         telescope.setup(opts);
+    --
+    --         telescope.load_extension('live_grep_args');
+    --         telescope.load_extension('fzf');
+    --     end
+    -- },
     {
         'folke/trouble.nvim',
         opts = {}, -- for default options, refer to the configuration section for custom setup.
