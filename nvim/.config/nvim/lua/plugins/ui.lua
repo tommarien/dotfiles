@@ -68,6 +68,9 @@ return {
                 go_out = "H",
                 go_out_plus = "h",
             },
+            windows = {
+                preview = true,
+            },
         },
         config = function(_, opts)
             require("mini.files").setup(opts)
