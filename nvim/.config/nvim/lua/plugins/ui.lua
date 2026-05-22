@@ -74,12 +74,15 @@ return {
             vim.api.nvim_create_autocmd("User", {
                 pattern = "MiniFilesBufferCreate",
                 callback = function(args)
-                    vim.keymap.set("n", "`", function()
+                    local function entry_dir()
                         local entry = require("mini.files").get_fs_entry()
-                        local dir = entry and
-                        (entry.fs_type == "directory" and entry.path or vim.fn.fnamemodify(entry.path, ":h")) or
-                        vim.uv.cwd()
-                        vim.fn.chdir(dir)
+                        if not entry then return vim.uv.cwd() end
+                        return entry.fs_type == "directory" and entry.path or vim.fn.fnamemodify(entry.path, ":h")
+                    end
+
+                    vim.keymap.set("n", "`", function()
+                        local dir = entry_dir()
+                        vim.api.nvim_set_current_dir(dir)
                         vim.notify("cwd: " .. dir, vim.log.levels.INFO)
                     end, { buffer = args.data.buf_id, desc = "Set cwd to current directory" })
                 end,
@@ -94,6 +97,7 @@ return {
                 function()
                     local buf_name = vim.api.nvim_buf_get_name(0)
                     local dir_name = vim.fn.fnamemodify(buf_name, ":p:h")
+
                     if vim.fn.filereadable(buf_name) == 1 then
                         -- Pass the full file path to highlight the file
                         require("mini.files").open(buf_name, true)
@@ -108,7 +112,7 @@ return {
                 desc = "Open mini.files (Directory of Current File or CWD if not exists)",
             },
             {
-                '<leader>-',
+                '<leader>@',
                 function()
                     require("mini.files").open(vim.uv.cwd(), true)
                 end,
