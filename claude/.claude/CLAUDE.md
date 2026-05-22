@@ -9,6 +9,12 @@
 - If a tool call is denied, ask why before retrying.
 - For any file search or grep in the current git-indexed directory, use fff tools.
 
+## Working Style
+
+- Work one step at a time. After each step the user verifies and stages accepted changes before moving on.
+- In plan mode, break work into discrete stageable steps in this order: cleanup → spec (baseline) → refactor → spec (new behaviour, expect red) → implement (green).
+- TDD: before changing behaviour, ensure a test documents the current behaviour first. Then add tests for the new behaviour (they fail), then implement.
+
 ## Commits
 
 - Follow conventional commit format (feat:, fix:, chore:, etc.)
