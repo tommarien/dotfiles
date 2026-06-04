@@ -58,7 +58,7 @@ return {
         },
     },
     {
-        'dlyongemallo/diffview.nvim',
+        'dlyongemallo/diffview-plus.nvim',
         enabled = not vim.g.vscode,
         opts = {
             use_icons = true,
