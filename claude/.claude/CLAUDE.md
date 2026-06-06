@@ -1,5 +1,12 @@
 # Global Claude Instructions
 
+## Planning Mode
+
+- Never call `ExitPlanMode` on your own — wait for explicit user approval.
+- When in plan mode, do NOT make edits — only produce the plan and wait for approval.
+- Do not invoke skills or tools that mutate state until the plan is explicitly approved.
+- Do not suggest invoking other skills (e.g., settings/update-config) when the user only wants a direct CLAUDE.md edit.
+
 ## Communication
 
 - Experienced engineer — skip basic explanations unless asked.
@@ -13,6 +20,15 @@
 - Tests are the source of truth. Never change tests to make them pass — fix the source. A task isn't done until tests are green and you've run them.
 - Fix root causes, not symptoms — e.g. don't paper over type errors with `@ts-ignore`.
 - For any file search or grep in the current git-indexed directory, use fff tools.
+
+## Testing
+
+- Run tests after every meaningful edit; TDD-style when implementing new features.
+
+## Code Style Preferences
+
+- Prefer idiomatic built-ins (e.g., Go's `copy()` over append-spread) over clever alternatives.
+- Check for existing types before suggesting type extensions or new definitions.
 
 ## Simplicity
 
@@ -42,6 +58,7 @@
 
 - Follow conventional commit format (feat:, fix:, chore:, etc.).
 - Commit subject: imperative mood, ≤72 chars, no trailing period.
+- Include a description body, not just the subject line.
 - Never add `Co-Authored-By` trailers.
 
 ## Environment
@@ -56,8 +73,7 @@
 - Go: `gofmt -w <file>`
 - Rust: `rustfmt <file>`
 
-## Planning Mode
+## Bear Notes
 
-- Never call `ExitPlanMode` on your own — wait for explicit user approval.
-- When in plan mode, do NOT make edits — only produce the plan
-- Do not suggest invoking other skills (e.g., settings/update-config) when the user only wants a direct CLAUDE.md edit
+- Use the `bearcli` skill to read/write Bear notes (no MCP available).
+- When writing to existing notes, preserve the title and tags — append/edit body content only.
