@@ -1,11 +1,12 @@
 # Global Claude Instructions
 
-## Planning Mode
+## Planning
 
 - Never call `ExitPlanMode` on your own — wait for explicit user approval.
 - When in plan mode, do NOT make edits — only produce the plan and wait for approval.
 - Do not invoke skills or tools that mutate state until the plan is explicitly approved.
 - Do not suggest invoking other skills (e.g., settings/update-config) when the user only wants a direct CLAUDE.md edit.
+- Do not create Jira tickets, branches, or take action until the user explicitly approves the plan. Plan-only means plan-only.
 
 ## Communication
 
@@ -19,11 +20,12 @@
 
 - Tests are the source of truth. Never change tests to make them pass — fix the source. A task isn't done until tests are green and you've run them.
 - Fix root causes, not symptoms — e.g. don't paper over type errors with `@ts-ignore`.
-- For any file search or grep in the current git-indexed directory, use fff tools.
 
 ## Testing
 
 - Run tests after every meaningful edit; TDD-style when implementing new features.
+- Follow TDD discipline: write failing tests first, then implementation. Modify existing test files rather than creating new ones unless explicitly requested.
+- Before changing behaviour, ensure a test documents the current behaviour first. Then add tests for the new behaviour (they fail), then implement.
 
 ## Code Style Preferences
 
@@ -52,20 +54,25 @@
 
 - Work one step at a time. After each step the user verifies and stages accepted changes before moving on.
 - In plan mode, break work into discrete stageable steps in this order: cleanup → spec (baseline) → refactor → spec (new behaviour, expect red) → implement (green).
-- TDD: before changing behaviour, ensure a test documents the current behaviour first. Then add tests for the new behaviour (they fail), then implement.
+- When asked to review, improve, or suggest changes to code, EXPLAIN first and wait for approval before editing files. Do not jump straight to Edit tool calls.
 
 ## Git
 
 - Follow conventional commit format (feat:, fix:, chore:, etc.).
 - Commit subject: imperative mood, ≤72 chars, no trailing period.
 - Include a description body, not just the subject line.
-- Never add `Co-Authored-By` trailers.
+- Never add any Co-Authored-By or AI attribution trailers to commits.
+- When showing git changes, output actual `git diff` results rather than prose summaries unless explicitly asked for a summary.
 
-## Environment
+## Shell/Environment
 
-- macOS, zsh. direnv is in use — `source .envrc` from project root is safe; never read `.envrc` directly.
+- macOS, zsh. direnv is in use — source `.envrc` before env-dependent shell operations; never read `.envrc` directly.
 - In npm/yarn workspaces, run from repo root via `yarn workspace <pkg> <cmd>` or `npm run <cmd> -w <pkg>`. Never `cd` into a workspace.
 - For unfamiliar CLIs, run `--help` first. Don't guess flags.
+
+## Tooling
+
+- For any file search or grep in the current git-indexed directory, use fff tools.
 
 ## Formatting (after editing)
 
