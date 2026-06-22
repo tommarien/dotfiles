@@ -326,6 +326,7 @@ return {
         build = function()
             require('fff.download').download_or_build_binary()
         end,
+        version = '*',
         opts = {
             layout = {
                 prompt_position = 'top',
