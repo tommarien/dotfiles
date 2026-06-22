@@ -47,9 +47,10 @@
 - TS/JS: `prettier --write <file>` if config exists.
 - Go: `gofmt -w`. Rust: `rustfmt`.
 
-## Bear Memory
-- Bear is the primary memory store. Use `bearcli` skill (no MCP).
-- All Claude memory notes are tagged `#claude`. Subtags: `#claude/user`, `#claude/feedback`, `#claude/project`, `#claude/reference`.
-- At conversation start or when a topic/project/person is mentioned, search Bear: `bearcli search "#claude" --format json` or `bearcli search "#claude <topic>" --format json`.
-- Save new facts, decisions, preferences, and feedback to Bear (not to files). Create notes with `--tags "claude/<subtype>"`.
-- Editing existing notes: preserve title/tags, body only.
+## ZenNotes Memory
+- Memory vault: `/Users/tommar/Library/Mobile Documents/com~apple~CloudDocs/zennotes/inbox/claude/`
+- Use **fff tools** (`mcp__fff__find_files`, `mcp__fff__grep`, `mcp__fff__multi_grep`) for discovery/search, **Read/Write/Edit** for file access — do NOT use `mcp__zennotes__*` tools (they fail to find files).
+- Subfolders: `user`, `feedback`, `project`, `reference`.
+- At conversation start or when a topic/project/person is mentioned, read `MEMORY.md` first for the index, then use `mcp__fff__find_files` / `mcp__fff__grep` for deeper search.
+- Save new facts as `.md` files in the appropriate subfolder.
+- Each note: frontmatter with `name`, `description`, `metadata.type`; feedback/project notes lead with the rule/fact, then **Why:** and **How to apply:** lines.
