@@ -42,8 +42,8 @@ PACKAGES=(
     hugo
     imagemagick
     jq
-    koekeishiya/formulae/skhd
-    koekeishiya/formulae/yabai
+    asmvik/formulae/skhd
+    asmvik/formulae/yabai
     lazygit
     libpq
     mermaid-cli
