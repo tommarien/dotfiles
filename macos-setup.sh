@@ -36,7 +36,6 @@ PACKAGES=(
     fnm
     fzf
     git
-    git-trim
     go
     goose
     hugo

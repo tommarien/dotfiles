@@ -31,5 +31,3 @@
 	prompt = false
 [rerere]
 	enabled = true # Reuse recorded resolutions
-[gt]
-	exclude = dev develop main master prod
