@@ -3,3 +3,5 @@
 .envrc
 .opencode/
 .gtrconfig
+
+**/.claude/settings.local.json
