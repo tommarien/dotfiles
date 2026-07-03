@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DAYS=15
+DAYS=10
 CUTOFF=$(date -v-${DAYS}d +%s)
 
 echo "Checking for formulae released more than $DAYS days ago..."
@@ -24,10 +24,10 @@ brew outdated --formula --quiet | while read -r pkg; do
   RELEASE_DATE=$(date -r "$RELEASE_TIME" "+%Y-%m-%d")
 
   if [ "$RELEASE_TIME" -lt "$CUTOFF" ]; then
-    echo "→ Upgrading $pkg (released: $RELEASE_DATE)"
+    echo "  Upgrading $pkg (released: $RELEASE_DATE)"
     brew upgrade "$pkg"
   else
-    echo "  Skipping $pkg (released recently: $RELEASE_DATE)"
+    echo "  Skipping $pkg (released recently: $RELEASE_DATE)"
   fi
 done
 
