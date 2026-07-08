@@ -64,6 +64,7 @@ return {
                 gopls = {
                     settings = {
                         gopls = {
+                            buildFlags = { "-tags=integration" },
                             hints = {
                                 assignVariableTypes = true,
                                 compositeLiteralFields = true,
