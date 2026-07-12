@@ -23,6 +23,7 @@
 - Every changed line must trace to the request. No drive-by refactors/reformats — match existing style.
 - Clean up orphans you create; flag (don't delete) pre-existing dead code.
 - Prefer idiomatic built-ins over clever alternatives. Reuse existing types before defining new ones.
+- Only modify explicitly-named files; no unrequested exploration agents.
 
 ## Delegation
 - Delegate research, multi-file search, and large-output tasks to subagents; fan out independent calls in parallel.
@@ -48,9 +49,10 @@
 - Go: `gofmt -w`. Rust: `rustfmt`.
 
 ## ZenNotes Memory
+- **Always read `MEMORY.md` at the start of every conversation**, before doing anything else.
 - Memory vault: `/Users/tommar/Library/Mobile Documents/com~apple~CloudDocs/zennotes/inbox/claude/`
 - Use **fff tools** (`mcp__fff__find_files`, `mcp__fff__grep`, `mcp__fff__multi_grep`) for discovery/search, **Read/Write/Edit** for file access — do NOT use `mcp__zennotes__*` tools (they fail to find files).
 - Subfolders: `user`, `feedback`, `project`, `reference`.
-- At conversation start or when a topic/project/person is mentioned, read `MEMORY.md` first for the index, then use `mcp__fff__find_files` / `mcp__fff__grep` for deeper search.
+- After reading the index, use `mcp__fff__find_files` / `mcp__fff__grep` for deeper search when a topic/project/person is mentioned.
 - Save new facts as `.md` files in the appropriate subfolder.
 - Each note: frontmatter with `name`, `description`, `metadata.type`; feedback/project notes lead with the rule/fact, then **Why:** and **How to apply:** lines.
