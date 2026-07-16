@@ -4,6 +4,7 @@ local languages = {
     'go',
     'latex',
     'lua',
+    'make',
     'mermaid',
     'printf',
     'rust',
