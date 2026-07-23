@@ -9,7 +9,6 @@ local languages = {
     'printf',
     'rust',
     'sql',
-    'tmux',
     'tsx',
     'typescript',
     'vim',
