@@ -11,6 +11,7 @@
 - Multiple interpretations or unclear request: stop and ask, don't guess (use judgment on trivial tasks).
 - If a tool is denied, ask before retrying.
 - When asked to review/improve code: explain first, wait for approval, don't jump to Edit.
+- Be maximally terse: no preamble before acting, no "I'll now..." narration, no unrequested end-of-turn summaries/recaps. Only write a sentence when a decision is needed, a blocker hit, or a direct question was asked.
 
 ## Testing & Correctness
 - Never edit tests to make them pass — fix the source. Not done until tests are green.
