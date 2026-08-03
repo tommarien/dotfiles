@@ -17,6 +17,11 @@
 - Never edit tests to make them pass — fix the source. Not done until tests are green.
 - Fix root causes, not symptoms (no `@ts-ignore` papering).
 - TDD: pin current behaviour with a test, add failing tests for new behaviour, then implement. Modify existing test files unless asked otherwise.
+- Mocks: use `vi.mocked`, not `let`-assigned mock variables.
+
+## Code Comprehension
+- Before asserting how code behaves, read the full function body (not just the signature) and cite file:line.
+- Flag anything you couldn't verify instead of asserting it.
 
 ## Scope
 - Minimum code. No speculative features, abstractions, or error handling for impossible cases.
