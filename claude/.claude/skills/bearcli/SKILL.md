@@ -1,34 +1,9 @@
 ---
 name: bearcli
-description: Read and write notes in Bear (used as persistent memory / knowledge base). Use when the user mentions Bear, asks to read/write/update a note, or refers to notes as memory.
+description: Read and write notes in Bear via the bearcli CLI. Use only when the user explicitly mentions Bear. Not the memory store — memory lives in ZenNotes.
 ---
 
-Bear is the user's notes app and Claude's primary memory store.
-
-## Memory convention
-
-All Claude memory notes carry the `#claude` tag. Subtags define type:
-- `#claude/user` — user profile, preferences, working style
-- `#claude/feedback` — corrections and validated approaches
-- `#claude/project` — ongoing work, decisions, deadlines
-- `#claude/reference` — pointers to external systems
-
-**Reading memory:** At conversation start or when a topic is raised, search first:
-```sh
-bearcli search "#claude" --format json          # all memory
-bearcli search "#claude kubernetes" --format json  # topic-scoped
-```
-
-**Writing memory:** Create a new note or append to an existing one:
-```sh
-# New fact
-printf '# User prefers X\n\nDetail.\n' | bearcli create "User prefers X" --tags "claude/user"
-
-# Update existing
-bearcli edit <id> --find "old fact" --replace "updated fact"
-```
-
-**Never write memory to files** — Bear is the single source of truth.
+Bear is one of the user's notes apps. It is **not** Claude's memory store; memory lives in the ZenNotes vault (see global CLAUDE.md). Only reach for Bear when the user names it.
 
 Binary: `/Applications/Bear.app/Contents/MacOS/bearcli` — invoke directly via Bash. Run `bearcli help <subcommand>` for full reference.
 

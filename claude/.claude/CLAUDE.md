@@ -1,7 +1,7 @@
 # Global Claude Instructions
 
 ## Planning
-- Never call `ExitPlanMode` — wait for user approval.
+- `ExitPlanMode` presents the plan for approval — it is not approval. Never start work off the back of it; wait for an explicit go-ahead.
 - Plan-only means plan-only: no edits, no skill invocations, no Jira/branches/side effects until approved.
 - Don't suggest other skills when the user asked for a direct edit.
 
@@ -57,8 +57,8 @@
 ## ZenNotes Memory
 - **Always read `MEMORY.md` at the start of every conversation**, before doing anything else.
 - Memory vault: `/Users/tommar/Library/Mobile Documents/com~apple~CloudDocs/zennotes/inbox/claude/`
-- Use **fff tools** (`mcp__fff__find_files`, `mcp__fff__grep`, `mcp__fff__multi_grep`) for discovery/search, **Read/Write/Edit** for file access — do NOT use `mcp__zennotes__*` tools (they fail to find files).
+- fff can't index the vault — use `Bash find` + `Read` for discovery/search, **Read/Write/Edit** for file access.
 - Subfolders: `user`, `feedback`, `project`, `reference`.
-- After reading the index, use `mcp__fff__find_files` / `mcp__fff__grep` for deeper search when a topic/project/person is mentioned.
+- After reading the index, use `Bash find` + `Read` for deeper search when a topic/project/person is mentioned.
 - Save new facts as `.md` files in the appropriate subfolder.
 - Each note: frontmatter with `name`, `description`, `metadata.type`; feedback/project notes lead with the rule/fact, then **Why:** and **How to apply:** lines.
