@@ -78,6 +78,5 @@
   },
   "theme": "custom:github-plus-dark",
   "voiceEnabled": true,
-  "ENABLE_LSP_TOOL": true,
-  "model": "opus[1m]"
+  "ENABLE_LSP_TOOL": true
 }
