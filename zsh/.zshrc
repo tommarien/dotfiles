@@ -6,7 +6,6 @@ plug "zap-zsh/supercharge"
 plug "zap-zsh/zap-prompt"
 plug "wintermi/zsh-rust"
 plug "chivalryq/git-alias"
-plug "wintermi/zsh-brew"
 plug "Aloxaf/fzf-tab"
 plug "jeffreytse/zsh-vi-mode"
 
@@ -20,13 +19,13 @@ plug "jeffreytse/zsh-vi-mode"
 }
 zstyle ':vcs_info:git*+set-message:*' hooks git-bare git-untracked
 
-# Load and initialise completion system
-autoload -Uz compinit
-if [[ -n $HOME/.zcompdump(#qN.mh+24) ]]; then
-	compinit;
-else
-	compinit -C;
-fi;
+# Load and initialise completion system, already done by supercharge
+# autoload -Uz compinit
+# if [[ -n $HOME/.zcompdump(#qN.mh+24) ]]; then
+# 	compinit;
+# else
+# 	compinit -C;
+# fi;
 
 # Ensure less does not page if not necessary
 export LESS="--no-init --quit-if-one-screen -R"
@@ -36,7 +35,8 @@ export PATH=/opt/homebrew/bin:$HOME/bin/scripts:/opt/homebrew/Caskroom/google-cl
 
 # Go
 export GOPATH="${HOME}/go"
-export GOROOT="$(brew --prefix golang)/libexec"
+# run brew --prefix golang to get to path
+export GOROOT="/opt/homebrew/opt/go/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 # zoxide
@@ -48,17 +48,14 @@ eval "$(direnv hook zsh)"
 # fnm (Fast Node Manager)
 eval "$(fnm env --use-on-cd --resolve-engines false --shell zsh)"
 
-# thefuck
-eval $(thefuck --alias)
-
 # Openssl
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
 
-# google-cloud-sdk
-local gcloud_path="$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+# google-cloud-sdk (brew --prefix to get to homebrew path)
+local gcloud_path="/opt/homebrew/share/google-cloud-sdk/path.zsh.inc"
 [[ -f "$gcloud_path" ]] && source "$gcloud_path"
 
 # Load fzf theme
