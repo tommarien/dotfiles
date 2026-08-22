@@ -39,14 +39,20 @@ export GOPATH="${HOME}/go"
 export GOROOT="/opt/homebrew/opt/go/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
+# setup cache, clear when new version
+[[ -d "$HOME/.zsh/cache" ]] || mkdir -p "$HOME/.zsh/cache"
+
 # zoxide
-eval "$(zoxide init zsh)"
+[[ -f "$HOME/.zsh/cache/zoxide.zsh" ]] || zoxide init zsh > "$HOME/.zsh/cache/zoxide.zsh"
+source "$HOME/.zsh/cache/zoxide.zsh"
 
 # direnv
-eval "$(direnv hook zsh)"
+[[ -f "$HOME/.zsh/cache/direnv.zsh" ]] || direnv hook zsh > "$HOME/.zsh/cache/direnv.zsh"
+source "$HOME/.zsh/cache/direnv.zsh"
 
 # fnm (Fast Node Manager)
-eval "$(fnm env --use-on-cd --resolve-engines false --shell zsh)"
+[[ -f "$HOME/.zsh/cache/fnm.zsh" ]] || fnm env --use-on-cd --resolve-engines false --shell zsh > "$HOME/.zsh/cache/fnm.zsh"
+source "$HOME/.zsh/cache/fnm.zsh"
 
 # Openssl
 export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
