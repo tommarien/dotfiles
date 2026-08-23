@@ -71,6 +71,7 @@
   "extraKnownMarketplaces": {},
   "syntaxHighlightingDisabled": false,
   "effortLevel": "medium",
+  "outputStyle": "Concise",
   "tui": "default",
   "voice": {
     "enabled": true,
