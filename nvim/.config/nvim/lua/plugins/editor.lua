@@ -362,6 +362,29 @@ return {
         },
     },
     {
+        "gbprod/yanky.nvim",
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+        },
+        dependencies = { "folke/snacks.nvim" },
+        keys = {
+            {
+                "<leader>p",
+                function()
+                    Snacks.picker.yanky()
+                end,
+                mode = { "n", "x" },
+                desc = "Open Yank History",
+            },
+            { "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" } },
+            { "P", "<Plug>(YankyPutBefore)", mode = { "n", "x" } },
+            { "gp", "<Plug>(YankyGPutAfter)", mode = { "n", "x" } },
+            { "gP", "<Plug>(YankyGPutBefore)", mode = { "n", "x" } },
+        }
+    },
+    {
         'folke/flash.nvim',
         event = 'VeryLazy',
         ---@type Flash.Config

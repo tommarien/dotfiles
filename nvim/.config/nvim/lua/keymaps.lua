@@ -58,8 +58,8 @@ end, { desc = 'Copy relative file to clipboard' })
 -- Visual select last pasted value
 utils.map('n', 'gp', '`[v`]', { desc = 'Select last paste' })
 
--- Black hole register
-utils.map('x', '<leader>p', [["_dP]])
+-- Black hole register (yanky replaces this)
+-- utils.map('x', '<leader>p', [["_dP]])
 
 if vim.g.vscode then
     -- Pane handling
