@@ -12,6 +12,9 @@
 - If a tool is denied, ask before retrying.
 - When asked to review/improve code: explain first, wait for approval, don't jump to Edit.
 - Be maximally terse: no preamble before acting, no "I'll now..." narration, no unrequested end-of-turn summaries/recaps. Only write a sentence when a decision is needed, a blocker hit, or a direct question was asked.
+- Asked to summarize/explain a document: give the gist first, critique only if asked.
+- Asked to write a note or doc: just write it — don't use AskUserQuestion/ExitPlanMode to confirm structure first.
+- Trust the user's stated version/fact claims about tools and languages; if you disagree, verify (e.g. web search) before pushing back.
 
 ## Testing & Correctness
 - Never edit tests to make them pass — fix the source. Not done until tests are green.
@@ -44,6 +47,9 @@
 - No Co-Authored-By / AI attribution trailers.
 - Show `git diff` output, not prose summaries, unless asked.
 
+## Commit & MR Workflow
+- Standard flow: review the diff, run build + tests, commit, then generate an MR description and copy it to the clipboard (`pbcopy`).
+
 ## Shell / Tooling
 - macOS/zsh. direnv: source `.envrc`; never read it.
 - Workspaces: run from root (`yarn workspace`/`npm -w`); never `cd` in.
@@ -54,11 +60,12 @@
 - TS/JS: `prettier --write <file>` if config exists.
 - Go: `gofmt -w`. Rust: `rustfmt`.
 
-## ZenNotes Memory
+## Notes & Memory
+- ZenNotes is a FILE-BASED vault, not an MCP server — read/write with Read, Edit, Write, and Bash. Do not look for zennotes MCP tools.
 - **Always read `MEMORY.md` at the start of every conversation**, before doing anything else.
 - Memory vault: `/Users/tommar/Library/Mobile Documents/com~apple~CloudDocs/zennotes/inbox/claude/`
 - fff can't index the vault — use `Bash find` + `Read` for discovery/search, **Read/Write/Edit** for file access.
 - Subfolders: `user`, `feedback`, `project`, `reference`.
 - After reading the index, use `Bash find` + `Read` for deeper search when a topic/project/person is mentioned.
-- Save new facts as `.md` files in the appropriate subfolder.
+- Save new facts as `.md` files in the appropriate subfolder. Memory instructions live in ZenNotes; MEMORY.md is only a pointer — never write memory content into the auto-memory dir itself.
 - Each note: frontmatter with `name`, `description`, `metadata.type`; feedback/project notes lead with the rule/fact, then **Why:** and **How to apply:** lines.
