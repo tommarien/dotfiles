@@ -69,9 +69,9 @@
     "lua-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {},
+  "outputStyle": "Concise",
   "syntaxHighlightingDisabled": false,
   "effortLevel": "medium",
-  "outputStyle": "Concise",
   "tui": "default",
   "voice": {
     "enabled": true,
