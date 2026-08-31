@@ -43,6 +43,7 @@ PACKAGES=(
     jq
     asmvik/formulae/skhd
     asmvik/formulae/yabai
+    lazydocker
     lazygit
     libpq
     mermaid-cli
@@ -58,6 +59,7 @@ PACKAGES=(
     tree-sitter
     tree-sitter-cli
     wget
+    yosefu
     zoxide
 )
 echo "Installing packages..."
