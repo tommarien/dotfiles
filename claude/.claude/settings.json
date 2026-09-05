@@ -79,5 +79,6 @@
   },
   "theme": "custom:github-plus-dark",
   "voiceEnabled": true,
-  "ENABLE_LSP_TOOL": true
+  "ENABLE_LSP_TOOL": true,
+  "model": "sonnet"
 }
