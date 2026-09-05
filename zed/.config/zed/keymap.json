@@ -11,6 +11,7 @@
     "bindings": {
       // Put key bindings here if you want them to work in normal & visual mode.
       "-": "project_panel::ToggleFocus",
+      "space a a": "agent::Toggle",
     },
   },
   {
@@ -29,6 +30,7 @@
       "space f s": "pane::DeploySearch",
       "space f b": "tab_switcher::Toggle",
       "shift k": "editor::Hover",
+      "g n": "editor::Rename",
     },
   },
   {
@@ -36,6 +38,7 @@
     "bindings": {
       "shift-k": "editor::MoveLineUp",
       "shift-j": "editor::MoveLineDown",
+      "space a t": "agent::AddSelectionToThread",
     },
   },
   {
