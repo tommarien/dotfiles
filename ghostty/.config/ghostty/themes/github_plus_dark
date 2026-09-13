@@ -5,6 +5,7 @@ background = #282c33
 # background = #161b22
 # background = #1c212a
 background = #171a24
+#background = #22272e
 foreground = #d1d7e0
 
 # Cursor
