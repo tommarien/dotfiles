@@ -10,7 +10,10 @@
       "Bash(/Applications/Bear.app/Contents/MacOS/bearcli list*)",
       "Bash(/Applications/Bear.app/Contents/MacOS/bearcli tags*)",
       "Bash(/Applications/Bear.app/Contents/MacOS/bearcli search-in *)",
-      "Read(/Users/tommar/Library/Mobile Documents/com~apple~CloudDocs/zennotes/**)"
+      "Read(/Users/tommar/Library/Mobile Documents/com~apple~CloudDocs/zennotes/**)",
+      "Bash(source .envrc)",
+      "Bash(git status)",
+      "Bash(git status *)"
     ],
     "deny": []
   },
