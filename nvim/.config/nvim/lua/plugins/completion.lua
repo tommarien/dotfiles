@@ -51,6 +51,11 @@ return {
             -- Autopairs
             cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
+            -- Disable complete on Agentic
+            cmp.setup.filetype('AgenticInput', {
+                sources = {}
+            })
+
             cmp.setup({
                 formatting = {
                     fields = { "kind", "abbr", "menu" },

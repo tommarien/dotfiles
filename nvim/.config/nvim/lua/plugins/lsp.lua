@@ -131,6 +131,7 @@ return {
             require('mason-tool-installer').setup({
                 -- install other tools
                 ensure_installed = {
+                    'claude-agent-acp',
                     'delve',
                     'prettierd',
                 },

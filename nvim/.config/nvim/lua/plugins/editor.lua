@@ -23,7 +23,9 @@ return {
         dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
         ---@module 'render-markdown'
         ---@type render.md.UserConfig
-        opts = {},
+        opts = {
+            file_types = { "markdown", "md", "AgenticChat" },
+        }
     },
     {
         'max397574/better-escape.nvim',
@@ -378,9 +380,9 @@ return {
                 mode = { "n", "x" },
                 desc = "Open Yank History",
             },
-            { "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" } },
-            { "P", "<Plug>(YankyPutBefore)", mode = { "n", "x" } },
-            { "gp", "<Plug>(YankyGPutAfter)", mode = { "n", "x" } },
+            { "p",  "<Plug>(YankyPutAfter)",   mode = { "n", "x" } },
+            { "P",  "<Plug>(YankyPutBefore)",  mode = { "n", "x" } },
+            { "gp", "<Plug>(YankyGPutAfter)",  mode = { "n", "x" } },
             { "gP", "<Plug>(YankyGPutBefore)", mode = { "n", "x" } },
         }
     },
@@ -390,8 +392,8 @@ return {
         ---@type Flash.Config
         opts = {},
         keys = {
-            { 's', mode = { 'n', 'x', 'o' }, function() require('flash').jump() end,   desc = 'Flash' },
-            { 'r', mode = 'o',               function() require('flash').remote() end, desc = 'Remote Flash' },
+            { '<leader>s', mode = { 'n', 'x', 'o' }, function() require('flash').jump() end,   desc = 'Flash' },
+            { 'r',         mode = 'o',               function() require('flash').remote() end, desc = 'Remote Flash' },
             -- { 'R',     mode = { 'o', 'x' },      function() require('flash').treesitter_search() end, desc = 'Treesitter Search' },
             -- { '<c-s>', mode = { 'c' },           function() require('flash').toggle() end,            desc = 'Toggle Flash Search' },
         },
