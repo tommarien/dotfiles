@@ -1,4 +1,3 @@
-# font-family = JetBrains Mono
 font-family = Maple Mono NF
  
 font-size = 17
@@ -8,8 +7,8 @@ font-thicken-strength = 0
 
 adjust-cell-height = 10%
 
-# Broken equals ligatures Jetbrains Mono
-# font-feature = ss19
+# ss01: broken equals, ss06: broken cursive
+font-feature = ss01, ss06
 
 macos-option-as-alt = true
 minimum-contrast = 1.1
@@ -17,7 +16,7 @@ mouse-hide-while-typing = true
 
 theme = github_plus_dark
 
-background-opacity = 0.85
+background-opacity = 0.75
 background-blur-radius = 10
 
 macos-titlebar-style = hidden

@@ -72,6 +72,7 @@ CASKS=(
    bruno
    font-jetbrains-mono
    font-jetbrains-mono-nerd-font
+   font-maple-mono-nf
    fork
    ghostty
    kitty
