@@ -23,10 +23,11 @@
   "cursor_blink": false,
   "vim_mode": true,
   "buffer_font_size": 16.0,
-  "buffer_font_family": "JetBrainsMono Nerd Font Mono",
+  "buffer_font_family": "Maple Mono NF",
   "relative_line_numbers": "enabled",
   "buffer_font_features": {
-    "ss19": true,
+    "ss01": true,
+    "ss06": true
   },
-  "format_on_save": "on",
+  "format_on_save": "on"
 }
