@@ -58,38 +58,19 @@ return {
         },
     },
     {
-        'dlyongemallo/diffview-plus.nvim',
-        enabled = not vim.g.vscode,
+        "esmuellert/codediff.nvim",
+        event = "VeryLazy",
         opts = {
-            use_icons = true,
-            enhanced_diff_hl = true,
-            hooks = {
-                diff_buf_win_enter = function(bufnr, winid, ctx)
-                    if ctx.layout_name:match("^diff2") then
-                        if ctx.symbol == "a" then
-                            vim.opt_local.winhl = table.concat({
-                                "DiffAdd:DiffviewDiffAddAsDelete",
-                                "DiffDelete:DiffviewDiffDelete",
-                            }, ",")
-                        elseif ctx.symbol == "b" then
-                            vim.opt_local.winhl = table.concat({
-                                "DiffDelete:DiffviewDiffDelete",
-                            }, ",")
-                        end
-                    end
-                end,
+            explorer = {
+                view_mode = "tree",
             },
             keymaps = {
                 view = {
-                    ['q'] = "<Cmd>DiffviewClose<CR>",
+                    quit = { "q", "<Esc>" },
+                    next_file = "<Tab>",
+                    prev_file = "<S-Tab>",
                 },
-                file_panel = {
-                    ['q'] = "<Cmd>DiffviewClose<CR>",
-                },
-                file_history_panel = {
-                    ['q'] = "<Cmd>DiffviewClose<CR>",
-                },
-            }
-        }
+            },
+        },
     },
 }
