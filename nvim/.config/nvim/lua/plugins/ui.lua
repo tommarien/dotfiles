@@ -95,6 +95,10 @@ return {
                 -- open the current working directory
                 "-",
                 function()
+                    if vim.bo.filetype:match("^codediff") then
+                        return
+                    end
+
                     local buf_name = vim.api.nvim_buf_get_name(0)
                     local dir_name = vim.fn.fnamemodify(buf_name, ":p:h")
 
