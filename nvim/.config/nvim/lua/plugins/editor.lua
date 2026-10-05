@@ -282,6 +282,10 @@ return {
             { '<c-k>',  function() require('smart-splits').move_cursor_up() end },
             { '<c-l>',  function() require('smart-splits').move_cursor_right() end },
             { '<c-\\>', function() require('smart-splits').move_cursor_previous() end },
+            { '<a-h>',  function() require('smart-splits').resize_left() end },
+            { '<a-j>',  function() require('smart-splits').resize_down() end },
+            { '<a-k>',  function() require('smart-splits').resize_up() end },
+            { '<a-l>',  function() require('smart-splits').resize_right() end },
         },
     },
     {
