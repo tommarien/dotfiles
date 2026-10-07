@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# kitty launched from the Dock has a minimal PATH; fzf and kitten live in homebrew
+export PATH=/opt/homebrew/bin:$PATH
+
+SESSION_DIR=${XDG_CACHE_HOME:-$HOME/.cache}/kitty-sessions
+
+active=$(for f in "$SESSION_DIR"/*.kitty-session; do
+    name=$(basename "$f" .kitty-session)
+    kitten @ ls --match "session:^$name\$" &>/dev/null && echo "$name"
+done)
+
+selected=$(fzf --multi --prompt='close session> ' <<< "$active")
+
+for name in $selected; do
+    kitten @ close-tab --match "session:^$name\$"
+done
