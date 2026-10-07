@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# kitty launched from the Dock has a minimal PATH; fzf and kitten live in homebrew
+export PATH=/opt/homebrew/bin:$PATH
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    selected=$(find ~/Projects/tommarien ~/Projects/sinch ~/Exercism/go -mindepth 1 -maxdepth 1 -type d | fzf)
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+
+SESSION_FILE_PREFIX=${XDG_CACHE_HOME:-$HOME/.cache}/kitty-sessions
+mkdir -p "$SESSION_FILE_PREFIX"
+session_file="$SESSION_FILE_PREFIX/$selected_name.kitty-session"
+
+if [[ ! -f $session_file ]]; then
+    printf 'new_tab %s\ncd %s\nlaunch\n' "$selected_name" "$selected" > "$session_file"
+fi
+
+kitten @ action goto_session "$session_file"

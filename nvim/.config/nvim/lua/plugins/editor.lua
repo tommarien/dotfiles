@@ -1,5 +1,13 @@
 return {
     {
+        'mikesmithgh/kitty-scrollback.nvim',
+        enabled = not vim.g.vscode,
+        lazy = true,
+        cmd = { 'KittyScrollbackGenerateKittens', 'KittyScrollbackCheckHealth', 'KittyScrollbackGenerateCommandLineEditing' },
+        event = { 'User KittyScrollbackLaunch' },
+        opts = {},
+    },
+    {
         'tpope/vim-sleuth',
         enabled = not vim.g.vscode,
     },
@@ -273,9 +281,9 @@ return {
     },
     {
         'mrjones2014/smart-splits.nvim',
+        build = './kitty/install-kittens.bash',
         enabled = not vim.g.vscode,
         lazy = false,
-        opts = { multiplexer_integration = 'tmux' },
         keys = {
             { '<c-h>',  function() require('smart-splits').move_cursor_left() end },
             { '<c-j>',  function() require('smart-splits').move_cursor_down() end },
