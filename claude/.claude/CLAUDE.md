@@ -25,6 +25,8 @@
 ## Code Comprehension
 - Before asserting how code behaves, read the full function body (not just the signature) and cite file:line.
 - Flag anything you couldn't verify instead of asserting it.
+- For library/SDK behaviour, read the source (node_modules, go mod cache) before answering; label guesses as guesses.
+- Tracing references (bot exports, dialogstates, triggers, timers): search exhaustively on the first pass and state link direction (incoming vs outgoing).
 
 ## Scope
 - Minimum code. No speculative features, abstractions, or error handling for impossible cases.
@@ -43,12 +45,14 @@
 - Plan order: cleanup → baseline spec → refactor → new spec (red) → implement (green).
 
 ## Git
-- Conventional commits (feat:, fix:, chore:). Subject: imperative, ≤72 chars, no period. Always include a body.
+- Conventional commits (feat:, fix:, chore:). Subject: imperative, ≤72 chars, no period. Body: 1-3 terse bullets max, no essays.
 - No Co-Authored-By / AI attribution trailers.
 - Show `git diff` output, not prose summaries, unless asked.
 
 ## Commit & MR Workflow
 - Standard flow: review the diff, run build + tests, commit, then generate an MR description and copy it to the clipboard (`pbcopy`).
+- Never overwrite the MR template: read it, fill a copy, pipe to `pbcopy`.
+- MR/Jira/notes: high-level (problem, goal, key pointers); no implementation steps.
 
 ## Shell / Tooling
 - macOS/zsh. direnv: source `.envrc`; never read it.
