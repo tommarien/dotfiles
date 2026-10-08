@@ -17,6 +17,7 @@
     ],
     "deny": []
   },
+  "model": "sonnet",
   "hooks": {
     "Notification": [
       {
@@ -72,5 +73,5 @@
   "theme": "custom:github-plus-dark",
   "voiceEnabled": true,
   "ENABLE_LSP_TOOL": true,
-  "model": "sonnet"
+  "advisorModel": "opus"
 }
