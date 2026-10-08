@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# kitty launched from the Dock has a minimal PATH; kitten lives in homebrew
+export PATH=/opt/homebrew/bin:$PATH
+
+SESSION_DIR=${XDG_CACHE_HOME:-$HOME/.cache}/kitty-sessions
+mkdir -p "$SESSION_DIR"
+
+base=$(kitten @ ls | jq -r '[.[] | select(.is_focused)][0].tabs[] | select(.is_active) | [.windows[].session_name | select(.)][0] // empty')
+base=${base%-[0-9]*}
+[[ -n $base ]] || base=$(basename "$PWD" | tr . _)
+
+n=1
+while [[ -f $SESSION_DIR/$base-$n.kitty-session ]]; do ((n++)); done
+name=$base-$n
+session_file=$SESSION_DIR/$name.kitty-session
+
+printf 'new_tab %s\ncd %s\nlaunch\n' "$name" "$PWD" > "$session_file"
+
+kitten @ action goto_session "$session_file"
