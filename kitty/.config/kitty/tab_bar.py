@@ -4,7 +4,6 @@ from kitty.tab_bar import DrawData, ExtraData, TabBarData, draw_tab_with_powerli
 
 
 ATTENTION = (0xF2CC60 << 8) | 2
-IDLE = (0x6E7681 << 8) | 2
 
 
 def other_sessions() -> dict[str, bool]:
@@ -26,9 +25,8 @@ def draw_tab(
 ) -> int:
     end = draw_tab_with_powerline(draw_data, screen, tab, before, max_title_length, index, is_last, extra_data)
     if is_last:
-        screen.draw(" ")
-        for attention in other_sessions().values():
-            screen.cursor.fg = ATTENTION if attention else IDLE
+        if any(other_sessions().values()):
+            screen.cursor.fg = ATTENTION
             screen.draw(" ●")
-        end = screen.cursor.x
+            end = screen.cursor.x
     return end

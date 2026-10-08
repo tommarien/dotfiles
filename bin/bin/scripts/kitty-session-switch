@@ -6,14 +6,17 @@ export PATH=/opt/homebrew/bin:$PATH
 SESSION_DIR=${XDG_CACHE_HOME:-$HOME/.cache}/kitty-sessions
 
 active=()
-while IFS= read -r name; do
-    [[ -f $SESSION_DIR/$name.kitty-session ]] && active+=("$name")
-done < <(kitten @ ls | jq -r '[.[].tabs[].windows[].session_name // empty] | unique[]')
+items=()
+while IFS=$'\t' read -r name attention; do
+    [[ -f $SESSION_DIR/$name.kitty-session ]] || continue
+    active+=("$name")
+    [[ $attention == true ]] && items+=("$name  "$'') || items+=("$name")
+done < <(kitten @ ls | jq -r '[.[].tabs[].windows[] | select(.session_name) | {n: .session_name, a: .needs_attention}] | group_by(.n)[] | "\(.[0].n)\t\(any(.[]; .a))"')
 
 (( ${#active[@]} )) || exit 0
 
 binds=$(printf '%s:pos(%s)+accept,' 1 1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 9 9)
-name=$(printf '%s\n' "${active[@]}" | nl -w1 -s') ' |
-    fzf --header 'switch session' --height=100% --reverse --bind "${binds%,}" |
-    sed 's/^[0-9]*) //') || exit 0
+choice=$(printf '%s\n' "${items[@]}" | nl -w1 -s') ' |
+    fzf --header 'switch session' --height=100% --reverse --bind "${binds%,}") || exit 0
+name=${active[${choice%%)*} - 1]}
 [[ -n $name ]] && kitten @ action goto_session "$SESSION_DIR/$name.kitty-session"
