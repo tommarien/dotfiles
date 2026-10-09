@@ -281,8 +281,8 @@ return {
     },
     {
         'mrjones2014/smart-splits.nvim',
-        build = './kitty/install-kittens.bash',
         enabled = not vim.g.vscode,
+        version = '^2.1.0',
         lazy = false,
         keys = {
             { '<c-h>',  function() require('smart-splits').move_cursor_left() end },
