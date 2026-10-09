@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# runs inside the new session's window so a slow gtr doesn't block the caller
+export PATH=/opt/homebrew/bin:$PATH
+
+git gtr new "$1" --yes && cd "$(git gtr go "$1")"
+exec "$SHELL"
