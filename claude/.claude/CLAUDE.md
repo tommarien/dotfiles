@@ -38,6 +38,7 @@
 
 ## Delegation
 - Delegate research, multi-file search, and large-output tasks to subagents; fan out independent calls in parallel.
+- Discovery/exploration/search subagents: always pass `model: "haiku"`. Use a stronger model only for subagents that must reason, plan, or edit.
 - Verify agent reports against code (they hallucinate line numbers, APIs, semantics); main context edits.
 
 ## Working Style
