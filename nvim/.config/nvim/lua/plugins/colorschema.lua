@@ -16,5 +16,5 @@ return {
             require('github_plus').setup(opts)
             vim.cmd('colorscheme github_plus')
         end
-    }
+    },
 }
