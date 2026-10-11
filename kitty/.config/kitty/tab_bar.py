@@ -2,9 +2,7 @@ from kitty.boss import get_boss
 from kitty.fast_data_types import Screen
 from kitty.tab_bar import DrawData, ExtraData, TabBarData, draw_tab_with_powerline
 
-
-ATTENTION = (0xF2CC60 << 8) | 2
-
+ATTENTION = (11 << 8) | 1  # palette color11 (bright yellow)
 
 def other_sessions() -> dict[str, bool]:
     boss = get_boss()
