@@ -227,9 +227,6 @@ return {
             picker = { enabled = true },
             words = { enabled = true },
             notifier = { enabled = true },
-            statuscolumn = {
-                enabled = true,
-            },
             quickfile = { enabled = true },
         },
         keys = {
