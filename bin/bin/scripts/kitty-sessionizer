@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # kitty launched from the Dock has a minimal PATH; fzf and kitten live in homebrew
-export PATH=/opt/homebrew/bin:$PATH
+source $HOME/.zshcommon
 
 if [[ $# -eq 1 ]]; then
     selected=$1

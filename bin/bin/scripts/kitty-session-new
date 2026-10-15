@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-# kitty launched from the Dock has a minimal PATH; kitten lives in homebrew
-export PATH=/opt/homebrew/bin:$PATH
+source $HOME/.zshcommon
 
 SESSION_DIR=${XDG_CACHE_HOME:-$HOME/.cache}/kitty-sessions
 mkdir -p "$SESSION_DIR"

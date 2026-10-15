@@ -63,8 +63,8 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
 local gcloud_path="/opt/homebrew/share/google-cloud-sdk/path.zsh.inc"
 [[ -f "$gcloud_path" ]] && source "$gcloud_path"
 
-# Load fzf theme
-source $HOME/.zsh/fzf-github-plus-dark-theme
+# Load fzf theme and shared stuff
+source $HOME/.zshcommon
 
 # Add custom aliases
 source $HOME/.zsh/aliases

@@ -9,25 +9,27 @@
 {
   "agent_servers": {
     "claude-acp": {
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "restore_on_startup": "launchpad",
   "session": {
-    "restore_unsaved_buffers": true
+    "restore_unsaved_buffers": true,
   },
   "project_panel": {
-    "starts_open": false
+    "starts_open": false,
   },
-  "theme": "Github Plus Dark",
+  "theme": "Token Dark",
   "cursor_blink": false,
   "vim_mode": true,
   "buffer_font_size": 16.0,
   "buffer_font_family": "Maple Mono NF",
+  "ui_font_size": 16,
   "relative_line_numbers": "enabled",
   "buffer_font_features": {
     "ss01": true,
-    "ss06": true
+    "ss06": true,
+    "cv35": true,
   },
-  "format_on_save": "on"
+  "format_on_save": "on",
 }
