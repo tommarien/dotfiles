@@ -21,6 +21,7 @@
 - Fix root causes, not symptoms (no `@ts-ignore` papering).
 - TDD: pin current behaviour with a test, add failing tests for new behaviour, then implement. Modify existing test files unless asked otherwise.
 - Mocks: use `vi.mocked`, not `let`-assigned mock variables.
+- After a config/script change, state whether it was tested. Test via Bash when possible; otherwise give a one-line verify command.
 
 ## Code Comprehension
 - Before asserting how code behaves, read the full function body (not just the signature) and cite file:line.
