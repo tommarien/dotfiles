@@ -8,6 +8,10 @@ return {
             return
             {
                 options = {
+                    disabled_filetypes = {
+                        statusline = { 'AgenticChat', 'AgenticInput', 'AgenticCode', 'AgenticFiles', 'AgenticDiagnostics' },
+                        winbar = { 'AgenticChat', 'AgenticInput', 'AgenticCode', 'AgenticFiles', 'AgenticDiagnostics' },
+                    },
                     icons_enabled = true,
                     theme = 'auto'
                 },
