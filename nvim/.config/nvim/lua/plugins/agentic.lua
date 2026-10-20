@@ -1,5 +1,10 @@
 return {
     {
+        'linw1995/nvim-mcp',
+        build = 'cargo install --path .',
+        opts = {},
+    },
+    {
         'carlos-algms/agentic.nvim',
 
         --- @type agentic.PartialUserConfig
@@ -35,7 +40,7 @@ return {
                 desc = 'Add file or selection to Agentic to Context'
             },
             {
-                '<leader>as',
+                '<leader>ac',
                 function() require('agentic').new_session() end,
                 mode = { 'n' },
                 desc = 'New Agentic Session'

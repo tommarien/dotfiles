@@ -53,6 +53,11 @@ return {
                     local buf = args.buf
                     local filetype = args.match
 
+                    -- agentic.nvim manages treesitter/folds for its chat buffer itself
+                    if filetype == 'AgenticChat' then
+                        return
+                    end
+
                     -- you need some mechanism to avoid running on buffers that do not
                     -- correspond to a language (like oil.nvim buffers), this implementation
                     -- checks if a parser exists for the current language
