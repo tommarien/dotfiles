@@ -1,3 +1,9 @@
+---
+name: zennote
+description: ZenNote Skill
+model: haiku
+---
+
 # ZenNote Skill
 
 Write general notes/ideas via the `mcp__zennotes__*` tools (separate from the memory vault documented in the global ZenNotes Memory section).

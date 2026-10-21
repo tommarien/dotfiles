@@ -1,3 +1,10 @@
+---
+name: mr-desc
+description: MR Description Skill
+model: haiku
+context: fork
+---
+
 # MR Description Skill
 
 1. Run `git diff main...HEAD` (or the target branch) to see all changes.

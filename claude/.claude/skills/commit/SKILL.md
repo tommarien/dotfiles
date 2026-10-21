@@ -1,3 +1,9 @@
+---
+name: commit
+description: Commit Skill
+model: haiku
+---
+
 # Commit Skill
 
 1. Run `source .envrc` first if present in root.
@@ -5,4 +11,3 @@
 3. Write a conventional commit message.
 4. NEVER include Co-Authored-By or any Claude attribution.
 5. Generate MR description only if explicitly asked.
-6. Use haiku
