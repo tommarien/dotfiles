@@ -1,25 +1,25 @@
 return {
-    {
-        'zbirenbaum/copilot.lua',
-        cmd = 'Copilot',
-        event = 'InsertEnter',
-        enabled = not vim.g.vscode,
-        config = function()
-            require('copilot').setup({
-                suggestion = {
-                    enabled = false,
-                    auto_trigger = true,
-                    keymap = {
-                        accept = false,
-                        accept_line = '<M-j>',
-                        accept_word = '<M-l>',
-                        dismiss = "<M-e>",
-                    },
-                },
-                panel = { enabled = false },
-            })
-        end,
-    },
+    -- {
+    --     'zbirenbaum/copilot.lua',
+    --     cmd = 'Copilot',
+    --     event = 'InsertEnter',
+    --     enabled = not vim.g.vscode,
+    --     config = function()
+    --         require('copilot').setup({
+    --             suggestion = {
+    --                 enabled = false,
+    --                 auto_trigger = true,
+    --                 keymap = {
+    --                     accept = false,
+    --                     accept_line = '<M-j>',
+    --                     accept_word = '<M-l>',
+    --                     dismiss = "<M-e>",
+    --                 },
+    --             },
+    --             panel = { enabled = false },
+    --         })
+    --     end,
+    -- },
     {
         'hrsh7th/nvim-cmp',
         event = 'InsertEnter',
