@@ -52,7 +52,11 @@
 ## Git
 - Conventional commits (feat:, fix:, chore:). Subject: imperative, ≤72 chars, no period. Body: 1-3 terse bullets max, no essays.
 - No Co-Authored-By / AI attribution trailers.
-- Show `git diff` output, not prose summaries, unless asked.
+- Show `git diff` output, not prose summaries, unless asked. Doesn't apply to the pre-commit review prompt (see Commit Approval).
+
+## Commit Approval
+- Never commit on my own initiative. Before committing, ask me to review the changes (don't show the diff); commit only after I approve.
+- Exception: I explicitly asked for the commit (e.g. "commit this", `/commit`).
 
 ## Commit & MR Workflow
 - Standard flow: review the diff, run build + tests, commit, then generate an MR description and copy it to the clipboard (`pbcopy`).
@@ -64,6 +68,8 @@
 - Workspaces: run from root (`yarn workspace`/`npm -w`); never `cd` in.
 - Unknown CLI: `--help` first, don't guess flags.
 - Use fff tools for file search/grep.
+- Neovim (nvim MCP): `get_targets` lists all instances and agentic.nvim exposes no `$NVIM`/socket env var, so never ask which one. `connect` to each target, run `exec_lua` `return vim.fn.getcwd()`, and use the one matching my cwd (`CLAUDE_CODE_ENTRYPOINT=agentic-nvim` means I'm running inside it). If several match, ask.
+- Neovim "open X": `navigate` lands in the current window, which is the Agentic Chat buffer. Instead `exec_lua` to focus a window with `vim.bo[buf].buftype == ''`, then `:edit +<line> <file>`; verify with `nvim_buf_get_name(0)`.
 
 ## Formatting (after editing)
 - TS/JS: `prettier --write <file>` if config exists.
