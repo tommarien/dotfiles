@@ -11,6 +11,6 @@ name=${name//./_}
 SESSION_DIR=${XDG_CACHE_HOME:-$HOME/.cache}/kitty-sessions
 mkdir -p "$SESSION_DIR"
 session_file=$SESSION_DIR/$name.kitty-session
-printf 'new_tab %s\ncd %s\nlaunch %s/bin/scripts/kitty-worktree-create %s\n' "$name" "$PWD" "$HOME" "$branch" > "$session_file"
+printf 'new_tab %s\ncd %s\nlaunch zsh -i %s/bin/scripts/kitty-worktree-create %s\n' "$name" "$PWD" "$HOME" "$branch" > "$session_file"
 
 kitten @ action goto_session "$session_file"
