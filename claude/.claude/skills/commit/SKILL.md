@@ -2,6 +2,7 @@
 name: commit
 description: Commit Skill
 model: haiku
+disable-model-invocation: true
 ---
 
 # Commit Skill

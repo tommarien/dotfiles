@@ -35,7 +35,7 @@
 - Every changed line must trace to the request. No drive-by refactors/reformats — match existing style.
 - Clean up orphans you create; flag (don't delete) pre-existing dead code.
 - Prefer idiomatic built-ins over clever alternatives. Reuse existing types before defining new ones.
-- Only modify explicitly-named files; no unrequested exploration agents.
+- Only modify explicitly-named files.
 
 ## Delegation
 - Delegate research, multi-file search, and large-output tasks to subagents; fan out independent calls in parallel.
@@ -59,7 +59,7 @@
 - Exception: I explicitly asked for the commit (e.g. "commit this", `/commit`).
 
 ## Commit & MR Workflow
-- Standard flow: review the diff, run build + tests, commit, then generate an MR description and copy it to the clipboard (`pbcopy`).
+- Standard flow: review the diff, run build + tests, commit. MR description only when asked (`/mr-desc`, copied with `pbcopy`).
 - Never overwrite the MR template: read it, fill a copy, pipe to `pbcopy`.
 - MR/Jira/notes: high-level (problem, goal, key pointers); no implementation steps.
 
