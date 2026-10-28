@@ -6,7 +6,11 @@
       "mcp__fff__grep",
       "mcp__fff__multi_grep",
       "mcp__nvim__buffer_diagnostics",
-      "mcp__nvim__open_file"
+      "mcp__nvim__open_file",
+      "Bash(go vet *)",
+      "Bash(gofmt -l *)",
+      "Bash(npm view *)",
+      "Bash(pm2 ls)"
     ]
   }
 }
