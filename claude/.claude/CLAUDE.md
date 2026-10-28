@@ -35,10 +35,8 @@
 
 ## Delegation
 - Delegate research, multi-file search, and large-output tasks to subagents; fan out independent calls in parallel.
-- Haiku by default for subagents: always pass `model: "haiku"` for read-only, mechanical work — file/grep sweeps, reference tracing, log/test-output triage, summarizing files or diffs, extracting fields, listing/counting, lookups in docs/Jira/Slack. Applies to every agent type, incl. Explore and general-purpose.
-- Stronger model only when the subagent must reason, plan, review, or edit. If unsure, start with haiku; escalate only if the report is thin or wrong.
-- Haiku subagent prompts: give the exact question, scope (paths/patterns), and output shape (e.g. "file:line + one-line reason, max 20 lines"). No open-ended "investigate".
-- Fan-out over many files for bulk mechanical sub-steps also goes to haiku; keep synthesis and decisions in the main context.
+- Read-only, mechanical work (sweeps, tracing, triage, summaries, lookups, bulk fan-out) goes to the `scout` agent; keep synthesis and decisions in the main context.
+- Other agent types only when the subagent must reason, plan, review, or edit. If unsure, start with `scout`; escalate only if the report is thin or wrong.
 - Verify agent reports against code (they hallucinate line numbers, APIs, semantics); main context edits.
 
 ## Working Style
