@@ -14,9 +14,8 @@ return {
     {
         "mfussenegger/nvim-dap",
         recommended = true,
+        enabled = vim.env.KITTY_SCROLLBACK_NVIM ~= 'true',
         desc = "Debugging support. Requires language specific adapters to be configured.",
-        enabled = not vim.g.vscode,
-
         dependencies = {
             {
                 "jay-babu/mason-nvim-dap.nvim",
@@ -111,6 +110,7 @@ return {
     {
         "igorlfs/nvim-dap-view",
         -- let the plugin lazy load itself
+        enabled = vim.env.KITTY_SCROLLBACK_NVIM ~= 'true',
         lazy = false,
         ---@module 'dap-view'
         ---@type dapview.Config

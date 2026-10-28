@@ -2,13 +2,13 @@ return {
     {
         'williamboman/mason.nvim',
         build = ':MasonUpdate',
-        enabled = not vim.g.vscode,
+        enabled = vim.env.KITTY_SCROLLBACK_NVIM ~= 'true',
         cmd = 'Mason',
         opts = {},
     },
     {
         'j-hui/fidget.nvim',
-        enabled = not vim.g.vscode,
+        enabled = vim.env.KITTY_SCROLLBACK_NVIM ~= 'true',
         event = 'LspAttach',
         opts = {
             notification = {
@@ -20,7 +20,7 @@ return {
     },
     {
         'neovim/nvim-lspconfig',
-        enabled = not vim.g.vscode,
+        enabled = vim.env.KITTY_SCROLLBACK_NVIM ~= 'true',
         event = { 'BufReadPre', 'BufNewFile' },
         dependencies = {
             'mason.nvim',
@@ -180,7 +180,7 @@ return {
     },
     {
         'olexsmir/gopher.nvim',
-        enabled = not vim.g.vscode,
+        enabled = vim.env.KITTY_SCROLLBACK_NVIM ~= 'true',
         ft = 'go',
         -- branch = 'develop', -- if you want develop branch
         -- keep in mind, it might break everything

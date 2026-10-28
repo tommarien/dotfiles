@@ -2,7 +2,7 @@ return {
     {
         "tpope/vim-fugitive",
         opt = true,
-        enabled = not vim.g.vscode,
+        enabled = vim.env.KITTY_SCROLLBACK_NVIM ~= 'true',
         cmd = {
             "G", "Git", "Gdiffsplit", "Gvdiffsplit", "Gedit", "Gsplit",
             "Gread", "Gwrite", "Ggrep", "Glgrep", "Gmove",
@@ -12,7 +12,7 @@ return {
     {
         'lewis6991/gitsigns.nvim',
         event = { 'BufReadPre', 'BufNewFile' },
-        enabled = not vim.g.vscode,
+        enabled = vim.env.KITTY_SCROLLBACK_NVIM ~= 'true',
         version = '*',
         opts = {
             signs = {
@@ -60,6 +60,7 @@ return {
     {
         "esmuellert/codediff.nvim",
         event = "VeryLazy",
+        enabled = vim.env.KITTY_SCROLLBACK_NVIM ~= 'true',
         opts = {
             explorer = {
                 view_mode = "tree",

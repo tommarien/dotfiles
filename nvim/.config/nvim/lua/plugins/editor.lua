@@ -133,7 +133,7 @@ return {
     {
         'stevearc/conform.nvim',
         event = 'VeryLazy',
-        enabled = not vim.g.vscode,
+        enabled = vim.env.KITTY_SCROLLBACK_NVIM ~= 'true',
         cmd = { 'ConformInfo' },
         keys = {
             {

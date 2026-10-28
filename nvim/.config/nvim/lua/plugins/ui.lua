@@ -2,7 +2,7 @@ return {
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
-        enabled = not vim.g.vscode,
+        enabled = vim.env.KITTY_SCROLLBACK_NVIM ~= 'true',
         event = 'VeryLazy',
         opts = function()
             return
@@ -34,6 +34,7 @@ return {
     },
     {
         'folke/todo-comments.nvim',
+        enabled = vim.env.KITTY_SCROLLBACK_NVIM ~= 'true',
         dependencies = { 'nvim-lua/plenary.nvim' },
         opts = {
             -- your configuration comes here
@@ -44,7 +45,7 @@ return {
     {
         'brenoprata10/nvim-highlight-colors',
         event = 'VeryLazy',
-        enabled = not vim.g.vscode,
+        enabled = vim.env.KITTY_SCROLLBACK_NVIM ~= 'true',
         opts = {
             render = 'virtual'
         }
@@ -52,6 +53,7 @@ return {
     {
         'nvim-mini/mini.files',
         version = '*',
+        enabled = vim.env.KITTY_SCROLLBACK_NVIM ~= 'true',
         opts = {
             mappings = {
                 -- This opens the file, but quits out of mini.files (default L)
@@ -120,7 +122,7 @@ return {
     },
     {
         'stevearc/quicker.nvim',
-        enabled = not vim.g.vscode,
+        enabled = vim.env.KITTY_SCROLLBACK_NVIM ~= 'true',
         event = 'VeryLazy',
         keys = {
             { ']q', vim.cmd.cnext, desc = 'Next QF/LL entry' },

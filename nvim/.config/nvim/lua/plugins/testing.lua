@@ -15,7 +15,7 @@ return {
     {
         'vim-test/vim-test',
         event = 'VeryLazy',
-        enabled = not vim.g.vscode,
+        enabled = vim.env.KITTY_SCROLLBACK_NVIM ~= 'true',
         keys = {
             { '<leader>tt', vim.cmd.TestNearest, desc = 'Run Nearest Test' },
             { '<leader>tf', vim.cmd.TestFile,    desc = 'Run Test File' },
