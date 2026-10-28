@@ -16,10 +16,26 @@
       "Bash(git status)",
       "Bash(git status *)"
     ],
-    "deny": []
+    "deny": ["Read(**/.envrc)"],
+    "ask": ["Bash(git commit *)", "Bash(git push *)"]
+  },
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
   },
   "model": "sonnet",
   "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat \"$HOME/Library/Mobile Documents/com~apple~CloudDocs/zennotes/inbox/claude/MEMORY.md\""
+          }
+        ]
+      }
+    ],
     "Notification": [
       {
         "hooks": [
@@ -36,6 +52,17 @@
           {
             "type": "command",
             "command": "$HOME/dotfiles/claude/.claude/hooks/bell.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/dotfiles/claude/.claude/hooks/format.sh"
           }
         ]
       }
