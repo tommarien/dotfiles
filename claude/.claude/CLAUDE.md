@@ -68,7 +68,7 @@
 - Workspaces: run from root (`yarn workspace`/`npm -w`); never `cd` in.
 - Unknown CLI: `--help` first, don't guess flags.
 - Use fff tools for file search/grep.
-- Neovim (nvim MCP): `get_targets` lists all instances and agentic.nvim exposes no `$NVIM`/socket env var, so never ask which one. `connect` to each target, run `exec_lua` `return vim.fn.getcwd()`, and use the one matching my cwd (`CLAUDE_CODE_ENTRYPOINT=agentic-nvim` means I'm running inside it). If several match, ask.
+- Neovim (nvim MCP): `get_targets` lists all instances and agentic.nvim exposes no `$NVIM`/socket env var, so never ask which one. `connect` to each target, run `exec_lua` `return vim.fn.getcwd()`, and use the one matching my cwd (`CLAUDE_CODE_ENTRYPOINT=agentic-nvim` means I'm running inside it). If several match, don't ask: pick the one whose `AgenticChat` buffer (`filetype == 'AgenticChat'`) ends with my pending tool call, which is the instance hosting this session.
 - Neovim "open X": `navigate` lands in the current window, which is the Agentic Chat buffer. Instead `exec_lua` to focus a window with `vim.bo[buf].buftype == ''`, then `:edit +<line> <file>`; verify with `nvim_buf_get_name(0)`.
 
 ## Formatting (after editing)
