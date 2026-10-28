@@ -6,25 +6,21 @@
 - Don't suggest other skills when the user asked for a direct edit.
 
 ## Communication
-- Skip basic explanations.
 - Push back when simpler exists. State assumptions before acting.
 - Multiple interpretations or unclear request: stop and ask, don't guess (use judgment on trivial tasks).
 - If a tool is denied, ask before retrying.
 - When asked to review/improve code: explain first, wait for approval, don't jump to Edit.
-- Be maximally terse: no preamble before acting, no "I'll now..." narration, no unrequested end-of-turn summaries/recaps. Only write a sentence when a decision is needed, a blocker hit, or a direct question was asked.
 - Asked to summarize/explain a document: give the gist first, critique only if asked.
 - Asked to write a note or doc: just write it — don't use AskUserQuestion/ExitPlanMode to confirm structure first.
 - Trust the user's stated version/fact claims about tools and languages; if you disagree, verify (e.g. web search) before pushing back.
 
 ## Testing & Correctness
 - Never edit tests to make them pass — fix the source. Not done until tests are green.
-- Fix root causes, not symptoms (no `@ts-ignore` papering).
 - TDD: pin current behaviour with a test, add failing tests for new behaviour, then implement. Modify existing test files unless asked otherwise.
 - Mocks: use `vi.mocked`, not `let`-assigned mock variables.
 - After a config/script change, state whether it was tested. Test via Bash when possible; otherwise give a one-line verify command.
 
 ## Code Comprehension
-- Before asserting how code behaves, read the full function body (not just the signature) and cite file:line.
 - Flag anything you couldn't verify instead of asserting it.
 - For library/SDK behaviour, read the source (node_modules, go mod cache) before answering; label guesses as guesses.
 - Tracing references (bot exports, dialogstates, triggers, timers): search exhaustively on the first pass and state link direction (incoming vs outgoing).
@@ -64,20 +60,14 @@
 - MR/Jira/notes: high-level (problem, goal, key pointers); no implementation steps.
 
 ## Shell / Tooling
-- macOS/zsh. direnv: source `.envrc`; never read it.
+- macOS/zsh. direnv: source `.envrc`.
 - Workspaces: run from root (`yarn workspace`/`npm -w`); never `cd` in.
 - Unknown CLI: `--help` first, don't guess flags.
 - Use fff tools for file search/grep.
-- Neovim (nvim MCP): `get_targets` lists all instances and agentic.nvim exposes no `$NVIM`/socket env var, so never ask which one. `connect` to each target, run `exec_lua` `return vim.fn.getcwd()`, and use the one matching my cwd (`CLAUDE_CODE_ENTRYPOINT=agentic-nvim` means I'm running inside it). If several match, don't ask: pick the one whose `AgenticChat` buffer (`filetype == 'AgenticChat'`) ends with my pending tool call, which is the instance hosting this session.
-- Neovim "open X": `navigate` lands in the current window, which is the Agentic Chat buffer. Instead `exec_lua` to focus a window with `vim.bo[buf].buftype == ''`, then `:edit +<line> <file>`; verify with `nvim_buf_get_name(0)`.
-
-## Formatting (after editing)
-- TS/JS: `prettier --write <file>` if config exists.
-- Go: `gofmt -w`. Rust: `rustfmt`.
+- Neovim: load the `nvim` skill first.
 
 ## Notes & Memory
 - ZenNotes is a FILE-BASED vault, not an MCP server — read/write with Read, Edit, Write, and Bash. Do not look for zennotes MCP tools.
-- **Always read `MEMORY.md` at the start of every conversation**, before doing anything else.
 - Memory vault: `/Users/tommar/Library/Mobile Documents/com~apple~CloudDocs/zennotes/inbox/claude/`
 - fff can't index the vault — use `Bash find` + `Read` for discovery/search, **Read/Write/Edit** for file access.
 - Subfolders: `user`, `feedback`, `project`, `reference`.
