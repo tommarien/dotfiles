@@ -8,12 +8,20 @@
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = nvim
+        pager = delta
+[interactive]
+        diffFilter = delta --color-only
+[delta]
+        navigate = true      # n / N jump between files and hunks
+        line-numbers = true
 [pull]
 	ff = only
 [trim]
 	bases = develop,master,main,prod
 [diff]
 	tool = p4mergetool
+        algorithm = histogram     # usually cleaner hunks than myers
+        colorMoved = default      # moved blocks get a distinct colour
 [difftool]
 	prompt = false
 [difftool "p4mergetool"]

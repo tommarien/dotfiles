@@ -36,6 +36,7 @@ PACKAGES=(
     fnm
     fzf
     git
+    git-delta
     go
     goose
     hugo
