@@ -14,7 +14,13 @@
       "Edit(~/Library/Mobile Documents/com~apple~CloudDocs/zennotes/**)",
       "Bash(source .envrc)",
       "Bash(git status)",
-      "Bash(git status *)"
+      "Bash(git status *)",
+      "Bash(go vet ./...)",
+      "Bash(gofmt -l .)",
+      "Bash(pm2 ls)",
+      "mcp__claude_ai_Atlassian__getJiraIssue",
+      "mcp__nvim__get_targets",
+      "mcp__nvim__connect"
     ],
     "deny": ["Read(**/.envrc)"],
     "ask": ["Bash(git commit *)", "Bash(git push *)"]
