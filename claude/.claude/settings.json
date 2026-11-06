@@ -22,8 +22,13 @@
       "mcp__nvim__get_targets",
       "mcp__nvim__connect"
     ],
-    "deny": ["Read(**/.envrc)"],
-    "ask": ["Bash(git commit *)", "Bash(git push *)"]
+    "deny": [
+      "Read(**/.envrc)"
+    ],
+    "ask": [
+      "Bash(git commit *)",
+      "Bash(git push *)"
+    ]
   },
   "attribution": {
     "commit": "",
@@ -38,6 +43,15 @@
           {
             "type": "command",
             "command": "cat \"$HOME/Library/Mobile Documents/com~apple~CloudDocs/zennotes/inbox/claude/MEMORY.md\""
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/bin/sh -c 'rex __internal session-start --agent claude 2>/dev/null || true'",
+            "timeout": 5
           }
         ]
       }
