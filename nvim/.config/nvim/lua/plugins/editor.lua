@@ -277,9 +277,23 @@ return {
         event = 'VeryLazy',
     },
     {
-        'mrjones2014/smart-splits.nvim',
+        'smart-splits-nvim/smart-splits.nvim',
+        version = '^3.0.0',
+        dependencies = {
+            {
+                'rawnly/smart-splits-backend-rex',
+                opts = {
+                    -- bin = 'rex',     -- name or path of the rex executable
+                    -- timeout = 2000,  -- ms to wait for a rex command
+                },
+            },
+        },
+        opts = {
+            mux = {
+                backend = 'smart-splits-backend-rex',
+            },
+        },
         enabled = not vim.g.vscode,
-        version = '^2.1.0',
         lazy = false,
         keys = {
             { '<c-h>',  function() require('smart-splits').move_cursor_left() end },
