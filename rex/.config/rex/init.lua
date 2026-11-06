@@ -34,47 +34,83 @@ rex.bind("ctrl+a>7", "client.tab.goto", { index = 7 })
 rex.bind("ctrl+a>8", "client.tab.goto", { index = 8 })
 rex.bind("ctrl+a>9", "client.tab.goto", { index = 9 })
 
-local function overlay(program, args, bounds, cwd)
-  local command = {
-    "/usr/bin/env",
-    "PATH=/opt/homebrew/bin:" ..
-    os.getenv("HOME") ..
-    "/Library/Application Support/com.superlogical.rex/RexServer/Versions/Current/Rex Server.app/Contents/MacOS:" ..
-    os.getenv("PATH"),
-    program,
-  }
-  if args then command[4] = args end
-  local layer, err = rex.session.new_layer {
-    bounds = bounds or { x = 0.15, y = 0.15, w = 0.7, h = 0.7 },
-    focus = true,
-    layout = rex.layout.block {
-      flavor = "com.superlogical.terminal.shell",
-      options = { command = command, cwd = cwd },
-    },
-  }
-  if err ~= nil then error(err, 0) end
-  rex.session.focus_block { block_id = layer.block_ids[1] }
+local terminal = "com.superlogical.terminal"
+
+local function foreground(ctx)
+  local result = rex.block.call(terminal, "process", { block_id = ctx.block_id })
+  return result and (result.foreground or (result.ancestors or {})[1])
 end
 
-local function sessionizer(args)
-  return function() overlay(os.getenv("HOME") .. "/bin/scripts/rex-sessionizer", args) end
-end
-
-rex.action { name = "sessionizer", title = "Sessionizer", run = sessionizer() }
-rex.action { name = "sessionizer_dotfiles", title = "Sessionizer: dotfiles", run = sessionizer(os.getenv("HOME") .. "/dotfiles") }
-
-local function focused_cwd()
-  local result = rex.block.call("com.superlogical.terminal", "process", {})
-  local proc = result and (result.foreground or (result.ancestors or {})[1])
+-- the focused pane's directory, from what the shell last reported or else its foreground process
+local function focused_cwd(ctx)
+  local pwd = rex.block.call(terminal, "pwd", { block_id = ctx.block_id })
+  if pwd and pwd.pwd then
+    return (pwd.pwd:gsub("^file://[^/]*", ""))
+  end
+  local proc = foreground(ctx)
   return proc and proc.cwd
 end
 
-rex.action {
+local path_env = "PATH=/opt/homebrew/bin:" ..
+    os.getenv("HOME") ..
+    "/Library/Application Support/com.superlogical.rex/RexServer/Versions/Current/Rex Server.app/Contents/MacOS:" ..
+    os.getenv("PATH")
+
+-- a palette action that opens a floating pane in the focused pane's directory, running command
+local function float(spec)
+  rex.action {
+    name = spec.name,
+    title = spec.title,
+    keywords = spec.keywords,
+    run = function(ctx)
+      local command = { "/usr/bin/env", path_env }
+      for _, arg in ipairs(spec.command) do command[#command + 1] = arg end
+      local layer, err = rex.session.new_layer {
+        bounds = spec.bounds or { x = 0.15, y = 0.15, w = 0.7, h = 0.7 },
+        focus = true,
+        layout = rex.layout.block {
+          flavor = terminal .. ".shell",
+          options = { command = command, cwd = focused_cwd(ctx) },
+        },
+      }
+      if err ~= nil then error(err, 0) end
+      rex.session.focus_block { block_id = layer.block_ids[1] }
+    end,
+  }
+end
+
+local sessionizer = os.getenv("HOME") .. "/bin/scripts/rex-sessionizer"
+
+float { name = "sessionizer", title = "Sessionizer", keywords = "project session open", command = { sessionizer } }
+float {
+  name = "sessionizer_dotfiles",
+  title = "Sessionizer: dotfiles",
+  keywords = "dotfiles session open",
+  command = { sessionizer, os.getenv("HOME") .. "/dotfiles" },
+}
+float {
+  name = "new_worktree",
+  title = "New Worktree",
+  keywords = "worktree branch gtr",
+  command = { os.getenv("HOME") .. "/bin/scripts/rex-worktree-new" },
+  bounds = { x = 0.3, y = 0.4, w = 0.4, h = 0.2 },
+}
+float {
+  name = "close_session",
+  title = "Close Session",
+  keywords = "session kill close",
+  command = { os.getenv("HOME") .. "/bin/scripts/rex-session-close" },
+}
+float {
   name = "lazygit",
   title = "Lazygit",
-  run = function() overlay("lazygit", nil, { x = 0.01, y = 0.01, w = 0.98, h = 0.98 }, focused_cwd()) end,
+  keywords = "git lazygit float",
+  command = { "lazygit" },
+  bounds = { x = 0.01, y = 0.01, w = 0.98, h = 0.98 },
 }
 
 rex.bind("ctrl+a>f", "sessionizer")
 rex.bind("ctrl+a>shift+d", "sessionizer_dotfiles")
 rex.bind("ctrl+a>g", "lazygit")
+rex.bind("ctrl+a>w", "new_worktree")
+rex.bind("ctrl+a>shift+x", "close_session")

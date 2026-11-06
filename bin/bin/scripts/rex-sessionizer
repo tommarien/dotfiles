@@ -10,14 +10,12 @@ if [[ -z $selected ]]; then
     exit 0
 fi
 
-selected_name=$(basename "$selected" | tr . _)
+label=$(basename "$selected" | tr . _)
 
-session_id=$(rex ls --json | jq -r --arg name "$selected_name" '.sessions[] | select(.label == $name) | .session_id')
+session_id=$(rex ls --json | jq -r --arg label "$label" '[.sessions[] | select(.label == $label)][0].session_id // empty')
 
 if [[ -z $session_id ]]; then
-    session_id=$(rex new "$selected_name" -c "$selected" --json | jq -r .session_id)
+    session_id=$(rex new "$label" -c "$selected" --json | jq -r .session_id)
 fi
 
-client_id=$(rex client ls --json | jq -r '[.clients[] | select(.info.kind == "app")][0].client_id')
-
-rex -C "$client_id" do session.select session_id="$session_id"
+"$(dirname "$0")/rex-select-session" "$session_id" "$label"

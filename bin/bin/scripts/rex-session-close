@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+ids=$(rex ls --json | jq -r '.sessions[] | "\(.label)\t\(.session_id)"' |
+    fzf --multi --delimiter '\t' --with-nth 1 --header 'close session (tab to multi-select)' |
+    cut -f2)
+
+[[ -n $ids ]] || exit 0
+
+rex session kill $ids
