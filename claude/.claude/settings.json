@@ -1,4 +1,9 @@
 {
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
+  },
   "permissions": {
     "allow": [
       "mcp__fff__find_files",
@@ -30,11 +35,6 @@
       "Bash(git push *)"
     ]
   },
-  "attribution": {
-    "commit": "",
-    "pr": "",
-    "sessionUrl": false
-  },
   "model": "sonnet",
   "hooks": {
     "SessionStart": [
@@ -50,7 +50,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/bin/sh -c 'rex __internal session-start --agent claude 2>/dev/null || true'",
+            "command": "/bin/sh -c 'rex __internal session-start --agent claude --feature-session-naming=false 2>/dev/null || true'",
             "timeout": 5
           }
         ]
@@ -120,6 +120,5 @@
   },
   "theme": "custom:github-plus-dark",
   "voiceEnabled": true,
-  "ENABLE_LSP_TOOL": true,
-  "advisorModel": "opus"
+  "ENABLE_LSP_TOOL": true
 }

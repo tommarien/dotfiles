@@ -51,10 +51,11 @@ local function focused_cwd(ctx)
   return proc and proc.cwd
 end
 
-local path_env = "PATH=/opt/homebrew/bin:" ..
+local path = "/opt/homebrew/bin:" ..
     os.getenv("HOME") ..
     "/Library/Application Support/com.superlogical.rex/RexServer/Versions/Current/Rex Server.app/Contents/MacOS:" ..
     os.getenv("PATH")
+local path_env = "PATH=" .. path
 
 -- a palette action that opens a floating pane in the focused pane's directory, running command
 local function float(spec)
@@ -82,11 +83,19 @@ end
 local sessionizer = os.getenv("HOME") .. "/bin/scripts/rex-sessionizer"
 
 float { name = "sessionizer", title = "Sessionizer", keywords = "project session open", command = { sessionizer } }
-float {
+-- no fzf needed, so run headless instead of in a floating pane
+rex.action {
   name = "sessionizer_dotfiles",
   title = "Sessionizer: dotfiles",
   keywords = "dotfiles session open",
-  command = { sessionizer, os.getenv("HOME") .. "/dotfiles" },
+  run = function(ctx)
+    local result, err = rex.exec(
+      { sessionizer, os.getenv("HOME") .. "/dotfiles" },
+      { env = { PATH = path, REX_SESSION = ctx.session_id } }
+    )
+    if err ~= nil then error(err, 0) end
+    if not result.ok then error(result.stderr, 0) end
+  end,
 }
 float {
   name = "new_worktree",
