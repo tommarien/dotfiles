@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+root=$(printf '%s\n' ~/Projects/tommarien ~/Projects/sinch | fzf --header 'project folder')
+[[ -n $root ]] || exit 0
+
+read -rp "project name: " name
+[[ -n $name ]] || exit 0
+
+mkdir -p "$root/$name"
+
+exec "$(dirname "$0")/rex-sessionizer" "$root/$name"

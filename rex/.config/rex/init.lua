@@ -105,6 +105,13 @@ float {
   bounds = { x = 0.3, y = 0.4, w = 0.4, h = 0.2 },
 }
 float {
+  name = "new_project",
+  title = "New Project",
+  keywords = "project session create mkdir",
+  command = { os.getenv("HOME") .. "/bin/scripts/rex-project-new" },
+  bounds = { x = 0.3, y = 0.3, w = 0.4, h = 0.3 },
+}
+float {
   name = "close_session",
   title = "Close Session",
   keywords = "session kill close",
@@ -122,4 +129,5 @@ rex.bind("ctrl+a>f", "sessionizer")
 rex.bind("ctrl+a>shift+d", "sessionizer_dotfiles")
 rex.bind("ctrl+a>g", "lazygit")
 rex.bind("ctrl+a>w", "new_worktree")
+rex.bind("ctrl+a>d", "new_project")
 rex.bind("ctrl+a>shift+x", "close_session")
