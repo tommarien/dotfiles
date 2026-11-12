@@ -51,6 +51,23 @@ return {
         }
     },
     {
+        'm4xshen/smartcolumn.nvim',
+        event = 'VeryLazy',
+        opts = {
+            colorcolumn = '121',
+            disabled_filetypes = {
+                'help',
+                'text',
+                'markdown',
+                'lazy',
+                'mason',
+                'codediff-explorer',
+                'codediff-help',
+                'codediff-history',
+            },
+        }
+    },
+    {
         'nvim-mini/mini.files',
         version = '*',
         enabled = vim.env.KITTY_SCROLLBACK_NVIM ~= 'true',

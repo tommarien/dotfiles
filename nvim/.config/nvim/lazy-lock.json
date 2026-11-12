@@ -56,6 +56,7 @@
   "sidekick.nvim": { "branch": "main", "commit": "3d80a47e6375f6d647c9695d3afea6fa1b3275df" },
   "smart-splits-backend-rex": { "branch": "master", "commit": "68f54325975ad47b03a968a3f201081bfadc0ff5" },
   "smart-splits.nvim": { "branch": "master", "commit": "5fd4fe53c2df2009e689f61511e3c474a9eccbaf" },
+  "smartcolumn.nvim": { "branch": "main", "commit": "3a760dc239de71264072f829a184aafcf7d4d3e7" },
   "snacks.nvim": { "branch": "main", "commit": "882c996cf28183f4d63640de0b4c02ec886d01f2" },
   "todo-comments.nvim": { "branch": "main", "commit": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668" },
   "treesj": { "branch": "main", "commit": "9f349ba62c524f065d6f43254d731ddf8319b9bf" },

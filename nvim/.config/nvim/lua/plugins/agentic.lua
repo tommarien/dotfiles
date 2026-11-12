@@ -89,7 +89,6 @@ return {
     --     enabled = vim.env.KITTY_SCROLLBACK_NVIM ~= 'true',
     --     --- @type agentic.PartialUserConfig
     --     opts = {
-    --         -- Any ACP-compatible provider works. Built-in: 'claude-agent-acp' | 'gemini-acp' | 'codex-acp' | 'opencode-acp' | 'cursor-acp' | 'copilot-acp' | 'auggie-acp' | 'mistral-vibe-acp' | 'cline-acp' | 'goose-acp'
     --         provider = 'claude-agent-acp', -- setting the name here is all you need to get started
     --         keymaps = {
     --             widget = {
