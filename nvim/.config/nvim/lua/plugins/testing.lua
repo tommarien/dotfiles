@@ -114,22 +114,11 @@ local function rex_split(cmd)
     local reuse = alive(split)
     if not reuse then
         local out = rex({
-            'split', '-s', session, '-b', vim.env.REX_BLOCK, '--split=below',
+            'split', '-s', session, '-b', vim.env.REX_BLOCK, '--split=below', '--ratio', '20',
             '-c', vim.fn.getcwd(), '--label', 'Tests', '--focus=false', '--json',
         })
         if not out then return end
         split = { block_id = vim.json.decode(out).block_ids[1] }
-        -- `split --ratio` is ignored (stays 50/50), so resize the border explicitly
-        rex({
-            'api', 'call', '-s', session, 'session.resize_pane',
-            vim.json.encode({
-                before_block_id = vim.env.REX_BLOCK,
-                after_block_id = split.block_id,
-                direction =
-                'vertical',
-                ratio = 0.8
-            }),
-        })
     else
         rex({ 'send', '-s', session, '-b', split.block_id, '\003' }) -- stop a previous run
     end
@@ -150,7 +139,7 @@ return {
         },
         config = function()
             vim.g['test#custom_strategies'] = { rex_tab = rex_tab, rex_float = rex_float, rex_split = rex_split }
-            vim.g['test#strategy'] = 'rex_float' -- or 'rex_float', 'rex_tab'
+            vim.g['test#strategy'] = 'rex_split' -- or 'rex_float', 'rex_tab'
         end
     }
 }
