@@ -22,9 +22,11 @@ return {
         priority = 1000,
         lazy = false,
         opts = {
-            transparent = true,
             italic_comments = true,
-            group_overrides = {
+        },
+        config = function(_, opts)
+            local dark_overrides = {
+                Normal = { bg = "NONE" },
                 CursorLine = { bg = "#303030" },
                 SnacksPickerListCursorLine = { bg = "#1e3a54" },
                 Visual = { bg = "#1e3a54" },
@@ -35,8 +37,19 @@ return {
                 DiffChange = { bg = "#34402a", fg = "NONE", bold = false },
                 DiffText = { bg = "#44658A", fg = "NONE", bold = false },
             }
-        },
-        config = function(_, opts)
+
+            vim.api.nvim_create_autocmd('ColorScheme', {
+                pattern = 'vscode',
+                group = vim.api.nvim_create_augroup('vscode_dark_overrides', { clear = true }),
+                callback = function()
+                    if vim.o.background ~= 'dark' then return end
+                    for name, spec in pairs(dark_overrides) do
+                        local current = vim.api.nvim_get_hl(0, { name = name, link = false })
+                        vim.api.nvim_set_hl(0, name, vim.tbl_extend('force', current, spec))
+                    end
+                end,
+            })
+
             require('vscode').setup(opts)
             vim.cmd('colorscheme vscode')
         end
