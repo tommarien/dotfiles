@@ -2,5 +2,5 @@
 export PATH=/opt/homebrew/bin:$PATH
 
 # set fzf theme
-source $HOME/.zsh/fzf-github-plus-dark-theme
+source $HOME/.zsh/fzf-vscode-dark-theme
 
