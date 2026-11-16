@@ -33,9 +33,9 @@ local function rex_tab(cmd)
     })
 end
 
--- the reusable test float of this tab: a floating layer holding a block labelled "Tests…".
+-- the reusable test float (floating) or split (tiled) of this tab: a block labelled "Tests…".
 -- Found again after nvim restarts; floats belong to a window, so only nvim's own window is searched.
-local function find_float()
+local function find_pane(floating)
     local out = rex({ 'session', 'inspect', vim.env.REX_SESSION, '--json' })
     if not out then return end
     for _, window in ipairs(vim.json.decode(out).windows) do
@@ -46,7 +46,7 @@ local function find_float()
             end
         end
         for _, layer in ipairs(mine and window.layers or {}) do
-            if layer.kind ~= 'tiled' then
+            if (layer.kind ~= 'tiled') == floating then
                 for _, block in ipairs(layer.blocks or {}) do
                     if vim.startswith(block.label or '', 'Tests') then
                         return { block_id = block.block_id, layer_id = layer.layer_id }
@@ -57,11 +57,6 @@ local function find_float()
     end
 end
 
-local function alive(pane)
-    local out = pane and rex({ 'block', 'ls', '-s', vim.env.REX_SESSION, '--json' })
-    return out and out:find(pane.block_id, 1, true) ~= nil
-end
-
 local function send(block_id, cmd, hooks)
     rex({ 'send', '-s', vim.env.REX_SESSION, '-b', block_id, ('clear; cd %s && %s\n'):format(
         vim.fn.shellescape(vim.fn.getcwd()), with_status(cmd, hooks)) })
@@ -69,7 +64,7 @@ end
 
 local function rex_float(cmd)
     local session = vim.env.REX_SESSION
-    local float = find_float()
+    local float = find_pane(true)
     local reuse = float ~= nil
     if not reuse then
         local out = rex({
@@ -107,11 +102,10 @@ local function rex_float(cmd)
     })
 end
 
-local split -- { block_id } of the reusable test split
-
 local function rex_split(cmd)
     local session = vim.env.REX_SESSION
-    local reuse = alive(split)
+    local split = find_pane(false)
+    local reuse = split ~= nil
     if not reuse then
         local out = rex({
             'split', '-s', session, '-b', vim.env.REX_BLOCK, '--split=below', '--ratio', '20',
