@@ -26,7 +26,7 @@ return {
         },
         config = function(_, opts)
             local dark_overrides = {
-                Normal = { bg = "NONE" },
+                -- Normal = { bg = "NONE" },
                 CursorLine = { bg = "#303030" },
                 SnacksPickerListCursorLine = { bg = "#1e3a54" },
                 Visual = { bg = "#1e3a54" },
@@ -50,8 +50,29 @@ return {
                 end,
             })
 
-            require('vscode').setup(opts)
-            vim.cmd('colorscheme vscode')
+            -- require('vscode').setup(opts)
+            -- vim.cmd('colorscheme vscode')
         end
     },
+    {
+        "savq/melange-nvim",
+        config = function()
+            vim.api.nvim_create_autocmd('ColorScheme', {
+                pattern = 'melange',
+                group = vim.api.nvim_create_augroup('melange_dark_overrides', { clear = true }),
+                callback = function()
+                    vim.cmd('highlight String gui=none')
+                    if vim.o.background ~= 'dark' then return end
+                    vim.cmd('highlight SnacksIndent guifg=#3a3734')
+                    vim.cmd('highlight SnacksIndentScope guifg=#8a7d73')
+                    vim.cmd("highlight Normal guibg='none'")
+                    vim.cmd("highlight Float guibg='none'")
+                    vim.cmd("highlight NormalFloat guibg='none'")
+                    vim.cmd("highlight FloatBorder guibg='none'")
+                    vim.cmd("highlight FloatTitle guibg='none'")
+                end,
+            })
+            vim.cmd('colorscheme melange')
+        end
+    }
 }
