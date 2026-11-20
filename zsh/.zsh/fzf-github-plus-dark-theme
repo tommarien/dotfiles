@@ -1,10 +1,10 @@
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-  --color=fg:#d1d7e0,bg:#1e242b,hl:#539bf5
+  --color=fg:#d1d7e0,bg:#22262d,hl:#539bf5
   --color=fg+:#d1d7e0,bg+:#3c444d,hl+:#539bf5
   --color=info:#daaa3f,prompt:#b377cf,pointer:#f47067
   --color=marker:#57ab5a,spinner:#96d0ff,header:#539bf5
   --color=border:#444c56,label:#d1d7e0,query:#d1d7e0
-  --color=gutter:#1e242b
+  --color=gutter:#22262d
   --layout=reverse
   --border=rounded
   --height=60%

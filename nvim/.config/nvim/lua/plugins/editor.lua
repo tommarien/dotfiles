@@ -328,6 +328,32 @@ return {
                 prompt_position = 'top',
             }
         },
+        init = function()
+            vim.api.nvim_create_autocmd('FileType', {
+                pattern = 'fff_input',
+                callback = function(ev)
+                    vim.api.nvim_set_hl(0, 'FffBackdrop', { bg = '#000000' })
+                    local backdrop = Snacks.win({
+                        enter = false,
+                        backdrop = false,
+                        relative = 'editor',
+                        width = 0,
+                        height = 0,
+                        style = 'minimal',
+                        border = 'none',
+                        focusable = false,
+                        zindex = 40,
+                        wo = { winhighlight = 'Normal:FffBackdrop', winblend = 60 },
+                        bo = { buftype = 'nofile', filetype = 'snacks_win_backdrop' },
+                    })
+                    vim.api.nvim_create_autocmd('BufWipeout', {
+                        buffer = ev.buf,
+                        once = true,
+                        callback = function() backdrop:close() end,
+                    })
+                end,
+            })
+        end,
         lazy = false,
     },
     {

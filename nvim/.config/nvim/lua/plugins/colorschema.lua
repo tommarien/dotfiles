@@ -13,8 +13,8 @@ return {
             transparent = { dark = true },
         },
         config = function(_, opts)
-            -- require('github_plus').setup(opts)
-            -- vim.cmd('colorscheme github_plus')
+            require('github_plus').setup(opts)
+            vim.cmd('colorscheme github_plus')
         end
     },
     {
@@ -50,7 +50,7 @@ return {
                 end,
             })
 
-            -- require('vscode').setup(opts)
+            require('vscode').setup(opts)
             -- vim.cmd('colorscheme vscode')
         end
     },
@@ -72,7 +72,7 @@ return {
                     vim.cmd("highlight FloatTitle guibg='none'")
                 end,
             })
-            vim.cmd('colorscheme melange')
+            -- vim.cmd('colorscheme melange')
         end
-    }
+    },
 }
